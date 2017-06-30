@@ -1,0 +1,4 @@
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.EL\bin\Debug\VentasSys.EL.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.EL\bin\Debug\VentasSys.EL.pdb
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.EL\obj\Debug\VentasSys.EL.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.EL\obj\Debug\VentasSys.EL.pdb

@@ -1,0 +1,8 @@
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.Utils\bin\Debug\VentasSys.Utils.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.Utils\bin\Debug\VentasSys.Utils.pdb
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.Utils\bin\Debug\log4net.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.Utils\bin\Debug\MySql.Data.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.Utils\bin\Debug\log4net.xml
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.Utils\bin\Debug\MySql.Data.xml
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.Utils\obj\Debug\VentasSys.Utils.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.Utils\obj\Debug\VentasSys.Utils.pdb
