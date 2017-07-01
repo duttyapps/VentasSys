@@ -20,7 +20,9 @@ namespace VentasSys
             log.Info("--- Aplicación Iniciada ---", System.Reflection.MethodBase.GetCurrentMethod().Name);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+            //Application.Run(new frmLogin());
+            new frmLogin().Show();
+            Application.Run();
         }
     }
 }

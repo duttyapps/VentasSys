@@ -33,14 +33,10 @@ namespace VentasSys.Utils
             patternLayout.ConversionPattern = "[%date][%level] %logger -> %message%newline";
             patternLayout.ActivateOptions();
 
-            RollingFileAppender roller = new RollingFileAppender();
-            roller.File = "C:\\VentasSys_Logs\\";
-            roller.DatePattern = "yyyy_MM_dd'_VentasSys.log'";
-            roller.StaticLogFileName = false;
+            FileAppender roller = new FileAppender();
+            String fecha = DateTime.Now.ToString("yyyy_MM_d");
+            roller.File = "C:\\VentasSys_Logs\\" + fecha + "_VentasSys.log";
             roller.AppendToFile = true;
-            roller.RollingStyle = RollingFileAppender.RollingMode.Date;
-            roller.MaxSizeRollBackups = 10;
-            roller.MaximumFileSize = "1GB";
             roller.Layout = patternLayout;
             
             roller.ActivateOptions();

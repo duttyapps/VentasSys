@@ -20,3 +20,5 @@ C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\De
 C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\Debug\VentasSys.csproj.GenerateResource.Cache
 C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\Debug\VentasSys.exe
 C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\Debug\VentasSys.pdb
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\Debug\VentasSys.Sistema.Base_de_Datos.frmConfiguracion.resources
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\Debug\VentasSys.frmBuscarCliente.resources

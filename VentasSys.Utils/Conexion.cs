@@ -1,29 +1,19 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace VentasSys.Utils
 {
     public static class Conexion
     {
-        private static Log log = new Log();
-        private static String myConnectionString = "server=127.0.0.1;uid=root;pwd=carlitos;database=ventassys;";
+        private static String IP = IniFile.IniReadValue("DATABASE", "IP");
+        private static String USER = IniFile.IniReadValue("DATABASE", "USER");
+        private static String PASS = IniFile.IniReadValue("DATABASE", "PASS");
+        private static String DB = IniFile.IniReadValue("DATABASE", "DB");
+        private static String myConnectionString = "server=" + IP + ";uid=" + USER + ";pwd=" + PASS + ";database=" + DB + ";";
 
         public static MySqlConnection getConnection()
         {
-            MySqlConnection conn = null;
-            try
-            {
-                conn = new MySqlConnection(myConnectionString);
-            }
-            catch (MySqlException ex)
-            {
-                log.Error(ex.Message.ToString(), System.Reflection.MethodBase.GetCurrentMethod().Name);
-            }
-
+            MySqlConnection conn = new MySqlConnection(myConnectionString);
             return conn;
         }
     }

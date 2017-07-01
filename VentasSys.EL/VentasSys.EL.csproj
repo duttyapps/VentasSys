@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ent_Clientes.cs" />
+    <Compile Include="Ent_TipoVentas.cs" />
     <Compile Include="Ent_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

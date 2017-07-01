@@ -63,21 +63,28 @@
             // 
             // txtUser
             // 
+            this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUser.Location = new System.Drawing.Point(97, 356);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(256, 29);
             this.txtUser.TabIndex = 2;
+            this.txtUser.TextChanged += new System.EventHandler(this.txtUser_TextChanged);
+            this.txtUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Login_KeyPress);
             // 
             // txtPass
             // 
+            this.txtPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPass.Location = new System.Drawing.Point(97, 426);
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(256, 29);
             this.txtPass.TabIndex = 3;
             this.txtPass.UseSystemPasswordChar = true;
+            this.txtPass.TextChanged += new System.EventHandler(this.txtPass_TextChanged);
+            this.txtPass.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Login_KeyPress);
             // 
             // label2
             // 
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(12, 332);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(410, 21);
@@ -88,6 +95,7 @@
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(12, 402);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(410, 21);
@@ -98,6 +106,7 @@
             // btnEntrar
             // 
             this.btnEntrar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnEntrar.FlatAppearance.BorderSize = 0;
             this.btnEntrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEntrar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEntrar.ForeColor = System.Drawing.Color.White;
@@ -112,6 +121,7 @@
             // btnSalir
             // 
             this.btnSalir.BackColor = System.Drawing.Color.DimGray;
+            this.btnSalir.FlatAppearance.BorderSize = 0;
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.ForeColor = System.Drawing.Color.White;
             this.btnSalir.Location = new System.Drawing.Point(278, 482);
@@ -126,6 +136,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(434, 539);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnEntrar);
