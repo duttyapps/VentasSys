@@ -23,3 +23,26 @@ C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\De
 C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\Debug\VentasSys.Sistema.Base_de_Datos.frmConfiguracion.resources
 C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\Debug\VentasSys.frmBuscarCliente.resources
 C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\Debug\VentasSys.frmBuscarProducto.resources
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\bin\Debug\VentasSys.exe.config
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\Debug\VentasSys.exe
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\Debug\VentasSys.pdb
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\bin\Debug\VentasSys.exe
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\bin\Debug\VentasSys.pdb
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\bin\Debug\VentasSys.BL.dll
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\bin\Debug\VentasSys.EL.dll
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\bin\Debug\VentasSys.Utils.dll
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\bin\Debug\VentasSys.DAL.dll
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\bin\Debug\log4net.dll
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\bin\Debug\VentasSys.BL.pdb
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\bin\Debug\VentasSys.EL.pdb
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\bin\Debug\VentasSys.Utils.pdb
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\bin\Debug\VentasSys.DAL.pdb
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\bin\Debug\log4net.xml
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\Debug\VentasSys.csprojResolveAssemblyReference.cache
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\Debug\VentasSys.frmBuscarCliente.resources
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\Debug\VentasSys.frmBuscarProducto.resources
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\Debug\VentasSys.frmPrincipal.resources
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\Debug\VentasSys.frmLogin.resources
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\Debug\VentasSys.Properties.Resources.resources
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\Debug\VentasSys.Sistema.Base_de_Datos.frmConfiguracion.resources
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\Debug\VentasSys.csproj.GenerateResource.Cache

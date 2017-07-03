@@ -7,3 +7,11 @@ C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.Utils\
 C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.Utils\obj\Debug\VentasSys.Utils.dll
 C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.Utils\obj\Debug\VentasSys.Utils.pdb
 C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.Utils\obj\Debug\VentasSys.Utils.csprojResolveAssemblyReference.cache
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.Utils\bin\Debug\VentasSys.Utils.dll
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.Utils\bin\Debug\VentasSys.Utils.pdb
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.Utils\bin\Debug\log4net.dll
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.Utils\bin\Debug\log4net.xml
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.Utils\bin\Debug\MySql.Data.xml
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.Utils\obj\Debug\VentasSys.Utils.csprojResolveAssemblyReference.cache
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.Utils\obj\Debug\VentasSys.Utils.dll
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.Utils\obj\Debug\VentasSys.Utils.pdb

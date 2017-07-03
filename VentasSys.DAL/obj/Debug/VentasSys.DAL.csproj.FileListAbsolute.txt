@@ -11,3 +11,14 @@ C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\bi
 C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\obj\Debug\VentasSys.DAL.csprojResolveAssemblyReference.cache
 C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\obj\Debug\VentasSys.DAL.dll
 C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\obj\Debug\VentasSys.DAL.pdb
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.DAL\bin\Debug\VentasSys.DAL.dll
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.DAL\bin\Debug\VentasSys.DAL.pdb
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.DAL\bin\Debug\VentasSys.EL.dll
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.DAL\bin\Debug\VentasSys.Utils.dll
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.DAL\bin\Debug\log4net.dll
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.DAL\bin\Debug\VentasSys.EL.pdb
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.DAL\bin\Debug\VentasSys.Utils.pdb
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.DAL\bin\Debug\log4net.xml
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.DAL\obj\Debug\VentasSys.DAL.csprojResolveAssemblyReference.cache
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.DAL\obj\Debug\VentasSys.DAL.dll
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.DAL\obj\Debug\VentasSys.DAL.pdb

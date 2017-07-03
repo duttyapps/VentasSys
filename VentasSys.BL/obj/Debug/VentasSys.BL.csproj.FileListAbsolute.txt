@@ -13,3 +13,16 @@ C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.BL\bin
 C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.BL\obj\Debug\VentasSys.BL.csprojResolveAssemblyReference.cache
 C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.BL\obj\Debug\VentasSys.BL.dll
 C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.BL\obj\Debug\VentasSys.BL.pdb
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.BL\bin\Debug\VentasSys.BL.dll
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.BL\bin\Debug\VentasSys.BL.pdb
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.BL\bin\Debug\VentasSys.DAL.dll
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.BL\bin\Debug\VentasSys.EL.dll
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.BL\bin\Debug\VentasSys.Utils.dll
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.BL\bin\Debug\log4net.dll
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.BL\bin\Debug\VentasSys.DAL.pdb
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.BL\bin\Debug\VentasSys.EL.pdb
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.BL\bin\Debug\VentasSys.Utils.pdb
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.BL\bin\Debug\log4net.xml
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.BL\obj\Debug\VentasSys.BL.csprojResolveAssemblyReference.cache
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.BL\obj\Debug\VentasSys.BL.dll
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.BL\obj\Debug\VentasSys.BL.pdb
