@@ -10,5 +10,10 @@ namespace VentasSys.BL
         {
             return DAO_Clientes.getClientesxNombre(nombre);
         }
+
+        public static List<Ent_Clientes> getClientesxDNI(string dni)
+        {
+            return DAO_Clientes.getClientesxDNI(dni);
+        }
     }
 }

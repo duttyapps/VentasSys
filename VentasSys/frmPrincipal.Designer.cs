@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.toolbar = new System.Windows.Forms.MenuStrip();
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,10 +39,12 @@
             this.realizarRespaldoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cargarRespaldoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuraciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configuraciónToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.lblBienvenido = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblTipoVenta = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblRUC = new System.Windows.Forms.Label();
             this.lblSerie = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -54,9 +57,26 @@
             this.btnBuscarDNI = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
+            this.dgvProductos = new System.Windows.Forms.DataGridView();
+            this.txtSubTotal = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtIGV = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.btnAgregarProducto = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.lblRazonSocial = new System.Windows.Forms.Label();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
+            this.CANTIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DESCRIPCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IMPORTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolbar.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // toolbar
@@ -87,7 +107,9 @@
             // sistemaToolStripMenuItem
             // 
             this.sistemaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.baseDeDatosToolStripMenuItem});
+            this.baseDeDatosToolStripMenuItem,
+            this.configuraciónToolStripMenuItem1,
+            this.usuariosToolStripMenuItem});
             this.sistemaToolStripMenuItem.Name = "sistemaToolStripMenuItem";
             this.sistemaToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.sistemaToolStripMenuItem.Text = "Sistema";
@@ -98,7 +120,7 @@
             this.respaldoToolStripMenuItem,
             this.configuraciónToolStripMenuItem});
             this.baseDeDatosToolStripMenuItem.Name = "baseDeDatosToolStripMenuItem";
-            this.baseDeDatosToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.baseDeDatosToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.baseDeDatosToolStripMenuItem.Text = "Base de Datos";
             // 
             // respaldoToolStripMenuItem
@@ -129,6 +151,18 @@
             this.configuraciónToolStripMenuItem.Text = "Configuración";
             this.configuraciónToolStripMenuItem.Click += new System.EventHandler(this.configuraciónToolStripMenuItem_Click);
             // 
+            // configuraciónToolStripMenuItem1
+            // 
+            this.configuraciónToolStripMenuItem1.Name = "configuraciónToolStripMenuItem1";
+            this.configuraciónToolStripMenuItem1.Size = new System.Drawing.Size(150, 22);
+            this.configuraciónToolStripMenuItem1.Text = "Configuración";
+            // 
+            // usuariosToolStripMenuItem
+            // 
+            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.usuariosToolStripMenuItem.Text = "Usuarios";
+            // 
             // statusBar
             // 
             this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -156,15 +190,15 @@
             this.lblTipoVenta.Text = "BOLETA DE VENTA";
             this.lblTipoVenta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // lblRUC
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(11, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(177, 20);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "R.U.C. 20132354124";
+            this.lblRUC.AutoSize = true;
+            this.lblRUC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRUC.Location = new System.Drawing.Point(11, 9);
+            this.lblRUC.Name = "lblRUC";
+            this.lblRUC.Size = new System.Drawing.Size(177, 20);
+            this.lblRUC.TabIndex = 4;
+            this.lblRUC.Text = "R.U.C. 20132354124";
             // 
             // lblSerie
             // 
@@ -182,7 +216,7 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.lblTipoVenta);
             this.panel1.Controls.Add(this.lblSerie);
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.lblRUC);
             this.panel1.Location = new System.Drawing.Point(796, 38);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 92);
@@ -264,6 +298,7 @@
             this.btnBuscarDNI.Size = new System.Drawing.Size(23, 23);
             this.btnBuscarDNI.TabIndex = 14;
             this.btnBuscarDNI.UseVisualStyleBackColor = true;
+            this.btnBuscarDNI.Click += new System.EventHandler(this.btnBuscarDNI_Click);
             // 
             // label5
             // 
@@ -285,11 +320,189 @@
             this.lblFecha.TabIndex = 16;
             this.lblFecha.Text = "30/06/2017";
             // 
+            // dgvProductos
+            // 
+            this.dgvProductos.AllowUserToAddRows = false;
+            this.dgvProductos.AllowUserToOrderColumns = true;
+            this.dgvProductos.AllowUserToResizeColumns = false;
+            this.dgvProductos.AllowUserToResizeRows = false;
+            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CANTIDAD,
+            this.DESCRIPCION,
+            this.PU,
+            this.IMPORTE});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProductos.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvProductos.Location = new System.Drawing.Point(12, 223);
+            this.dgvProductos.MultiSelect = false;
+            this.dgvProductos.Name = "dgvProductos";
+            this.dgvProductos.RowHeadersVisible = false;
+            this.dgvProductos.RowHeadersWidth = 51;
+            this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProductos.Size = new System.Drawing.Size(900, 329);
+            this.dgvProductos.TabIndex = 17;
+            this.dgvProductos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellEndEdit);
+            // 
+            // txtSubTotal
+            // 
+            this.txtSubTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSubTotal.Location = new System.Drawing.Point(812, 558);
+            this.txtSubTotal.Name = "txtSubTotal";
+            this.txtSubTotal.ReadOnly = true;
+            this.txtSubTotal.Size = new System.Drawing.Size(100, 22);
+            this.txtSubTotal.TabIndex = 18;
+            this.txtSubTotal.Text = "0.00";
+            this.txtSubTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(740, 561);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(66, 16);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "Sub Total";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(747, 589);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(59, 16);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "IGV 18%";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtIGV
+            // 
+            this.txtIGV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIGV.Location = new System.Drawing.Point(812, 586);
+            this.txtIGV.Name = "txtIGV";
+            this.txtIGV.ReadOnly = true;
+            this.txtIGV.Size = new System.Drawing.Size(100, 22);
+            this.txtIGV.TabIndex = 20;
+            this.txtIGV.Text = "0.00";
+            this.txtIGV.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(748, 617);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(58, 16);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "Total S/.";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.Location = new System.Drawing.Point(812, 614);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
+            this.txtTotal.Size = new System.Drawing.Size(100, 22);
+            this.txtTotal.TabIndex = 22;
+            this.txtTotal.Text = "0.00";
+            this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // btnAgregarProducto
+            // 
+            this.btnAgregarProducto.Image = global::VentasSys.Properties.Resources.sign_add_icon;
+            this.btnAgregarProducto.Location = new System.Drawing.Point(921, 223);
+            this.btnAgregarProducto.Name = "btnAgregarProducto";
+            this.btnAgregarProducto.Size = new System.Drawing.Size(75, 75);
+            this.btnAgregarProducto.TabIndex = 24;
+            this.btnAgregarProducto.UseVisualStyleBackColor = true;
+            this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
+            // 
+            // button2
+            // 
+            this.button2.Image = global::VentasSys.Properties.Resources.sign_delete_icon;
+            this.button2.Location = new System.Drawing.Point(921, 304);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 75);
+            this.button2.TabIndex = 25;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // lblRazonSocial
+            // 
+            this.lblRazonSocial.AutoSize = true;
+            this.lblRazonSocial.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRazonSocial.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblRazonSocial.Location = new System.Drawing.Point(121, 50);
+            this.lblRazonSocial.Name = "lblRazonSocial";
+            this.lblRazonSocial.Size = new System.Drawing.Size(261, 47);
+            this.lblRazonSocial.TabIndex = 26;
+            this.lblRazonSocial.Text = "DuttyApps.com";
+            // 
+            // pbLogo
+            // 
+            this.pbLogo.Location = new System.Drawing.Point(15, 27);
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new System.Drawing.Size(100, 100);
+            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLogo.TabIndex = 27;
+            this.pbLogo.TabStop = false;
+            // 
+            // CANTIDAD
+            // 
+            this.CANTIDAD.Frozen = true;
+            this.CANTIDAD.HeaderText = "CANT.";
+            this.CANTIDAD.Name = "CANTIDAD";
+            this.CANTIDAD.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // DESCRIPCION
+            // 
+            this.DESCRIPCION.Frozen = true;
+            this.DESCRIPCION.HeaderText = "DESCRIPCIÓN";
+            this.DESCRIPCION.Name = "DESCRIPCION";
+            this.DESCRIPCION.ReadOnly = true;
+            this.DESCRIPCION.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.DESCRIPCION.Width = 600;
+            // 
+            // PU
+            // 
+            this.PU.Frozen = true;
+            this.PU.HeaderText = "P.U.";
+            this.PU.Name = "PU";
+            this.PU.ReadOnly = true;
+            this.PU.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // IMPORTE
+            // 
+            this.IMPORTE.Frozen = true;
+            this.IMPORTE.HeaderText = "IMPORTE";
+            this.IMPORTE.Name = "IMPORTE";
+            this.IMPORTE.ReadOnly = true;
+            this.IMPORTE.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 661);
+            this.Controls.Add(this.pbLogo);
+            this.Controls.Add(this.lblRazonSocial);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnAgregarProducto);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.txtTotal);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtIGV);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txtSubTotal);
+            this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnBuscarDNI);
@@ -316,6 +529,8 @@
             this.statusBar.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,7 +550,7 @@
         private System.Windows.Forms.ToolStripMenuItem ventasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuTipoVenta;
         private System.Windows.Forms.Label lblTipoVenta;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblRUC;
         private System.Windows.Forms.Label lblSerie;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
@@ -348,5 +563,22 @@
         private System.Windows.Forms.Button btnBuscarDNI;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dgvProductos;
+        private System.Windows.Forms.TextBox txtSubTotal;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtIGV;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.Button btnAgregarProducto;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label lblRazonSocial;
+        private System.Windows.Forms.PictureBox pbLogo;
+        private System.Windows.Forms.ToolStripMenuItem configuraciónToolStripMenuItem1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CANTIDAD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIPCION;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PU;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IMPORTE;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Windows.Forms;
 using VentasSys.BL;
 using VentasSys.EL;
@@ -54,21 +55,36 @@ namespace VentasSys
                 return;
             }
 
-            ent_usuario = BL_Usuario.login(ent_usuario);
-
-            if (ent_usuario.nombres != String.Empty)
+            try
             {
-                log.Info("Login usuario " + ent_usuario.username + " correcto.", System.Reflection.MethodBase.GetCurrentMethod().Name);
+                ent_usuario = BL_Usuario.login(ent_usuario);
 
-                frmPrincipal frm = new frmPrincipal(ent_usuario);
-                this.Close();
-                frm.Show();
-            }
-            else
+                if (ent_usuario.nombres != String.Empty)
+                {
+                    log.Info("Login usuario " + ent_usuario.username + " correcto.", System.Reflection.MethodBase.GetCurrentMethod().Name);
+
+                    frmPrincipal frm = new frmPrincipal(ent_usuario);
+                    this.Close();
+                    frm.Show();
+                }
+                else
+                {
+                    log.Error("Login usuario " + ent_usuario.username + " incorrecto.", System.Reflection.MethodBase.GetCurrentMethod().Name);
+                    MessageBox.Show("Contraseña o usuaro incorrecto.");
+                    txtUser.Focus();
+                }
+            } catch(MySqlException ex)
             {
-                log.Error("Login usuario " + ent_usuario.username + " incorrecto.", System.Reflection.MethodBase.GetCurrentMethod().Name);
-                MessageBox.Show("Contraseña o usuaro incorrecto.");
-                txtUser.Focus();
+                var confirm = MessageBox.Show("Ocurrió un error al conectarse a la base de datos: " + ex.Message + "\n\n Por favor ingrese los datos correctos de configuración.", "Error", MessageBoxButtons.OKCancel);
+
+                if(confirm == DialogResult.OK)
+                {
+                    Sistema.Base_de_Datos.frmConfiguracion frm = new Sistema.Base_de_Datos.frmConfiguracion();
+                    frm.ShowDialog();
+                } else
+                {
+                    doCancel();
+                }
             }
         }
 

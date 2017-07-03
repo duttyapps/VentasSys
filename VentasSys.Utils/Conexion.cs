@@ -16,5 +16,23 @@ namespace VentasSys.Utils
             MySqlConnection conn = new MySqlConnection(myConnectionString);
             return conn;
         }
+
+        public static string tryConnection(string _IP, string _USER, string _PASS, string _DB)
+        {
+            MySqlConnection conn = null;
+            try
+            {
+                String _myConnectionString = "server=" + _IP + ";uid=" + _USER + ";pwd=" + _PASS + ";database=" + _DB + ";";
+                conn = new MySqlConnection(_myConnectionString);
+                conn.Open();
+                return "0";
+            } catch(MySqlException ex)
+            {
+                return ex.Message;
+            } finally
+            {
+                conn.Close();
+            }
+        }
     }
 }

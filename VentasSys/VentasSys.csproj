@@ -56,6 +56,12 @@
     <Compile Include="frmBuscarCliente.Designer.cs">
       <DependentUpon>frmBuscarCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmBuscarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBuscarProducto.Designer.cs">
+      <DependentUpon>frmBuscarProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </Compile>
     <EmbeddedResource Include="frmBuscarCliente.resx">
       <DependentUpon>frmBuscarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBuscarProducto.resx">
+      <DependentUpon>frmBuscarProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
@@ -133,6 +142,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="infopago.ico" />
+    <None Include="Resources\sign-delete-icon.png" />
+    <None Include="Resources\sign-add-icon.png" />
     <None Include="Resources\search.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

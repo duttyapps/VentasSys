@@ -41,7 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO_CategoriaProductos.cs" />
     <Compile Include="DAO_Clientes.cs" />
+    <Compile Include="DAO_Configuracion.cs" />
+    <Compile Include="DAO_Productos.cs" />
     <Compile Include="DAO_Usuario.cs" />
     <Compile Include="DAO_Ventas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

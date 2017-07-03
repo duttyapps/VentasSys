@@ -1,25 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using VentasSys.BL;
 using VentasSys.EL;
+using VentasSys.Utils;
 
 namespace VentasSys
 {
     public partial class frmBuscarCliente : Form
     {
         public Ent_Clientes ent_cliente;
+        private string tipo;
 
-        public frmBuscarCliente(string cliente)
+        public frmBuscarCliente(string cliente, String _tipo = "nombre")
         {
             InitializeComponent();
             txtCliente.Text = cliente;
+            tipo = _tipo;
+
+            if(tipo == "dni")
+            {
+                lblBuscarCliente.Text = "Buscar por DNI de cliente:";
+            } else
+            {
+                lblBuscarCliente.Text = "Buscar por nombre de cliente:";
+            }
             BuscarCliente();
         }
 
@@ -38,8 +44,17 @@ namespace VentasSys
                 dgvClientes.Rows.Clear();
             }
 
-            string nombre = txtCliente.Text.Trim();
-            List<Ent_Clientes> lstClientes = BL_Clientes.getClientesxNombre(nombre);
+            string input = txtCliente.Text.Trim();
+
+            List<Ent_Clientes> lstClientes;
+
+            if (tipo == "dni")
+            {
+                lstClientes = BL_Clientes.getClientesxDNI(input);
+            } else
+            {
+                lstClientes = BL_Clientes.getClientesxNombre(input);
+            }
 
             var bindingList = new BindingList<Ent_Clientes>(lstClientes);
             var source = new BindingSource(bindingList, null);
@@ -56,9 +71,14 @@ namespace VentasSys
                 ent_cliente.nombres = dgvClientes.Rows[e.RowIndex].Cells["nombres"].Value.ToString();
                 ent_cliente.dni = dgvClientes.Rows[e.RowIndex].Cells["dni"].Value.ToString();
                 ent_cliente.direccion = dgvClientes.Rows[e.RowIndex].Cells["direccion"].Value.ToString();
+
                 this.Close();
             }
+        }
 
+        private void txtCliente_TextChanged(object sender, EventArgs e)
+        {
+            BuscarCliente();
         }
     }
 }
