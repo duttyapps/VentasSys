@@ -32,6 +32,7 @@ namespace VentasSys.DAL
             while (dr.Read())
             {
                 ent.nombres = Convert.ToString(dr["NOMBRES"]);
+                ent.rango = Convert.ToString(dr["RANGO"]);
             }
 
             con.Close();

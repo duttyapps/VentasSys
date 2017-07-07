@@ -10,12 +10,14 @@ namespace VentasSys.EL
     {
         public String username { get; set; }
         public String password { get; set; }
+        public String rango { get; set; }
         public String nombres { get; set; }
 
         public Ent_Usuario()
         {
             this.username = String.Empty;
             this.password = String.Empty;
+            this.rango = "0";
             this.nombres = String.Empty;
         }
     }

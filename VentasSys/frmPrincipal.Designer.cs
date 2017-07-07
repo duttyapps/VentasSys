@@ -58,6 +58,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
+            this.CANTIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DESCRIPCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IMPORTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSubTotal = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -68,12 +73,8 @@
             this.btnEliminarProducto = new System.Windows.Forms.Button();
             this.lblRazonSocial = new System.Windows.Forms.Label();
             this.pbLogo = new System.Windows.Forms.PictureBox();
-            this.CANTIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DESCRIPCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PU = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IMPORTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnPagar = new System.Windows.Forms.Button();
+            this.anularVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolbar.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -95,6 +96,7 @@
             // ventasToolStripMenuItem
             // 
             this.ventasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.anularVentaToolStripMenuItem,
             this.menuTipoVenta});
             this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
             this.ventasToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
@@ -122,7 +124,7 @@
             this.respaldoToolStripMenuItem,
             this.configuraciónToolStripMenuItem});
             this.baseDeDatosToolStripMenuItem.Name = "baseDeDatosToolStripMenuItem";
-            this.baseDeDatosToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.baseDeDatosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.baseDeDatosToolStripMenuItem.Text = "Base de Datos";
             // 
             // respaldoToolStripMenuItem
@@ -131,7 +133,7 @@
             this.realizarRespaldoToolStripMenuItem,
             this.cargarRespaldoToolStripMenuItem});
             this.respaldoToolStripMenuItem.Name = "respaldoToolStripMenuItem";
-            this.respaldoToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.respaldoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.respaldoToolStripMenuItem.Text = "Respaldo";
             // 
             // realizarRespaldoToolStripMenuItem
@@ -149,20 +151,20 @@
             // configuraciónToolStripMenuItem
             // 
             this.configuraciónToolStripMenuItem.Name = "configuraciónToolStripMenuItem";
-            this.configuraciónToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.configuraciónToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.configuraciónToolStripMenuItem.Text = "Configuración";
             this.configuraciónToolStripMenuItem.Click += new System.EventHandler(this.configuraciónToolStripMenuItem_Click);
             // 
             // configuraciónToolStripMenuItem1
             // 
             this.configuraciónToolStripMenuItem1.Name = "configuraciónToolStripMenuItem1";
-            this.configuraciónToolStripMenuItem1.Size = new System.Drawing.Size(150, 22);
+            this.configuraciónToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.configuraciónToolStripMenuItem1.Text = "Configuración";
             // 
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             // 
             // statusBar
@@ -238,11 +240,12 @@
             // 
             this.lblDNI.AutoSize = true;
             this.lblDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDNI.Location = new System.Drawing.Point(549, 148);
+            this.lblDNI.Location = new System.Drawing.Point(537, 148);
             this.lblDNI.Name = "lblDNI";
             this.lblDNI.Size = new System.Drawing.Size(34, 16);
             this.lblDNI.TabIndex = 8;
             this.lblDNI.Text = "DNI:";
+            this.lblDNI.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label4
             // 
@@ -257,9 +260,9 @@
             // txtCliente
             // 
             this.txtCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCliente.Location = new System.Drawing.Point(86, 145);
+            this.txtCliente.Location = new System.Drawing.Point(105, 145);
             this.txtCliente.Name = "txtCliente";
-            this.txtCliente.Size = new System.Drawing.Size(399, 22);
+            this.txtCliente.Size = new System.Drawing.Size(380, 22);
             this.txtCliente.TabIndex = 10;
             // 
             // txtDNI
@@ -273,9 +276,9 @@
             // txtDireccion
             // 
             this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccion.Location = new System.Drawing.Point(86, 182);
+            this.txtDireccion.Location = new System.Drawing.Point(105, 182);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(399, 22);
+            this.txtDireccion.Size = new System.Drawing.Size(380, 22);
             this.txtDireccion.TabIndex = 12;
             // 
             // btnBuscarCliente
@@ -355,6 +358,45 @@
             this.dgvProductos.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellValueChanged);
             this.dgvProductos.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvProductos_EditingControlShowing);
             // 
+            // CANTIDAD
+            // 
+            this.CANTIDAD.Frozen = true;
+            this.CANTIDAD.HeaderText = "CANT.";
+            this.CANTIDAD.Name = "CANTIDAD";
+            this.CANTIDAD.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // ID
+            // 
+            this.ID.Frozen = true;
+            this.ID.HeaderText = "CÓDIGO";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // DESCRIPCION
+            // 
+            this.DESCRIPCION.Frozen = true;
+            this.DESCRIPCION.HeaderText = "DESCRIPCIÓN";
+            this.DESCRIPCION.Name = "DESCRIPCION";
+            this.DESCRIPCION.ReadOnly = true;
+            this.DESCRIPCION.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.DESCRIPCION.Width = 500;
+            // 
+            // PU
+            // 
+            this.PU.Frozen = true;
+            this.PU.HeaderText = "P.U.";
+            this.PU.Name = "PU";
+            this.PU.ReadOnly = true;
+            this.PU.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // IMPORTE
+            // 
+            this.IMPORTE.Frozen = true;
+            this.IMPORTE.HeaderText = "IMPORTE";
+            this.IMPORTE.Name = "IMPORTE";
+            this.IMPORTE.ReadOnly = true;
+            this.IMPORTE.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
             // txtSubTotal
             // 
             this.txtSubTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -424,7 +466,7 @@
             // btnAgregarProducto
             // 
             this.btnAgregarProducto.Image = global::VentasSys.Properties.Resources.sign_add_icon;
-            this.btnAgregarProducto.Location = new System.Drawing.Point(921, 223);
+            this.btnAgregarProducto.Location = new System.Drawing.Point(921, 222);
             this.btnAgregarProducto.Name = "btnAgregarProducto";
             this.btnAgregarProducto.Size = new System.Drawing.Size(75, 75);
             this.btnAgregarProducto.TabIndex = 24;
@@ -434,7 +476,7 @@
             // btnEliminarProducto
             // 
             this.btnEliminarProducto.Image = global::VentasSys.Properties.Resources.sign_delete_icon;
-            this.btnEliminarProducto.Location = new System.Drawing.Point(921, 304);
+            this.btnEliminarProducto.Location = new System.Drawing.Point(921, 303);
             this.btnEliminarProducto.Name = "btnEliminarProducto";
             this.btnEliminarProducto.Size = new System.Drawing.Size(75, 75);
             this.btnEliminarProducto.TabIndex = 25;
@@ -461,45 +503,6 @@
             this.pbLogo.TabIndex = 27;
             this.pbLogo.TabStop = false;
             // 
-            // CANTIDAD
-            // 
-            this.CANTIDAD.Frozen = true;
-            this.CANTIDAD.HeaderText = "CANT.";
-            this.CANTIDAD.Name = "CANTIDAD";
-            this.CANTIDAD.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // ID
-            // 
-            this.ID.Frozen = true;
-            this.ID.HeaderText = "CÓDIGO";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // DESCRIPCION
-            // 
-            this.DESCRIPCION.Frozen = true;
-            this.DESCRIPCION.HeaderText = "DESCRIPCIÓN";
-            this.DESCRIPCION.Name = "DESCRIPCION";
-            this.DESCRIPCION.ReadOnly = true;
-            this.DESCRIPCION.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.DESCRIPCION.Width = 500;
-            // 
-            // PU
-            // 
-            this.PU.Frozen = true;
-            this.PU.HeaderText = "P.U.";
-            this.PU.Name = "PU";
-            this.PU.ReadOnly = true;
-            this.PU.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // IMPORTE
-            // 
-            this.IMPORTE.Frozen = true;
-            this.IMPORTE.HeaderText = "IMPORTE";
-            this.IMPORTE.Name = "IMPORTE";
-            this.IMPORTE.ReadOnly = true;
-            this.IMPORTE.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
             // btnPagar
             // 
             this.btnPagar.BackColor = System.Drawing.Color.DodgerBlue;
@@ -514,6 +517,12 @@
             this.btnPagar.Text = "Realizar Pago";
             this.btnPagar.UseVisualStyleBackColor = false;
             this.btnPagar.Click += new System.EventHandler(this.btnPagar_Click);
+            // 
+            // anularVentaToolStripMenuItem
+            // 
+            this.anularVentaToolStripMenuItem.Name = "anularVentaToolStripMenuItem";
+            this.anularVentaToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.anularVentaToolStripMenuItem.Text = "Anular Venta";
             // 
             // frmPrincipal
             // 
@@ -611,5 +620,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PU;
         private System.Windows.Forms.DataGridViewTextBoxColumn IMPORTE;
         private System.Windows.Forms.Button btnPagar;
+        private System.Windows.Forms.ToolStripMenuItem anularVentaToolStripMenuItem;
     }
 }

@@ -52,6 +52,7 @@ namespace VentasSys
             dgvProductos.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvProductos.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvProductos.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            menuAdmin();
         }
 
         private void fillMenuTipoVenta()
@@ -78,23 +79,7 @@ namespace VentasSys
         {
             ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
             tipo_venta = clickedItem.Tag.ToString();
-            correlativo = BL_Ventas.getCorrelativo(tipo_venta);
-            lblTipoVenta.Text = clickedItem.Text.ToString().ToUpper();
-            lblSerie.Text = "N° 001-" + correlativo;
-
-            if (tipo_venta == "FA")
-            {
-                lblCliente.Text = "Razón Social";
-                lblDNI.Text = "R.U.C.";
-            }
-            else
-            {
-                lblCliente.Text = "Cliente";
-                lblDNI.Text = "DNI";
-            }
-
-            log.Info("Cambio Tipo Venta: " + tipo_venta, System.Reflection.MethodBase.GetCurrentMethod().Name);
-            log.Info("Serie N°: " + lblSerie.Text, System.Reflection.MethodBase.GetCurrentMethod().Name);
+            cambiarTipoVenta(clickedItem.Text.ToString().ToUpper());
         }
 
         private void configuraciónToolStripMenuItem_Click(object sender, EventArgs e)
@@ -118,7 +103,7 @@ namespace VentasSys
 
         private void btnBuscarDNI_Click(object sender, EventArgs e)
         {
-            frmBuscarCliente frm = new frmBuscarCliente(txtCliente.Text, "dni");
+            frmBuscarCliente frm = new frmBuscarCliente(txtDNI.Text, "dni");
             frm.ShowDialog();
 
             if (frm.ent_cliente != null)
@@ -233,40 +218,96 @@ namespace VentasSys
         {
             if (dgvProductos.Rows.Count == 0)
             {
-                MessageBox.Show("No se ha seleccionado ningún producto. La compra no puede ser realizada.");
+                MessageBox.Show("No se agregó ningún producto. La compra no puede ser realizada.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (txtCliente.Text.Length == 0)
-            {
-                var confirm = MessageBox.Show("¿Está seguro que desea realizar la venta sin cliente?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (confirm == System.Windows.Forms.DialogResult.Yes)
+            if(tipo_venta == "BO") {
+                if (txtCliente.Text.Length == 0)
                 {
-                    txtCliente.Text = "-";
+                    var confirm = MessageBox.Show("¿Está seguro que desea realizar la venta sin cliente?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (confirm == System.Windows.Forms.DialogResult.Yes)
+                    {
+                        txtCliente.Text = "-";
+                        txtDireccion.Text = "-";
+                        txtDNI.Text = "-";
+                    }
+                    else
+                    {
+                        txtCliente.Focus();
+                        return;
+                    }
+                }
+
+                if (txtDireccion.Text.Length == 0)
+                {
                     txtDireccion.Text = "-";
+                }
+
+                if (txtDNI.Text.Length == 0)
+                {
                     txtDNI.Text = "-";
                 }
-                else
+            }
+            else if (tipo_venta == "FA")
+            {
+                if (txtCliente.Text.Length == 0)
                 {
+                    MessageBox.Show("La Razón Social no puede estar vacía.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtCliente.Focus();
+                    return;
+                }
+
+                if (txtDNI.Text.Length == 0)
+                {
+                    MessageBox.Show("El R.U.C. no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtDNI.Focus();
+                    return;
+                }
+
+                if (txtDireccion.Text.Length == 0)
+                {
+                    MessageBox.Show("La Dirección no puede estar vacía.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtDireccion.Focus();
                     return;
                 }
             }
 
-            if (txtDireccion.Text.Length == 0)
-            {
-                txtDireccion.Text = "-";
-            }
-
-            if (txtDNI.Text.Length == 0)
-            {
-                txtDNI.Text = "-";
-            }
+            procesarCompra();
         }
 
         private void procesarCompra()
         {
 
+        }
+
+        private void cambiarTipoVenta(string tipo_venta_des)
+        {
+            correlativo = BL_Ventas.getCorrelativo(tipo_venta);
+            lblTipoVenta.Text = tipo_venta_des;
+            lblSerie.Text = "N° 001-" + correlativo;
+
+            if (tipo_venta == "FA")
+            {
+                lblCliente.Text = "Razón Social:";
+                lblDNI.Text = "R.U.C.:";
+            }
+            else
+            {
+                lblCliente.Text = "Cliente:";
+                lblDNI.Text = "DNI:";
+            }
+
+            log.Info("Cambio Tipo Venta: " + tipo_venta, System.Reflection.MethodBase.GetCurrentMethod().Name);
+            log.Info("Serie N°: " + lblSerie.Text, System.Reflection.MethodBase.GetCurrentMethod().Name);
+        }
+
+        private void menuAdmin()
+        {
+            if (ent_usuario.rango == "0")
+            {
+                sistemaToolStripMenuItem.Visible = false;
+            }
         }
     }
 }
