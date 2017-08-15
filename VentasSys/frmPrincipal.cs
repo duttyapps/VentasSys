@@ -166,14 +166,22 @@ namespace VentasSys
 
         private void multiplicarxCantidad(int row)
         {
-            double precio_unitario = Convert.ToDouble(dgvProductos.Rows[row].Cells["PU"].Value);
-            int cantidad = int.Parse(dgvProductos.Rows[row].Cells["CANTIDAD"].Value.ToString());
+            try
+            {
+                double precio_unitario = Convert.ToDouble(dgvProductos.Rows[row].Cells["PU"].Value);
+                int cantidad = int.Parse(dgvProductos.Rows[row].Cells["CANTIDAD"].Value.ToString());
 
-            double _total = Convert.ToDouble((cantidad * precio_unitario));
+                double _total = Convert.ToDouble((cantidad * precio_unitario));
 
-            dgvProductos.Rows[row].Cells["IMPORTE"].Value = _total.ToString("#0.00");
+                dgvProductos.Rows[row].Cells["IMPORTE"].Value = _total.ToString("#0.00");
 
-            sumarTotal();
+                sumarTotal();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al calcular precio por cantidad. \n\n" + ex.Message);
+                log.Error(ex.Message, System.Reflection.MethodBase.GetCurrentMethod().Name);
+            }
         }
 
         private void btnEliminarProducto_Click(object sender, EventArgs e)
@@ -299,7 +307,7 @@ namespace VentasSys
             }
 
             log.Info("Cambio Tipo Venta: " + tipo_venta, System.Reflection.MethodBase.GetCurrentMethod().Name);
-            log.Info("Serie N°: " + lblSerie.Text, System.Reflection.MethodBase.GetCurrentMethod().Name);
+            log.Info("Serie " + lblSerie.Text, System.Reflection.MethodBase.GetCurrentMethod().Name);
         }
 
         private void menuAdmin()
