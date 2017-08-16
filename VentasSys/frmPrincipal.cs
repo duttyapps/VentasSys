@@ -166,14 +166,22 @@ namespace VentasSys
 
         private void multiplicarxCantidad(int row)
         {
-            double precio_unitario = Convert.ToDouble(dgvProductos.Rows[row].Cells["PU"].Value);
-            int cantidad = int.Parse(dgvProductos.Rows[row].Cells["CANTIDAD"].Value.ToString());
+            try
+            {
+                double precio_unitario = Convert.ToDouble(dgvProductos.Rows[row].Cells["PU"].Value);
+                int cantidad = int.Parse(dgvProductos.Rows[row].Cells["CANTIDAD"].Value.ToString());
 
-            double _total = Convert.ToDouble((cantidad * precio_unitario));
+                double _total = Convert.ToDouble((cantidad * precio_unitario));
 
-            dgvProductos.Rows[row].Cells["IMPORTE"].Value = _total.ToString("#0.00");
+                dgvProductos.Rows[row].Cells["IMPORTE"].Value = _total.ToString("#0.00");
 
-            sumarTotal();
+                sumarTotal();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al calcular precio por cantidad. \n\n" + ex.Message);
+                log.Error(ex.Message, System.Reflection.MethodBase.GetCurrentMethod().Name);
+            }
         }
 
         private void btnEliminarProducto_Click(object sender, EventArgs e)
@@ -219,6 +227,13 @@ namespace VentasSys
             if (dgvProductos.Rows.Count == 0)
             {
                 MessageBox.Show("No se agregó ningún producto. La compra no puede ser realizada.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if(Convert.ToDecimal(txtVuelto.Text) < 0)
+            {
+                MessageBox.Show("El vuelto no debe ser negativo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtRecibido.Select();
                 return;
             }
 
@@ -299,7 +314,7 @@ namespace VentasSys
             }
 
             log.Info("Cambio Tipo Venta: " + tipo_venta, System.Reflection.MethodBase.GetCurrentMethod().Name);
-            log.Info("Serie N°: " + lblSerie.Text, System.Reflection.MethodBase.GetCurrentMethod().Name);
+            log.Info("Serie " + lblSerie.Text, System.Reflection.MethodBase.GetCurrentMethod().Name);
         }
 
         private void menuAdmin()
@@ -307,6 +322,17 @@ namespace VentasSys
             if (ent_usuario.rango == "0")
             {
                 sistemaToolStripMenuItem.Visible = false;
+            }
+        }
+
+        private void txtRecibido_TextChanged(object sender, EventArgs e)
+        {
+            if (txtRecibido.Text.Length > 0)
+            {
+                txtVuelto.Text = (Convert.ToDecimal(txtRecibido.Text) - Convert.ToDecimal(txtTotal.Text)).ToString("#0.00");
+            } else
+            {
+                txtVuelto.Text = "0.00";
             }
         }
     }

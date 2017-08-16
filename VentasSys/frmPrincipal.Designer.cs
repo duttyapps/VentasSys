@@ -69,6 +69,7 @@
             this.btnPagar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtVuelto = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -81,7 +82,6 @@
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnReiniciar = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnEliminarProducto = new System.Windows.Forms.Button();
             this.btnAgregarProducto = new System.Windows.Forms.Button();
             this.toolbar.SuspendLayout();
@@ -473,6 +473,18 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Forma de Pago";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Contado",
+            "Crédito"});
+            this.comboBox1.Location = new System.Drawing.Point(6, 31);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(245, 24);
+            this.comboBox1.TabIndex = 0;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txtVuelto);
@@ -516,14 +528,15 @@
             // 
             // txtRecibido
             // 
+            this.txtRecibido.BackColor = System.Drawing.SystemColors.Info;
             this.txtRecibido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRecibido.Location = new System.Drawing.Point(119, 102);
             this.txtRecibido.Name = "txtRecibido";
-            this.txtRecibido.ReadOnly = true;
             this.txtRecibido.Size = new System.Drawing.Size(100, 22);
             this.txtRecibido.TabIndex = 34;
             this.txtRecibido.Text = "0.00";
             this.txtRecibido.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtRecibido.TextChanged += new System.EventHandler(this.txtRecibido_TextChanged);
             // 
             // label1
             // 
@@ -619,18 +632,6 @@
             this.btnReiniciar.Text = "Reiniciar Venta";
             this.btnReiniciar.UseVisualStyleBackColor = false;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Contado",
-            "Crédito"});
-            this.comboBox1.Location = new System.Drawing.Point(6, 31);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(245, 24);
-            this.comboBox1.TabIndex = 0;
-            // 
             // btnEliminarProducto
             // 
             this.btnEliminarProducto.Image = global::VentasSys.Properties.Resources.sign_delete_icon;
@@ -639,6 +640,7 @@
             this.btnEliminarProducto.Size = new System.Drawing.Size(75, 75);
             this.btnEliminarProducto.TabIndex = 35;
             this.btnEliminarProducto.UseVisualStyleBackColor = true;
+            this.btnEliminarProducto.Click += new System.EventHandler(this.btnEliminarProducto_Click);
             // 
             // btnAgregarProducto
             // 
@@ -648,6 +650,7 @@
             this.btnAgregarProducto.Size = new System.Drawing.Size(75, 75);
             this.btnAgregarProducto.TabIndex = 34;
             this.btnAgregarProducto.UseVisualStyleBackColor = true;
+            this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
             // 
             // frmPrincipal
             // 
