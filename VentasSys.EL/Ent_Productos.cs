@@ -7,8 +7,8 @@ namespace VentasSys.EL
         public string id { get; set; }
         public string id_cat { get; set; }
         public string nombre { get; set; }
-        public double costo { get; set; }
-        public double precio { get; set; }
+        public decimal costo { get; set; }
+        public decimal precio { get; set; }
         public int cantidad { get; set; }
 
         public Ent_Productos()
@@ -16,8 +16,8 @@ namespace VentasSys.EL
             this.id = String.Empty;
             this.id_cat = String.Empty;
             this.nombre = String.Empty;
-            this.costo = 0D;
-            this.precio = 0D;
+            this.costo = 0;
+            this.precio = 0;
             this.cantidad = 1;
         }
     }

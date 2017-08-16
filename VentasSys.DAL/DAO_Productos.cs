@@ -41,7 +41,7 @@ namespace VentasSys.DAL
                 producto.id = Convert.ToString(dr["ID"]);
                 producto.id_cat = Convert.ToString(dr["ID_CAT"]);
                 producto.nombre = Convert.ToString(dr["NOMBRE"]);
-                producto.precio = Convert.ToDouble(dr["PRECIO"]);
+                producto.precio = Math.Round(Convert.ToDecimal(dr["PRECIO"]), 2);
 
                 lstProductos.Add(producto);
             }
