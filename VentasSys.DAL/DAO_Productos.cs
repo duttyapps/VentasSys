@@ -50,5 +50,31 @@ namespace VentasSys.DAL
 
             return lstProductos;
         }
+
+        public static int getStockProducto(int id_prod)
+        {
+            con = Conexion.getConnection();
+            MySqlCommand cmd = new MySqlCommand();
+
+            con.Open();
+
+            cmd.Connection = con;
+            cmd.CommandText = "SP_SYS_GET_STOCK_PRODUCTO";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@PSTR_PRODUCTO_ID", id_prod);
+            cmd.Parameters["@PSTR_PRODUCTO_ID"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@RETVAL", MySqlDbType.Int32);
+            cmd.Parameters["@RETVAL"].Direction = ParameterDirection.Output;
+
+            cmd.ExecuteNonQuery();
+
+            int retval = int.Parse(cmd.Parameters["@RETVAL"].Value.ToString());
+
+            con.Close();
+
+            return retval;
+        }
     }
 }

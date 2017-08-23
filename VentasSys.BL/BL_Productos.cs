@@ -10,5 +10,10 @@ namespace VentasSys.BL
         {
             return DAO_Productos.getProductos(nombre, cat);
         }
+
+        public static int getStockProducto(int id_prod)
+        {
+            return DAO_Productos.getStockProducto(id_prod);
+        }
     }
 }

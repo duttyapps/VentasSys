@@ -52,6 +52,7 @@ namespace VentasSys
             dgvProductos.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvProductos.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvProductos.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            cboFormaPago.SelectedIndex = 0;
             menuAdmin();
         }
 
@@ -168,8 +169,17 @@ namespace VentasSys
         {
             try
             {
+                int id_producto = int.Parse(dgvProductos.Rows[row].Cells["ID"].Value.ToString());
                 double precio_unitario = Convert.ToDouble(dgvProductos.Rows[row].Cells["PU"].Value);
                 int cantidad = int.Parse(dgvProductos.Rows[row].Cells["CANTIDAD"].Value.ToString());
+                int stock = BL_Productos.getStockProducto(id_producto);
+
+                if (cantidad > stock)
+                {
+                    MessageBox.Show("No contamos con el stock suficiente para el producto.\n\nStock: " + stock, "Atención!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    dgvProductos.Rows[row].Cells["CANTIDAD"].Value = stock;
+                    return;
+                }
 
                 double _total = Convert.ToDouble((cantidad * precio_unitario));
 
@@ -195,10 +205,10 @@ namespace VentasSys
 
         private void dgvProductos_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvProductos.CurrentRow != null)
+            /*if (dgvProductos.CurrentRow != null)
             {
                 multiplicarxCantidad(dgvProductos.CurrentRow.Index);
-            }
+            }*/
         }
 
         private void dgvProductos_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
