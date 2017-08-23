@@ -3,3 +3,8 @@ C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.EL\bin
 C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.EL\obj\x86\Debug\VentasSys.EL.dll
 C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.EL\obj\x86\Debug\VentasSys.EL.pdb
 C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.EL\obj\x86\Debug\VentasSys.EL.csprojResolveAssemblyReference.cache
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.EL\bin\x86\Debug\VentasSys.EL.dll
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.EL\bin\x86\Debug\VentasSys.EL.pdb
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.EL\obj\x86\Debug\VentasSys.EL.csprojResolveAssemblyReference.cache
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.EL\obj\x86\Debug\VentasSys.EL.dll
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.EL\obj\x86\Debug\VentasSys.EL.pdb

@@ -15,5 +15,10 @@ namespace VentasSys.BL
         {
             return DAO_Productos.getStockProducto(id_prod);
         }
+
+        public static string insertarProducto(Ent_Productos producto)
+        {
+            return DAO_Productos.insertarProducto(producto);
+        }
     }
 }

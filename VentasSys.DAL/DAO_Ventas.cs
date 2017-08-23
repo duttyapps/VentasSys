@@ -72,5 +72,162 @@ namespace VentasSys.DAL
 
             return retval;
         }
+
+        public static string setCabeceraVenta(Ent_Venta cabecera)
+        {
+            MySqlTransaction tr = null;
+            con = Conexion.getConnection();
+
+            string retval = "1";
+
+            try
+            {
+                con.Open();
+
+                tr = con.BeginTransaction();
+
+                MySqlCommand cmd = new MySqlCommand();
+
+                cmd.Connection = con;
+                cmd.Transaction = tr;
+                cmd.CommandText = "SP_SET_GUARDARVENTA_CAB";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@RETVAL", MySqlDbType.VarChar);
+                cmd.Parameters["@RETVAL"].Direction = ParameterDirection.Output;
+
+                cmd.Parameters.AddWithValue("@PSTR_NUMERO_DOC", cabecera.nro_doc);
+                cmd.Parameters["@PSTR_NUMERO_DOC"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_TIPO_VENTA", cabecera.tipo_venta);
+                cmd.Parameters["@PSTR_TIPO_VENTA"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_FORMA_PAGO", cabecera.forma_pago);
+                cmd.Parameters["@PSTR_FORMA_PAGO"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_CANTIDAD", cabecera.cantidad);
+                cmd.Parameters["@PSTR_CANTIDAD"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_MONTO_TOTAL", double.Parse(cabecera.monto_total.ToString("#.##")));
+                cmd.Parameters["@PSTR_MONTO_TOTAL"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_MONTO_RECIBIDO", cabecera.monto_recibo);
+                cmd.Parameters["@PSTR_MONTO_RECIBIDO"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_MONTO_VUELTO", cabecera.monto_vuelto);
+                cmd.Parameters["@PSTR_MONTO_VUELTO"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_CLIENTE", cabecera.cliente_doc);
+                cmd.Parameters["@PSTR_CLIENTE"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_USUARIO", cabecera.usuario);
+                cmd.Parameters["@PSTR_USUARIO"].Direction = ParameterDirection.Input;
+
+                cmd.ExecuteNonQuery();
+
+                retval = cmd.Parameters["@RETVAL"].Value.ToString();
+
+                tr.Commit();
+            }
+            catch (MySqlException ex)
+            {
+                try
+                {
+                    tr.Rollback();
+                }
+                catch (MySqlException ex1)
+                {
+                    return ex1.ToString();
+                }
+
+                return ex.ToString();
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return retval;
+        }
+
+        public static string setDetalleVenta(Ent_Venta cabecera)
+        {
+            MySqlTransaction tr = null;
+            con = Conexion.getConnection();
+
+            string retval = "-1";
+
+            try
+            {
+                con.Open();
+
+                tr = con.BeginTransaction();
+
+                MySqlCommand cmd = new MySqlCommand();
+
+                cmd.Connection = con;
+                cmd.Transaction = tr;
+
+                foreach(Ent_Productos prd in cabecera.lstProductos)
+                {
+                    cmd.CommandText = "SP_SET_GUARDARVENTA_DET";
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.Clear();
+
+                    cmd.Parameters.AddWithValue("@RETVAL", MySqlDbType.VarChar);
+                    cmd.Parameters["@RETVAL"].Direction = ParameterDirection.Output;
+
+                    cmd.Parameters.AddWithValue("@PSTR_NUMBERO_CAB", cabecera.nro_doc);
+                    cmd.Parameters["@PSTR_NUMBERO_CAB"].Direction = ParameterDirection.Input;
+
+                    cmd.Parameters.AddWithValue("@PSTR_ID_PRODUCTO", prd.id);
+                    cmd.Parameters["@PSTR_ID_PRODUCTO"].Direction = ParameterDirection.Input;
+
+                    cmd.Parameters.AddWithValue("@PSTR_DESC_PRODUCTO", prd.nombre);
+                    cmd.Parameters["@PSTR_DESC_PRODUCTO"].Direction = ParameterDirection.Input;
+
+                    cmd.Parameters.AddWithValue("@PSTR_CANTIDAD", prd.cantidad);
+                    cmd.Parameters["@PSTR_CANTIDAD"].Direction = ParameterDirection.Input;
+
+                    cmd.Parameters.AddWithValue("@PSTR_PRECIO_UNIT", prd.precio);
+                    cmd.Parameters["@PSTR_PRECIO_UNIT"].Direction = ParameterDirection.Input;
+
+                    cmd.Parameters.AddWithValue("@PSTR_MONTO_TOTAL", double.Parse((prd.precio * prd.cantidad).ToString()));
+                    cmd.Parameters["@PSTR_MONTO_TOTAL"].Direction = ParameterDirection.Input;
+
+                    cmd.ExecuteNonQuery();
+
+                    retval = cmd.Parameters["@RETVAL"].Value.ToString();
+
+                    if (retval != "1")
+                    {
+                        tr.Rollback();
+                        return retval;
+                    }
+                }
+
+                tr.Commit();
+            }
+            catch (MySqlException ex)
+            {
+                try
+                {
+                    tr.Rollback();
+                }
+                catch (MySqlException ex1)
+                {
+                    return ex1.ToString();
+                }
+
+                return ex.ToString();
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return retval;
+        }
     }
 }

@@ -66,10 +66,10 @@ namespace VentasSys
             if (e.RowIndex > -1 && e.ColumnIndex > -1)
             {
                 ent_producto = new Ent_Productos();
-                ent_producto.id = dgvProductos.Rows[e.RowIndex].Cells["ID"].Value.ToString();
-                ent_producto.id_cat = dgvProductos.Rows[e.RowIndex].Cells["ID_CAT"].Value.ToString();
+                ent_producto.id = int.Parse(dgvProductos.Rows[e.RowIndex].Cells["ID"].Value.ToString());
+                ent_producto.id_cat = int.Parse(dgvProductos.Rows[e.RowIndex].Cells["ID_CAT"].Value.ToString());
                 ent_producto.nombre = dgvProductos.Rows[e.RowIndex].Cells["NOMBRE"].Value.ToString();
-                ent_producto.precio = decimal.Parse(dgvProductos.Rows[e.RowIndex].Cells["PRECIO"].Value.ToString());
+                ent_producto.precio = double.Parse(dgvProductos.Rows[e.RowIndex].Cells["PRECIO"].Value.ToString());
 
                 this.Close();
             }

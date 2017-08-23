@@ -15,6 +15,7 @@ namespace VentasSys
         private Ent_Usuario ent_usuario;
         private Ent_Configuracion ent_configuracion;
         private string tipo_venta { get; set; }
+        private string forma_pago { get; set; }
         private string correlativo { get; set; }
         public double total;
 
@@ -159,6 +160,14 @@ namespace VentasSys
             txtIGV.Text = (total - Convert.ToDouble(txtSubTotal.Text)).ToString("#0.00");
         }
 
+        private int sumarCantidad()
+        {
+            int total = dgvProductos.Rows.Cast<DataGridViewRow>()
+                .Sum(t => Convert.ToInt32(t.Cells["CANTIDAD"].Value));
+
+            return total;
+        }
+
         private void dgvProductos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             int row = e.RowIndex;
@@ -298,12 +307,47 @@ namespace VentasSys
                 }
             }
 
+            forma_pago = "CO";
+
             procesarCompra();
         }
 
         private void procesarCompra()
         {
+            Ent_Venta venta = new Ent_Venta();
 
+            venta.nro_doc = int.Parse(correlativo);
+            venta.tipo_venta = tipo_venta;
+            venta.forma_pago = forma_pago;
+            venta.cantidad = sumarCantidad();
+            venta.monto_total = total;
+            venta.monto_recibo = double.Parse(txtRecibido.Text);
+            venta.monto_vuelto = double.Parse(txtVuelto.Text);
+            venta.cliente_doc = txtDNI.Text;
+            venta.usuario = ent_usuario.username;
+
+            foreach (DataGridViewRow row in dgvProductos.Rows)
+            {
+                Ent_Productos prd = new Ent_Productos();
+                prd.id = int.Parse(row.Cells["ID"].Value.ToString());
+                prd.nombre = row.Cells["DESCRIPCION"].Value.ToString();
+                prd.cantidad = int.Parse(row.Cells["CANTIDAD"].Value.ToString());
+                prd.precio = double.Parse(row.Cells["PU"].Value.ToString());
+
+                venta.lstProductos.Add(prd);
+            }
+
+            string result = BL_Ventas.setVenta(venta);
+
+            if (result == "1")
+            {
+                MessageBox.Show("Venta Realizada con Éxito!.", "Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                InicializarSistema();
+            }
+            else
+            {
+                MessageBox.Show(result, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void cambiarTipoVenta(string tipo_venta_des)
@@ -344,6 +388,12 @@ namespace VentasSys
             {
                 txtVuelto.Text = "0.00";
             }
+        }
+
+        private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProductos frm = new frmProductos();
+            frm.ShowDialog();
         }
     }
 }
