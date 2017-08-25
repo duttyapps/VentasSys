@@ -73,7 +73,7 @@ namespace VentasSys.DAL
             return retval;
         }
 
-        public static string setCabeceraVenta(Ent_Venta cabecera)
+        public static string procesarVenta(Ent_Venta cabecera)
         {
             MySqlTransaction tr = null;
             con = Conexion.getConnection();
@@ -90,6 +90,7 @@ namespace VentasSys.DAL
 
                 cmd.Connection = con;
                 cmd.Transaction = tr;
+
                 cmd.CommandText = "SP_SET_GUARDARVENTA_CAB";
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -127,84 +128,53 @@ namespace VentasSys.DAL
 
                 retval = cmd.Parameters["@RETVAL"].Value.ToString();
 
-                tr.Commit();
-            }
-            catch (MySqlException ex)
-            {
-                try
+                if (retval == "1")
                 {
-                    tr.Rollback();
-                }
-                catch (MySqlException ex1)
-                {
-                    return ex1.ToString();
-                }
+                    string retval_det;
 
-                return ex.ToString();
-            }
-            finally
-            {
-                con.Close();
-            }
-
-            return retval;
-        }
-
-        public static string setDetalleVenta(Ent_Venta cabecera)
-        {
-            MySqlTransaction tr = null;
-            con = Conexion.getConnection();
-
-            string retval = "-1";
-
-            try
-            {
-                con.Open();
-
-                tr = con.BeginTransaction();
-
-                MySqlCommand cmd = new MySqlCommand();
-
-                cmd.Connection = con;
-                cmd.Transaction = tr;
-
-                foreach(Ent_Productos prd in cabecera.lstProductos)
-                {
                     cmd.CommandText = "SP_SET_GUARDARVENTA_DET";
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.Clear();
-
-                    cmd.Parameters.AddWithValue("@RETVAL", MySqlDbType.VarChar);
-                    cmd.Parameters["@RETVAL"].Direction = ParameterDirection.Output;
-
-                    cmd.Parameters.AddWithValue("@PSTR_NUMBERO_CAB", cabecera.nro_doc);
-                    cmd.Parameters["@PSTR_NUMBERO_CAB"].Direction = ParameterDirection.Input;
-
-                    cmd.Parameters.AddWithValue("@PSTR_ID_PRODUCTO", prd.id);
-                    cmd.Parameters["@PSTR_ID_PRODUCTO"].Direction = ParameterDirection.Input;
-
-                    cmd.Parameters.AddWithValue("@PSTR_DESC_PRODUCTO", prd.nombre);
-                    cmd.Parameters["@PSTR_DESC_PRODUCTO"].Direction = ParameterDirection.Input;
-
-                    cmd.Parameters.AddWithValue("@PSTR_CANTIDAD", prd.cantidad);
-                    cmd.Parameters["@PSTR_CANTIDAD"].Direction = ParameterDirection.Input;
-
-                    cmd.Parameters.AddWithValue("@PSTR_PRECIO_UNIT", prd.precio);
-                    cmd.Parameters["@PSTR_PRECIO_UNIT"].Direction = ParameterDirection.Input;
-
-                    cmd.Parameters.AddWithValue("@PSTR_MONTO_TOTAL", double.Parse((prd.precio * prd.cantidad).ToString()));
-                    cmd.Parameters["@PSTR_MONTO_TOTAL"].Direction = ParameterDirection.Input;
-
-                    cmd.ExecuteNonQuery();
-
-                    retval = cmd.Parameters["@RETVAL"].Value.ToString();
-
-                    if (retval != "1")
+                    foreach (Ent_Productos prd in cabecera.lstProductos)
                     {
-                        tr.Rollback();
-                        return retval;
+                        cmd.Parameters.Clear();
+
+                        cmd.Parameters.AddWithValue("@RETVAL", MySqlDbType.VarChar);
+                        cmd.Parameters["@RETVAL"].Direction = ParameterDirection.Output;
+
+                        cmd.Parameters.AddWithValue("@PSTR_NUMBERO_CAB", cabecera.nro_doc);
+                        cmd.Parameters["@PSTR_NUMBERO_CAB"].Direction = ParameterDirection.Input;
+
+                        cmd.Parameters.AddWithValue("@PSTR_ID_PRODUCTO", prd.id);
+                        cmd.Parameters["@PSTR_ID_PRODUCTO"].Direction = ParameterDirection.Input;
+
+                        cmd.Parameters.AddWithValue("@PSTR_DESC_PRODUCTO", prd.nombre);
+                        cmd.Parameters["@PSTR_DESC_PRODUCTO"].Direction = ParameterDirection.Input;
+
+                        cmd.Parameters.AddWithValue("@PSTR_CANTIDAD", prd.cantidad);
+                        cmd.Parameters["@PSTR_CANTIDAD"].Direction = ParameterDirection.Input;
+
+                        cmd.Parameters.AddWithValue("@PSTR_PRECIO_UNIT", prd.precio);
+                        cmd.Parameters["@PSTR_PRECIO_UNIT"].Direction = ParameterDirection.Input;
+
+                        cmd.Parameters.AddWithValue("@PSTR_MONTO_TOTAL", (prd.precio * prd.cantidad));
+                        cmd.Parameters["@PSTR_MONTO_TOTAL"].Direction = ParameterDirection.Input;
+
+                        cmd.ExecuteNonQuery();
+
+                        retval_det = cmd.Parameters["@RETVAL"].Value.ToString();
+
+                        if (retval_det != "1")
+                        {
+                            tr.Rollback();
+                            return retval_det;
+                        }
                     }
+                }
+                else
+                {
+                    tr.Rollback();
+                    return retval;
                 }
 
                 tr.Commit();

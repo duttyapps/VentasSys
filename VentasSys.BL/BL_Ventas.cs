@@ -17,21 +17,9 @@ namespace VentasSys.BL
             return DAO_Ventas.getCorrelativo(tipo_venta);
         }
 
-        public static string setVenta(Ent_Venta venta)
+        public static string procesarVenta(Ent_Venta venta)
         {
-            string result_cab = DAO_Ventas.setCabeceraVenta(venta);
-
-            if (result_cab == "1")
-            {
-                string result_det = DAO_Ventas.setDetalleVenta(venta);
-
-                if (result_det != "1")
-                {
-                    return result_det;
-                }
-            }
-
-            return result_cab;
+            return DAO_Ventas.procesarVenta(venta);
         }
     }
 }

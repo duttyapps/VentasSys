@@ -128,7 +128,7 @@ namespace VentasSys
                     bool agregar = true;
                     foreach (DataGridViewRow item in dgvProductos.Rows)
                     {
-                        if (item.Cells["ID"].Value.ToString().Equals(frm.ent_producto.id))
+                        if (item.Cells["ID"].Value.ToString().Equals(frm.ent_producto.id.ToString()))
                         {
                             item.Cells["CANTIDAD"].Value = int.Parse(item.Cells["CANTIDAD"].Value.ToString()) + 1;
                             item.Selected = true;
@@ -337,12 +337,12 @@ namespace VentasSys
                 venta.lstProductos.Add(prd);
             }
 
-            string result = BL_Ventas.setVenta(venta);
+            string result = BL_Ventas.procesarVenta(venta);
 
             if (result == "1")
             {
                 MessageBox.Show("Venta Realizada con Éxito!.", "Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                InicializarSistema();
+                reiniciarVenta();
             }
             else
             {
@@ -394,6 +394,25 @@ namespace VentasSys
         {
             frmProductos frm = new frmProductos();
             frm.ShowDialog();
+        }
+
+        public void reiniciarVenta()
+        {
+            InicializarSistema();
+            txtCliente.Text = String.Empty;
+            txtDireccion.Text = String.Empty;
+            txtDNI.Text = String.Empty;
+            dgvProductos.Rows.Clear();
+        }
+
+        private void btnReiniciar_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("¿Está seguro que desea reiniciar la venta?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+            if (result == DialogResult.Yes)
+            {
+                reiniciarVenta();
+            }
         }
     }
 }
