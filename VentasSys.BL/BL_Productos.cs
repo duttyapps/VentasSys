@@ -20,5 +20,10 @@ namespace VentasSys.BL
         {
             return DAO_Productos.insertarProducto(producto);
         }
+
+        public static double getPrecioProducto(int id)
+        {
+            return DAO_Productos.getPrecioProducto(id);
+        }
     }
 }

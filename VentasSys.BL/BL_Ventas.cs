@@ -21,5 +21,10 @@ namespace VentasSys.BL
         {
             return DAO_Ventas.procesarVenta(venta);
         }
+
+        public static List<Ent_FormaPago> getFormaPago()
+        {
+            return DAO_Ventas.getFormaPago();
+        }
     }
 }

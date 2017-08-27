@@ -41,7 +41,8 @@ namespace VentasSys.DAL
                 producto.id = Convert.ToInt32(dr["ID"]);
                 producto.id_cat = Convert.ToInt32(dr["ID_CAT"]);
                 producto.nombre = Convert.ToString(dr["NOMBRE"]);
-                producto.precio = Math.Round(Convert.ToDouble(dr["PRECIO"]), 2);
+                producto.precio = Convert.ToDouble(dr["PRECIO"]);
+                producto.stock = Convert.ToInt32(dr["STOCK"]);
 
                 lstProductos.Add(producto);
             }
@@ -112,6 +113,32 @@ namespace VentasSys.DAL
             cmd.ExecuteNonQuery();
 
             string retval = cmd.Parameters["@RETVAL"].Value.ToString();
+
+            con.Close();
+
+            return retval;
+        }
+
+        public static float getPrecioProducto(int id)
+        {
+            con = Conexion.getConnection();
+            MySqlCommand cmd = new MySqlCommand();
+
+            con.Open();
+
+            cmd.Connection = con;
+            cmd.CommandText = "SP_SYS_GET_PRODUCTO_PRECIO";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@RETVAL", MySqlDbType.Float);
+            cmd.Parameters["@RETVAL"].Direction = ParameterDirection.Output;
+
+            cmd.Parameters.AddWithValue("@PSTR_PROD_ID", id);
+            cmd.Parameters["@PSTR_PROD_ID"].Direction = ParameterDirection.Input;
+
+            cmd.ExecuteNonQuery();
+
+            float retval = float.Parse(cmd.Parameters["@RETVAL"].Value.ToString());
 
             con.Close();
 

@@ -65,6 +65,7 @@
             // 
             this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUser.Location = new System.Drawing.Point(97, 356);
+            this.txtUser.MaxLength = 15;
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(256, 29);
             this.txtUser.TabIndex = 2;
@@ -75,6 +76,7 @@
             // 
             this.txtPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPass.Location = new System.Drawing.Point(97, 426);
+            this.txtPass.MaxLength = 20;
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(256, 29);
             this.txtPass.TabIndex = 3;

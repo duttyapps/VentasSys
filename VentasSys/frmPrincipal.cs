@@ -29,7 +29,8 @@ namespace VentasSys
                 InicializarSistema();
                 log.Info("Tipo de Venta: " + tipo_venta, System.Reflection.MethodBase.GetCurrentMethod().Name);
                 log.Info("Serie N°: " + lblSerie.Text, System.Reflection.MethodBase.GetCurrentMethod().Name);
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
                 log.Error(ex.Message, System.Reflection.MethodBase.GetCurrentMethod().Name);
@@ -39,6 +40,7 @@ namespace VentasSys
         private void InicializarSistema()
         {
             fillMenuTipoVenta();
+            fillFormaPago();
             ent_configuracion = new Ent_Configuracion();
             ent_configuracion = BL_Configuracion.getConfiguracion();
             lblRUC.Text = "R.U.C. " + ent_configuracion.RUC;
@@ -51,6 +53,7 @@ namespace VentasSys
             lblFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
             dgvProductos.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvProductos.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvProductos.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvProductos.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvProductos.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             cboFormaPago.SelectedIndex = 0;
@@ -59,11 +62,13 @@ namespace VentasSys
 
         private void fillMenuTipoVenta()
         {
+            menuTipoVenta.DropDownItems.Clear();
+
             List<Ent_TipoVentas> lstTipoVentas = BL_Ventas.getTipoVenta(String.Empty);
 
             ToolStripMenuItem[] items = new ToolStripMenuItem[lstTipoVentas.Count];
             int i = 0;
-            lstTipoVentas.ForEach(delegate(Ent_TipoVentas tipo_venta)
+            lstTipoVentas.ForEach(delegate (Ent_TipoVentas tipo_venta)
             {
                 items[i] = new ToolStripMenuItem();
                 items[i].Name = tipo_venta.id;
@@ -75,6 +80,19 @@ namespace VentasSys
 
             menuTipoVenta.DropDownItems.AddRange(items);
 
+        }
+
+        public void fillFormaPago()
+        {
+            List<Ent_FormaPago> items = new List<Ent_FormaPago>();
+
+            var formapago = BL_Ventas.getFormaPago();
+
+            items.AddRange(formapago);
+
+            cboFormaPago.DataSource = items;
+            cboFormaPago.ValueMember = "codigo";
+            cboFormaPago.DisplayMember = "descripcion";
         }
 
         private void MenuVentasTipoItemClickHandler(object sender, EventArgs e)
@@ -92,7 +110,7 @@ namespace VentasSys
 
         private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
-            frmBuscarCliente frm = new frmBuscarCliente(txtCliente.Text);
+            frmBuscarCliente frm = new frmBuscarCliente(txtCliente.Text, "nombre", tipo_venta);
             frm.ShowDialog();
 
             if (frm.ent_cliente != null)
@@ -105,7 +123,7 @@ namespace VentasSys
 
         private void btnBuscarDNI_Click(object sender, EventArgs e)
         {
-            frmBuscarCliente frm = new frmBuscarCliente(txtDNI.Text, "dni");
+            frmBuscarCliente frm = new frmBuscarCliente(txtDNI.Text, "dni", tipo_venta);
             frm.ShowDialog();
 
             if (frm.ent_cliente != null)
@@ -121,7 +139,7 @@ namespace VentasSys
             frmBuscarProducto frm = new frmBuscarProducto();
             frm.ShowDialog();
 
-            if(frm.ent_producto != null)
+            if (frm.ent_producto != null)
             {
                 if (dgvProductos.Rows.Count > 0)
                 {
@@ -130,7 +148,15 @@ namespace VentasSys
                     {
                         if (item.Cells["ID"].Value.ToString().Equals(frm.ent_producto.id.ToString()))
                         {
-                            item.Cells["CANTIDAD"].Value = int.Parse(item.Cells["CANTIDAD"].Value.ToString()) + 1;
+                            int adicion = int.Parse(item.Cells["CANTIDAD"].Value.ToString()) + 1;
+                            if (adicion > BL_Productos.getStockProducto(Convert.ToInt32(item.Cells["ID"].Value)))
+                            {
+                                MessageBox.Show("Stock insuficiente, no se pudo agregar el producto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            else
+                            {
+                                item.Cells["CANTIDAD"].Value = adicion;
+                            }
                             item.Selected = true;
                             agregar = false;
                             return;
@@ -138,12 +164,12 @@ namespace VentasSys
                     }
                     if (agregar)
                     {
-                        dgvProductos.Rows.Add("1", frm.ent_producto.id, frm.ent_producto.nombre, frm.ent_producto.precio.ToString("#0.00"), frm.ent_producto.precio.ToString("#0.00"));
+                        dgvProductos.Rows.Add(frm.ent_producto.id, frm.ent_producto.nombre, "1", frm.ent_producto.precio.ToString("#0.00"), frm.ent_producto.precio.ToString("#0.00"));
                     }
                 }
                 else
                 {
-                    dgvProductos.Rows.Add("1", frm.ent_producto.id, frm.ent_producto.nombre, frm.ent_producto.precio.ToString("#0.00"), frm.ent_producto.precio.ToString("#0.00"));
+                    dgvProductos.Rows.Add(frm.ent_producto.id, frm.ent_producto.nombre, "1", frm.ent_producto.precio.ToString("#0.00"), frm.ent_producto.precio.ToString("#0.00"));
                 }
             }
 
@@ -172,6 +198,9 @@ namespace VentasSys
         {
             int row = e.RowIndex;
             multiplicarxCantidad(row);
+            //formating...
+            double pu = double.Parse(dgvProductos.Rows[row].Cells["PU"].Value.ToString());
+            dgvProductos.Rows[row].Cells["PU"].Value = pu.ToString("#0.00");
         }
 
         private void multiplicarxCantidad(int row)
@@ -179,9 +208,19 @@ namespace VentasSys
             try
             {
                 int id_producto = int.Parse(dgvProductos.Rows[row].Cells["ID"].Value.ToString());
-                double precio_unitario = Convert.ToDouble(dgvProductos.Rows[row].Cells["PU"].Value);
-                int cantidad = int.Parse(dgvProductos.Rows[row].Cells["CANTIDAD"].Value.ToString());
+                double precio_unitario = (dgvProductos.Rows[row].Cells["PU"].Value == null) ? BL_Productos.getPrecioProducto(id_producto) : Convert.ToDouble(dgvProductos.Rows[row].Cells["PU"].Value);
+                int cantidad = (dgvProductos.Rows[row].Cells["CANTIDAD"].Value == null) ? 1 : int.Parse(dgvProductos.Rows[row].Cells["CANTIDAD"].Value.ToString());
                 int stock = BL_Productos.getStockProducto(id_producto);
+
+                if (dgvProductos.Rows[row].Cells["PU"].Value == null)
+                {
+                    dgvProductos.Rows[row].Cells["PU"].Value = BL_Productos.getPrecioProducto(id_producto).ToString("#0.00");
+                }
+
+                if (dgvProductos.Rows[row].Cells["CANTIDAD"].Value == null)
+                {
+                    dgvProductos.Rows[row].Cells["CANTIDAD"].Value = 1;
+                }
 
                 if (cantidad > stock)
                 {
@@ -212,32 +251,24 @@ namespace VentasSys
             sumarTotal();
         }
 
-        private void dgvProductos_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            /*if (dgvProductos.CurrentRow != null)
-            {
-                multiplicarxCantidad(dgvProductos.CurrentRow.Index);
-            }*/
-        }
-
         private void dgvProductos_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-            e.Control.KeyPress -= new KeyPressEventHandler(ColumnaCantidad_KeyPress);
-            if (dgvProductos.CurrentCell.ColumnIndex == 0)
+            if (dgvProductos.CurrentCell.ColumnIndex == 2)
             {
+                e.Control.KeyPress -= new KeyPressEventHandler(CajaNumerosEnteros_KeyPress);
                 TextBox tb = e.Control as TextBox;
                 if (tb != null)
                 {
-                    tb.KeyPress += new KeyPressEventHandler(ColumnaCantidad_KeyPress);
+                    tb.KeyPress += new KeyPressEventHandler(CajaNumerosEnteros_KeyPress);
                 }
-            }
-        }
-
-        private void ColumnaCantidad_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            } else if (dgvProductos.CurrentCell.ColumnIndex == 3)
             {
-                e.Handled = true;
+                e.Control.KeyPress -= new KeyPressEventHandler(CajaNumerosDecimales_KeyPress);
+                TextBox tb = e.Control as TextBox;
+                if (tb != null)
+                {
+                    tb.KeyPress += new KeyPressEventHandler(CajaNumerosDecimales_KeyPress);
+                }
             }
         }
 
@@ -249,22 +280,30 @@ namespace VentasSys
                 return;
             }
 
-            if(Convert.ToDecimal(txtVuelto.Text) < 0)
+            if (Convert.ToDecimal(txtRecibido.Text) <= 0)
+            {
+                MessageBox.Show("El monto recibido no puede estar en S/. 0.00.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtRecibido.Select();
+                return;
+            }
+
+            if (Convert.ToDecimal(txtVuelto.Text) < 0)
             {
                 MessageBox.Show("El vuelto no debe ser negativo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtRecibido.Select();
                 return;
             }
 
-            if(tipo_venta == "BO") {
+            if (tipo_venta == "BO")
+            {
                 if (txtCliente.Text.Length == 0)
                 {
                     var confirm = MessageBox.Show("¿Está seguro que desea realizar la venta sin cliente?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (confirm == System.Windows.Forms.DialogResult.Yes)
                     {
-                        txtCliente.Text = "-";
-                        txtDireccion.Text = "-";
-                        txtDNI.Text = "-";
+                        txtCliente.Text = "SIN NOMBRE";
+                        txtDireccion.Text = "SIN DIRECCIÓN";
+                        txtDNI.Text = "00000000";
                     }
                     else
                     {
@@ -307,8 +346,7 @@ namespace VentasSys
                 }
             }
 
-            forma_pago = "CO";
-
+            forma_pago = cboFormaPago.SelectedValue.ToString();
             procesarCompra();
         }
 
@@ -332,7 +370,7 @@ namespace VentasSys
                 prd.id = int.Parse(row.Cells["ID"].Value.ToString());
                 prd.nombre = row.Cells["DESCRIPCION"].Value.ToString();
                 prd.cantidad = int.Parse(row.Cells["CANTIDAD"].Value.ToString());
-                prd.precio = double.Parse(row.Cells["PU"].Value.ToString());
+                prd.precio = float.Parse(row.Cells["PU"].Value.ToString());
 
                 venta.lstProductos.Add(prd);
             }
@@ -384,7 +422,8 @@ namespace VentasSys
             if (txtRecibido.Text.Length > 0)
             {
                 txtVuelto.Text = (Convert.ToDecimal(txtRecibido.Text) - Convert.ToDecimal(txtTotal.Text)).ToString("#0.00");
-            } else
+            }
+            else
             {
                 txtVuelto.Text = "0.00";
             }
@@ -412,6 +451,70 @@ namespace VentasSys
             if (result == DialogResult.Yes)
             {
                 reiniciarVenta();
+            }
+        }
+
+        private void CajaLetras_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void CajaNumerosEnteros_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar)
+                && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void CajaNumerosDecimales_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)
+                 && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == '.'
+                && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDNI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar)
+                && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtRecibido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)
+                 && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == '.'
+                && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
             }
         }
     }

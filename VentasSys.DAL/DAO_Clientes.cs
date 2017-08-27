@@ -11,7 +11,7 @@ namespace VentasSys.DAL
     {
         private static MySqlConnection con;
 
-        public static List<Ent_Clientes> getClientesxNombre(string nombre)
+        public static List<Ent_Clientes> getClientesxNombre(string nombre, string tipo)
         {
             List<Ent_Clientes> lstClientes = new List<Ent_Clientes>();
 
@@ -26,6 +26,9 @@ namespace VentasSys.DAL
 
             cmd.Parameters.AddWithValue("@PSTR_NOMBRE", nombre);
             cmd.Parameters["@PSTR_NOMBRE"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_TIPO", tipo);
+            cmd.Parameters["@PSTR_TIPO"].Direction = ParameterDirection.Input;
 
             MySqlDataReader dr = cmd.ExecuteReader();
 
@@ -45,7 +48,7 @@ namespace VentasSys.DAL
             return lstClientes;
         }
 
-        public static List<Ent_Clientes> getClientesxDNI(string dni)
+        public static List<Ent_Clientes> getClientesxDNI(string dni, string tipo)
         {
             List<Ent_Clientes> lstClientes = new List<Ent_Clientes>();
 
@@ -60,6 +63,9 @@ namespace VentasSys.DAL
 
             cmd.Parameters.AddWithValue("@PSTR_DNI", dni);
             cmd.Parameters["@PSTR_DNI"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_TIPO", tipo);
+            cmd.Parameters["@PSTR_TIPO"].Direction = ParameterDirection.Input;
 
             MySqlDataReader dr = cmd.ExecuteReader();
 

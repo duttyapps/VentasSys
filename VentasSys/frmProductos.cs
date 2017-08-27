@@ -85,6 +85,7 @@ namespace VentasSys
                 if (result == "1")
                 {
                     MessageBox.Show("¡Producto guardado exitosamente!", "Agregar producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    limpiarFormulario();
                 }
                 else
                 {
@@ -127,6 +128,14 @@ namespace VentasSys
             {
                 e.Handled = true;
             }
+        }
+
+        private void limpiarFormulario()
+        {
+            txtNombre.Text = String.Empty;
+            txtCosto.Text = "0.00";
+            txtPrecio.Text = "0.00";
+            txtStock.Text = "0";
         }
     }
 }

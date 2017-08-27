@@ -35,6 +35,7 @@
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID_CAT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NOMBRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STOCK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PRECIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
@@ -78,6 +79,7 @@
             this.ID,
             this.ID_CAT,
             this.NOMBRE,
+            this.STOCK,
             this.PRECIO});
             this.dgvProductos.Location = new System.Drawing.Point(15, 50);
             this.dgvProductos.MultiSelect = false;
@@ -115,7 +117,15 @@
             this.NOMBRE.HeaderText = "Producto";
             this.NOMBRE.Name = "NOMBRE";
             this.NOMBRE.ReadOnly = true;
-            this.NOMBRE.Width = 500;
+            this.NOMBRE.Width = 400;
+            // 
+            // STOCK
+            // 
+            this.STOCK.DataPropertyName = "STOCK";
+            this.STOCK.Frozen = true;
+            this.STOCK.HeaderText = "Stock";
+            this.STOCK.Name = "STOCK";
+            this.STOCK.ReadOnly = true;
             // 
             // PRECIO
             // 
@@ -124,6 +134,7 @@
             this.PRECIO.HeaderText = "Precio";
             this.PRECIO.Name = "PRECIO";
             this.PRECIO.ReadOnly = true;
+            this.PRECIO.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // frmBuscarProducto
             // 
@@ -159,6 +170,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID_CAT;
         private System.Windows.Forms.DataGridViewTextBoxColumn NOMBRE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STOCK;
         private System.Windows.Forms.DataGridViewTextBoxColumn PRECIO;
     }
 }

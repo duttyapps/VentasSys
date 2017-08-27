@@ -34,6 +34,9 @@ namespace VentasSys
             var source = new BindingSource(bindingList, null);
 
             dgvProductos.DataSource = source;
+
+            //formating...
+            dgvProductos.Columns["precio"].DefaultCellStyle.Format = "f";
         }
 
         public void fillCategorias()
@@ -69,7 +72,7 @@ namespace VentasSys
                 ent_producto.id = int.Parse(dgvProductos.Rows[e.RowIndex].Cells["ID"].Value.ToString());
                 ent_producto.id_cat = int.Parse(dgvProductos.Rows[e.RowIndex].Cells["ID_CAT"].Value.ToString());
                 ent_producto.nombre = dgvProductos.Rows[e.RowIndex].Cells["NOMBRE"].Value.ToString();
-                ent_producto.precio = double.Parse(dgvProductos.Rows[e.RowIndex].Cells["PRECIO"].Value.ToString());
+                ent_producto.precio = float.Parse(dgvProductos.Rows[e.RowIndex].Cells["PRECIO"].Value.ToString());
 
                 this.Close();
             }

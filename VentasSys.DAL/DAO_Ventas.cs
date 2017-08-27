@@ -199,5 +199,34 @@ namespace VentasSys.DAL
 
             return retval;
         }
+
+        public static List<Ent_FormaPago> getFormaPago()
+        {
+            List<Ent_FormaPago> lstFormaPago = new List<Ent_FormaPago>();
+
+            con = Conexion.getConnection();
+            MySqlCommand cmd = new MySqlCommand();
+
+            con.Open();
+
+            cmd.Connection = con;
+            cmd.CommandText = "SP_SYS_GET_FORMA_PAGO";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Ent_FormaPago formapago = new Ent_FormaPago();
+                formapago.codigo = Convert.ToString(dr["COD_FORMA_PAGO"]);
+                formapago.descripcion = Convert.ToString(dr["DES_FORMA_PAGO"]);
+
+                lstFormaPago.Add(formapago);
+            }
+
+            con.Close();
+
+            return lstFormaPago;
+        }
     }
 }

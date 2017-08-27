@@ -12,19 +12,42 @@ namespace VentasSys
     {
         public Ent_Clientes ent_cliente;
         private string tipo;
+        private string tipo_cliente { get; set; }
 
-        public frmBuscarCliente(string cliente, String _tipo = "nombre")
+        public frmBuscarCliente(string cliente, string _tipo = "nombre", string tipo_venta = "BO")
         {
             InitializeComponent();
             txtCliente.Text = cliente;
             tipo = _tipo;
+            tipo_cliente = (tipo_venta == "FA") ? "E" : "N";
 
-            if(tipo == "dni")
+            if (tipo_venta == "FA")
             {
-                lblBuscarCliente.Text = "Buscar por DNI de cliente:";
-            } else
+                dgvClientes.Columns["NOMBRES"].HeaderText = "Razón Social";
+                dgvClientes.Columns["DNI"].HeaderText = "RUC";
+            }
+
+            if (tipo == "dni")
             {
-                lblBuscarCliente.Text = "Buscar por nombre de cliente:";
+                if (tipo_cliente == "N")
+                {
+                    lblBuscarCliente.Text = "Buscar por DNI de cliente:";
+                }
+                else
+                {
+                    lblBuscarCliente.Text = "Buscar por RUC de cliente:";
+                }
+            }
+            else
+            {
+                if (tipo_cliente == "N")
+                {
+                    lblBuscarCliente.Text = "Buscar por nombre de cliente:";
+                }
+                else
+                {
+                    lblBuscarCliente.Text = "Buscar por razón social del cliente:";
+                }
             }
             BuscarCliente();
         }
@@ -50,10 +73,11 @@ namespace VentasSys
 
             if (tipo == "dni")
             {
-                lstClientes = BL_Clientes.getClientesxDNI(input);
-            } else
+                lstClientes = BL_Clientes.getClientesxDNI(input, tipo_cliente);
+            }
+            else
             {
-                lstClientes = BL_Clientes.getClientesxNombre(input);
+                lstClientes = BL_Clientes.getClientesxNombre(input, tipo_cliente);
             }
 
             var bindingList = new BindingList<Ent_Clientes>(lstClientes);
