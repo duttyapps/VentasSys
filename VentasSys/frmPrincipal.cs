@@ -14,9 +14,12 @@ namespace VentasSys
         private Log log = new Log();
         private Ent_Usuario ent_usuario;
         private Ent_Configuracion ent_configuracion;
+        private Ent_Tienda ent_tienda;
         private string tipo_venta { get; set; }
         private string forma_pago { get; set; }
         private string correlativo { get; set; }
+        private string cod_tienda { get; set; }
+        private string des_tienda { get; set; }
         public double total;
 
         public frmPrincipal(Ent_Usuario ent_us)
@@ -27,6 +30,9 @@ namespace VentasSys
                 ent_usuario = ent_us;
                 tipo_venta = "BO";
                 InicializarSistema();
+                cod_tienda = ent_tienda.cod_tienda;
+                des_tienda = ent_tienda.des_tienda;
+                lblTienda.Text = "Tienda: " + des_tienda;
                 log.Info("Tipo de Venta: " + tipo_venta, System.Reflection.MethodBase.GetCurrentMethod().Name);
                 log.Info("Serie N°: " + lblSerie.Text, System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
@@ -40,19 +46,21 @@ namespace VentasSys
         private void InicializarSistema()
         {
             fillMenuTipoVenta();
+            fillMenuTienda();
             fillFormaPago();
             ent_configuracion = new Ent_Configuracion();
             ent_configuracion = BL_Configuracion.getConfiguracion();
+            ent_tienda = BL_Tienda.getTienda(ent_configuracion.TIENDA);
             lblRUC.Text = "R.U.C. " + ent_configuracion.RUC;
             lblRazonSocial.Text = ent_configuracion.RAZON_SOCIAL;
             Image logo = Image.FromFile("logo.png");
             pbLogo.Image = logo;
             correlativo = BL_Ventas.getCorrelativo(tipo_venta);
             lblBienvenido.Text = "Bienvenid@ " + ent_usuario.nombres;
+            lblTienda.Text = "Tienda: " + des_tienda;
             lblSerie.Text = "N° 001-" + correlativo;
             lblFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
             dgvProductos.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvProductos.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvProductos.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvProductos.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvProductos.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -82,6 +90,28 @@ namespace VentasSys
 
         }
 
+        private void fillMenuTienda()
+        {
+            menuTienda.DropDownItems.Clear();
+
+            List<Ent_Tienda> lstTiendas = BL_Tienda.getTiendas();
+
+            ToolStripMenuItem[] items = new ToolStripMenuItem[lstTiendas.Count];
+            int i = 0;
+            lstTiendas.ForEach(delegate (Ent_Tienda tienda)
+            {
+                items[i] = new ToolStripMenuItem();
+                items[i].Name = tienda.cod_tienda;
+                items[i].Tag = tienda.cod_tienda;
+                items[i].Text = tienda.des_tienda;
+                items[i].Click += new EventHandler(MenuTiendasItemClickHandler);
+                i++;
+            });
+
+            menuTienda.DropDownItems.AddRange(items);
+
+        }
+
         public void fillFormaPago()
         {
             List<Ent_FormaPago> items = new List<Ent_FormaPago>();
@@ -100,6 +130,22 @@ namespace VentasSys
             ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
             tipo_venta = clickedItem.Tag.ToString();
             cambiarTipoVenta(clickedItem.Text.ToString().ToUpper());
+        }
+
+        private void MenuTiendasItemClickHandler(object sender, EventArgs e)
+        {
+            ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
+
+            if (clickedItem.Tag.ToString() != cod_tienda)
+            {
+                var confirm = MessageBox.Show("¿Está seguro que desea cambiar de tienda? El progreso de venta se reiniciará.", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirm == DialogResult.Yes)
+                {
+                    cod_tienda = clickedItem.Tag.ToString();
+                    des_tienda = clickedItem.Text.ToString();
+                    reiniciarVenta();
+                }
+            }
         }
 
         private void configuraciónToolStripMenuItem_Click(object sender, EventArgs e)
@@ -136,7 +182,7 @@ namespace VentasSys
 
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
-            frmBuscarProducto frm = new frmBuscarProducto();
+            frmBuscarProducto frm = new frmBuscarProducto(cod_tienda);
             frm.ShowDialog();
 
             if (frm.ent_producto != null)
@@ -149,7 +195,7 @@ namespace VentasSys
                         if (item.Cells["ID"].Value.ToString().Equals(frm.ent_producto.id.ToString()))
                         {
                             int adicion = int.Parse(item.Cells["CANTIDAD"].Value.ToString()) + 1;
-                            if (adicion > BL_Productos.getStockProducto(Convert.ToInt32(item.Cells["ID"].Value)))
+                            if (adicion > BL_Productos.getStockProducto(Convert.ToInt32(item.Cells["ID"].Value), cod_tienda))
                             {
                                 MessageBox.Show("Stock insuficiente, no se pudo agregar el producto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
@@ -164,16 +210,21 @@ namespace VentasSys
                     }
                     if (agregar)
                     {
-                        dgvProductos.Rows.Add(frm.ent_producto.id, frm.ent_producto.nombre, "1", frm.ent_producto.precio.ToString("#0.00"), frm.ent_producto.precio.ToString("#0.00"));
+                        dgvProductos.Rows.Add(generarCodigoProducto(frm.ent_producto.id, frm.ent_producto.id_cat), frm.ent_producto.nombre, "1", frm.ent_producto.precio.ToString("#0.00"), frm.ent_producto.precio.ToString("#0.00"), frm.ent_producto.id);
                     }
                 }
                 else
                 {
-                    dgvProductos.Rows.Add(frm.ent_producto.id, frm.ent_producto.nombre, "1", frm.ent_producto.precio.ToString("#0.00"), frm.ent_producto.precio.ToString("#0.00"));
+                    dgvProductos.Rows.Add(generarCodigoProducto(frm.ent_producto.id, frm.ent_producto.id_cat), frm.ent_producto.nombre, "1", frm.ent_producto.precio.ToString("#0.00"), frm.ent_producto.precio.ToString("#0.00"), frm.ent_producto.id);
                 }
             }
 
             sumarTotal();
+        }
+
+        private string generarCodigoProducto(int id, int cat)
+        {
+            return id.ToString(cod_tienda + "-" + cat.ToString("00") + "00000");
         }
 
         private void sumarTotal()
@@ -210,7 +261,7 @@ namespace VentasSys
                 int id_producto = int.Parse(dgvProductos.Rows[row].Cells["ID"].Value.ToString());
                 double precio_unitario = (dgvProductos.Rows[row].Cells["PU"].Value == null) ? BL_Productos.getPrecioProducto(id_producto) : Convert.ToDouble(dgvProductos.Rows[row].Cells["PU"].Value);
                 int cantidad = (dgvProductos.Rows[row].Cells["CANTIDAD"].Value == null) ? 1 : int.Parse(dgvProductos.Rows[row].Cells["CANTIDAD"].Value.ToString());
-                int stock = BL_Productos.getStockProducto(id_producto);
+                int stock = BL_Productos.getStockProducto(id_producto, cod_tienda);
 
                 if (dgvProductos.Rows[row].Cells["PU"].Value == null)
                 {
@@ -261,7 +312,8 @@ namespace VentasSys
                 {
                     tb.KeyPress += new KeyPressEventHandler(CajaNumerosEnteros_KeyPress);
                 }
-            } else if (dgvProductos.CurrentCell.ColumnIndex == 3)
+            }
+            else if (dgvProductos.CurrentCell.ColumnIndex == 3)
             {
                 e.Control.KeyPress -= new KeyPressEventHandler(CajaNumerosDecimales_KeyPress);
                 TextBox tb = e.Control as TextBox;
@@ -355,6 +407,7 @@ namespace VentasSys
             Ent_Venta venta = new Ent_Venta();
 
             venta.nro_doc = int.Parse(correlativo);
+            venta.cod_tienda = cod_tienda;
             venta.tipo_venta = tipo_venta;
             venta.forma_pago = forma_pago;
             venta.cantidad = sumarCantidad();
@@ -431,7 +484,7 @@ namespace VentasSys
 
         private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmProductos frm = new frmProductos();
+            frmProductos frm = new frmProductos(cod_tienda);
             frm.ShowDialog();
         }
 
@@ -442,6 +495,11 @@ namespace VentasSys
             txtDireccion.Text = String.Empty;
             txtDNI.Text = String.Empty;
             dgvProductos.Rows.Clear();
+            txtTotal.Text = "0.00";
+            txtIGV.Text = "0.00";
+            txtSubTotal.Text = "0.00";
+            txtRecibido.Text = "0.00";
+            txtVuelto.Text = "0.00";
         }
 
         private void btnReiniciar_Click(object sender, EventArgs e)
@@ -516,6 +574,35 @@ namespace VentasSys
             {
                 e.Handled = true;
             }
+        }
+
+        private void modificarEliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmMantenimientoProductos frm = new frmMantenimientoProductos(cod_tienda);
+            frm.ShowDialog();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("¿Está seguro que desea salir?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void dgvProductos_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvProductos.CurrentRow != null)
+            {
+                multiplicarxCantidad(dgvProductos.CurrentRow.Index);
+            }
+        }
+
+        private void frmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

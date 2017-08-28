@@ -34,7 +34,7 @@ namespace VentasSys.Utils
             patternLayout.ActivateOptions();
 
             FileAppender roller = new FileAppender();
-            String fecha = DateTime.Now.ToString("yyyy_MM_d");
+            String fecha = DateTime.Now.ToString("yyyy_MM_dd");
             roller.File = "C:\\VentasSys_Logs\\" + fecha + "_VentasSys.log";
             roller.AppendToFile = true;
             roller.Layout = patternLayout;

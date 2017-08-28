@@ -14,8 +14,10 @@ namespace VentasSys
 {
     public partial class frmProductos : Form
     {
-        public frmProductos()
+        private string cod_tienda { get; set; }
+        public frmProductos(string _cod_tienda)
         {
+            cod_tienda = _cod_tienda;
             InitializeComponent();
             fillCategorias();
         }
@@ -38,10 +40,12 @@ namespace VentasSys
             if (txtCosto.Text == String.Empty)
             {
                 txtCosto.Text = "0";
-            } else if (txtPrecio.Text == String.Empty)
+            }
+            else if (txtPrecio.Text == String.Empty)
             {
                 txtPrecio.Text = "0";
-            } else if (txtStock.Text == String.Empty)
+            }
+            else if (txtStock.Text == String.Empty)
             {
                 txtStock.Text = "0";
             }
@@ -80,7 +84,7 @@ namespace VentasSys
         {
             try
             {
-                string result = BL_Productos.insertarProducto(producto);
+                string result = BL_Productos.insertarProducto(producto, cod_tienda);
 
                 if (result == "1")
                 {
@@ -91,7 +95,9 @@ namespace VentasSys
                 {
                     MessageBox.Show("¡Ocurrió un error al guardar el producto!", "Agregar producto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            } catch (Exception ex) {
+            }
+            catch (Exception ex)
+            {
                 MessageBox.Show("Error: " + ex.Message, "Agregar producto", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

@@ -129,7 +129,7 @@
             // 
             this.nombres.DataPropertyName = "nombres";
             this.nombres.Frozen = true;
-            this.nombres.HeaderText = "Nombres";
+            this.nombres.HeaderText = "Apellidos y Nombres";
             this.nombres.Name = "nombres";
             this.nombres.ReadOnly = true;
             this.nombres.Resizable = System.Windows.Forms.DataGridViewTriState.False;

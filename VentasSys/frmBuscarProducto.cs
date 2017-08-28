@@ -9,8 +9,10 @@ namespace VentasSys
     public partial class frmBuscarProducto : Form
     {
         public Ent_Productos ent_producto;
-        public frmBuscarProducto()
+        private string cod_tienda { get; set; }
+        public frmBuscarProducto(string _cod_tienda)
         {
+            cod_tienda = _cod_tienda;
             InitializeComponent();
             fillCategorias();
             buscarProductos();
@@ -28,7 +30,7 @@ namespace VentasSys
                 dgvProductos.Rows.Clear();
             }
 
-            List<Ent_Productos> lstProductos = BL_Productos.getProductos(nombre, cat);
+            List<Ent_Productos> lstProductos = BL_Productos.getProductos(nombre, cat, cod_tienda);
 
             var bindingList = new BindingList<Ent_Productos>(lstProductos);
             var source = new BindingSource(bindingList, null);
@@ -76,6 +78,11 @@ namespace VentasSys
 
                 this.Close();
             }
+        }
+
+        private void cboTienda_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            buscarProductos();
         }
     }
 }

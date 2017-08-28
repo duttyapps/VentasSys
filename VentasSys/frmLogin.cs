@@ -65,6 +65,7 @@ namespace VentasSys
 
                     frmPrincipal frm = new frmPrincipal(ent_usuario);
                     this.Close();
+                    this.Dispose();
                     frm.Show();
                 }
                 else

@@ -11,6 +11,8 @@ namespace VentasSys.EL
         public double precio { get; set; }
         public int cantidad { get; set; }
         public int stock { get; set; }
+        public string cod_tienda { get; set; }
+        public string des_tienda { get; set; }
         public string activo { get; set; }
 
         public Ent_Productos()
@@ -22,6 +24,7 @@ namespace VentasSys.EL
             this.precio = 0D;
             this.cantidad = 1;
             this.stock = 1;
+            this.des_tienda = String.Empty;
             this.activo = "1";
         }
     }

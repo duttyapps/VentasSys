@@ -8,7 +8,9 @@ namespace VentasSys.EL
 {
     public class Ent_Venta
     {
+        public int id_cab { get; set; }
         public int nro_doc { get; set; }
+        public string cod_tienda { get; set; }
         public string tipo_venta { get; set; }
         public string forma_pago { get; set; }
         public string emision { get; set; }
@@ -22,7 +24,9 @@ namespace VentasSys.EL
 
         public Ent_Venta()
         {
+            this.id_cab = 0;
             this.nro_doc = 0;
+            this.cod_tienda = String.Empty;
             this.tipo_venta = String.Empty;
             this.forma_pago = String.Empty;
             this.emision = String.Empty;

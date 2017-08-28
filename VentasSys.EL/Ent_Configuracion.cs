@@ -8,6 +8,7 @@ namespace VentasSys.EL
         public string RAZON_SOCIAL { get; set; }
         public double IGV { get; set; }
         public double TIPO_CAMBIO { get; set; }
+        public string TIENDA { get; set; }
 
         public Ent_Configuracion()
         {
@@ -15,6 +16,7 @@ namespace VentasSys.EL
             this.RAZON_SOCIAL = String.Empty;
             this.IGV = 0D;
             this.TIPO_CAMBIO = 0D;
+            this.TIENDA = String.Empty;
         }
     }
 }

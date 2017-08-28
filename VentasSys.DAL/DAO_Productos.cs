@@ -14,7 +14,7 @@ namespace VentasSys.DAL
     {
         private static MySqlConnection con;
 
-        public static List<Ent_Productos> getProductos(string nombre, string cat)
+        public static List<Ent_Productos> getProductos(string nombre, string cat, string tienda)
         {
             List<Ent_Productos> lstProductos = new List<Ent_Productos>();
 
@@ -33,6 +33,9 @@ namespace VentasSys.DAL
             cmd.Parameters.AddWithValue("@PSTR_NOMBRE", nombre);
             cmd.Parameters["@PSTR_NOMBRE"].Direction = ParameterDirection.Input;
 
+            cmd.Parameters.AddWithValue("@PSTR_TIENDA", tienda);
+            cmd.Parameters["@PSTR_TIENDA"].Direction = ParameterDirection.Input;
+
             MySqlDataReader dr = cmd.ExecuteReader();
 
             while (dr.Read())
@@ -43,6 +46,8 @@ namespace VentasSys.DAL
                 producto.nombre = Convert.ToString(dr["NOMBRE"]);
                 producto.precio = Convert.ToDouble(dr["PRECIO"]);
                 producto.stock = Convert.ToInt32(dr["STOCK"]);
+                producto.cod_tienda = Convert.ToString(dr["TIENDA_COD"]);
+                producto.des_tienda = Convert.ToString(dr["TIENDA_DES"]);
 
                 lstProductos.Add(producto);
             }
@@ -52,7 +57,7 @@ namespace VentasSys.DAL
             return lstProductos;
         }
 
-        public static int getStockProducto(int id_prod)
+        public static int getStockProducto(int id_prod, string tienda)
         {
             con = Conexion.getConnection();
             MySqlCommand cmd = new MySqlCommand();
@@ -63,11 +68,14 @@ namespace VentasSys.DAL
             cmd.CommandText = "SP_SYS_GET_STOCK_PRODUCTO";
             cmd.CommandType = CommandType.StoredProcedure;
 
+            cmd.Parameters.AddWithValue("@RETVAL", MySqlDbType.Int32);
+            cmd.Parameters["@RETVAL"].Direction = ParameterDirection.Output;
+
             cmd.Parameters.AddWithValue("@PSTR_PRODUCTO_ID", id_prod);
             cmd.Parameters["@PSTR_PRODUCTO_ID"].Direction = ParameterDirection.Input;
 
-            cmd.Parameters.AddWithValue("@RETVAL", MySqlDbType.Int32);
-            cmd.Parameters["@RETVAL"].Direction = ParameterDirection.Output;
+            cmd.Parameters.AddWithValue("@PSTR_TIENDA_COD", tienda);
+            cmd.Parameters["@PSTR_TIENDA_COD"].Direction = ParameterDirection.Input;
 
             cmd.ExecuteNonQuery();
 
@@ -78,7 +86,7 @@ namespace VentasSys.DAL
             return retval;
         }
 
-        public static string insertarProducto(Ent_Productos producto)
+        public static string insertarProducto(Ent_Productos producto, string tienda)
         {
             con = Conexion.getConnection();
             MySqlCommand cmd = new MySqlCommand();
@@ -91,6 +99,9 @@ namespace VentasSys.DAL
 
             cmd.Parameters.AddWithValue("@RETVAL", MySqlDbType.VarChar);
             cmd.Parameters["@RETVAL"].Direction = ParameterDirection.Output;
+
+            cmd.Parameters.AddWithValue("@PSTR_TIENDA_COD", tienda);
+            cmd.Parameters["@PSTR_TIENDA_COD"].Direction = ParameterDirection.Input;
 
             cmd.Parameters.AddWithValue("@PSTR_CAT_ID", producto.id_cat);
             cmd.Parameters["@PSTR_CAT_ID"].Direction = ParameterDirection.Input;

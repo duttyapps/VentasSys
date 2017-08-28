@@ -45,15 +45,15 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(139, 16);
+            this.label1.Size = new System.Drawing.Size(65, 16);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre del Producto:";
+            this.label1.Text = "Producto:";
             // 
             // txtProducto
             // 
-            this.txtProducto.Location = new System.Drawing.Point(157, 15);
+            this.txtProducto.Location = new System.Drawing.Point(83, 15);
             this.txtProducto.Name = "txtProducto";
-            this.txtProducto.Size = new System.Drawing.Size(264, 22);
+            this.txtProducto.Size = new System.Drawing.Size(230, 22);
             this.txtProducto.TabIndex = 1;
             this.txtProducto.TextChanged += new System.EventHandler(this.txtProducto_TextChanged);
             // 
@@ -62,9 +62,9 @@
             this.cboCategoria.BackColor = System.Drawing.SystemColors.Window;
             this.cboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategoria.FormattingEnabled = true;
-            this.cboCategoria.Location = new System.Drawing.Point(426, 13);
+            this.cboCategoria.Location = new System.Drawing.Point(319, 15);
             this.cboCategoria.Name = "cboCategoria";
-            this.cboCategoria.Size = new System.Drawing.Size(189, 24);
+            this.cboCategoria.Size = new System.Drawing.Size(151, 24);
             this.cboCategoria.TabIndex = 2;
             this.cboCategoria.SelectedIndexChanged += new System.EventHandler(this.cboCategoria_SelectedIndexChanged);
             // 
@@ -140,7 +140,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(627, 337);
+            this.ClientSize = new System.Drawing.Size(627, 336);
             this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.cboCategoria);
             this.Controls.Add(this.txtProducto);

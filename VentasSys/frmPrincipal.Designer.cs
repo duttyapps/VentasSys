@@ -46,9 +46,10 @@
             this.mantenimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarEliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuTienda = new System.Windows.Forms.ToolStripMenuItem();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.lblBienvenido = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblTienda = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblTipoVenta = new System.Windows.Forms.Label();
             this.lblRUC = new System.Windows.Forms.Label();
             this.lblSerie = new System.Windows.Forms.Label();
@@ -64,15 +65,16 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CODIGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DESCRIPCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CANTIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PU = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IMPORTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblRazonSocial = new System.Windows.Forms.Label();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.btnPagar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnReiniciar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cboFormaPago = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -86,7 +88,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnReiniciar = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.btnEliminarProducto = new System.Windows.Forms.Button();
             this.btnAgregarProducto = new System.Windows.Forms.Button();
             this.toolbar.SuspendLayout();
@@ -103,7 +105,8 @@
             this.toolbar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ventasToolStripMenuItem,
             this.sistemaToolStripMenuItem,
-            this.productosToolStripMenuItem});
+            this.productosToolStripMenuItem,
+            this.menuTienda});
             this.toolbar.Location = new System.Drawing.Point(0, 0);
             this.toolbar.Name = "toolbar";
             this.toolbar.Size = new System.Drawing.Size(1008, 24);
@@ -193,8 +196,7 @@
             // productosToolStripMenuItem
             // 
             this.productosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mantenimientoToolStripMenuItem,
-            this.stockToolStripMenuItem});
+            this.mantenimientoToolStripMenuItem});
             this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
             this.productosToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
             this.productosToolStripMenuItem.Text = "Productos";
@@ -211,26 +213,29 @@
             // agregarToolStripMenuItem
             // 
             this.agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
-            this.agregarToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.agregarToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
             this.agregarToolStripMenuItem.Text = "Agregar";
             this.agregarToolStripMenuItem.Click += new System.EventHandler(this.agregarToolStripMenuItem_Click);
             // 
             // modificarEliminarToolStripMenuItem
             // 
             this.modificarEliminarToolStripMenuItem.Name = "modificarEliminarToolStripMenuItem";
-            this.modificarEliminarToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.modificarEliminarToolStripMenuItem.Text = "Modificar/Eliminar";
+            this.modificarEliminarToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.modificarEliminarToolStripMenuItem.Text = "Modificar/Eliminar/Stock";
+            this.modificarEliminarToolStripMenuItem.Click += new System.EventHandler(this.modificarEliminarToolStripMenuItem_Click);
             // 
-            // stockToolStripMenuItem
+            // menuTienda
             // 
-            this.stockToolStripMenuItem.Name = "stockToolStripMenuItem";
-            this.stockToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
-            this.stockToolStripMenuItem.Text = "Stock";
+            this.menuTienda.Name = "menuTienda";
+            this.menuTienda.Size = new System.Drawing.Size(55, 20);
+            this.menuTienda.Text = "Tienda";
             // 
             // statusBar
             // 
+            this.statusBar.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblBienvenido});
+            this.lblBienvenido,
+            this.lblTienda});
             this.statusBar.Location = new System.Drawing.Point(0, 568);
             this.statusBar.Name = "statusBar";
             this.statusBar.Size = new System.Drawing.Size(1008, 22);
@@ -239,9 +244,17 @@
             // 
             // lblBienvenido
             // 
+            this.lblBienvenido.Margin = new System.Windows.Forms.Padding(0, 3, 10, 2);
             this.lblBienvenido.Name = "lblBienvenido";
             this.lblBienvenido.Size = new System.Drawing.Size(70, 17);
             this.lblBienvenido.Text = "Bienvenid@";
+            // 
+            // lblTienda
+            // 
+            this.lblTienda.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.lblTienda.Name = "lblTienda";
+            this.lblTienda.Size = new System.Drawing.Size(43, 17);
+            this.lblTienda.Text = "Tienda";
             // 
             // lblTipoVenta
             // 
@@ -398,11 +411,12 @@
             this.dgvProductos.AllowUserToResizeRows = false;
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
+            this.CODIGO,
             this.DESCRIPCION,
             this.CANTIDAD,
             this.PU,
-            this.IMPORTE});
+            this.IMPORTE,
+            this.ID});
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -420,14 +434,15 @@
             this.dgvProductos.Size = new System.Drawing.Size(630, 329);
             this.dgvProductos.TabIndex = 17;
             this.dgvProductos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellEndEdit);
+            this.dgvProductos.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellValueChanged);
             this.dgvProductos.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvProductos_EditingControlShowing);
             // 
-            // ID
+            // CODIGO
             // 
-            this.ID.Frozen = true;
-            this.ID.HeaderText = "CÓDIGO";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
+            this.CODIGO.Frozen = true;
+            this.CODIGO.HeaderText = "CÓDIGO";
+            this.CODIGO.Name = "CODIGO";
+            this.CODIGO.ReadOnly = true;
             // 
             // DESCRIPCION
             // 
@@ -460,6 +475,13 @@
             this.IMPORTE.Name = "IMPORTE";
             this.IMPORTE.ReadOnly = true;
             this.IMPORTE.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // ID
+            // 
+            this.ID.Frozen = true;
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.Visible = false;
             // 
             // lblRazonSocial
             // 
@@ -496,19 +518,20 @@
             this.btnPagar.UseVisualStyleBackColor = false;
             this.btnPagar.Click += new System.EventHandler(this.btnPagar_Click);
             // 
-            // btnCancelar
+            // btnReiniciar
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnCancelar.FlatAppearance.BorderSize = 0;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(831, 477);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 75);
-            this.btnCancelar.TabIndex = 30;
-            this.btnCancelar.Text = "Cancelar Venta";
-            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnReiniciar.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnReiniciar.FlatAppearance.BorderSize = 0;
+            this.btnReiniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReiniciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReiniciar.ForeColor = System.Drawing.Color.White;
+            this.btnReiniciar.Location = new System.Drawing.Point(831, 477);
+            this.btnReiniciar.Name = "btnReiniciar";
+            this.btnReiniciar.Size = new System.Drawing.Size(75, 75);
+            this.btnReiniciar.TabIndex = 30;
+            this.btnReiniciar.Text = "Reiniciar Venta";
+            this.btnReiniciar.UseVisualStyleBackColor = false;
+            this.btnReiniciar.Click += new System.EventHandler(this.btnReiniciar_Click);
             // 
             // groupBox1
             // 
@@ -664,20 +687,20 @@
             this.label8.Text = "TOTAL";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // btnReiniciar
+            // btnSalir
             // 
-            this.btnReiniciar.BackColor = System.Drawing.Color.DimGray;
-            this.btnReiniciar.FlatAppearance.BorderSize = 0;
-            this.btnReiniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReiniciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReiniciar.ForeColor = System.Drawing.Color.White;
-            this.btnReiniciar.Location = new System.Drawing.Point(739, 477);
-            this.btnReiniciar.Name = "btnReiniciar";
-            this.btnReiniciar.Size = new System.Drawing.Size(75, 75);
-            this.btnReiniciar.TabIndex = 33;
-            this.btnReiniciar.Text = "Reiniciar Venta";
-            this.btnReiniciar.UseVisualStyleBackColor = false;
-            this.btnReiniciar.Click += new System.EventHandler(this.btnReiniciar_Click);
+            this.btnSalir.BackColor = System.Drawing.Color.DimGray;
+            this.btnSalir.FlatAppearance.BorderSize = 0;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.ForeColor = System.Drawing.Color.White;
+            this.btnSalir.Location = new System.Drawing.Point(739, 477);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 75);
+            this.btnSalir.TabIndex = 33;
+            this.btnSalir.Text = "Salir del Sistema";
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnEliminarProducto
             // 
@@ -706,10 +729,10 @@
             this.ClientSize = new System.Drawing.Size(1008, 590);
             this.Controls.Add(this.btnEliminarProducto);
             this.Controls.Add(this.btnAgregarProducto);
-            this.Controls.Add(this.btnReiniciar);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnReiniciar);
             this.Controls.Add(this.btnPagar);
             this.Controls.Add(this.pbLogo);
             this.Controls.Add(this.lblRazonSocial);
@@ -734,6 +757,7 @@
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VentasSys - Sistema de Ventas";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPrincipal_FormClosing);
             this.toolbar.ResumeLayout(false);
             this.toolbar.PerformLayout();
             this.statusBar.ResumeLayout(false);
@@ -784,7 +808,7 @@
         private System.Windows.Forms.ToolStripMenuItem configuraciónToolStripMenuItem1;
         private System.Windows.Forms.Button btnPagar;
         private System.Windows.Forms.ToolStripMenuItem anularVentaToolStripMenuItem;
-        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnReiniciar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtVuelto;
@@ -797,7 +821,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnReiniciar;
+        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.ComboBox cboFormaPago;
         private System.Windows.Forms.Button btnEliminarProducto;
         private System.Windows.Forms.Button btnAgregarProducto;
@@ -805,11 +829,13 @@
         private System.Windows.Forms.ToolStripMenuItem mantenimientoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agregarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificarEliminarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem stockToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.ToolStripMenuItem menuTienda;
+        private System.Windows.Forms.ToolStripStatusLabel lblTienda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CODIGO;
         private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIPCION;
         private System.Windows.Forms.DataGridViewTextBoxColumn CANTIDAD;
         private System.Windows.Forms.DataGridViewTextBoxColumn PU;
         private System.Windows.Forms.DataGridViewTextBoxColumn IMPORTE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
     }
 }

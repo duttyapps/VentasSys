@@ -35,6 +35,7 @@ namespace VentasSys.DAL
                 ent_configuracion.RAZON_SOCIAL = Convert.ToString(dr["RAZON_SOCIAL"]);
                 ent_configuracion.IGV = Convert.ToDouble(dr["IGV"]);
                 ent_configuracion.TIPO_CAMBIO = Convert.ToDouble(dr["TIPO_CAMBIO"]);
+                ent_configuracion.TIENDA = Convert.ToString(dr["TIENDA"]);
             }
 
             con.Close();

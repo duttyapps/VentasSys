@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using VentasSys.EL;
 using VentasSys.Utils;
 
@@ -97,8 +94,14 @@ namespace VentasSys.DAL
                 cmd.Parameters.AddWithValue("@RETVAL", MySqlDbType.VarChar);
                 cmd.Parameters["@RETVAL"].Direction = ParameterDirection.Output;
 
+                cmd.Parameters.AddWithValue("@RETID", MySqlDbType.VarChar);
+                cmd.Parameters["@RETID"].Direction = ParameterDirection.Output;
+
                 cmd.Parameters.AddWithValue("@PSTR_NUMERO_DOC", cabecera.nro_doc);
                 cmd.Parameters["@PSTR_NUMERO_DOC"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_COD_TIENDA", cabecera.cod_tienda);
+                cmd.Parameters["@PSTR_COD_TIENDA"].Direction = ParameterDirection.Input;
 
                 cmd.Parameters.AddWithValue("@PSTR_TIPO_VENTA", cabecera.tipo_venta);
                 cmd.Parameters["@PSTR_TIPO_VENTA"].Direction = ParameterDirection.Input;
@@ -127,6 +130,7 @@ namespace VentasSys.DAL
                 cmd.ExecuteNonQuery();
 
                 retval = cmd.Parameters["@RETVAL"].Value.ToString();
+                string id_cab = cmd.Parameters["@RETID"].Value.ToString();
 
                 if (retval == "1")
                 {
@@ -141,6 +145,9 @@ namespace VentasSys.DAL
 
                         cmd.Parameters.AddWithValue("@RETVAL", MySqlDbType.VarChar);
                         cmd.Parameters["@RETVAL"].Direction = ParameterDirection.Output;
+
+                        cmd.Parameters.AddWithValue("@PSTR_ID_CAB", id_cab);
+                        cmd.Parameters["@PSTR_ID_CAB"].Direction = ParameterDirection.Input;
 
                         cmd.Parameters.AddWithValue("@PSTR_NUMBERO_CAB", cabecera.nro_doc);
                         cmd.Parameters["@PSTR_NUMBERO_CAB"].Direction = ParameterDirection.Input;
@@ -172,6 +179,72 @@ namespace VentasSys.DAL
                     }
                 }
                 else
+                {
+                    tr.Rollback();
+                    return retval;
+                }
+
+                tr.Commit();
+            }
+            catch (MySqlException ex)
+            {
+                try
+                {
+                    tr.Rollback();
+                }
+                catch (MySqlException ex1)
+                {
+                    return ex1.ToString();
+                }
+
+                return ex.ToString();
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return retval;
+        }
+
+        public static string anularVenta(Ent_Anular anular)
+        {
+            MySqlTransaction tr = null;
+            con = Conexion.getConnection();
+
+            string retval = "1";
+
+            try
+            {
+                con.Open();
+
+                tr = con.BeginTransaction();
+
+                MySqlCommand cmd = new MySqlCommand();
+
+                cmd.Connection = con;
+                cmd.Transaction = tr;
+
+                cmd.CommandText = "SP_SYS_ANULAR_VENTA";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@RETVAL", MySqlDbType.VarChar);
+                cmd.Parameters["@RETVAL"].Direction = ParameterDirection.Output;
+
+                cmd.Parameters.AddWithValue("@PSTR_ID_CAB", anular.id_cab);
+                cmd.Parameters["@PSTR_ID_CAB"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_USUARIO", anular.usuario);
+                cmd.Parameters["@PSTR_USUARIO"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_MOTIVO", anular.motivo);
+                cmd.Parameters["@PSTR_MOTIVO"].Direction = ParameterDirection.Input;
+
+                cmd.ExecuteNonQuery();
+
+                retval = cmd.Parameters["@RETVAL"].Value.ToString();
+
+                if (retval != "1")
                 {
                     tr.Rollback();
                     return retval;

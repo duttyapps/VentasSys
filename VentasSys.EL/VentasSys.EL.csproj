@@ -58,11 +58,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ent_Anular.cs" />
     <Compile Include="Ent_CategoriaProductos.cs" />
     <Compile Include="Ent_Clientes.cs" />
     <Compile Include="Ent_Configuracion.cs" />
     <Compile Include="Ent_FormaPago.cs" />
     <Compile Include="Ent_Productos.cs" />
+    <Compile Include="Ent_Tienda.cs" />
     <Compile Include="Ent_TipoVentas.cs" />
     <Compile Include="Ent_Usuario.cs" />
     <Compile Include="Ent_Venta.cs" />

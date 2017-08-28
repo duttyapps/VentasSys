@@ -22,6 +22,11 @@ namespace VentasSys.BL
             return DAO_Ventas.procesarVenta(venta);
         }
 
+        public static string anularVenta(Ent_Anular anular)
+        {
+            return DAO_Ventas.anularVenta(anular);
+        }
+
         public static List<Ent_FormaPago> getFormaPago()
         {
             return DAO_Ventas.getFormaPago();
