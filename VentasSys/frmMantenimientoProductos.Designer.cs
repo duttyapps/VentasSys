@@ -247,6 +247,7 @@
             this.MinimizeBox = false;
             this.Name = "frmMantenimientoProductos";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Mantenimiento de Productos";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();

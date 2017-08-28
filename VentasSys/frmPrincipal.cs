@@ -604,5 +604,11 @@ namespace VentasSys
         {
             Application.Exit();
         }
+
+        private void anularVentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAnularVenta frm = new frmAnularVenta(cod_tienda);
+            frm.ShowDialog();
+        }
     }
 }

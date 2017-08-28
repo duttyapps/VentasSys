@@ -70,6 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAnularVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAnularVenta.Designer.cs">
+      <DependentUpon>frmAnularVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBuscarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,9 @@
     <Compile Include="Sistema\Base de Datos\frmConfiguracion.Designer.cs">
       <DependentUpon>frmConfiguracion.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmAnularVenta.resx">
+      <DependentUpon>frmAnularVenta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmBuscarCliente.resx">
       <DependentUpon>frmBuscarCliente.cs</DependentUpon>
     </EmbeddedResource>

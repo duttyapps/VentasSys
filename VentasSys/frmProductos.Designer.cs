@@ -186,6 +186,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmProductos";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Administración de Productos";
             this.ResumeLayout(false);
