@@ -20,9 +20,10 @@ namespace VentasSys.EL
         public string emision { get; set; }
         public int cantidad { get; set; }
         public double monto_total { get; set; }
-        public double monto_recibo { get; set; }
+        public double monto_recibido { get; set; }
         public double monto_vuelto { get; set; }
         public string cliente_doc { get; set; }
+        public string cliente { get; set; }
         public string usuario { get; set; }
         public List<Ent_Productos> lstProductos { get; set; }
 
@@ -40,9 +41,10 @@ namespace VentasSys.EL
             this.emision = String.Empty;
             this.cantidad = 0;
             this.monto_total = 0D;
-            this.monto_recibo = 0D;
+            this.monto_recibido = 0D;
             this.monto_vuelto = 0D;
             this.cliente_doc = String.Empty;
+            this.cliente = String.Empty;
             this.usuario = String.Empty;
             this.lstProductos = new List<Ent_Productos>();
         }

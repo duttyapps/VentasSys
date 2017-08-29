@@ -412,7 +412,7 @@ namespace VentasSys
             venta.forma_pago = forma_pago;
             venta.cantidad = sumarCantidad();
             venta.monto_total = total;
-            venta.monto_recibo = double.Parse(txtRecibido.Text);
+            venta.monto_recibido = double.Parse(txtRecibido.Text);
             venta.monto_vuelto = double.Parse(txtVuelto.Text);
             venta.cliente_doc = txtDNI.Text;
             venta.usuario = ent_usuario.username;

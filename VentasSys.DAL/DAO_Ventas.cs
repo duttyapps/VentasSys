@@ -50,9 +50,10 @@ namespace VentasSys.DAL
                 venta.emision = Convert.ToString(dr["FECHA_EMISION"]);
                 venta.cantidad = Convert.ToInt32(dr["CANTIDAD"]);
                 venta.monto_total = Convert.ToDouble(dr["MONTO_TOTAL"]);
-                venta.monto_recibo = Convert.ToDouble(dr["MONTO_RECIBIDO"]);
+                venta.monto_recibido = Convert.ToDouble(dr["MONTO_RECIBIDO"]);
                 venta.monto_vuelto = Convert.ToDouble(dr["MONTO_VUELTO"]);
                 venta.cliente_doc = Convert.ToString(dr["CLIENTE_DOC"]);
+                venta.cliente = Convert.ToString(dr["CLIENTE_DES"]);
                 venta.usuario = Convert.ToString(dr["USUARIO"]);
 
                 lstVenta.Add(venta);
@@ -202,7 +203,7 @@ namespace VentasSys.DAL
                 cmd.Parameters.AddWithValue("@PSTR_MONTO_TOTAL", double.Parse(cabecera.monto_total.ToString("#.##")));
                 cmd.Parameters["@PSTR_MONTO_TOTAL"].Direction = ParameterDirection.Input;
 
-                cmd.Parameters.AddWithValue("@PSTR_MONTO_RECIBIDO", cabecera.monto_recibo);
+                cmd.Parameters.AddWithValue("@PSTR_MONTO_RECIBIDO", cabecera.monto_recibido);
                 cmd.Parameters["@PSTR_MONTO_RECIBIDO"].Direction = ParameterDirection.Input;
 
                 cmd.Parameters.AddWithValue("@PSTR_MONTO_VUELTO", cabecera.monto_vuelto);
