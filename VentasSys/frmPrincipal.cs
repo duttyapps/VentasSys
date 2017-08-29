@@ -607,7 +607,7 @@ namespace VentasSys
 
         private void anularVentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAnularVenta frm = new frmAnularVenta(cod_tienda);
+            frmAnularVenta frm = new frmAnularVenta(cod_tienda, ent_usuario.username);
             frm.ShowDialog();
         }
     }

@@ -7,6 +7,16 @@ namespace VentasSys.BL
 {
     public static class BL_Ventas
     {
+        public static List<Ent_Venta> getVentas(Ent_Venta ent_tienda)
+        {
+            return DAO_Ventas.getVentas(ent_tienda);
+        }
+
+        public static List<Ent_Productos> getDetalleVenta(string id)
+        {
+            return DAO_Ventas.getDetalleVenta(id);
+        }
+
         public static List<Ent_TipoVentas> getTipoVenta(String codigo)
         {
             return DAO_Ventas.getTipoVenta(codigo);

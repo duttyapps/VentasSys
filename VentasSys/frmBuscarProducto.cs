@@ -18,7 +18,7 @@ namespace VentasSys
             buscarProductos();
         }
 
-        public void buscarProductos()
+        private void buscarProductos()
         {
             string nombre = txtProducto.Text;
             string cat = cboCategoria.SelectedValue.ToString();
@@ -41,7 +41,7 @@ namespace VentasSys
             dgvProductos.Columns["precio"].DefaultCellStyle.Format = "f";
         }
 
-        public void fillCategorias()
+        private void fillCategorias()
         {
             List<Ent_CategoriaProductos> items = new List<Ent_CategoriaProductos>();
 

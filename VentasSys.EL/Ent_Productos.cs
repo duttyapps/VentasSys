@@ -9,6 +9,7 @@ namespace VentasSys.EL
         public string nombre { get; set; }
         public double costo { get; set; }
         public double precio { get; set; }
+        public double monto_total { get; set; }
         public int cantidad { get; set; }
         public int stock { get; set; }
         public string cod_tienda { get; set; }
@@ -22,6 +23,7 @@ namespace VentasSys.EL
             this.nombre = String.Empty;
             this.costo = 0D;
             this.precio = 0D;
+            this.monto_total = 0D;
             this.cantidad = 1;
             this.stock = 1;
             this.des_tienda = String.Empty;
