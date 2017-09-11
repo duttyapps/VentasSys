@@ -84,5 +84,38 @@ namespace VentasSys.DAL
 
             return lstClientes;
         }
+
+        public static bool existeCliente(string dni)
+        {
+            con = Conexion.getConnection();
+            MySqlCommand cmd = new MySqlCommand();
+
+            con.Open();
+
+            cmd.Connection = con;
+            cmd.CommandText = "SP_SYS_GET_CLIENTE";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@PSTR_COD_CLIENTE", dni);
+            cmd.Parameters["@PSTR_COD_CLIENTE"].Direction = ParameterDirection.Input;
+
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Ent_Clientes cliente = new Ent_Clientes();
+                cliente.id = Convert.ToString(dr["ID"]);
+                cliente.nombres = Convert.ToString(dr["NOMBRES"]);
+                cliente.dni = Convert.ToString(dr["DNI"]);
+                cliente.direccion = Convert.ToString(dr["DIRECCION"]);
+
+                con.Close();
+                return true;
+            }
+
+            con.Close();
+
+            return false;
+        }
     }
 }
