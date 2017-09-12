@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using VentasSys.BL;
 using VentasSys.EL;
@@ -48,6 +49,7 @@ namespace VentasSys
             fillMenuTipoVenta();
             fillMenuTienda();
             fillFormaPago();
+            fillTipoMoneda();
             ent_configuracion = new Ent_Configuracion();
             ent_configuracion = BL_Configuracion.getConfiguracion();
             ent_tienda = BL_Tienda.getTienda(ent_configuracion.TIENDA);
@@ -76,7 +78,7 @@ namespace VentasSys
 
             ToolStripMenuItem[] items = new ToolStripMenuItem[lstTipoVentas.Count];
             int i = 0;
-            lstTipoVentas.ForEach(delegate (Ent_TipoVentas tipo_venta)
+            lstTipoVentas.ForEach(delegate(Ent_TipoVentas tipo_venta)
             {
                 items[i] = new ToolStripMenuItem();
                 items[i].Name = tipo_venta.id;
@@ -98,7 +100,7 @@ namespace VentasSys
 
             ToolStripMenuItem[] items = new ToolStripMenuItem[lstTiendas.Count];
             int i = 0;
-            lstTiendas.ForEach(delegate (Ent_Tienda tienda)
+            lstTiendas.ForEach(delegate(Ent_Tienda tienda)
             {
                 items[i] = new ToolStripMenuItem();
                 items[i].Name = tienda.cod_tienda;
@@ -123,6 +125,19 @@ namespace VentasSys
             cboFormaPago.DataSource = items;
             cboFormaPago.ValueMember = "codigo";
             cboFormaPago.DisplayMember = "descripcion";
+        }
+
+        public void fillTipoMoneda()
+        {
+            List<Ent_TipoMoneda> items = new List<Ent_TipoMoneda>();
+
+            var tipomoneda = BL_Ventas.getTipoMoneda();
+
+            items.AddRange(tipomoneda);
+
+            cboTipoMoneda.DataSource = items;
+            cboTipoMoneda.ValueMember = "id";
+            cboTipoMoneda.DisplayMember = "descripcion";
         }
 
         private void MenuVentasTipoItemClickHandler(object sender, EventArgs e)
@@ -156,12 +171,12 @@ namespace VentasSys
 
         private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
-            frmBuscarCliente frm = new frmBuscarCliente(txtCliente.Text, "nombre", tipo_venta);
+            frmBuscarCliente frm = new frmBuscarCliente(txtNombres.Text, "nombre", tipo_venta);
             frm.ShowDialog();
 
             if (frm.ent_cliente != null)
             {
-                txtCliente.Text = (frm.ent_cliente.nombres == null) ? "" : frm.ent_cliente.nombres;
+                txtNombres.Text = (frm.ent_cliente.nombres == null) ? "" : frm.ent_cliente.nombres;
                 txtDireccion.Text = (frm.ent_cliente.direccion == null) ? "" : frm.ent_cliente.direccion;
                 txtDNI.Text = (frm.ent_cliente.dni == null) ? "" : frm.ent_cliente.dni;
             }
@@ -174,9 +189,12 @@ namespace VentasSys
 
             if (frm.ent_cliente != null)
             {
-                txtCliente.Text = (frm.ent_cliente.nombres == null) ? "" : frm.ent_cliente.nombres;
+                txtNombres.Text = (frm.ent_cliente.nombres == null) ? "" : frm.ent_cliente.nombres;
+                txtApellidos.Text = (frm.ent_cliente.apellidos == null) ? "" : frm.ent_cliente.apellidos;
                 txtDireccion.Text = (frm.ent_cliente.direccion == null) ? "" : frm.ent_cliente.direccion;
                 txtDNI.Text = (frm.ent_cliente.dni == null) ? "" : frm.ent_cliente.dni;
+                txtTelefono.Text = (frm.ent_cliente.telefono == null) ? "" : frm.ent_cliente.telefono;
+                txtEmail.Text = (frm.ent_cliente.email == null) ? "" : frm.ent_cliente.email;
             }
         }
 
@@ -346,7 +364,7 @@ namespace VentasSys
                 return;
             }
 
-            if(txtRecibido.Text == String.Empty)
+            if (txtRecibido.Text == String.Empty)
             {
                 txtRecibido.Text = "0.00";
             }
@@ -367,18 +385,21 @@ namespace VentasSys
 
             if (tipo_venta == "BO")
             {
-                if (txtCliente.Text.Length == 0)
+                if (txtDNI.Text.Length == 0)
                 {
                     var confirm = MessageBox.Show("¿Está seguro que desea realizar la venta sin cliente?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (confirm == DialogResult.Yes)
                     {
-                        txtCliente.Text = "SIN NOMBRE";
+                        txtNombres.Text = "SIN NOMBRE";
+                        txtApellidos.Text = "SIN APELLIDOS";
                         txtDireccion.Text = "SIN DIRECCIÓN";
                         txtDNI.Text = "00000000";
+                        txtTelefono.Text = "1111111";
+                        txtEmail.Text = "sincorreo@email.com";
                     }
                     else
                     {
-                        txtCliente.Focus();
+                        txtNombres.Focus();
                         return;
                     }
                 }
@@ -397,10 +418,10 @@ namespace VentasSys
             }
             else if (tipo_venta == "FA")
             {
-                if (txtCliente.Text.Length == 0)
+                if (txtNombres.Text.Length == 0)
                 {
                     MessageBox.Show("La Razón Social no puede estar vacía.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtCliente.Focus();
+                    txtNombres.Focus();
                     return;
                 }
 
@@ -422,6 +443,41 @@ namespace VentasSys
                     MessageBox.Show("La Dirección no puede estar vacía.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtDireccion.Focus();
                     return;
+                }
+            }
+
+            if (txtEmail.Text.Length > 0 && !isValidEmail(txtEmail.Text))
+            {
+                MessageBox.Show("La dirección de email no es correcta, por favor verificar la información proporcionada.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtEmail.Focus();
+                return;
+            }
+
+            bool existe_cliente = BL_Clientes.existeCliente(txtDNI.Text);
+
+            //save customer if doesnt exists
+            if (!existe_cliente)
+            {
+                log.Info("Cliente " + txtDNI.Text + " no existe en la base de datos.", System.Reflection.MethodBase.GetCurrentMethod().Name);
+
+                Ent_Clientes nuevo_cliente = new Ent_Clientes();
+                nuevo_cliente.dni = txtDNI.Text;
+                nuevo_cliente.nombres = txtNombres.Text;
+                nuevo_cliente.apellidos = txtApellidos.Text;
+                nuevo_cliente.direccion = txtDireccion.Text;
+                nuevo_cliente.telefono = txtTelefono.Text;
+                nuevo_cliente.email = txtEmail.Text;
+                nuevo_cliente.tipo = (tipo_venta == "FA") ? "E" : "N";
+
+                string result = BL_Clientes.insertarCliente(nuevo_cliente);
+
+                if (result == "1")
+                {
+                    log.Info("Cliente " + nuevo_cliente.dni + " grabado con éxito.", System.Reflection.MethodBase.GetCurrentMethod().Name);
+                }
+                else
+                {
+                    log.Error("Error al grabar cliente: " + result, System.Reflection.MethodBase.GetCurrentMethod().Name);
                 }
             }
 
@@ -489,14 +545,22 @@ namespace VentasSys
             {
                 lblCliente.Text = "Razón Social:";
                 lblDNI.Text = "R.U.C.:";
+
+                txtApellidos.Visible = false;
+                lblApellidos.Visible = false;
+                txtNombres.Width = 328;
             }
             else
             {
                 lblCliente.Text = "Cliente:";
                 lblDNI.Text = "DNI:";
+
+                txtApellidos.Visible = true;
+                lblApellidos.Visible = true;
+                txtNombres.Width = 122;
             }
 
-            txtCliente.Text = String.Empty;
+            txtNombres.Text = String.Empty;
             txtDNI.Text = String.Empty;
             txtDireccion.Text = String.Empty;
 
@@ -533,7 +597,7 @@ namespace VentasSys
         public void reiniciarVenta()
         {
             InicializarSistema();
-            txtCliente.Text = String.Empty;
+            txtNombres.Text = String.Empty;
             txtDireccion.Text = String.Empty;
             txtDNI.Text = String.Empty;
             dgvProductos.Rows.Clear();
@@ -655,12 +719,51 @@ namespace VentasSys
 
         private void cboFormaPago_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cboFormaPago.SelectedValue.ToString() == "CR")
+            if (cboFormaPago.SelectedValue.ToString() == "CR")
             {
                 lblRecibido.Text = "Restante";
-            } else
+            }
+            else
             {
                 lblRecibido.Text = "Recibido";
+            }
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar)
+                && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtApellidos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        public static bool isValidEmail(string email)
+        {
+            String sFormato;
+            sFormato = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(email, sFormato))
+            {
+                if (Regex.Replace(email, sFormato, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
             }
         }
     }

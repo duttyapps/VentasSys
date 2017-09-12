@@ -28,12 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvDocumentos = new System.Windows.Forms.DataGridView();
+            this.NUMERO_DOC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID_CAB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TIPO_VENTA_DES = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FORMA_PAGO_DES = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.USUARIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NOMBRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MONTO_RECIBIDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MONTO_VUELTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MONTO_TOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNroDocumento = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,14 +59,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtMotivo = new System.Windows.Forms.TextBox();
             this.gbDetalle = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lblTipoVenta = new System.Windows.Forms.Label();
-            this.lblFormaPago = new System.Windows.Forms.Label();
-            this.lblFecha = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblUsuario = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.label = new System.Windows.Forms.Label();
             this.lblVuelto = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lblRecibido = new System.Windows.Forms.Label();
@@ -64,19 +69,14 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.lblTotal = new System.Windows.Forms.Label();
-            this.label = new System.Windows.Forms.Label();
-            this.NUMERO_DOC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID_CAB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TIPO_VENTA_DES = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FORMA_PAGO_DES = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.USUARIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NOMBRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MONTO_RECIBIDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MONTO_VUELTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MONTO_TOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.lblFormaPago = new System.Windows.Forms.Label();
+            this.lblTipoVenta = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocumentos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
             this.gbDetalle.SuspendLayout();
@@ -89,14 +89,14 @@
             this.dgvDocumentos.AllowUserToResizeColumns = false;
             this.dgvDocumentos.AllowUserToResizeRows = false;
             this.dgvDocumentos.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDocumentos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDocumentos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvDocumentos.ColumnHeadersHeight = 30;
             this.dgvDocumentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDocumentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -111,27 +111,27 @@
             this.MONTO_RECIBIDO,
             this.MONTO_VUELTO,
             this.MONTO_TOTAL});
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDocumentos.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDocumentos.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgvDocumentos.GridColor = System.Drawing.Color.White;
             this.dgvDocumentos.Location = new System.Drawing.Point(12, 47);
             this.dgvDocumentos.MultiSelect = false;
             this.dgvDocumentos.Name = "dgvDocumentos";
             this.dgvDocumentos.ReadOnly = true;
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle28.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDocumentos.RowHeadersDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDocumentos.RowHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvDocumentos.RowHeadersVisible = false;
             this.dgvDocumentos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvDocumentos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -139,359 +139,6 @@
             this.dgvDocumentos.Size = new System.Drawing.Size(150, 230);
             this.dgvDocumentos.TabIndex = 0;
             this.dgvDocumentos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocumentos_CellContentClick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Nro. Documento:";
-            // 
-            // txtNroDocumento
-            // 
-            this.txtNroDocumento.Location = new System.Drawing.Point(118, 12);
-            this.txtNroDocumento.Name = "txtNroDocumento";
-            this.txtNroDocumento.Size = new System.Drawing.Size(131, 21);
-            this.txtNroDocumento.TabIndex = 2;
-            this.txtNroDocumento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNroDocumento_KeyPress);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(268, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 15);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Tipo Venta:";
-            // 
-            // cboTipoVenta
-            // 
-            this.cboTipoVenta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboTipoVenta.FormattingEnabled = true;
-            this.cboTipoVenta.Location = new System.Drawing.Point(342, 12);
-            this.cboTipoVenta.Name = "cboTipoVenta";
-            this.cboTipoVenta.Size = new System.Drawing.Size(130, 23);
-            this.cboTipoVenta.TabIndex = 4;
-            // 
-            // dgvDetalle
-            // 
-            this.dgvDetalle.AllowUserToAddRows = false;
-            this.dgvDetalle.AllowUserToDeleteRows = false;
-            this.dgvDetalle.AllowUserToResizeColumns = false;
-            this.dgvDetalle.AllowUserToResizeRows = false;
-            this.dgvDetalle.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle29.BackColor = System.Drawing.Color.DeepSkyBlue;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetalle.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
-            this.dgvDetalle.ColumnHeadersHeight = 30;
-            this.dgvDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvDetalle.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PRODUCTO,
-            this.CANTIDAD,
-            this.PU,
-            this.TOTAL});
-            this.dgvDetalle.GridColor = System.Drawing.Color.White;
-            this.dgvDetalle.Location = new System.Drawing.Point(168, 47);
-            this.dgvDetalle.MultiSelect = false;
-            this.dgvDetalle.Name = "dgvDetalle";
-            this.dgvDetalle.ReadOnly = true;
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle30.BackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetalle.RowHeadersDefaultCellStyle = dataGridViewCellStyle30;
-            this.dgvDetalle.RowHeadersVisible = false;
-            this.dgvDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetalle.Size = new System.Drawing.Size(400, 230);
-            this.dgvDetalle.TabIndex = 5;
-            // 
-            // PRODUCTO
-            // 
-            this.PRODUCTO.DataPropertyName = "nombre";
-            this.PRODUCTO.Frozen = true;
-            this.PRODUCTO.HeaderText = "Producto";
-            this.PRODUCTO.Name = "PRODUCTO";
-            this.PRODUCTO.ReadOnly = true;
-            this.PRODUCTO.Width = 220;
-            // 
-            // CANTIDAD
-            // 
-            this.CANTIDAD.DataPropertyName = "cantidad";
-            this.CANTIDAD.Frozen = true;
-            this.CANTIDAD.HeaderText = "Cant.";
-            this.CANTIDAD.Name = "CANTIDAD";
-            this.CANTIDAD.ReadOnly = true;
-            this.CANTIDAD.Width = 60;
-            // 
-            // PU
-            // 
-            this.PU.DataPropertyName = "precio";
-            this.PU.Frozen = true;
-            this.PU.HeaderText = "P.U.";
-            this.PU.Name = "PU";
-            this.PU.ReadOnly = true;
-            this.PU.Width = 60;
-            // 
-            // TOTAL
-            // 
-            this.TOTAL.DataPropertyName = "monto_total";
-            this.TOTAL.Frozen = true;
-            this.TOTAL.HeaderText = "Total";
-            this.TOTAL.Name = "TOTAL";
-            this.TOTAL.ReadOnly = true;
-            this.TOTAL.Width = 60;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(493, 11);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 24);
-            this.btnBuscar.TabIndex = 6;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // btnAnular
-            // 
-            this.btnAnular.BackColor = System.Drawing.Color.Red;
-            this.btnAnular.FlatAppearance.BorderSize = 0;
-            this.btnAnular.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnular.ForeColor = System.Drawing.Color.White;
-            this.btnAnular.Location = new System.Drawing.Point(635, 8);
-            this.btnAnular.Name = "btnAnular";
-            this.btnAnular.Size = new System.Drawing.Size(164, 33);
-            this.btnAnular.TabIndex = 39;
-            this.btnAnular.Text = "Anular Documento";
-            this.btnAnular.UseVisualStyleBackColor = false;
-            this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 284);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 15);
-            this.label3.TabIndex = 40;
-            this.label3.Text = "Motivo Anulación:";
-            // 
-            // txtMotivo
-            // 
-            this.txtMotivo.Location = new System.Drawing.Point(12, 302);
-            this.txtMotivo.Name = "txtMotivo";
-            this.txtMotivo.Size = new System.Drawing.Size(556, 21);
-            this.txtMotivo.TabIndex = 41;
-            // 
-            // gbDetalle
-            // 
-            this.gbDetalle.Controls.Add(this.lblTotal);
-            this.gbDetalle.Controls.Add(this.label);
-            this.gbDetalle.Controls.Add(this.lblVuelto);
-            this.gbDetalle.Controls.Add(this.label9);
-            this.gbDetalle.Controls.Add(this.lblRecibido);
-            this.gbDetalle.Controls.Add(this.lblNombre);
-            this.gbDetalle.Controls.Add(this.lblDNI);
-            this.gbDetalle.Controls.Add(this.label13);
-            this.gbDetalle.Controls.Add(this.label14);
-            this.gbDetalle.Controls.Add(this.label15);
-            this.gbDetalle.Controls.Add(this.lblUsuario);
-            this.gbDetalle.Controls.Add(this.label7);
-            this.gbDetalle.Controls.Add(this.lblFecha);
-            this.gbDetalle.Controls.Add(this.lblFormaPago);
-            this.gbDetalle.Controls.Add(this.lblTipoVenta);
-            this.gbDetalle.Controls.Add(this.label6);
-            this.gbDetalle.Controls.Add(this.label5);
-            this.gbDetalle.Controls.Add(this.label4);
-            this.gbDetalle.Location = new System.Drawing.Point(574, 47);
-            this.gbDetalle.Name = "gbDetalle";
-            this.gbDetalle.Size = new System.Drawing.Size(295, 276);
-            this.gbDetalle.TabIndex = 42;
-            this.gbDetalle.TabStop = false;
-            this.gbDetalle.Text = "Detalle de la Venta";
-            this.gbDetalle.Visible = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 40);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 15);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Tipo Venta:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 65);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(95, 15);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Forma de Pago:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 89);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(92, 15);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Fecha Emisión:";
-            // 
-            // lblTipoVenta
-            // 
-            this.lblTipoVenta.AutoSize = true;
-            this.lblTipoVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoVenta.Location = new System.Drawing.Point(119, 40);
-            this.lblTipoVenta.Name = "lblTipoVenta";
-            this.lblTipoVenta.Size = new System.Drawing.Size(12, 15);
-            this.lblTipoVenta.TabIndex = 3;
-            this.lblTipoVenta.Text = "-";
-            // 
-            // lblFormaPago
-            // 
-            this.lblFormaPago.AutoSize = true;
-            this.lblFormaPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFormaPago.Location = new System.Drawing.Point(119, 65);
-            this.lblFormaPago.Name = "lblFormaPago";
-            this.lblFormaPago.Size = new System.Drawing.Size(12, 15);
-            this.lblFormaPago.TabIndex = 4;
-            this.lblFormaPago.Text = "-";
-            // 
-            // lblFecha
-            // 
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.Location = new System.Drawing.Point(119, 89);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(12, 15);
-            this.lblFecha.TabIndex = 5;
-            this.lblFecha.Text = "-";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 113);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(46, 15);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Cajero:";
-            // 
-            // lblUsuario
-            // 
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(119, 113);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(12, 15);
-            this.lblUsuario.TabIndex = 7;
-            this.lblUsuario.Text = "-";
-            // 
-            // lblVuelto
-            // 
-            this.lblVuelto.AutoSize = true;
-            this.lblVuelto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVuelto.Location = new System.Drawing.Point(119, 210);
-            this.lblVuelto.Name = "lblVuelto";
-            this.lblVuelto.Size = new System.Drawing.Size(12, 15);
-            this.lblVuelto.TabIndex = 15;
-            this.lblVuelto.Text = "-";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 210);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(96, 15);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "Vuelto/Restante:";
-            // 
-            // lblRecibido
-            // 
-            this.lblRecibido.AutoSize = true;
-            this.lblRecibido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRecibido.Location = new System.Drawing.Point(119, 186);
-            this.lblRecibido.Name = "lblRecibido";
-            this.lblRecibido.Size = new System.Drawing.Size(12, 15);
-            this.lblRecibido.TabIndex = 13;
-            this.lblRecibido.Text = "-";
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(119, 162);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(12, 15);
-            this.lblNombre.TabIndex = 12;
-            this.lblNombre.Text = "-";
-            // 
-            // lblDNI
-            // 
-            this.lblDNI.AutoSize = true;
-            this.lblDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDNI.Location = new System.Drawing.Point(119, 137);
-            this.lblDNI.Name = "lblDNI";
-            this.lblDNI.Size = new System.Drawing.Size(12, 15);
-            this.lblDNI.TabIndex = 11;
-            this.lblDNI.Text = "-";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 186);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(97, 15);
-            this.label13.TabIndex = 10;
-            this.label13.Text = "Monto Recibido:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 162);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(107, 15);
-            this.label14.TabIndex = 9;
-            this.label14.Text = "Nombre/R. Social:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(6, 137);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(60, 15);
-            this.label15.TabIndex = 8;
-            this.label15.Text = "DNI/RUC:";
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(119, 237);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(12, 15);
-            this.lblTotal.TabIndex = 17;
-            this.lblTotal.Text = "-";
-            // 
-            // label
-            // 
-            this.label.AutoSize = true;
-            this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.label.Location = new System.Drawing.Point(6, 235);
-            this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(87, 15);
-            this.label.TabIndex = 16;
-            this.label.Text = "Monto Total:";
             // 
             // NUMERO_DOC
             // 
@@ -581,6 +228,362 @@
             this.MONTO_TOTAL.Name = "MONTO_TOTAL";
             this.MONTO_TOTAL.ReadOnly = true;
             this.MONTO_TOTAL.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(242, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 15);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Nro. Documento:";
+            // 
+            // txtNroDocumento
+            // 
+            this.txtNroDocumento.Location = new System.Drawing.Point(348, 13);
+            this.txtNroDocumento.MaxLength = 14;
+            this.txtNroDocumento.Name = "txtNroDocumento";
+            this.txtNroDocumento.Size = new System.Drawing.Size(131, 21);
+            this.txtNroDocumento.TabIndex = 2;
+            this.txtNroDocumento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNroDocumento_KeyPress);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(68, 15);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Tipo Venta:";
+            // 
+            // cboTipoVenta
+            // 
+            this.cboTipoVenta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTipoVenta.FormattingEnabled = true;
+            this.cboTipoVenta.Location = new System.Drawing.Point(86, 13);
+            this.cboTipoVenta.Name = "cboTipoVenta";
+            this.cboTipoVenta.Size = new System.Drawing.Size(130, 23);
+            this.cboTipoVenta.TabIndex = 4;
+            // 
+            // dgvDetalle
+            // 
+            this.dgvDetalle.AllowUserToAddRows = false;
+            this.dgvDetalle.AllowUserToDeleteRows = false;
+            this.dgvDetalle.AllowUserToResizeColumns = false;
+            this.dgvDetalle.AllowUserToResizeRows = false;
+            this.dgvDetalle.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalle.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            this.dgvDetalle.ColumnHeadersHeight = 30;
+            this.dgvDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvDetalle.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PRODUCTO,
+            this.CANTIDAD,
+            this.PU,
+            this.TOTAL});
+            this.dgvDetalle.GridColor = System.Drawing.Color.White;
+            this.dgvDetalle.Location = new System.Drawing.Point(168, 47);
+            this.dgvDetalle.MultiSelect = false;
+            this.dgvDetalle.Name = "dgvDetalle";
+            this.dgvDetalle.ReadOnly = true;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalle.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            this.dgvDetalle.RowHeadersVisible = false;
+            this.dgvDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDetalle.Size = new System.Drawing.Size(400, 230);
+            this.dgvDetalle.TabIndex = 5;
+            // 
+            // PRODUCTO
+            // 
+            this.PRODUCTO.DataPropertyName = "nombre";
+            this.PRODUCTO.Frozen = true;
+            this.PRODUCTO.HeaderText = "Producto";
+            this.PRODUCTO.Name = "PRODUCTO";
+            this.PRODUCTO.ReadOnly = true;
+            this.PRODUCTO.Width = 220;
+            // 
+            // CANTIDAD
+            // 
+            this.CANTIDAD.DataPropertyName = "cantidad";
+            this.CANTIDAD.Frozen = true;
+            this.CANTIDAD.HeaderText = "Cant.";
+            this.CANTIDAD.Name = "CANTIDAD";
+            this.CANTIDAD.ReadOnly = true;
+            this.CANTIDAD.Width = 60;
+            // 
+            // PU
+            // 
+            this.PU.DataPropertyName = "precio";
+            this.PU.Frozen = true;
+            this.PU.HeaderText = "P.U.";
+            this.PU.Name = "PU";
+            this.PU.ReadOnly = true;
+            this.PU.Width = 60;
+            // 
+            // TOTAL
+            // 
+            this.TOTAL.DataPropertyName = "monto_total";
+            this.TOTAL.Frozen = true;
+            this.TOTAL.HeaderText = "Total";
+            this.TOTAL.Name = "TOTAL";
+            this.TOTAL.ReadOnly = true;
+            this.TOTAL.Width = 60;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(493, 11);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 24);
+            this.btnBuscar.TabIndex = 6;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // btnAnular
+            // 
+            this.btnAnular.BackColor = System.Drawing.Color.Red;
+            this.btnAnular.Enabled = false;
+            this.btnAnular.FlatAppearance.BorderSize = 0;
+            this.btnAnular.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnular.ForeColor = System.Drawing.Color.White;
+            this.btnAnular.Location = new System.Drawing.Point(643, 283);
+            this.btnAnular.Name = "btnAnular";
+            this.btnAnular.Size = new System.Drawing.Size(164, 40);
+            this.btnAnular.TabIndex = 39;
+            this.btnAnular.Text = "Anular Documento";
+            this.btnAnular.UseVisualStyleBackColor = false;
+            this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 284);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(103, 15);
+            this.label3.TabIndex = 40;
+            this.label3.Text = "Motivo Anulación:";
+            // 
+            // txtMotivo
+            // 
+            this.txtMotivo.Location = new System.Drawing.Point(12, 302);
+            this.txtMotivo.MaxLength = 100;
+            this.txtMotivo.Name = "txtMotivo";
+            this.txtMotivo.Size = new System.Drawing.Size(556, 21);
+            this.txtMotivo.TabIndex = 41;
+            // 
+            // gbDetalle
+            // 
+            this.gbDetalle.Controls.Add(this.lblTotal);
+            this.gbDetalle.Controls.Add(this.label);
+            this.gbDetalle.Controls.Add(this.lblVuelto);
+            this.gbDetalle.Controls.Add(this.label9);
+            this.gbDetalle.Controls.Add(this.lblRecibido);
+            this.gbDetalle.Controls.Add(this.lblNombre);
+            this.gbDetalle.Controls.Add(this.lblDNI);
+            this.gbDetalle.Controls.Add(this.label13);
+            this.gbDetalle.Controls.Add(this.label14);
+            this.gbDetalle.Controls.Add(this.label15);
+            this.gbDetalle.Controls.Add(this.lblUsuario);
+            this.gbDetalle.Controls.Add(this.label7);
+            this.gbDetalle.Controls.Add(this.lblFecha);
+            this.gbDetalle.Controls.Add(this.lblFormaPago);
+            this.gbDetalle.Controls.Add(this.lblTipoVenta);
+            this.gbDetalle.Controls.Add(this.label6);
+            this.gbDetalle.Controls.Add(this.label5);
+            this.gbDetalle.Controls.Add(this.label4);
+            this.gbDetalle.Location = new System.Drawing.Point(574, 8);
+            this.gbDetalle.Name = "gbDetalle";
+            this.gbDetalle.Size = new System.Drawing.Size(295, 269);
+            this.gbDetalle.TabIndex = 42;
+            this.gbDetalle.TabStop = false;
+            this.gbDetalle.Text = "Detalle de la Venta";
+            this.gbDetalle.Visible = false;
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.Location = new System.Drawing.Point(119, 236);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(12, 15);
+            this.lblTotal.TabIndex = 17;
+            this.lblTotal.Text = "-";
+            // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.label.Location = new System.Drawing.Point(6, 234);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(87, 15);
+            this.label.TabIndex = 16;
+            this.label.Text = "Monto Total:";
+            // 
+            // lblVuelto
+            // 
+            this.lblVuelto.AutoSize = true;
+            this.lblVuelto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVuelto.Location = new System.Drawing.Point(119, 209);
+            this.lblVuelto.Name = "lblVuelto";
+            this.lblVuelto.Size = new System.Drawing.Size(12, 15);
+            this.lblVuelto.TabIndex = 15;
+            this.lblVuelto.Text = "-";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 209);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(96, 15);
+            this.label9.TabIndex = 14;
+            this.label9.Text = "Vuelto/Restante:";
+            // 
+            // lblRecibido
+            // 
+            this.lblRecibido.AutoSize = true;
+            this.lblRecibido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRecibido.Location = new System.Drawing.Point(119, 185);
+            this.lblRecibido.Name = "lblRecibido";
+            this.lblRecibido.Size = new System.Drawing.Size(12, 15);
+            this.lblRecibido.TabIndex = 13;
+            this.lblRecibido.Text = "-";
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Location = new System.Drawing.Point(119, 161);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(12, 15);
+            this.lblNombre.TabIndex = 12;
+            this.lblNombre.Text = "-";
+            // 
+            // lblDNI
+            // 
+            this.lblDNI.AutoSize = true;
+            this.lblDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDNI.Location = new System.Drawing.Point(119, 136);
+            this.lblDNI.Name = "lblDNI";
+            this.lblDNI.Size = new System.Drawing.Size(12, 15);
+            this.lblDNI.TabIndex = 11;
+            this.lblDNI.Text = "-";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 185);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(97, 15);
+            this.label13.TabIndex = 10;
+            this.label13.Text = "Monto Recibido:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 161);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(107, 15);
+            this.label14.TabIndex = 9;
+            this.label14.Text = "Nombre/R. Social:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(6, 136);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(60, 15);
+            this.label15.TabIndex = 8;
+            this.label15.Text = "DNI/RUC:";
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsuario.Location = new System.Drawing.Point(119, 112);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(12, 15);
+            this.lblUsuario.TabIndex = 7;
+            this.lblUsuario.Text = "-";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 112);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(46, 15);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Cajero:";
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.Location = new System.Drawing.Point(119, 88);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(12, 15);
+            this.lblFecha.TabIndex = 5;
+            this.lblFecha.Text = "-";
+            // 
+            // lblFormaPago
+            // 
+            this.lblFormaPago.AutoSize = true;
+            this.lblFormaPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFormaPago.Location = new System.Drawing.Point(119, 64);
+            this.lblFormaPago.Name = "lblFormaPago";
+            this.lblFormaPago.Size = new System.Drawing.Size(12, 15);
+            this.lblFormaPago.TabIndex = 4;
+            this.lblFormaPago.Text = "-";
+            // 
+            // lblTipoVenta
+            // 
+            this.lblTipoVenta.AutoSize = true;
+            this.lblTipoVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoVenta.Location = new System.Drawing.Point(119, 39);
+            this.lblTipoVenta.Name = "lblTipoVenta";
+            this.lblTipoVenta.Size = new System.Drawing.Size(12, 15);
+            this.lblTipoVenta.TabIndex = 3;
+            this.lblTipoVenta.Text = "-";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 88);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(92, 15);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Fecha Emisión:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 64);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(95, 15);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Forma de Pago:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 39);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(68, 15);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Tipo Venta:";
             // 
             // frmAnularVenta
             // 

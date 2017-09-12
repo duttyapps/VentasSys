@@ -93,6 +93,9 @@ namespace VentasSys
                 ent_cliente = new Ent_Clientes();
                 ent_cliente.id = dgvClientes.Rows[e.RowIndex].Cells["id"].Value.ToString();
                 ent_cliente.nombres = dgvClientes.Rows[e.RowIndex].Cells["nombres"].Value.ToString();
+                ent_cliente.apellidos = dgvClientes.Rows[e.RowIndex].Cells["apellidos"].Value.ToString();
+                ent_cliente.telefono = dgvClientes.Rows[e.RowIndex].Cells["telefono"].Value.ToString();
+                ent_cliente.email = dgvClientes.Rows[e.RowIndex].Cells["email"].Value.ToString();
                 ent_cliente.dni = dgvClientes.Rows[e.RowIndex].Cells["dni"].Value.ToString();
                 ent_cliente.direccion = dgvClientes.Rows[e.RowIndex].Cells["direccion"].Value.ToString();
 

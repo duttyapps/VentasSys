@@ -119,20 +119,18 @@ namespace VentasSys
                 lblVuelto.Text = String.Format("{0:f2}", dgvDocumentos.Rows[e.RowIndex].Cells["MONTO_VUELTO"].Value);
                 lblTotal.Text = String.Format("{0:f2}", dgvDocumentos.Rows[e.RowIndex].Cells["MONTO_TOTAL"].Value);
                 gbDetalle.Visible = true;
+                btnAnular.Enabled = true;
             }
         }
 
         private void btnAnular_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             if (id_cab == String.Empty)
             {
                 MessageBox.Show("Debe seleccionar un documento para anular.", "Anular Venta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-=======
             var confirm = MessageBox.Show("¿Está seguro que desea anular la venta?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
->>>>>>> 5927b5f685723af3c37a9f5abd881ede26f2b295
 
             if (confirm == System.Windows.Forms.DialogResult.Yes)
             {
@@ -168,7 +166,7 @@ namespace VentasSys
                 {
                     MessageBox.Show("¡Venta anulada exitosamente!", "Anular Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     fillDocumentos();
-                    gbDetalle.Visible = false;
+                    reiniciarAnular();
                 }
                 else
                 {
@@ -193,6 +191,15 @@ namespace VentasSys
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             fillDocumentos();
+            reiniciarAnular();
+        }
+
+        private void reiniciarAnular()
+        {
+            txtNroDocumento.Text = String.Empty;
+            txtMotivo.Text = String.Empty;
+            gbDetalle.Visible = false;
+            btnAnular.Enabled = false;
         }
     }
 }

@@ -41,5 +41,10 @@ namespace VentasSys.BL
         {
             return DAO_Ventas.getFormaPago();
         }
+
+        public static List<Ent_TipoMoneda> getTipoMoneda()
+        {
+            return DAO_Ventas.getTipoMoneda();
+        }
     }
 }

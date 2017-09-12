@@ -392,5 +392,36 @@ namespace VentasSys.DAL
 
             return lstFormaPago;
         }
+
+        public static List<Ent_TipoMoneda> getTipoMoneda()
+        {
+            List<Ent_TipoMoneda> lstTipoMoneda = new List<Ent_TipoMoneda>();
+
+            con = Conexion.getConnection();
+            MySqlCommand cmd = new MySqlCommand();
+
+            con.Open();
+
+            cmd.Connection = con;
+            cmd.CommandText = "SP_GET_TIPO_MONEDA";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Ent_TipoMoneda tipomoneda = new Ent_TipoMoneda();
+                tipomoneda.id = Convert.ToString(dr["ID"]);
+                tipomoneda.descripcion = Convert.ToString(dr["DESCRIPCION"]) + " (" + Convert.ToString(dr["SIMBOLO"]) + ")";
+                tipomoneda.simbolo = Convert.ToString(dr["SIMBOLO"]);
+                tipomoneda.tipo_cambio = Convert.ToDouble(dr["TIPO_CAMBIO"]);
+
+                lstTipoMoneda.Add(tipomoneda);
+            }
+
+            con.Close();
+
+            return lstTipoMoneda;
+        }
     }
 }

@@ -37,6 +37,11 @@ namespace VentasSys
             cboTienda.DataSource = items;
             cboTienda.ValueMember = "cod_tienda";
             cboTienda.DisplayMember = "des_tienda";
+
+            items.RemoveAt(0);
+            cboTiendaDet.DataSource = items;
+            cboTiendaDet.ValueMember = "cod_tienda";
+            cboTiendaDet.DisplayMember = "des_tienda";
         }
 
         public void fillCategorias()
@@ -52,6 +57,11 @@ namespace VentasSys
             cboCategoria.DataSource = items;
             cboCategoria.ValueMember = "id";
             cboCategoria.DisplayMember = "nombre";
+
+            items.RemoveAt(0);
+            cboCategoriaDet.DataSource = items;
+            cboCategoriaDet.ValueMember = "id";
+            cboCategoriaDet.DisplayMember = "nombre";
         }
 
         public void fillProductos()

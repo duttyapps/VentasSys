@@ -37,8 +37,11 @@ namespace VentasSys.DAL
                 Ent_Clientes cliente = new Ent_Clientes();
                 cliente.id = Convert.ToString(dr["ID"]);
                 cliente.nombres = Convert.ToString(dr["NOMBRES"]);
+                cliente.apellidos = Convert.ToString(dr["APELLIDOS"]);
                 cliente.dni = Convert.ToString(dr["DNI"]);
                 cliente.direccion = Convert.ToString(dr["DIRECCION"]);
+                cliente.email = Convert.ToString(dr["EMAIL"]);
+                cliente.telefono = Convert.ToString(dr["TELEFONO"]);
 
                 lstClientes.Add(cliente);
             }
@@ -74,8 +77,11 @@ namespace VentasSys.DAL
                 Ent_Clientes cliente = new Ent_Clientes();
                 cliente.id = Convert.ToString(dr["ID"]);
                 cliente.nombres = Convert.ToString(dr["NOMBRES"]);
+                cliente.apellidos = Convert.ToString(dr["APELLIDOS"]);
                 cliente.dni = Convert.ToString(dr["DNI"]);
                 cliente.direccion = Convert.ToString(dr["DIRECCION"]);
+                cliente.email = Convert.ToString(dr["EMAIL"]);
+                cliente.telefono = Convert.ToString(dr["TELEFONO"]);
 
                 lstClientes.Add(cliente);
             }
