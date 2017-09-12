@@ -124,26 +124,39 @@ namespace VentasSys
 
         private void btnAnular_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             if (id_cab == String.Empty)
             {
                 MessageBox.Show("Debe seleccionar un documento para anular.", "Anular Venta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+=======
+            var confirm = MessageBox.Show("¿Está seguro que desea anular la venta?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+>>>>>>> 5927b5f685723af3c37a9f5abd881ede26f2b295
 
-            if (txtMotivo.Text == String.Empty)
+            if (confirm == System.Windows.Forms.DialogResult.Yes)
             {
-                MessageBox.Show("El Motivo no puede estar vacío.", "Anular Venta", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtMotivo.Focus();
-                return;
+                if (id_cab == String.Empty)
+                {
+                    MessageBox.Show("Debe seleccionar un documento para anular.", "Anular Venta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (txtMotivo.Text == String.Empty)
+                {
+                    MessageBox.Show("El Motivo no puede estar vacío.", "Anular Venta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtMotivo.Focus();
+                    return;
+                }
+
+                Ent_Anular anular = new Ent_Anular();
+                anular.id_cab = int.Parse(id_cab);
+                anular.tienda_cod = cod_tienda;
+                anular.usuario = usuario;
+                anular.motivo = txtMotivo.Text;
+
+                anularVenta(anular);
             }
-
-            Ent_Anular anular = new Ent_Anular();
-            anular.id_cab = int.Parse(id_cab);
-            anular.tienda_cod = cod_tienda;
-            anular.usuario = usuario;
-            anular.motivo = txtMotivo.Text;
-
-            anularVenta(anular);
         }
 
         private void anularVenta(Ent_Anular anular)

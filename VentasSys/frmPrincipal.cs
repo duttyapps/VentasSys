@@ -444,6 +444,17 @@ namespace VentasSys
             venta.cliente_doc = txtDNI.Text;
             venta.usuario = ent_usuario.username;
 
+            bool existe_cliente = BL_Clientes.existeCliente(venta.cliente_doc);
+
+            if (!existe_cliente)
+            {
+                var confirm = MessageBox.Show("¿Desea guardar el cliente en el sistema?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirm == System.Windows.Forms.DialogResult.Yes)
+                {
+
+                }
+            }
+
             foreach (DataGridViewRow row in dgvProductos.Rows)
             {
                 Ent_Productos prd = new Ent_Productos();
@@ -484,6 +495,10 @@ namespace VentasSys
                 lblCliente.Text = "Cliente:";
                 lblDNI.Text = "DNI:";
             }
+
+            txtCliente.Text = String.Empty;
+            txtDNI.Text = String.Empty;
+            txtDireccion.Text = String.Empty;
 
             log.Info("Cambio Tipo Venta: " + tipo_venta, System.Reflection.MethodBase.GetCurrentMethod().Name);
             log.Info("Serie " + lblSerie.Text, System.Reflection.MethodBase.GetCurrentMethod().Name);

@@ -109,7 +109,6 @@ namespace VentasSys.DAL
             }
 
             con.Close();
-
             return result;
         }
 
