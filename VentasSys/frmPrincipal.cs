@@ -224,7 +224,7 @@ namespace VentasSys
 
         private string generarCodigoProducto(int id, int cat)
         {
-            return id.ToString(cod_tienda + "-" + cat.ToString("00") + "00000");
+            return id.ToString(cod_tienda + cat.ToString("00") + "00000");
         }
 
         private void sumarTotal()
@@ -248,10 +248,24 @@ namespace VentasSys
         private void dgvProductos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             int row = e.RowIndex;
-            multiplicarxCantidad(row);
-            //formating...
-            double pu = double.Parse(dgvProductos.Rows[row].Cells["PU"].Value.ToString());
-            dgvProductos.Rows[row].Cells["PU"].Value = pu.ToString("#0.00");
+
+            if (int.Parse(dgvProductos.Rows[row].Cells["CANTIDAD"].Value.ToString()) == 0)
+            {
+                dgvProductos.Rows[row].Cells["CANTIDAD"].Value = 1;
+            }
+
+            if (decimal.Parse(dgvProductos.Rows[row].Cells["PU"].Value.ToString()) == 0)
+            {
+                dgvProductos.Rows.RemoveAt(row);
+            }
+
+            if (dgvProductos.Rows.Count > 0)
+            {
+                multiplicarxCantidad(row);
+                //formating...
+                double pu = double.Parse(dgvProductos.Rows[row].Cells["PU"].Value.ToString());
+                dgvProductos.Rows[row].Cells["PU"].Value = pu.ToString("#0.00");
+            }
         }
 
         private void multiplicarxCantidad(int row)
@@ -332,7 +346,12 @@ namespace VentasSys
                 return;
             }
 
-            if (Convert.ToDecimal(txtRecibido.Text) <= 0)
+            if(txtRecibido.Text == String.Empty)
+            {
+                txtRecibido.Text = "0.00";
+            }
+
+            if (Convert.ToDecimal(txtRecibido.Text) <= 0 && cboFormaPago.SelectedValue.ToString() == "CO")
             {
                 MessageBox.Show("El monto recibido no puede estar en S/. 0.00.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtRecibido.Select();
@@ -351,7 +370,7 @@ namespace VentasSys
                 if (txtCliente.Text.Length == 0)
                 {
                     var confirm = MessageBox.Show("¿Está seguro que desea realizar la venta sin cliente?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (confirm == System.Windows.Forms.DialogResult.Yes)
+                    if (confirm == DialogResult.Yes)
                     {
                         txtCliente.Text = "SIN NOMBRE";
                         txtDireccion.Text = "SIN DIRECCIÓN";
@@ -366,12 +385,14 @@ namespace VentasSys
 
                 if (txtDireccion.Text.Length == 0)
                 {
-                    txtDireccion.Text = "-";
+                    txtDireccion.Text = "SIN DIRECCIÓN";
                 }
 
-                if (txtDNI.Text.Length == 0)
+                if (txtDNI.Text.Length != 8)
                 {
-                    txtDNI.Text = "-";
+                    MessageBox.Show("Debe ingresar un DNI correcto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtDNI.Focus();
+                    return;
                 }
             }
             else if (tipo_venta == "FA")
@@ -385,7 +406,13 @@ namespace VentasSys
 
                 if (txtDNI.Text.Length == 0)
                 {
-                    MessageBox.Show("El R.U.C. no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("El RUC no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtDNI.Focus();
+                    return;
+                }
+                else if (txtDNI.Text.Length != 11)
+                {
+                    MessageBox.Show("El número RUC no es correcto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtDNI.Focus();
                     return;
                 }
@@ -484,7 +511,7 @@ namespace VentasSys
 
         private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmProductos frm = new frmProductos(cod_tienda);
+            frmProductos frm = new frmProductos(cod_tienda, ent_usuario.username);
             frm.ShowDialog();
         }
 
@@ -609,6 +636,17 @@ namespace VentasSys
         {
             frmAnularVenta frm = new frmAnularVenta(cod_tienda, ent_usuario.username);
             frm.ShowDialog();
+        }
+
+        private void cboFormaPago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cboFormaPago.SelectedValue.ToString() == "CR")
+            {
+                lblRecibido.Text = "Restante";
+            } else
+            {
+                lblRecibido.Text = "Recibido";
+            }
         }
     }
 }

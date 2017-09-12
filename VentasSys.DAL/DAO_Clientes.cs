@@ -84,5 +84,77 @@ namespace VentasSys.DAL
 
             return lstClientes;
         }
+
+        public static bool existeCliente(string dni)
+        {
+            bool result = false;
+
+            con = Conexion.getConnection();
+            MySqlCommand cmd = new MySqlCommand();
+
+            con.Open();
+
+            cmd.Connection = con;
+            cmd.CommandText = "SP_SYS_GET_CLIENTE";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@PSTR_COD_CLIENTE", dni);
+            cmd.Parameters["@PSTR_COD_CLIENTE"].Direction = ParameterDirection.Input;
+
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                result = true;
+            }
+
+            con.Close();
+
+            return result;
+        }
+
+        public static string insertarCliente(Ent_Clientes cliente)
+        {
+            con = Conexion.getConnection();
+            MySqlCommand cmd = new MySqlCommand();
+
+            con.Open();
+
+            cmd.Connection = con;
+            cmd.CommandText = "SP_SYS_SET_CLIENTE";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@RETVAL", MySqlDbType.VarChar);
+            cmd.Parameters["@RETVAL"].Direction = ParameterDirection.Output;
+
+            cmd.Parameters.AddWithValue("@PSTR_DNI", cliente.dni);
+            cmd.Parameters["@PSTR_DNI"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_NOMBRES", cliente.nombres);
+            cmd.Parameters["@PSTR_NOMBRES"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_APELLIDOS", cliente.apellidos);
+            cmd.Parameters["@PSTR_APELLIDOS"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_DIRECCION", cliente.direccion);
+            cmd.Parameters["@PSTR_DIRECCION"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_TELEFONO", cliente.telefono);
+            cmd.Parameters["@PSTR_TELEFONO"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_EMAIL", cliente.telefono);
+            cmd.Parameters["@PSTR_EMAIL"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_TIPO", cliente.tipo);
+            cmd.Parameters["@PSTR_TIPO"].Direction = ParameterDirection.Input;
+
+            cmd.ExecuteNonQuery();
+
+            string retval = cmd.Parameters["@RETVAL"].Value.ToString();
+
+            con.Close();
+
+            return retval;
+        }
     }
 }

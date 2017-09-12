@@ -118,6 +118,9 @@ namespace VentasSys.DAL
             cmd.Parameters.AddWithValue("@PSTR_STOCK", producto.stock);
             cmd.Parameters["@PSTR_STOCK"].Direction = ParameterDirection.Input;
 
+            cmd.Parameters.AddWithValue("@PSTR_USUARIO", producto.usuario);
+            cmd.Parameters["@PSTR_USUARIO"].Direction = ParameterDirection.Input;
+
             cmd.Parameters.AddWithValue("@PSTR_ACTIVO", producto.activo);
             cmd.Parameters["@PSTR_ACTIVO"].Direction = ParameterDirection.Input;
 

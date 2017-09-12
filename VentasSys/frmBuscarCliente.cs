@@ -17,7 +17,7 @@ namespace VentasSys
         public frmBuscarCliente(string cliente, string _tipo = "nombre", string tipo_venta = "BO")
         {
             InitializeComponent();
-            txtCliente.Text = cliente;
+            //txtCliente.Text = cliente;
             tipo = _tipo;
             tipo_cliente = (tipo_venta == "FA") ? "E" : "N";
 

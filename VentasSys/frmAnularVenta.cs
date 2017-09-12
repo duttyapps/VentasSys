@@ -50,7 +50,7 @@ namespace VentasSys
                 param_venta.nro_doc = int.Parse(txtNroDocumento.Text);
             }
 
-            if(cboTipoVenta.SelectedValue == null)
+            if (cboTipoVenta.SelectedValue == null)
             {
                 param_venta.tipo_venta = String.Empty;
             }
@@ -91,7 +91,7 @@ namespace VentasSys
         {
             List<Ent_TipoVentas> items = new List<Ent_TipoVentas>();
 
-            var tipo_venta = BL_Ventas.getTipoVenta(String.Empty) ;
+            var tipo_venta = BL_Ventas.getTipoVenta(String.Empty);
 
             items.Add(new Ent_TipoVentas { id = "", descripcion = "Todos" });
 
@@ -104,24 +104,27 @@ namespace VentasSys
 
         private void dgvDocumentos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string id = dgvDocumentos.Rows[e.RowIndex].Cells["ID_CAB"].Value.ToString();
-            id_cab = id;
-            fillDetalles(id);
-            lblTipoVenta.Text = dgvDocumentos.Rows[e.RowIndex].Cells["TIPO_VENTA_DES"].Value.ToString();
-            lblFormaPago.Text = dgvDocumentos.Rows[e.RowIndex].Cells["FORMA_PAGO_DES"].Value.ToString();
-            lblFecha.Text = dgvDocumentos.Rows[e.RowIndex].Cells["FECHA"].Value.ToString();
-            lblUsuario.Text = dgvDocumentos.Rows[e.RowIndex].Cells["USUARIO"].Value.ToString();
-            lblDNI.Text = dgvDocumentos.Rows[e.RowIndex].Cells["DNI"].Value.ToString();
-            lblNombre.Text = dgvDocumentos.Rows[e.RowIndex].Cells["NOMBRE"].Value.ToString();
-            lblRecibido.Text = String.Format("{0:f2}", dgvDocumentos.Rows[e.RowIndex].Cells["MONTO_RECIBIDO"].Value);
-            lblVuelto.Text = String.Format("{0:f2}", dgvDocumentos.Rows[e.RowIndex].Cells["MONTO_VUELTO"].Value);
-            lblTotal.Text = String.Format("{0:f2}", dgvDocumentos.Rows[e.RowIndex].Cells["MONTO_TOTAL"].Value);
-            gbDetalle.Visible = true;
+            if (e.RowIndex > -1)
+            {
+                string id = dgvDocumentos.Rows[e.RowIndex].Cells["ID_CAB"].Value.ToString();
+                id_cab = id;
+                fillDetalles(id);
+                lblTipoVenta.Text = dgvDocumentos.Rows[e.RowIndex].Cells["TIPO_VENTA_DES"].Value.ToString();
+                lblFormaPago.Text = dgvDocumentos.Rows[e.RowIndex].Cells["FORMA_PAGO_DES"].Value.ToString();
+                lblFecha.Text = dgvDocumentos.Rows[e.RowIndex].Cells["FECHA"].Value.ToString();
+                lblUsuario.Text = dgvDocumentos.Rows[e.RowIndex].Cells["USUARIO"].Value.ToString();
+                lblDNI.Text = dgvDocumentos.Rows[e.RowIndex].Cells["DNI"].Value.ToString();
+                lblNombre.Text = dgvDocumentos.Rows[e.RowIndex].Cells["NOMBRE"].Value.ToString();
+                lblRecibido.Text = String.Format("{0:f2}", dgvDocumentos.Rows[e.RowIndex].Cells["MONTO_RECIBIDO"].Value);
+                lblVuelto.Text = String.Format("{0:f2}", dgvDocumentos.Rows[e.RowIndex].Cells["MONTO_VUELTO"].Value);
+                lblTotal.Text = String.Format("{0:f2}", dgvDocumentos.Rows[e.RowIndex].Cells["MONTO_TOTAL"].Value);
+                gbDetalle.Visible = true;
+            }
         }
 
         private void btnAnular_Click(object sender, EventArgs e)
         {
-            if(id_cab == String.Empty)
+            if (id_cab == String.Empty)
             {
                 MessageBox.Show("Debe seleccionar un documento para anular.", "Anular Venta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using VentasSys.BL;
 using VentasSys.EL;
@@ -15,9 +9,12 @@ namespace VentasSys
     public partial class frmProductos : Form
     {
         private string cod_tienda { get; set; }
-        public frmProductos(string _cod_tienda)
+        private string usuario { get; set; }
+
+        public frmProductos(string _cod_tienda, string _usuario)
         {
             cod_tienda = _cod_tienda;
+            usuario = _usuario;
             InitializeComponent();
             fillCategorias();
         }
@@ -56,6 +53,7 @@ namespace VentasSys
             producto.costo = double.Parse(txtCosto.Text);
             producto.precio = double.Parse(txtPrecio.Text);
             producto.stock = int.Parse(txtStock.Text);
+            producto.usuario = usuario;
             producto.activo = chkActivo.Checked ? "1" : "0";
 
             if (producto.nombre == String.Empty)

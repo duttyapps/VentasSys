@@ -15,5 +15,15 @@ namespace VentasSys.BL
         {
             return DAO_Clientes.getClientesxDNI(dni, tipo);
         }
+
+        public static bool existeCliente(string dni)
+        {
+            return DAO_Clientes.existeCliente(dni);
+        }
+
+        public static string insertarCliente(Ent_Clientes cliente)
+        {
+            return DAO_Clientes.insertarCliente(cliente);
+        }
     }
 }
