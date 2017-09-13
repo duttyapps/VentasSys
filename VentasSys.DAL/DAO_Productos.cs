@@ -260,5 +260,123 @@ namespace VentasSys.DAL
 
             return retval;
         }
+
+        public static string editarProducto(Ent_Productos producto)
+        {
+            MySqlTransaction tr = null;
+            con = Conexion.getConnection();
+
+            string retval = "1";
+
+            try
+            {
+                con.Open();
+
+                tr = con.BeginTransaction();
+
+                MySqlCommand cmd = new MySqlCommand();
+
+                cmd.Connection = con;
+                cmd.Transaction = tr;
+
+                cmd.CommandText = "SP_SYS_UPD_PRODUCTO";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@RETVAL", MySqlDbType.VarChar);
+                cmd.Parameters["@RETVAL"].Direction = ParameterDirection.Output;
+
+                cmd.Parameters.AddWithValue("@PSTR_TIENDA_COD", producto.cod_tienda);
+                cmd.Parameters["@PSTR_TIENDA_COD"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_ID", producto.id);
+                cmd.Parameters["@PSTR_ID"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_CAT_ID", producto.id_cat);
+                cmd.Parameters["@PSTR_CAT_ID"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_NOMBRE", producto.nombre);
+                cmd.Parameters["@PSTR_NOMBRE"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_COSTO", producto.costo);
+                cmd.Parameters["@PSTR_COSTO"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_PRECIO", producto.precio);
+                cmd.Parameters["@PSTR_PRECIO"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_STOCK", producto.stock);
+                cmd.Parameters["@PSTR_STOCK"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_USUARIO", producto.usuario);
+                cmd.Parameters["@PSTR_USUARIO"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_ACTIVO", producto.activo);
+                cmd.Parameters["@PSTR_ACTIVO"].Direction = ParameterDirection.Input;
+
+                cmd.ExecuteNonQuery();
+
+                retval = cmd.Parameters["@RETVAL"].Value.ToString();
+
+                if (retval == "1")
+                {
+                    tr.Commit();
+                }
+                else
+                {
+                    tr.Rollback();
+                    return retval;
+                }
+
+            }
+            catch (MySqlException ex)
+            {
+                try
+                {
+                    tr.Rollback();
+                }
+                catch (MySqlException ex1)
+                {
+                    return ex1.ToString();
+                }
+
+                return ex.ToString();
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return retval;
+        }
+
+        public static List<Ent_Proveedores> getProveedores()
+        {
+            List<Ent_Proveedores> lstProveedores = new List<Ent_Proveedores>();
+
+            con = Conexion.getConnection();
+            MySqlCommand cmd = new MySqlCommand();
+
+            con.Open();
+
+            cmd.Connection = con;
+            cmd.CommandText = "SP_SYS_GET_PROVEEDORES";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Ent_Proveedores proveedores = new Ent_Proveedores();
+                proveedores.id = Convert.ToString(dr["ID"]);
+                proveedores.nombre = Convert.ToString(dr["NOMBRE"]);
+                proveedores.direccion = Convert.ToString(dr["DIRECCION"]);
+                proveedores.telefono = Convert.ToString(dr["TELEFONO"]);
+
+                lstProveedores.Add(proveedores);
+            }
+
+            con.Close();
+
+            return lstProveedores;
+        }
     }
 }

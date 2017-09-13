@@ -83,6 +83,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.cboFormaPago = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.txtVuelto = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtRecibido = new System.Windows.Forms.TextBox();
@@ -91,8 +94,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtIGV = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtTotal = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnEliminarProducto = new System.Windows.Forms.Button();
             this.btnAgregarProducto = new System.Windows.Forms.Button();
@@ -103,7 +104,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.créditosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolbar.SuspendLayout();
             this.statusBar.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -111,14 +114,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolbar
             // 
             this.toolbar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ventasToolStripMenuItem,
+            this.pagosToolStripMenuItem,
             this.productosToolStripMenuItem,
             this.reportesToolStripMenuItem,
             this.sistemaToolStripMenuItem,
@@ -204,7 +208,7 @@
             this.respaldoToolStripMenuItem,
             this.configuraciónToolStripMenuItem});
             this.baseDeDatosToolStripMenuItem.Name = "baseDeDatosToolStripMenuItem";
-            this.baseDeDatosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.baseDeDatosToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.baseDeDatosToolStripMenuItem.Text = "Base de Datos";
             // 
             // respaldoToolStripMenuItem
@@ -238,13 +242,13 @@
             // configuraciónToolStripMenuItem1
             // 
             this.configuraciónToolStripMenuItem1.Name = "configuraciónToolStripMenuItem1";
-            this.configuraciónToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.configuraciónToolStripMenuItem1.Size = new System.Drawing.Size(150, 22);
             this.configuraciónToolStripMenuItem1.Text = "Configuración";
             // 
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             // 
             // menuTienda
@@ -632,6 +636,39 @@
             this.groupBox2.TabIndex = 32;
             this.groupBox2.TabStop = false;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.PowderBlue;
+            this.panel2.Controls.Add(this.txtTotal);
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Location = new System.Drawing.Point(6, 89);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(245, 75);
+            this.panel2.TabIndex = 38;
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.Location = new System.Drawing.Point(113, 24);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
+            this.txtTotal.Size = new System.Drawing.Size(100, 29);
+            this.txtTotal.TabIndex = 32;
+            this.txtTotal.Text = "0.00";
+            this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Red;
+            this.label8.Location = new System.Drawing.Point(59, 30);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(48, 17);
+            this.label8.TabIndex = 33;
+            this.label8.Text = "TOTAL";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // txtVuelto
             // 
             this.txtVuelto.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -724,29 +761,6 @@
             this.label7.TabIndex = 31;
             this.label7.Text = "IGV";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtTotal
-            // 
-            this.txtTotal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(113, 24);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.ReadOnly = true;
-            this.txtTotal.Size = new System.Drawing.Size(100, 29);
-            this.txtTotal.TabIndex = 32;
-            this.txtTotal.Text = "0.00";
-            this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(50, 30);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(48, 17);
-            this.label8.TabIndex = 33;
-            this.label8.Text = "TOTAL";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnSalir
             // 
@@ -868,15 +882,26 @@
             this.txtEmail.Size = new System.Drawing.Size(188, 22);
             this.txtEmail.TabIndex = 16;
             // 
-            // panel2
+            // pagosToolStripMenuItem
             // 
-            this.panel2.BackColor = System.Drawing.Color.Khaki;
-            this.panel2.Controls.Add(this.txtTotal);
-            this.panel2.Controls.Add(this.label8);
-            this.panel2.Location = new System.Drawing.Point(6, 89);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(245, 75);
-            this.panel2.TabIndex = 38;
+            this.pagosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.créditosToolStripMenuItem,
+            this.proveedoresToolStripMenuItem});
+            this.pagosToolStripMenuItem.Name = "pagosToolStripMenuItem";
+            this.pagosToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
+            this.pagosToolStripMenuItem.Text = "Pagos";
+            // 
+            // créditosToolStripMenuItem
+            // 
+            this.créditosToolStripMenuItem.Name = "créditosToolStripMenuItem";
+            this.créditosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.créditosToolStripMenuItem.Text = "Créditos";
+            // 
+            // proveedoresToolStripMenuItem
+            // 
+            this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
+            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.proveedoresToolStripMenuItem.Text = "Proveedores";
             // 
             // frmPrincipal
             // 
@@ -920,10 +945,10 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1004,5 +1029,8 @@
         private System.Windows.Forms.TextBox txtApellidos;
         private System.Windows.Forms.Label lblApellidos;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ToolStripMenuItem pagosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem créditosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem proveedoresToolStripMenuItem;
     }
 }

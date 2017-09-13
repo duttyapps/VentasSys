@@ -36,6 +36,16 @@ namespace VentasSys.BL
             return DAO_Productos.eliminarProducto(id);
         }
 
+        public static string editarProducto(Ent_Productos producto)
+        {
+            return DAO_Productos.editarProducto(producto);
+        }
+
+        public static List<Ent_Proveedores> getProveedores()
+        {
+            return DAO_Productos.getProveedores();
+        }
+
         public static string generarCodigoProducto(string cod_tienda, int id, int cat)
         {
             return id.ToString(cod_tienda + cat.ToString("00") + "00000");

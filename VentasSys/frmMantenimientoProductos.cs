@@ -15,6 +15,7 @@ namespace VentasSys
     public partial class frmMantenimientoProductos : Form
     {
         private string cod_tienda { get; set; }
+        private string fecha_actual = DateTime.Now.ToString("dd/MM/yyyy");
         public frmMantenimientoProductos(string _cod_tienda)
         {
             cod_tienda = _cod_tienda;
@@ -23,6 +24,7 @@ namespace VentasSys
             fillTiendas();
             fillProductos();
             fillComboEstados();
+            fillProveedores();
         }
 
         private void fillTiendas()
@@ -40,7 +42,9 @@ namespace VentasSys
             cboTienda.DisplayMember = "des_tienda";
 
             List<Ent_Tienda> items_det = items.ToList();
-            items_det.RemoveAt(0);
+
+            items_det[0] = new Ent_Tienda { cod_tienda = "", des_tienda = "Seleccione" };
+
             cboTiendaDet.DataSource = items_det;
             cboTiendaDet.ValueMember = "cod_tienda";
             cboTiendaDet.DisplayMember = "des_tienda";
@@ -61,7 +65,8 @@ namespace VentasSys
             cboCategoria.DisplayMember = "nombre";
 
             List<Ent_CategoriaProductos> det_items = items.ToList();
-            det_items.RemoveAt(0);
+            det_items[0] = new Ent_CategoriaProductos { id = "", nombre = "Seleccione" };
+
             cboCategoriaDet.DataSource = det_items;
             cboCategoriaDet.ValueMember = "id";
             cboCategoriaDet.DisplayMember = "nombre";
@@ -107,6 +112,21 @@ namespace VentasSys
             cboEstadoDet.DataSource = items_det;
             cboEstadoDet.ValueMember = "id";
             cboEstadoDet.DisplayMember = "desc";
+        }
+
+        private void fillProveedores()
+        {
+            List<Ent_Proveedores> items = new List<Ent_Proveedores>();
+
+            items.Add(new Ent_Proveedores { id = "", nombre = "Seleccione" });
+
+            var proveedores = BL_Productos.getProveedores();
+
+            items.AddRange(proveedores);
+
+            cboProveedor.DataSource = items;
+            cboProveedor.ValueMember = "id";
+            cboProveedor.DisplayMember = "nombre";
         }
 
         private void cboCategoria_SelectedIndexChanged(object sender, EventArgs e)
@@ -172,11 +192,13 @@ namespace VentasSys
                 int id = int.Parse(txtCodigo.Text.Substring(4, txtCodigo.Text.Length - 4));
                 string result = BL_Productos.eliminarProducto(id.ToString());
 
-                if(result == "1")
+                if (result == "1")
                 {
                     MessageBox.Show("¡Producto eliminado con éxito!.", "Mantenimiento de Productos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     reiniciarValores();
-                } else
+                    fillProductos();
+                }
+                else
                 {
                     MessageBox.Show(result, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -190,7 +212,7 @@ namespace VentasSys
             btnNuevo.Enabled = false;
 
             txtCodigo.Text = String.Empty;
-            txtFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            txtFecha.Text = fecha_actual;
             txtProductoDet.Text = String.Empty;
             txtCantidad.Text = "0";
             txtCosto.Text = "0.00";
@@ -239,6 +261,40 @@ namespace VentasSys
                 && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            var confirm = MessageBox.Show("¿Está seguro que desea modificar el producto?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirm == DialogResult.Yes)
+            {
+                Ent_Productos prod = new Ent_Productos();
+
+                int id = int.Parse(txtCodigo.Text.Substring(4, txtCodigo.Text.Length - 4));
+                prod.id = id;
+                prod.id_cat = int.Parse(cboCategoriaDet.SelectedValue.ToString());
+                prod.cod_tienda = cboTiendaDet.SelectedValue.ToString();
+                prod.nombre = txtProductoDet.Text;
+                prod.stock = int.Parse(txtCantidad.Text);
+                prod.proveedor = cboProveedor.SelectedValue.ToString();
+                prod.activo = cboEstadoDet.SelectedValue.ToString();
+                prod.costo = double.Parse(txtCosto.Text);
+                prod.precio = double.Parse(txtPrecio.Text);
+
+                string result = BL_Productos.editarProducto(prod);
+
+                if (result == "1")
+                {
+                    MessageBox.Show("¡Producto modificado con éxito!.", "Mantenimiento de Productos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    reiniciarValores();
+                    fillProductos();
+                }
+                else
+                {
+                    MessageBox.Show(result, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }
