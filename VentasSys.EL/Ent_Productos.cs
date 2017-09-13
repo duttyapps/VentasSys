@@ -15,6 +15,8 @@ namespace VentasSys.EL
         public string cod_tienda { get; set; }
         public string des_tienda { get; set; }
         public string usuario { get; set; }
+        public string fecha_registro { get; set; }
+        public string proveedor { get; set; }
         public string activo { get; set; }
 
         public Ent_Productos()
@@ -29,6 +31,8 @@ namespace VentasSys.EL
             this.stock = 1;
             this.des_tienda = String.Empty;
             this.usuario = String.Empty;
+            this.fecha_registro = String.Empty;
+            this.proveedor = String.Empty;
             this.activo = "1";
         }
     }

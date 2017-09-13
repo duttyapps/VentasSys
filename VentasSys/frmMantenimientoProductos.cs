@@ -22,9 +22,10 @@ namespace VentasSys
             fillCategorias();
             fillTiendas();
             fillProductos();
+            fillComboEstados();
         }
 
-        public void fillTiendas()
+        private void fillTiendas()
         {
             List<Ent_Tienda> items = new List<Ent_Tienda>();
 
@@ -38,13 +39,14 @@ namespace VentasSys
             cboTienda.ValueMember = "cod_tienda";
             cboTienda.DisplayMember = "des_tienda";
 
-            items.RemoveAt(0);
-            cboTiendaDet.DataSource = items;
+            List<Ent_Tienda> items_det = items.ToList();
+            items_det.RemoveAt(0);
+            cboTiendaDet.DataSource = items_det;
             cboTiendaDet.ValueMember = "cod_tienda";
             cboTiendaDet.DisplayMember = "des_tienda";
         }
 
-        public void fillCategorias()
+        private void fillCategorias()
         {
             List<Ent_CategoriaProductos> items = new List<Ent_CategoriaProductos>();
 
@@ -58,14 +60,17 @@ namespace VentasSys
             cboCategoria.ValueMember = "id";
             cboCategoria.DisplayMember = "nombre";
 
-            items.RemoveAt(0);
-            cboCategoriaDet.DataSource = items;
+            List<Ent_CategoriaProductos> det_items = items.ToList();
+            det_items.RemoveAt(0);
+            cboCategoriaDet.DataSource = det_items;
             cboCategoriaDet.ValueMember = "id";
             cboCategoriaDet.DisplayMember = "nombre";
         }
 
-        public void fillProductos()
+        private void fillProductos()
         {
+            reiniciarValores();
+
             string nombre = txtProducto.Text;
             string cat = cboCategoria.SelectedValue.ToString();
             string tienda = cboTienda.SelectedValue.ToString();
@@ -86,6 +91,22 @@ namespace VentasSys
 
             //formating...
             dgvProductos.Columns["precio"].DefaultCellStyle.Format = "f";
+        }
+
+        private void fillComboEstados()
+        {
+            List<Object> items = new List<Object>();
+            items.Add(new { id = "1", desc = "Activo" });
+            items.Add(new { id = "0", desc = "Inactivo" });
+
+            cboEstado.DataSource = items;
+            cboEstado.ValueMember = "id";
+            cboEstado.DisplayMember = "desc";
+
+            List<Object> items_det = items.ToList();
+            cboEstadoDet.DataSource = items_det;
+            cboEstadoDet.ValueMember = "id";
+            cboEstadoDet.DisplayMember = "desc";
         }
 
         private void cboCategoria_SelectedIndexChanged(object sender, EventArgs e)
@@ -112,6 +133,113 @@ namespace VentasSys
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cargarDetalles(Ent_Productos producto)
+        {
+            txtCodigo.Text = BL_Productos.generarCodigoProducto(producto.cod_tienda, producto.id, producto.id_cat);
+            txtFecha.Text = producto.fecha_registro.Split(' ')[0];
+            txtProductoDet.Text = producto.nombre;
+            txtCantidad.Text = producto.stock.ToString();
+            cboCategoriaDet.SelectedValue = producto.id_cat.ToString();
+            cboProveedor.SelectedValue = producto.proveedor;
+            cboTiendaDet.SelectedValue = producto.cod_tienda;
+            cboEstadoDet.SelectedValue = producto.activo;
+            txtCosto.Text = producto.costo.ToString("#0.00");
+            txtPrecio.Text = producto.precio.ToString("#0.00");
+        }
+
+        private void dgvProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                string id = dgvProductos.Rows[e.RowIndex].Cells["ID"].Value.ToString();
+                string tienda = dgvProductos.Rows[e.RowIndex].Cells["COD_TIENDA"].Value.ToString();
+                Ent_Productos prod = BL_Productos.getProducto(id, tienda);
+
+                cargarDetalles(prod);
+
+                habilitarBotones();
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            var confirm = MessageBox.Show("¿Está seguro que desea eliminar el producto? Ya no se visualizará en futuras ventas.", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirm == DialogResult.Yes)
+            {
+                int id = int.Parse(txtCodigo.Text.Substring(4, txtCodigo.Text.Length - 4));
+                string result = BL_Productos.eliminarProducto(id.ToString());
+
+                if(result == "1")
+                {
+                    MessageBox.Show("¡Producto eliminado con éxito!.", "Mantenimiento de Productos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    reiniciarValores();
+                } else
+                {
+                    MessageBox.Show(result, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void reiniciarValores()
+        {
+            btnEliminar.Enabled = false;
+            btnModificar.Enabled = false;
+            btnNuevo.Enabled = false;
+
+            txtCodigo.Text = String.Empty;
+            txtFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            txtProductoDet.Text = String.Empty;
+            txtCantidad.Text = "0";
+            txtCosto.Text = "0.00";
+            txtPrecio.Text = "0.00";
+        }
+
+        private void habilitarBotones()
+        {
+            btnEliminar.Enabled = true;
+            btnModificar.Enabled = true;
+        }
+
+        private void txtCosto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)
+                 && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == '.'
+                && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)
+                 && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == '.'
+                && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar)
+                && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -177,8 +177,11 @@ namespace VentasSys
             if (frm.ent_cliente != null)
             {
                 txtNombres.Text = (frm.ent_cliente.nombres == null) ? "" : frm.ent_cliente.nombres;
+                txtApellidos.Text = (frm.ent_cliente.apellidos == null) ? "" : frm.ent_cliente.apellidos;
                 txtDireccion.Text = (frm.ent_cliente.direccion == null) ? "" : frm.ent_cliente.direccion;
                 txtDNI.Text = (frm.ent_cliente.dni == null) ? "" : frm.ent_cliente.dni;
+                txtTelefono.Text = (frm.ent_cliente.telefono == null) ? "" : frm.ent_cliente.telefono;
+                txtEmail.Text = (frm.ent_cliente.email == null) ? "" : frm.ent_cliente.email;
             }
         }
 
@@ -228,21 +231,16 @@ namespace VentasSys
                     }
                     if (agregar)
                     {
-                        dgvProductos.Rows.Add(generarCodigoProducto(frm.ent_producto.id, frm.ent_producto.id_cat), frm.ent_producto.nombre, "1", frm.ent_producto.precio.ToString("#0.00"), frm.ent_producto.precio.ToString("#0.00"), frm.ent_producto.id);
+                        dgvProductos.Rows.Add(BL_Productos.generarCodigoProducto(cod_tienda, frm.ent_producto.id, frm.ent_producto.id_cat), frm.ent_producto.nombre, "1", frm.ent_producto.precio.ToString("#0.00"), frm.ent_producto.precio.ToString("#0.00"), frm.ent_producto.id);
                     }
                 }
                 else
                 {
-                    dgvProductos.Rows.Add(generarCodigoProducto(frm.ent_producto.id, frm.ent_producto.id_cat), frm.ent_producto.nombre, "1", frm.ent_producto.precio.ToString("#0.00"), frm.ent_producto.precio.ToString("#0.00"), frm.ent_producto.id);
+                    dgvProductos.Rows.Add(BL_Productos.generarCodigoProducto(cod_tienda, frm.ent_producto.id, frm.ent_producto.id_cat), frm.ent_producto.nombre, "1", frm.ent_producto.precio.ToString("#0.00"), frm.ent_producto.precio.ToString("#0.00"), frm.ent_producto.id);
                 }
             }
 
             sumarTotal();
-        }
-
-        private string generarCodigoProducto(int id, int cat)
-        {
-            return id.ToString(cod_tienda + cat.ToString("00") + "00000");
         }
 
         private void sumarTotal()
@@ -321,7 +319,7 @@ namespace VentasSys
             catch (Exception ex)
             {
                 MessageBox.Show("Error al calcular precio por cantidad. \n\n" + ex.Message);
-                log.Error(ex.Message, System.Reflection.MethodBase.GetCurrentMethod().Name);
+                log.Error("Error al calcular precio por cantidad. \n\n" + ex.Message, System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
         }
 

@@ -11,6 +11,11 @@ namespace VentasSys.BL
             return DAO_Productos.getProductos(nombre, cat, tienda);
         }
 
+        public static Ent_Productos getProducto(string id, string tienda)
+        {
+            return DAO_Productos.getProducto(id, tienda);
+        }
+
         public static int getStockProducto(int id_prod, string tienda)
         {
             return DAO_Productos.getStockProducto(id_prod, tienda);
@@ -24,6 +29,16 @@ namespace VentasSys.BL
         public static double getPrecioProducto(int id)
         {
             return DAO_Productos.getPrecioProducto(id);
+        }
+
+        public static string eliminarProducto(string id)
+        {
+            return DAO_Productos.eliminarProducto(id);
+        }
+
+        public static string generarCodigoProducto(string cod_tienda, int id, int cat)
+        {
+            return id.ToString(cod_tienda + cat.ToString("00") + "00000");
         }
     }
 }
