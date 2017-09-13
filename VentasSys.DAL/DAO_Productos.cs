@@ -88,6 +88,7 @@ namespace VentasSys.DAL
                 producto.stock = Convert.ToInt32(dr["STOCK"]);
                 producto.cod_tienda = Convert.ToString(dr["TIENDA_COD"]);
                 producto.fecha_registro = Convert.ToString(dr["FECHA_REG"]);
+                producto.proveedor = Convert.ToString(dr["PROVEEDOR"]);
                 producto.activo = Convert.ToString(dr["ACTIVO"]);
             }
 
@@ -308,6 +309,9 @@ namespace VentasSys.DAL
 
                 cmd.Parameters.AddWithValue("@PSTR_USUARIO", producto.usuario);
                 cmd.Parameters["@PSTR_USUARIO"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_PROV_ID", producto.proveedor);
+                cmd.Parameters["@PSTR_PROV_ID"].Direction = ParameterDirection.Input;
 
                 cmd.Parameters.AddWithValue("@PSTR_ACTIVO", producto.activo);
                 cmd.Parameters["@PSTR_ACTIVO"].Direction = ParameterDirection.Input;
