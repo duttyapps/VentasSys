@@ -15,16 +15,19 @@ namespace VentasSys
     public partial class frmMantenimientoProductos : Form
     {
         private string cod_tienda { get; set; }
+        private string usuario { get; set; }
         private string fecha_actual = DateTime.Now.ToString("dd/MM/yyyy");
-        public frmMantenimientoProductos(string _cod_tienda)
+
+        public frmMantenimientoProductos(string _cod_tienda, string _usuario)
         {
             cod_tienda = _cod_tienda;
+            usuario = _usuario;
             InitializeComponent();
             fillCategorias();
             fillTiendas();
-            fillProductos();
             fillComboEstados();
             fillProveedores();
+            fillProductos();
         }
 
         private void fillTiendas()
@@ -79,6 +82,7 @@ namespace VentasSys
             string nombre = txtProducto.Text;
             string cat = cboCategoria.SelectedValue.ToString();
             string tienda = cboTienda.SelectedValue.ToString();
+            string estado = (cboEstado.SelectedValue == null) ? "1" : cboEstado.SelectedValue.ToString();
 
             dgvProductos.AutoGenerateColumns = false;
 
@@ -87,7 +91,7 @@ namespace VentasSys
                 dgvProductos.Rows.Clear();
             }
 
-            List<Ent_Productos> lstProductos = BL_Productos.getProductos(nombre, cat, tienda);
+            List<Ent_Productos> lstProductos = BL_Productos.getProductos(nombre, cat, tienda, estado);
 
             var bindingList = new BindingList<Ent_Productos>(lstProductos);
             var source = new BindingSource(bindingList, null);
@@ -209,7 +213,6 @@ namespace VentasSys
         {
             btnEliminar.Enabled = false;
             btnModificar.Enabled = false;
-            btnNuevo.Enabled = false;
 
             txtCodigo.Text = String.Empty;
             txtFecha.Text = fecha_actual;
@@ -266,6 +269,45 @@ namespace VentasSys
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            if (txtProductoDet.Text.Trim() == String.Empty)
+            {
+                MessageBox.Show("El nombre del producto no puede estar vacío", "Modificar producto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if(txtCantidad.Text.Trim() == String.Empty || int.Parse(txtCantidad.Text) < 0)
+            {
+                txtCantidad.Text = "0";
+            }
+
+            if(cboCategoriaDet.SelectedValue.ToString() == String.Empty)
+            {
+                MessageBox.Show("Debe seleccionar una categoría para el producto.", "Modificar producto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (cboProveedor.SelectedValue.ToString() == String.Empty)
+            {
+                MessageBox.Show("Debe seleccionar un proveedor para el producto.", "Modificar producto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (cboTiendaDet.SelectedValue.ToString() == String.Empty)
+            {
+                MessageBox.Show("Debe seleccionar una tienda para el producto.", "Modificar producto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (txtCosto.Text.Trim() == String.Empty || int.Parse(txtCantidad.Text) < 0)
+            {
+                txtCosto.Text = "0.00";
+            }
+
+            if (txtPrecio.Text.Trim() == String.Empty || int.Parse(txtCantidad.Text) < 0)
+            {
+                txtPrecio.Text = "0.00";
+            }
+
             var confirm = MessageBox.Show("¿Está seguro que desea modificar el producto?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (confirm == DialogResult.Yes)
@@ -282,6 +324,7 @@ namespace VentasSys
                 prod.activo = cboEstadoDet.SelectedValue.ToString();
                 prod.costo = double.Parse(txtCosto.Text);
                 prod.precio = double.Parse(txtPrecio.Text);
+                prod.usuario = usuario;
 
                 string result = BL_Productos.editarProducto(prod);
 
@@ -296,6 +339,17 @@ namespace VentasSys
                     MessageBox.Show(result, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            frmAgregarProducto frm = new frmAgregarProducto(cod_tienda, usuario);
+            frm.ShowDialog();
+        }
+
+        private void cboEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            fillProductos();
         }
     }
 }

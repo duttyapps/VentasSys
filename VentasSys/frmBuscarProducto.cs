@@ -30,7 +30,7 @@ namespace VentasSys
                 dgvProductos.Rows.Clear();
             }
 
-            List<Ent_Productos> lstProductos = BL_Productos.getProductos(nombre, cat, cod_tienda);
+            List<Ent_Productos> lstProductos = BL_Productos.getProductos(nombre, cat, cod_tienda, "1");
 
             var bindingList = new BindingList<Ent_Productos>(lstProductos);
             var source = new BindingSource(bindingList, null);

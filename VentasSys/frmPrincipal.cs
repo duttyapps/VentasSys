@@ -78,7 +78,7 @@ namespace VentasSys
 
             ToolStripMenuItem[] items = new ToolStripMenuItem[lstTipoVentas.Count];
             int i = 0;
-            lstTipoVentas.ForEach(delegate(Ent_TipoVentas tipo_venta)
+            lstTipoVentas.ForEach(delegate (Ent_TipoVentas tipo_venta)
             {
                 items[i] = new ToolStripMenuItem();
                 items[i].Name = tipo_venta.id;
@@ -100,7 +100,7 @@ namespace VentasSys
 
             ToolStripMenuItem[] items = new ToolStripMenuItem[lstTiendas.Count];
             int i = 0;
-            lstTiendas.ForEach(delegate(Ent_Tienda tienda)
+            lstTiendas.ForEach(delegate (Ent_Tienda tienda)
             {
                 items[i] = new ToolStripMenuItem();
                 items[i].Name = tienda.cod_tienda;
@@ -248,9 +248,17 @@ namespace VentasSys
             total = dgvProductos.Rows.Cast<DataGridViewRow>()
                 .Sum(t => Convert.ToDouble(t.Cells["IMPORTE"].Value));
 
+            if (tipo_venta == "FA")
+            {
+                txtSubTotal.Text = Convert.ToDouble(total / (ent_configuracion.IGV + 1)).ToString("#0.00");
+                txtIGV.Text = (total - Convert.ToDouble(txtSubTotal.Text)).ToString("#0.00");
+            } else
+            {
+                txtSubTotal.Text = "0.00";
+                txtIGV.Text = "0.00";
+            }
+
             txtTotal.Text = total.ToString("#0.00");
-            txtSubTotal.Text = Convert.ToDouble(total / (ent_configuracion.IGV + 1)).ToString("#0.00");
-            txtIGV.Text = (total - Convert.ToDouble(txtSubTotal.Text)).ToString("#0.00");
         }
 
         private int sumarCantidad()
@@ -562,6 +570,8 @@ namespace VentasSys
             txtDNI.Text = String.Empty;
             txtDireccion.Text = String.Empty;
 
+            sumarTotal();
+
             log.Info("Cambio Tipo Venta: " + tipo_venta, System.Reflection.MethodBase.GetCurrentMethod().Name);
             log.Info("Serie " + lblSerie.Text, System.Reflection.MethodBase.GetCurrentMethod().Name);
         }
@@ -588,7 +598,7 @@ namespace VentasSys
 
         private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmProductos frm = new frmProductos(cod_tienda, ent_usuario.username);
+            frmAgregarProducto frm = new frmAgregarProducto(cod_tienda, ent_usuario.username);
             frm.ShowDialog();
         }
 
@@ -682,7 +692,7 @@ namespace VentasSys
 
         private void modificarEliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmMantenimientoProductos frm = new frmMantenimientoProductos(cod_tienda);
+            frmMantenimientoProductos frm = new frmMantenimientoProductos(cod_tienda, ent_usuario.username);
             frm.ShowDialog();
         }
 
@@ -763,6 +773,12 @@ namespace VentasSys
             {
                 return false;
             }
+        }
+
+        private void créditosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCreditos frm = new frmCreditos();
+            frm.ShowDialog();
         }
     }
 }

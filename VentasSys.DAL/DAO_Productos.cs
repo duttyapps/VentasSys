@@ -14,7 +14,7 @@ namespace VentasSys.DAL
     {
         private static MySqlConnection con;
 
-        public static List<Ent_Productos> getProductos(string nombre, string cat, string tienda)
+        public static List<Ent_Productos> getProductos(string nombre, string cat, string tienda, string estado)
         {
             List<Ent_Productos> lstProductos = new List<Ent_Productos>();
 
@@ -35,6 +35,9 @@ namespace VentasSys.DAL
 
             cmd.Parameters.AddWithValue("@PSTR_TIENDA", tienda);
             cmd.Parameters["@PSTR_TIENDA"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_ESTADO", estado);
+            cmd.Parameters["@PSTR_ESTADO"].Direction = ParameterDirection.Input;
 
             MySqlDataReader dr = cmd.ExecuteReader();
 

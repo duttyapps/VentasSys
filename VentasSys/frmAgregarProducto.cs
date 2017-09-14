@@ -6,12 +6,12 @@ using VentasSys.EL;
 
 namespace VentasSys
 {
-    public partial class frmProductos : Form
+    public partial class frmAgregarProducto : Form
     {
         private string cod_tienda { get; set; }
         private string usuario { get; set; }
 
-        public frmProductos(string _cod_tienda, string _usuario)
+        public frmAgregarProducto(string _cod_tienda, string _usuario)
         {
             cod_tienda = _cod_tienda;
             usuario = _usuario;
