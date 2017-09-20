@@ -167,14 +167,14 @@
             // créditosToolStripMenuItem
             // 
             this.créditosToolStripMenuItem.Name = "créditosToolStripMenuItem";
-            this.créditosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.créditosToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.créditosToolStripMenuItem.Text = "Créditos";
             this.créditosToolStripMenuItem.Click += new System.EventHandler(this.créditosToolStripMenuItem_Click);
             // 
             // proveedoresToolStripMenuItem
             // 
             this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
-            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.proveedoresToolStripMenuItem.Text = "Proveedores";
             // 
             // productosToolStripMenuItem
@@ -382,7 +382,7 @@
             // txtNombres
             // 
             this.txtNombres.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombres.Location = new System.Drawing.Point(84, 47);
+            this.txtNombres.Location = new System.Drawing.Point(86, 47);
             this.txtNombres.MaxLength = 50;
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(122, 22);
@@ -392,7 +392,7 @@
             // txtDNI
             // 
             this.txtDNI.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDNI.Location = new System.Drawing.Point(84, 21);
+            this.txtDNI.Location = new System.Drawing.Point(86, 21);
             this.txtDNI.MaxLength = 15;
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(122, 22);
@@ -402,7 +402,7 @@
             // txtDireccion
             // 
             this.txtDireccion.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccion.Location = new System.Drawing.Point(84, 73);
+            this.txtDireccion.Location = new System.Drawing.Point(86, 73);
             this.txtDireccion.MaxLength = 150;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(328, 22);
@@ -413,7 +413,7 @@
             this.btnBuscarCliente.FlatAppearance.BorderSize = 0;
             this.btnBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarCliente.Image = global::VentasSys.Properties.Resources.search;
-            this.btnBuscarCliente.Location = new System.Drawing.Point(418, 45);
+            this.btnBuscarCliente.Location = new System.Drawing.Point(420, 45);
             this.btnBuscarCliente.Name = "btnBuscarCliente";
             this.btnBuscarCliente.Size = new System.Drawing.Size(23, 23);
             this.btnBuscarCliente.TabIndex = 99;
@@ -425,7 +425,7 @@
             this.btnBuscarDNI.FlatAppearance.BorderSize = 0;
             this.btnBuscarDNI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarDNI.Image = global::VentasSys.Properties.Resources.search;
-            this.btnBuscarDNI.Location = new System.Drawing.Point(212, 19);
+            this.btnBuscarDNI.Location = new System.Drawing.Point(214, 19);
             this.btnBuscarDNI.Name = "btnBuscarDNI";
             this.btnBuscarDNI.Size = new System.Drawing.Size(23, 23);
             this.btnBuscarDNI.TabIndex = 99;
@@ -846,7 +846,7 @@
             // txtApellidos
             // 
             this.txtApellidos.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellidos.Location = new System.Drawing.Point(276, 47);
+            this.txtApellidos.Location = new System.Drawing.Point(278, 47);
             this.txtApellidos.MaxLength = 50;
             this.txtApellidos.Name = "txtApellidos";
             this.txtApellidos.Size = new System.Drawing.Size(136, 22);
@@ -857,7 +857,7 @@
             // 
             this.lblApellidos.AutoSize = true;
             this.lblApellidos.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApellidos.Location = new System.Drawing.Point(212, 50);
+            this.lblApellidos.Location = new System.Drawing.Point(214, 50);
             this.lblApellidos.Name = "lblApellidos";
             this.lblApellidos.Size = new System.Drawing.Size(58, 13);
             this.lblApellidos.TabIndex = 20;

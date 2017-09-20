@@ -326,7 +326,7 @@ namespace VentasSys
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al calcular precio por cantidad. \n\n" + ex.Message);
+                MessageBox.Show("Error al calcular precio por cantidad. \n\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 log.Error("Error al calcular precio por cantidad. \n\n" + ex.Message, System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
         }
@@ -777,7 +777,7 @@ namespace VentasSys
 
         private void créditosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCreditos frm = new frmCreditos();
+            frmCreditos frm = new frmCreditos(cod_tienda);
             frm.ShowDialog();
         }
     }

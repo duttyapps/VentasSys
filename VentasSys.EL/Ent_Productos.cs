@@ -5,6 +5,7 @@ namespace VentasSys.EL
     public class Ent_Productos
     {
         public int id { get; set; }
+        public string codigo { get; set; }
         public int id_cat { get; set; }
         public string nombre { get; set; }
         public double costo { get; set; }
@@ -22,6 +23,7 @@ namespace VentasSys.EL
         public Ent_Productos()
         {
             this.id = 0;
+            this.codigo = String.Empty;
             this.id_cat = 0;
             this.nombre = String.Empty;
             this.costo = 0D;

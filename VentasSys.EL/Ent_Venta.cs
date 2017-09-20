@@ -8,6 +8,7 @@ namespace VentasSys.EL
 {
     public class Ent_Venta
     {
+        public int id { get; set; }
         public int id_cab { get; set; }
         public int nro_doc { get; set; }
         public string nro_doc_str { get; set; }
@@ -25,10 +26,14 @@ namespace VentasSys.EL
         public string cliente_doc { get; set; }
         public string cliente { get; set; }
         public string usuario { get; set; }
+        public string email { get; set; }
+        public string telefono { get; set; }
+        public string direccion { get; set; }
         public List<Ent_Productos> lstProductos { get; set; }
 
         public Ent_Venta()
         {
+            this.id = 0;
             this.id_cab = 0;
             this.nro_doc = 0;
             this.nro_doc_str = String.Empty;
@@ -46,6 +51,9 @@ namespace VentasSys.EL
             this.cliente_doc = String.Empty;
             this.cliente = String.Empty;
             this.usuario = String.Empty;
+            this.email = String.Empty;
+            this.telefono = String.Empty;
+            this.direccion = String.Empty;
             this.lstProductos = new List<Ent_Productos>();
         }
     }

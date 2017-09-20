@@ -423,5 +423,100 @@ namespace VentasSys.DAL
 
             return lstTipoMoneda;
         }
+
+        public static Ent_Venta getVentaCredito(int nro_doc, string cod_tienda, string tipo_venta, string fecha)
+        {
+            Ent_Venta venta = new Ent_Venta();
+
+            con = Conexion.getConnection();
+            MySqlCommand cmd = new MySqlCommand();
+
+            con.Open();
+
+            cmd.Connection = con;
+            cmd.CommandText = "SP_SYS_GET_VENTAS_CREDITO";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@PSTR_NRO_DOC", nro_doc);
+            cmd.Parameters["@PSTR_NRO_DOC"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_COD_TIENDA", cod_tienda);
+            cmd.Parameters["@PSTR_COD_TIENDA"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_TIPO_VENTA", tipo_venta);
+            cmd.Parameters["@PSTR_TIPO_VENTA"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_FECHA", fecha);
+            cmd.Parameters["@PSTR_FECHA"].Direction = ParameterDirection.Input;
+
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                venta.id_cab = Convert.ToInt32(dr["ID"]);
+                venta.nro_doc = Convert.ToInt32(dr["NUMERO_DOC"]);
+                venta.nro_doc_str = "001-" + Convert.ToInt32(dr["NUMERO_DOC"]).ToString().PadLeft(6, '0');
+                venta.cod_tienda = Convert.ToString(dr["COD_TIENDA"]);
+                venta.des_tienda = Convert.ToString(dr["DES_TIENDA"]);
+                venta.tipo_venta = Convert.ToString(dr["TIPO_VENTA"]);
+                venta.tipo_venta_des = Convert.ToString(dr["TIPO_VENTA_DES"]);
+                venta.forma_pago = Convert.ToString(dr["FORMA_PAGO"]);
+                venta.forma_pago_des = Convert.ToString(dr["FORMA_PAGO_DES"]);
+                venta.emision = Convert.ToString(dr["FECHA_EMISION"]);
+                venta.cantidad = Convert.ToInt32(dr["CANTIDAD"]);
+                venta.monto_total = Convert.ToDouble(dr["MONTO_TOTAL"]);
+                venta.monto_recibido = Convert.ToDouble(dr["MONTO_RECIBIDO"]);
+                venta.monto_vuelto = Convert.ToDouble(dr["MONTO_VUELTO"]);
+                venta.cliente_doc = Convert.ToString(dr["CLIENTE_DOC"]);
+                venta.cliente = Convert.ToString(dr["CLIENTE_DES"]);
+                venta.usuario = Convert.ToString(dr["USUARIO"]);
+                venta.email = Convert.ToString(dr["EMAIL"]);
+                venta.telefono = Convert.ToString(dr["TELEFONO"]);
+                venta.direccion = Convert.ToString(dr["DIRECCION"]);
+            }
+
+            con.Close();
+
+            return venta;
+        }
+
+        public static List<Ent_Abonos> getAbonos(Ent_Abonos abono)
+        {
+            List<Ent_Abonos> lstAbonos = new List<Ent_Abonos>();
+
+            con = Conexion.getConnection();
+            MySqlCommand cmd = new MySqlCommand();
+
+            con.Open();
+
+            cmd.Connection = con;
+            cmd.CommandText = "SP_SYS_GET_ABONOS";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@PSTR_ID", abono.id);
+            cmd.Parameters["@PSTR_ID"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_ID_CAB", abono.id_cab);
+            cmd.Parameters["@PSTR_ID_CAB"].Direction = ParameterDirection.Input;
+
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Ent_Abonos abonos = new Ent_Abonos();
+                abonos.id = Convert.ToInt32(dr["ID"]);
+                abonos.id_cab = Convert.ToInt32(dr["ID_CAB"]);
+                abonos.cod_tienda = Convert.ToString(dr["COD_TIENDA"]);
+                abonos.fecha_reg = Convert.ToString(dr["FECHA_REG"]);
+                abonos.usuario = Convert.ToString(dr["USUARIO"]);
+                abonos.monto = Convert.ToDouble(dr["MONTO"]);
+
+                lstAbonos.Add(abonos);
+            }
+
+            con.Close();
+
+            return lstAbonos;
+        }
     }
 }

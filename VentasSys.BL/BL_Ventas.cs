@@ -46,5 +46,15 @@ namespace VentasSys.BL
         {
             return DAO_Ventas.getTipoMoneda();
         }
+
+        public static Ent_Venta getVentaCredito(int nro_doc, string cod_tienda, string tipo_venta, string fecha)
+        {
+            return DAO_Ventas.getVentaCredito(nro_doc, cod_tienda, tipo_venta, fecha);
+        }
+
+        public static List<Ent_Abonos> getAbonos(Ent_Abonos abono)
+        {
+            return DAO_Ventas.getAbonos(abono);
+        }
     }
 }

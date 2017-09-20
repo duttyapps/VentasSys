@@ -198,6 +198,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="infopago.ico" />
+    <None Include="Resources\print_white_24x24.png" />
+    <None Include="Resources\save_white_24x24.png" />
     <None Include="Resources\sign-delete-icon.png" />
     <None Include="Resources\sign-add-icon.png" />
     <None Include="Resources\search.png" />

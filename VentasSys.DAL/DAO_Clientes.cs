@@ -138,7 +138,7 @@ namespace VentasSys.DAL
             cmd.Parameters.AddWithValue("@PSTR_NOMBRES", cliente.nombres);
             cmd.Parameters["@PSTR_NOMBRES"].Direction = ParameterDirection.Input;
 
-            cmd.Parameters.AddWithValue("@PSTR_APELLIDOS", cliente.apellidos);
+            cmd.Parameters.AddWithValue("@PSTR_APELLIDOS", (cliente.apellidos == String.Empty) ? null : cliente.apellidos);
             cmd.Parameters["@PSTR_APELLIDOS"].Direction = ParameterDirection.Input;
 
             cmd.Parameters.AddWithValue("@PSTR_DIRECCION", cliente.direccion);
@@ -147,7 +147,7 @@ namespace VentasSys.DAL
             cmd.Parameters.AddWithValue("@PSTR_TELEFONO", cliente.telefono);
             cmd.Parameters["@PSTR_TELEFONO"].Direction = ParameterDirection.Input;
 
-            cmd.Parameters.AddWithValue("@PSTR_EMAIL", cliente.telefono);
+            cmd.Parameters.AddWithValue("@PSTR_EMAIL", cliente.email);
             cmd.Parameters["@PSTR_EMAIL"].Direction = ParameterDirection.Input;
 
             cmd.Parameters.AddWithValue("@PSTR_TIPO", cliente.tipo);

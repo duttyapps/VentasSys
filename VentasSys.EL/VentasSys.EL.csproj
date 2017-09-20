@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ent_Abonos.cs" />
     <Compile Include="Ent_Anular.cs" />
     <Compile Include="Ent_CategoriaProductos.cs" />
     <Compile Include="Ent_Clientes.cs" />
