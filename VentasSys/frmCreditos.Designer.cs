@@ -53,14 +53,6 @@
             this.txtIGV = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.dgvDetalleVenta = new System.Windows.Forms.DataGridView();
-<<<<<<< HEAD
-=======
-            this.CODIGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DETALLE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CANTIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PRECIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IMPORTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
->>>>>>> 344e36c45d926946f07d4ae766d829de0168a782
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblFecha = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -80,7 +72,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgvAbonos = new System.Windows.Forms.DataGridView();
-<<<<<<< HEAD
             this.label20 = new System.Windows.Forms.Label();
             this.txtTotalRecibido = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -95,24 +86,10 @@
             this.CANTIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PRECIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IMPORTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-=======
->>>>>>> 344e36c45d926946f07d4ae766d829de0168a782
             this.CODIGOP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.USUARIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MONTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-<<<<<<< HEAD
-=======
-            this.label20 = new System.Windows.Forms.Label();
-            this.txtTotalRecibido = new System.Windows.Forms.TextBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.txtAmortizar = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnGrabarAbono = new System.Windows.Forms.Button();
-            this.lblNroDocumento2 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
->>>>>>> 344e36c45d926946f07d4ae766d829de0168a782
             this.groupBox1.SuspendLayout();
             this.tbDetalles.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -149,10 +126,7 @@
             this.btnBuscar.TabIndex = 4;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
-<<<<<<< HEAD
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-=======
->>>>>>> 344e36c45d926946f07d4ae766d829de0168a782
             // 
             // txtFecha
             // 
@@ -176,10 +150,7 @@
             // 
             // cboTipoVenta
             // 
-<<<<<<< HEAD
             this.cboTipoVenta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-=======
->>>>>>> 344e36c45d926946f07d4ae766d829de0168a782
             this.cboTipoVenta.FormattingEnabled = true;
             this.cboTipoVenta.Location = new System.Drawing.Point(364, 21);
             this.cboTipoVenta.Name = "cboTipoVenta";
@@ -283,24 +254,16 @@
             this.btnImprimir.BackColor = System.Drawing.Color.SteelBlue;
             this.btnImprimir.FlatAppearance.BorderSize = 0;
             this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-<<<<<<< HEAD
             this.btnImprimir.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImprimir.ForeColor = System.Drawing.Color.White;
             this.btnImprimir.Image = global::VentasSys.Properties.Resources.print_white_24x24;
             this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-=======
-            this.btnImprimir.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImprimir.ForeColor = System.Drawing.Color.White;
->>>>>>> 344e36c45d926946f07d4ae766d829de0168a782
             this.btnImprimir.Location = new System.Drawing.Point(615, 99);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(154, 45);
             this.btnImprimir.TabIndex = 6;
             this.btnImprimir.Text = "&Imprimir Documento";
-<<<<<<< HEAD
             this.btnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-=======
->>>>>>> 344e36c45d926946f07d4ae766d829de0168a782
             this.btnImprimir.UseVisualStyleBackColor = false;
             // 
             // btnFinalizarVenta
@@ -310,20 +273,14 @@
             this.btnFinalizarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFinalizarVenta.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFinalizarVenta.ForeColor = System.Drawing.Color.White;
-<<<<<<< HEAD
             this.btnFinalizarVenta.Image = global::VentasSys.Properties.Resources.save_white_24x24;
             this.btnFinalizarVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-=======
->>>>>>> 344e36c45d926946f07d4ae766d829de0168a782
             this.btnFinalizarVenta.Location = new System.Drawing.Point(615, 47);
             this.btnFinalizarVenta.Name = "btnFinalizarVenta";
             this.btnFinalizarVenta.Size = new System.Drawing.Size(154, 45);
             this.btnFinalizarVenta.TabIndex = 5;
             this.btnFinalizarVenta.Text = "&Finalizar Venta";
-<<<<<<< HEAD
             this.btnFinalizarVenta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-=======
->>>>>>> 344e36c45d926946f07d4ae766d829de0168a782
             this.btnFinalizarVenta.UseVisualStyleBackColor = false;
             // 
             // groupBox3
@@ -461,40 +418,6 @@
             this.dgvDetalleVenta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDetalleVenta.Size = new System.Drawing.Size(600, 170);
             this.dgvDetalleVenta.TabIndex = 12;
-<<<<<<< HEAD
-=======
-            // 
-            // CODIGO
-            // 
-            this.CODIGO.HeaderText = "Código";
-            this.CODIGO.Name = "CODIGO";
-            this.CODIGO.ReadOnly = true;
-            // 
-            // DETALLE
-            // 
-            this.DETALLE.HeaderText = "Detalle";
-            this.DETALLE.Name = "DETALLE";
-            this.DETALLE.ReadOnly = true;
-            this.DETALLE.Width = 200;
-            // 
-            // CANTIDAD
-            // 
-            this.CANTIDAD.HeaderText = "Cantidad";
-            this.CANTIDAD.Name = "CANTIDAD";
-            this.CANTIDAD.ReadOnly = true;
-            // 
-            // PRECIO
-            // 
-            this.PRECIO.HeaderText = "Precio";
-            this.PRECIO.Name = "PRECIO";
-            this.PRECIO.ReadOnly = true;
-            // 
-            // IMPORTE
-            // 
-            this.IMPORTE.HeaderText = "Importe";
-            this.IMPORTE.Name = "IMPORTE";
-            this.IMPORTE.ReadOnly = true;
->>>>>>> 344e36c45d926946f07d4ae766d829de0168a782
             // 
             // groupBox2
             // 
@@ -532,10 +455,7 @@
             this.txtEmail.Location = new System.Drawing.Point(382, 71);
             this.txtEmail.MaxLength = 11;
             this.txtEmail.Name = "txtEmail";
-<<<<<<< HEAD
             this.txtEmail.ReadOnly = true;
-=======
->>>>>>> 344e36c45d926946f07d4ae766d829de0168a782
             this.txtEmail.Size = new System.Drawing.Size(205, 22);
             this.txtEmail.TabIndex = 22;
             // 
@@ -544,10 +464,7 @@
             this.txtTelefono.Location = new System.Drawing.Point(382, 43);
             this.txtTelefono.MaxLength = 11;
             this.txtTelefono.Name = "txtTelefono";
-<<<<<<< HEAD
             this.txtTelefono.ReadOnly = true;
-=======
->>>>>>> 344e36c45d926946f07d4ae766d829de0168a782
             this.txtTelefono.Size = new System.Drawing.Size(106, 22);
             this.txtTelefono.TabIndex = 21;
             // 
@@ -606,10 +523,7 @@
             this.txtDireccion.Location = new System.Drawing.Point(84, 71);
             this.txtDireccion.MaxLength = 11;
             this.txtDireccion.Name = "txtDireccion";
-<<<<<<< HEAD
             this.txtDireccion.ReadOnly = true;
-=======
->>>>>>> 344e36c45d926946f07d4ae766d829de0168a782
             this.txtDireccion.Size = new System.Drawing.Size(205, 22);
             this.txtDireccion.TabIndex = 15;
             // 
@@ -618,10 +532,7 @@
             this.txtCliente.Location = new System.Drawing.Point(84, 43);
             this.txtCliente.MaxLength = 11;
             this.txtCliente.Name = "txtCliente";
-<<<<<<< HEAD
             this.txtCliente.ReadOnly = true;
-=======
->>>>>>> 344e36c45d926946f07d4ae766d829de0168a782
             this.txtCliente.Size = new System.Drawing.Size(205, 22);
             this.txtCliente.TabIndex = 14;
             // 
@@ -630,10 +541,7 @@
             this.txtDNI.Location = new System.Drawing.Point(84, 15);
             this.txtDNI.MaxLength = 11;
             this.txtDNI.Name = "txtDNI";
-<<<<<<< HEAD
             this.txtDNI.ReadOnly = true;
-=======
->>>>>>> 344e36c45d926946f07d4ae766d829de0168a782
             this.txtDNI.Size = new System.Drawing.Size(106, 22);
             this.txtDNI.TabIndex = 13;
             // 
@@ -708,7 +616,6 @@
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // dgvAbonos
-<<<<<<< HEAD
             // 
             this.dgvAbonos.AllowUserToAddRows = false;
             this.dgvAbonos.AllowUserToDeleteRows = false;
@@ -873,28 +780,6 @@
             this.IMPORTE.HeaderText = "Importe";
             this.IMPORTE.Name = "IMPORTE";
             this.IMPORTE.ReadOnly = true;
-=======
-            // 
-            this.dgvAbonos.AllowUserToAddRows = false;
-            this.dgvAbonos.AllowUserToDeleteRows = false;
-            this.dgvAbonos.AllowUserToResizeColumns = false;
-            this.dgvAbonos.AllowUserToResizeRows = false;
-            this.dgvAbonos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAbonos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CODIGOP,
-            this.FECHA,
-            this.USUARIO,
-            this.MONTO});
-            this.dgvAbonos.Location = new System.Drawing.Point(205, 12);
-            this.dgvAbonos.MultiSelect = false;
-            this.dgvAbonos.Name = "dgvAbonos";
-            this.dgvAbonos.RowHeadersVisible = false;
-            this.dgvAbonos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvAbonos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvAbonos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAbonos.Size = new System.Drawing.Size(564, 284);
-            this.dgvAbonos.TabIndex = 14;
->>>>>>> 344e36c45d926946f07d4ae766d829de0168a782
             // 
             // CODIGOP
             // 
@@ -925,113 +810,6 @@
             this.MONTO.Name = "MONTO";
             this.MONTO.ReadOnly = true;
             // 
-<<<<<<< HEAD
-=======
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(586, 308);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(77, 13);
-            this.label20.TabIndex = 13;
-            this.label20.Text = "Total recibido";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtTotalRecibido
-            // 
-            this.txtTotalRecibido.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalRecibido.Location = new System.Drawing.Point(669, 302);
-            this.txtTotalRecibido.Name = "txtTotalRecibido";
-            this.txtTotalRecibido.Size = new System.Drawing.Size(100, 25);
-            this.txtTotalRecibido.TabIndex = 12;
-            this.txtTotalRecibido.Text = "0.00";
-            this.txtTotalRecibido.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.txtAmortizar);
-            this.groupBox4.Controls.Add(this.label21);
-            this.groupBox4.Controls.Add(this.btnCancelar);
-            this.groupBox4.Controls.Add(this.btnGrabarAbono);
-            this.groupBox4.Location = new System.Drawing.Point(9, 40);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(190, 287);
-            this.groupBox4.TabIndex = 11;
-            this.groupBox4.TabStop = false;
-            // 
-            // txtAmortizar
-            // 
-            this.txtAmortizar.Location = new System.Drawing.Point(68, 24);
-            this.txtAmortizar.MaxLength = 11;
-            this.txtAmortizar.Name = "txtAmortizar";
-            this.txtAmortizar.Size = new System.Drawing.Size(116, 22);
-            this.txtAmortizar.TabIndex = 11;
-            this.txtAmortizar.Text = "0.00";
-            this.txtAmortizar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(6, 27);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(56, 13);
-            this.label21.TabIndex = 10;
-            this.label21.Text = "Amortizar";
-            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnCancelar.FlatAppearance.BorderSize = 0;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(18, 115);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(154, 45);
-            this.btnCancelar.TabIndex = 7;
-            this.btnCancelar.Text = "&Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            // 
-            // btnGrabarAbono
-            // 
-            this.btnGrabarAbono.BackColor = System.Drawing.Color.Green;
-            this.btnGrabarAbono.FlatAppearance.BorderSize = 0;
-            this.btnGrabarAbono.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGrabarAbono.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGrabarAbono.ForeColor = System.Drawing.Color.White;
-            this.btnGrabarAbono.Location = new System.Drawing.Point(18, 64);
-            this.btnGrabarAbono.Name = "btnGrabarAbono";
-            this.btnGrabarAbono.Size = new System.Drawing.Size(154, 45);
-            this.btnGrabarAbono.TabIndex = 6;
-            this.btnGrabarAbono.Text = "&Grabar Abono";
-            this.btnGrabarAbono.UseVisualStyleBackColor = false;
-            // 
-            // lblNroDocumento2
-            // 
-            this.lblNroDocumento2.AutoSize = true;
-            this.lblNroDocumento2.BackColor = System.Drawing.Color.Red;
-            this.lblNroDocumento2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNroDocumento2.ForeColor = System.Drawing.Color.White;
-            this.lblNroDocumento2.Location = new System.Drawing.Point(104, 12);
-            this.lblNroDocumento2.Name = "lblNroDocumento2";
-            this.lblNroDocumento2.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
-            this.lblNroDocumento2.Size = new System.Drawing.Size(95, 25);
-            this.lblNroDocumento2.TabIndex = 10;
-            this.lblNroDocumento2.Text = "001-000000";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(6, 17);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(92, 13);
-            this.label19.TabIndex = 9;
-            this.label19.Text = "Nro. Documento";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
->>>>>>> 344e36c45d926946f07d4ae766d829de0168a782
             // frmCreditos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1104,14 +882,6 @@
         private System.Windows.Forms.Button btnFinalizarVenta;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dgvDetalleVenta;
-<<<<<<< HEAD
-=======
-        private System.Windows.Forms.DataGridViewTextBoxColumn CODIGO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DETALLE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CANTIDAD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PRECIO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IMPORTE;
->>>>>>> 344e36c45d926946f07d4ae766d829de0168a782
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label14;
@@ -1129,7 +899,6 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.DataGridView dgvAbonos;
-<<<<<<< HEAD
         private System.Windows.Forms.Button btnGrabarAbono;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.TextBox txtAmortizar;
@@ -1139,18 +908,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CANTIDAD;
         private System.Windows.Forms.DataGridViewTextBoxColumn PRECIO;
         private System.Windows.Forms.DataGridViewTextBoxColumn IMPORTE;
-=======
->>>>>>> 344e36c45d926946f07d4ae766d829de0168a782
         private System.Windows.Forms.DataGridViewTextBoxColumn CODIGOP;
         private System.Windows.Forms.DataGridViewTextBoxColumn FECHA;
         private System.Windows.Forms.DataGridViewTextBoxColumn USUARIO;
         private System.Windows.Forms.DataGridViewTextBoxColumn MONTO;
-<<<<<<< HEAD
-=======
-        private System.Windows.Forms.Button btnGrabarAbono;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.TextBox txtAmortizar;
-        private System.Windows.Forms.Label label21;
->>>>>>> 344e36c45d926946f07d4ae766d829de0168a782
     }
 }
