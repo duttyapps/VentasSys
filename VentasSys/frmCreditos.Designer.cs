@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtFecha = new System.Windows.Forms.DateTimePicker();
@@ -53,6 +54,11 @@
             this.txtIGV = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.dgvDetalleVenta = new System.Windows.Forms.DataGridView();
+            this.CODIGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DETALLE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CANTIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PRECIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IMPORTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblFecha = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -72,6 +78,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgvAbonos = new System.Windows.Forms.DataGridView();
+            this.CODIGOP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.USUARIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MONTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label20 = new System.Windows.Forms.Label();
             this.txtTotalRecibido = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -81,15 +91,6 @@
             this.btnGrabarAbono = new System.Windows.Forms.Button();
             this.lblNroDocumento2 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.CODIGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DETALLE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CANTIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PRECIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IMPORTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CODIGOP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.USUARIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MONTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.tbDetalles.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -174,6 +175,7 @@
             this.txtNroDocumento.Name = "txtNroDocumento";
             this.txtNroDocumento.Size = new System.Drawing.Size(135, 22);
             this.txtNroDocumento.TabIndex = 1;
+            this.txtNroDocumento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNroDocumento_KeyPress);
             // 
             // label1
             // 
@@ -419,6 +421,42 @@
             this.dgvDetalleVenta.Size = new System.Drawing.Size(600, 170);
             this.dgvDetalleVenta.TabIndex = 12;
             // 
+            // CODIGO
+            // 
+            this.CODIGO.DataPropertyName = "id";
+            this.CODIGO.HeaderText = "Código";
+            this.CODIGO.Name = "CODIGO";
+            this.CODIGO.ReadOnly = true;
+            // 
+            // DETALLE
+            // 
+            this.DETALLE.DataPropertyName = "nombre";
+            this.DETALLE.HeaderText = "Detalle";
+            this.DETALLE.Name = "DETALLE";
+            this.DETALLE.ReadOnly = true;
+            this.DETALLE.Width = 200;
+            // 
+            // CANTIDAD
+            // 
+            this.CANTIDAD.DataPropertyName = "stock";
+            this.CANTIDAD.HeaderText = "Cantidad";
+            this.CANTIDAD.Name = "CANTIDAD";
+            this.CANTIDAD.ReadOnly = true;
+            // 
+            // PRECIO
+            // 
+            this.PRECIO.DataPropertyName = "precio";
+            this.PRECIO.HeaderText = "Precio";
+            this.PRECIO.Name = "PRECIO";
+            this.PRECIO.ReadOnly = true;
+            // 
+            // IMPORTE
+            // 
+            this.IMPORTE.DataPropertyName = "monto_total";
+            this.IMPORTE.HeaderText = "Importe";
+            this.IMPORTE.Name = "IMPORTE";
+            this.IMPORTE.ReadOnly = true;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lblFecha);
@@ -445,9 +483,9 @@
             this.lblFecha.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFecha.Location = new System.Drawing.Point(379, 18);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(65, 13);
+            this.lblFecha.Size = new System.Drawing.Size(11, 13);
             this.lblFecha.TabIndex = 23;
-            this.lblFecha.Text = "14/09/2017";
+            this.lblFecha.Text = "-";
             this.lblFecha.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtEmail
@@ -561,9 +599,9 @@
             this.lblTipoVenta.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTipoVenta.Location = new System.Drawing.Point(356, 17);
             this.lblTipoVenta.Name = "lblTipoVenta";
-            this.lblTipoVenta.Size = new System.Drawing.Size(40, 13);
+            this.lblTipoVenta.Size = new System.Drawing.Size(88, 13);
             this.lblTipoVenta.TabIndex = 10;
-            this.lblTipoVenta.Text = "Boleta";
+            this.lblTipoVenta.Text = "Boleta de Venta";
             this.lblTipoVenta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
@@ -637,6 +675,38 @@
             this.dgvAbonos.Size = new System.Drawing.Size(564, 284);
             this.dgvAbonos.TabIndex = 14;
             // 
+            // CODIGOP
+            // 
+            this.CODIGOP.DataPropertyName = "codigo";
+            this.CODIGOP.HeaderText = "Código";
+            this.CODIGOP.Name = "CODIGOP";
+            this.CODIGOP.ReadOnly = true;
+            // 
+            // FECHA
+            // 
+            this.FECHA.DataPropertyName = "fecha_reg";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.FECHA.DefaultCellStyle = dataGridViewCellStyle1;
+            this.FECHA.HeaderText = "Fecha";
+            this.FECHA.Name = "FECHA";
+            this.FECHA.ReadOnly = true;
+            this.FECHA.Width = 164;
+            // 
+            // USUARIO
+            // 
+            this.USUARIO.DataPropertyName = "usuario";
+            this.USUARIO.HeaderText = "Usuario";
+            this.USUARIO.Name = "USUARIO";
+            this.USUARIO.ReadOnly = true;
+            this.USUARIO.Width = 200;
+            // 
+            // MONTO
+            // 
+            this.MONTO.DataPropertyName = "monto";
+            this.MONTO.HeaderText = "Monto";
+            this.MONTO.Name = "MONTO";
+            this.MONTO.ReadOnly = true;
+            // 
             // label20
             // 
             this.label20.AutoSize = true;
@@ -679,6 +749,7 @@
             this.txtAmortizar.TabIndex = 11;
             this.txtAmortizar.Text = "0.00";
             this.txtAmortizar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtAmortizar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmortizar_KeyPress);
             // 
             // label21
             // 
@@ -721,6 +792,7 @@
             this.btnGrabarAbono.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGrabarAbono.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGrabarAbono.UseVisualStyleBackColor = false;
+            this.btnGrabarAbono.Click += new System.EventHandler(this.btnGrabarAbono_Click);
             // 
             // lblNroDocumento2
             // 
@@ -744,71 +816,6 @@
             this.label19.TabIndex = 9;
             this.label19.Text = "Nro. Documento";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // CODIGO
-            // 
-            this.CODIGO.DataPropertyName = "id";
-            this.CODIGO.HeaderText = "Código";
-            this.CODIGO.Name = "CODIGO";
-            this.CODIGO.ReadOnly = true;
-            // 
-            // DETALLE
-            // 
-            this.DETALLE.DataPropertyName = "nombre";
-            this.DETALLE.HeaderText = "Detalle";
-            this.DETALLE.Name = "DETALLE";
-            this.DETALLE.ReadOnly = true;
-            this.DETALLE.Width = 200;
-            // 
-            // CANTIDAD
-            // 
-            this.CANTIDAD.DataPropertyName = "stock";
-            this.CANTIDAD.HeaderText = "Cantidad";
-            this.CANTIDAD.Name = "CANTIDAD";
-            this.CANTIDAD.ReadOnly = true;
-            // 
-            // PRECIO
-            // 
-            this.PRECIO.DataPropertyName = "precio";
-            this.PRECIO.HeaderText = "Precio";
-            this.PRECIO.Name = "PRECIO";
-            this.PRECIO.ReadOnly = true;
-            // 
-            // IMPORTE
-            // 
-            this.IMPORTE.DataPropertyName = "monto_total";
-            this.IMPORTE.HeaderText = "Importe";
-            this.IMPORTE.Name = "IMPORTE";
-            this.IMPORTE.ReadOnly = true;
-            // 
-            // CODIGOP
-            // 
-            this.CODIGOP.DataPropertyName = "codigo";
-            this.CODIGOP.HeaderText = "Código";
-            this.CODIGOP.Name = "CODIGOP";
-            this.CODIGOP.ReadOnly = true;
-            // 
-            // FECHA
-            // 
-            this.FECHA.DataPropertyName = "fecha_reg";
-            this.FECHA.HeaderText = "Fecha";
-            this.FECHA.Name = "FECHA";
-            this.FECHA.ReadOnly = true;
-            // 
-            // USUARIO
-            // 
-            this.USUARIO.DataPropertyName = "usuario";
-            this.USUARIO.HeaderText = "Usuario";
-            this.USUARIO.Name = "USUARIO";
-            this.USUARIO.ReadOnly = true;
-            this.USUARIO.Width = 264;
-            // 
-            // MONTO
-            // 
-            this.MONTO.DataPropertyName = "monto";
-            this.MONTO.HeaderText = "Monto";
-            this.MONTO.Name = "MONTO";
-            this.MONTO.ReadOnly = true;
             // 
             // frmCreditos
             // 

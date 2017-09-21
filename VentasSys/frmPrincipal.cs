@@ -608,6 +608,8 @@ namespace VentasSys
             txtNombres.Text = String.Empty;
             txtDireccion.Text = String.Empty;
             txtDNI.Text = String.Empty;
+            txtTelefono.Text = String.Empty;
+            txtEmail.Text = String.Empty;
             dgvProductos.Rows.Clear();
             txtTotal.Text = "0.00";
             txtIGV.Text = "0.00";
@@ -777,7 +779,7 @@ namespace VentasSys
 
         private void créditosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCreditos frm = new frmCreditos(cod_tienda);
+            frmCreditos frm = new frmCreditos(cod_tienda, ent_usuario.username);
             frm.ShowDialog();
         }
     }

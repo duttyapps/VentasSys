@@ -15,11 +15,14 @@ namespace VentasSys
     public partial class frmCreditos : Form
     {
         private string cod_tienda { get; set; }
-        public frmCreditos(string _cod_tienda)
+        private string usuario { get; set; }
+        private Ent_Venta ent_venta { get; set; }
+        public frmCreditos(string _cod_tienda, string _usuario)
         {
             InitializeComponent();
             fillTipoVenta();
             cod_tienda = _cod_tienda;
+            usuario = _usuario;
             txtFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
             dgvDetalleVenta.Columns["PRECIO"].DefaultCellStyle.Format = "f";
             dgvDetalleVenta.Columns["IMPORTE"].DefaultCellStyle.Format = "f";
@@ -77,6 +80,11 @@ namespace VentasSys
 
             dgvAbonos.DataSource = source;
 
+            double total = dgvAbonos.Rows.Cast<DataGridViewRow>()
+                  .Sum(t => Convert.ToDouble(t.Cells["MONTO"].Value));
+
+            txtTotalRecibido.Text = total.ToString("#.00");
+
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -88,7 +96,7 @@ namespace VentasSys
                 return;
             }
 
-            int v_nro_doc = int.Parse(txtNroDocumento.Text.Substring(4,txtNroDocumento.Text.Length - 4));
+            int v_nro_doc = int.Parse(txtNroDocumento.Text.Substring(4, txtNroDocumento.Text.Length - 4));
             string v_tipo_venta = cboTipoVenta.SelectedValue.ToString();
             string v_fecha = txtFecha.Text;
             Ent_Venta res_venta = BL_Ventas.getVentaCredito(v_nro_doc, cod_tienda, v_tipo_venta, v_fecha);
@@ -100,6 +108,7 @@ namespace VentasSys
             }
             else
             {
+                ent_venta = res_venta;
                 tbDetalles.Enabled = true;
                 lblNroDocumento.Text = res_venta.nro_doc_str;
                 lblNroDocumento2.Text = res_venta.nro_doc_str;
@@ -126,6 +135,92 @@ namespace VentasSys
 
             fillDetalles(v_nro_doc.ToString());
             fillAbonos(res_venta.id_cab, res_venta.nro_doc);
+        }
+
+        private void txtNroDocumento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)
+                 && e.KeyChar != '-')
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == '-'
+                && (sender as TextBox).Text.IndexOf('-') > -1)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtAmortizar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)
+                 && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == '.'
+                && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnGrabarAbono_Click(object sender, EventArgs e)
+        {
+            if (txtAmortizar.Text == String.Empty)
+            {
+                txtAmortizar.Text = "0.00";
+            }
+
+            if (txtAmortizar.Text == "0.00")
+            {
+                MessageBox.Show("El monto a amortizar no puede ser S/. 0.00", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtAmortizar.Focus();
+                return;
+            }
+
+            double monto_deuda = ent_venta.monto_total - double.Parse(txtTotalRecibido.Text);
+            double monto_abono = double.Parse(txtAmortizar.Text) + double.Parse(txtTotalRecibido.Text);
+
+            if (monto_abono > ent_venta.monto_total)
+            {
+                MessageBox.Show("El monto a amortizar no puede ser mayor al monto de deuda.\nMonto Deuda: S/. " + monto_deuda.ToString("#.00"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtAmortizar.Focus();
+                return;
+            }
+
+            var confirm = MessageBox.Show("¿Está seguro que desea amortizar S/. " + txtAmortizar.Text + " en la cuenta?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirm == DialogResult.Yes)
+            {
+                grabarAbono();
+            }
+        }
+
+        private void grabarAbono()
+        {
+            double monto = double.Parse(txtAmortizar.Text);
+
+            Ent_Abonos abono = new Ent_Abonos();
+
+            abono.id = ent_venta.id_cab;
+            abono.id_cab = ent_venta.nro_doc;
+            abono.cod_tienda = cod_tienda;
+            abono.usuario = usuario;
+            abono.monto = monto;
+
+            string res = BL_Ventas.setAbono(abono);
+
+            if (res.Equals("1"))
+            {
+                fillAbonos(abono.id, abono.id_cab);
+            }
+            else
+            {
+                MessageBox.Show("Error al grabar el abono.\n" + res, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -10,6 +10,8 @@ namespace VentasSys.EL
     {
         public int id { get; set; }
         public int id_cab { get; set; }
+        public int nro_doc { get; set; }
+        public string codigo { get; set; }
         public string cod_tienda { get; set; }
         public string fecha_reg { get; set; }
         public string usuario { get; set; }
@@ -19,6 +21,8 @@ namespace VentasSys.EL
         {
             this.id = 0;
             this.id_cab = 0;
+            this.nro_doc = 0;
+            this.codigo = String.Empty;
             this.cod_tienda = String.Empty;
             this.fecha_reg = String.Empty;
             this.usuario = String.Empty;

@@ -493,11 +493,11 @@ namespace VentasSys.DAL
             cmd.CommandText = "SP_SYS_GET_ABONOS";
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@PSTR_ID", abono.id);
-            cmd.Parameters["@PSTR_ID"].Direction = ParameterDirection.Input;
-
-            cmd.Parameters.AddWithValue("@PSTR_ID_CAB", abono.id_cab);
+            cmd.Parameters.AddWithValue("@PSTR_ID_CAB", abono.id);
             cmd.Parameters["@PSTR_ID_CAB"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_NRO_DOC", abono.id_cab);
+            cmd.Parameters["@PSTR_NRO_DOC"].Direction = ParameterDirection.Input;
 
             MySqlDataReader dr = cmd.ExecuteReader();
 
@@ -506,6 +506,8 @@ namespace VentasSys.DAL
                 Ent_Abonos abonos = new Ent_Abonos();
                 abonos.id = Convert.ToInt32(dr["ID"]);
                 abonos.id_cab = Convert.ToInt32(dr["ID_CAB"]);
+                abonos.nro_doc = Convert.ToInt32(dr["NRO_DOCUMENTO"]);
+                abonos.codigo = abonos.nro_doc.ToString("000000") + "-" + abonos.id;
                 abonos.cod_tienda = Convert.ToString(dr["COD_TIENDA"]);
                 abonos.fecha_reg = Convert.ToString(dr["FECHA_REG"]);
                 abonos.usuario = Convert.ToString(dr["USUARIO"]);
@@ -517,6 +519,78 @@ namespace VentasSys.DAL
             con.Close();
 
             return lstAbonos;
+        }
+
+        public static string setAbono(Ent_Abonos entity)
+        {
+            MySqlTransaction tr = null;
+            con = Conexion.getConnection();
+
+            string retval = "1";
+
+            try
+            {
+                con.Open();
+
+                tr = con.BeginTransaction();
+
+                MySqlCommand cmd = new MySqlCommand();
+
+                cmd.Connection = con;
+                cmd.Transaction = tr;
+
+                cmd.CommandText = "SP_SYS_SET_ABONO";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@RETVAL", MySqlDbType.VarChar);
+                cmd.Parameters["@RETVAL"].Direction = ParameterDirection.Output;
+
+                cmd.Parameters.AddWithValue("@PSTR_ID", entity.id);
+                cmd.Parameters["@PSTR_ID"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_ID_CAB", entity.id_cab);
+                cmd.Parameters["@PSTR_ID_CAB"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_COD_TIENDA", entity.cod_tienda);
+                cmd.Parameters["@PSTR_COD_TIENDA"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_USUARIO", entity.usuario);
+                cmd.Parameters["@PSTR_USUARIO"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_MONTO", entity.monto.ToString("#.00"));
+                cmd.Parameters["@PSTR_MONTO"].Direction = ParameterDirection.Input;
+
+                cmd.ExecuteNonQuery();
+
+                retval = cmd.Parameters["@RETVAL"].Value.ToString();
+
+                if (retval != "1")
+                {
+                    tr.Rollback();
+                    return retval;
+                }
+
+                tr.Commit();
+            }
+            catch (MySqlException ex)
+            {
+                try
+                {
+                    tr.Rollback();
+                }
+                catch (MySqlException ex1)
+                {
+                    return ex1.ToString();
+                }
+
+                return ex.ToString();
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return retval;
         }
     }
 }

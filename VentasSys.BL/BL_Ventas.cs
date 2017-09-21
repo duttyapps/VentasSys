@@ -56,5 +56,10 @@ namespace VentasSys.BL
         {
             return DAO_Ventas.getAbonos(abono);
         }
+
+        public static string setAbono(Ent_Abonos entity)
+        {
+            return DAO_Ventas.setAbono(entity);
+        }
     }
 }
