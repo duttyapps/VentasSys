@@ -45,7 +45,7 @@
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnFinalizarVenta = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtVuelto = new System.Windows.Forms.TextBox();
+            this.txtSaldo = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtRecibido = new System.Windows.Forms.TextBox();
             this.lblRecibido = new System.Windows.Forms.Label();
@@ -284,10 +284,11 @@
             this.btnFinalizarVenta.Text = "&Finalizar Venta";
             this.btnFinalizarVenta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFinalizarVenta.UseVisualStyleBackColor = false;
+            this.btnFinalizarVenta.Click += new System.EventHandler(this.btnFinalizarVenta_Click);
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.txtVuelto);
+            this.groupBox3.Controls.Add(this.txtSaldo);
             this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Controls.Add(this.txtRecibido);
             this.groupBox3.Controls.Add(this.lblRecibido);
@@ -301,19 +302,19 @@
             this.groupBox3.TabIndex = 13;
             this.groupBox3.TabStop = false;
             // 
-            // txtVuelto
+            // txtSaldo
             // 
-            this.txtVuelto.BackColor = System.Drawing.Color.Green;
-            this.txtVuelto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtVuelto.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVuelto.ForeColor = System.Drawing.Color.White;
-            this.txtVuelto.Location = new System.Drawing.Point(67, 150);
-            this.txtVuelto.Name = "txtVuelto";
-            this.txtVuelto.ReadOnly = true;
-            this.txtVuelto.Size = new System.Drawing.Size(81, 22);
-            this.txtVuelto.TabIndex = 45;
-            this.txtVuelto.Text = "0.00";
-            this.txtVuelto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtSaldo.BackColor = System.Drawing.Color.Green;
+            this.txtSaldo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSaldo.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSaldo.ForeColor = System.Drawing.Color.White;
+            this.txtSaldo.Location = new System.Drawing.Point(67, 150);
+            this.txtSaldo.Name = "txtSaldo";
+            this.txtSaldo.ReadOnly = true;
+            this.txtSaldo.Size = new System.Drawing.Size(81, 22);
+            this.txtSaldo.TabIndex = 45;
+            this.txtSaldo.Text = "0.00";
+            this.txtSaldo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label15
             // 
@@ -599,9 +600,9 @@
             this.lblTipoVenta.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTipoVenta.Location = new System.Drawing.Point(356, 17);
             this.lblTipoVenta.Name = "lblTipoVenta";
-            this.lblTipoVenta.Size = new System.Drawing.Size(88, 13);
+            this.lblTipoVenta.Size = new System.Drawing.Size(54, 13);
             this.lblTipoVenta.TabIndex = 10;
-            this.lblTipoVenta.Text = "Boleta de Venta";
+            this.lblTipoVenta.Text = "Ninguno";
             this.lblTipoVenta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
@@ -723,6 +724,7 @@
             this.txtTotalRecibido.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalRecibido.Location = new System.Drawing.Point(669, 302);
             this.txtTotalRecibido.Name = "txtTotalRecibido";
+            this.txtTotalRecibido.ReadOnly = true;
             this.txtTotalRecibido.Size = new System.Drawing.Size(100, 25);
             this.txtTotalRecibido.TabIndex = 12;
             this.txtTotalRecibido.Text = "0.00";
@@ -774,6 +776,7 @@
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGrabarAbono
             // 
@@ -892,7 +895,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox txtVuelto;
+        private System.Windows.Forms.TextBox txtSaldo;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtRecibido;
         private System.Windows.Forms.Label lblRecibido;

@@ -83,12 +83,15 @@ namespace VentasSys
             double total = dgvAbonos.Rows.Cast<DataGridViewRow>()
                   .Sum(t => Convert.ToDouble(t.Cells["MONTO"].Value));
 
-            txtTotalRecibido.Text = total.ToString("#.00");
-
+            txtTotalRecibido.Text = total.ToString("#0.00");
+            txtRecibido.Text = (total + ent_venta.monto_recibido).ToString("#0.00");
+            txtSaldo.Text = (ent_venta.monto_total - double.Parse(txtRecibido.Text)).ToString("#0.00");
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            reiniciarCredito();
+
             if (txtNroDocumento.Text == String.Empty)
             {
                 MessageBox.Show("El número de documento no puede estar vacío.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -119,7 +122,7 @@ namespace VentasSys
                 txtEmail.Text = res_venta.email;
                 txtTelefono.Text = res_venta.telefono;
                 txtDireccion.Text = res_venta.direccion;
-                txtTotal.Text = res_venta.monto_total.ToString("#.00");
+                txtTotal.Text = res_venta.monto_total.ToString("#0.00");
 
                 if (v_tipo_venta == "FA")
                 {
@@ -186,7 +189,7 @@ namespace VentasSys
 
             if (monto_abono > ent_venta.monto_total)
             {
-                MessageBox.Show("El monto a amortizar no puede ser mayor al monto de deuda.\nMonto Deuda: S/. " + monto_deuda.ToString("#.00"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El monto a amortizar no puede ser mayor al monto de deuda.\nMonto Deuda: S/. " + monto_deuda.ToString("#0.00"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtAmortizar.Focus();
                 return;
             }
@@ -216,10 +219,65 @@ namespace VentasSys
             if (res.Equals("1"))
             {
                 fillAbonos(abono.id, abono.id_cab);
+                txtAmortizar.Text = "0.00";
             }
             else
             {
                 MessageBox.Show("Error al grabar el abono.\n" + res, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void reiniciarCredito()
+        {
+            txtNroDocumento.Focus();
+            tbDetalles.SelectTab(0);
+            tbDetalles.Enabled = false;
+            lblNroDocumento.Text = "001-000000";
+            lblTipoVenta.Text = "Ninguno";
+            txtDNI.Text = String.Empty;
+            lblFecha.Text = "-";
+            txtCliente.Text = String.Empty;
+            txtTelefono.Text = String.Empty;
+            txtDireccion.Text = String.Empty;
+            txtEmail.Text = String.Empty;
+
+            if(dgvDetalleVenta.Rows.Count > 0)
+            {
+                dgvDetalleVenta.Rows.Clear();
+            }
+
+            txtSubTotal.Text = "0.00";
+            txtIGV.Text = "0.00";
+            txtTotal.Text = "0.00";
+            txtRecibido.Text = "0.00";
+            txtSaldo.Text = "0.00";
+        }
+
+        private void btnFinalizarVenta_Click(object sender, EventArgs e)
+        {
+            double saldo = double.Parse(txtSaldo.Text);
+
+            if (saldo != 0)
+            {
+                MessageBox.Show("No se puede finalizar la venta debido a que aún existe deuda.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var confirm = MessageBox.Show("¿Está seguro que desea finalizar la venta?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirm == DialogResult.Yes)
+            {
+                reiniciarCredito();
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            var confirm = MessageBox.Show("¿Está seguro que desea cancelar el proceso?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if(confirm == DialogResult.Yes)
+            {
+                reiniciarCredito();
             }
         }
     }

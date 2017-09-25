@@ -59,6 +59,7 @@ namespace VentasSys
             pbLogo.Image = logo;
             correlativo = BL_Ventas.getCorrelativo(tipo_venta);
             lblBienvenido.Text = "Bienvenid@ " + ent_usuario.nombres;
+            lblRango.Text = (ent_usuario.rango == "1") ? "(Administrador)" : "(Cajero)";
             lblTienda.Text = "Tienda: " + des_tienda;
             lblSerie.Text = "N° 001-" + correlativo;
             lblFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
@@ -182,6 +183,8 @@ namespace VentasSys
                 txtDNI.Text = (frm.ent_cliente.dni == null) ? "" : frm.ent_cliente.dni;
                 txtTelefono.Text = (frm.ent_cliente.telefono == null) ? "" : frm.ent_cliente.telefono;
                 txtEmail.Text = (frm.ent_cliente.email == null) ? "" : frm.ent_cliente.email;
+
+                log.Info("Cliente seleccionado: [" + frm.ent_cliente.dni + "] " + txtNombres.Text + " " + txtApellidos.Text, System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
         }
 
@@ -198,6 +201,8 @@ namespace VentasSys
                 txtDNI.Text = (frm.ent_cliente.dni == null) ? "" : frm.ent_cliente.dni;
                 txtTelefono.Text = (frm.ent_cliente.telefono == null) ? "" : frm.ent_cliente.telefono;
                 txtEmail.Text = (frm.ent_cliente.email == null) ? "" : frm.ent_cliente.email;
+
+                log.Info("Cliente seleccionado: [" + frm.ent_cliente.dni + "] " + txtNombres.Text + " " + txtApellidos.Text, System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
         }
 
@@ -238,6 +243,8 @@ namespace VentasSys
                 {
                     dgvProductos.Rows.Add(BL_Productos.generarCodigoProducto(cod_tienda, frm.ent_producto.id, frm.ent_producto.id_cat), frm.ent_producto.nombre, "1", frm.ent_producto.precio.ToString("#0.00"), frm.ent_producto.precio.ToString("#0.00"), frm.ent_producto.id);
                 }
+
+                log.Info("Producto agregado: [" + BL_Productos.generarCodigoProducto(cod_tienda, frm.ent_producto.id, frm.ent_producto.id_cat) + "] " + frm.ent_producto.nombre, System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
 
             sumarTotal();
@@ -245,28 +252,52 @@ namespace VentasSys
 
         private void sumarTotal()
         {
-            total = dgvProductos.Rows.Cast<DataGridViewRow>()
-                .Sum(t => Convert.ToDouble(t.Cells["IMPORTE"].Value));
+            try
+            {
+                total = dgvProductos.Rows.Cast<DataGridViewRow>()
+                    .Sum(t => Convert.ToDouble(t.Cells["IMPORTE"].Value));
 
-            if (tipo_venta == "FA")
-            {
-                txtSubTotal.Text = Convert.ToDouble(total / (ent_configuracion.IGV + 1)).ToString("#0.00");
-                txtIGV.Text = (total - Convert.ToDouble(txtSubTotal.Text)).ToString("#0.00");
-            } else
-            {
-                txtSubTotal.Text = "0.00";
-                txtIGV.Text = "0.00";
+                if (tipo_venta == "FA")
+                {
+                    txtSubTotal.Text = Convert.ToDouble(total / (ent_configuracion.IGV + 1)).ToString("#0.00");
+                    txtIGV.Text = (total - Convert.ToDouble(txtSubTotal.Text)).ToString("#0.00");
+                }
+                else
+                {
+                    txtSubTotal.Text = "0.00";
+                    txtIGV.Text = "0.00";
+                }
+
+                txtTotal.Text = total.ToString("#0.00");
+
+                if (dgvProductos.Rows.Count == 10)
+                {
+                    btnAgregarProducto.Enabled = false;
+                } else
+                {
+                    btnAgregarProducto.Enabled = true;
+                }
             }
-
-            txtTotal.Text = total.ToString("#0.00");
+            catch (Exception ex)
+            {
+                log.Error("Error al SUMAR TOTAL: " + ex.Message, System.Reflection.MethodBase.GetCurrentMethod().Name);
+            }
         }
 
         private int sumarCantidad()
         {
-            int total = dgvProductos.Rows.Cast<DataGridViewRow>()
-                .Sum(t => Convert.ToInt32(t.Cells["CANTIDAD"].Value));
-
-            return total;
+            try
+            {
+                int total = dgvProductos.Rows.Cast<DataGridViewRow>()
+                    .Sum(t => Convert.ToInt32(t.Cells["CANTIDAD"].Value));
+                return total;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al sumar la cantidad. \n\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                log.Error("Error al SUMAR TOTAL: " + ex.Message, System.Reflection.MethodBase.GetCurrentMethod().Name);
+                return 0;
+            }
         }
 
         private void dgvProductos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -333,11 +364,24 @@ namespace VentasSys
 
         private void btnEliminarProducto_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow item in dgvProductos.SelectedRows)
+            try
             {
-                dgvProductos.Rows.RemoveAt(item.Index);
+                foreach (DataGridViewRow item in dgvProductos.SelectedRows)
+                {
+                    if (item.Index > -1)
+                    {
+                        dgvProductos.Rows.RemoveAt(item.Index);
+                        sumarTotal();
+                        log.Info("Producto removido: [" + item.Cells[0].Value + "] " + item.Cells[1].Value, System.Reflection.MethodBase.GetCurrentMethod().Name);
+                    }
+                }
+
             }
-            sumarTotal();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al quitar el producto. \n\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                log.Error("Error al quitar el producto: " + ex.Message, System.Reflection.MethodBase.GetCurrentMethod().Name);
+            }
         }
 
         private void dgvProductos_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
@@ -364,135 +408,134 @@ namespace VentasSys
 
         private void btnPagar_Click(object sender, EventArgs e)
         {
-            if (dgvProductos.Rows.Count == 0)
+            try
             {
-                MessageBox.Show("No se agregó ningún producto. La compra no puede ser realizada.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (txtRecibido.Text == String.Empty)
-            {
-                txtRecibido.Text = "0.00";
-            }
-
-            if (Convert.ToDecimal(txtRecibido.Text) <= 0 && cboFormaPago.SelectedValue.ToString() == "CO")
-            {
-                MessageBox.Show("El monto recibido no puede estar en S/. 0.00.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtRecibido.Select();
-                return;
-            }
-
-            if (Convert.ToDecimal(txtVuelto.Text) < 0)
-            {
-                MessageBox.Show("El vuelto no debe ser negativo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtRecibido.Select();
-                return;
-            }
-
-            if (tipo_venta == "BO")
-            {
-                if (txtDNI.Text.Length == 0)
+                if (dgvProductos.Rows.Count == 0)
                 {
-                    var confirm = MessageBox.Show("¿Está seguro que desea realizar la venta sin cliente?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (confirm == DialogResult.Yes)
+                    MessageBox.Show("No se agregó ningún producto. La compra no puede ser realizada.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (txtRecibido.Text == String.Empty)
+                {
+                    txtRecibido.Text = "0.00";
+                }
+
+                if (cboFormaPago.SelectedValue.ToString() == "CO")
+                {
+                    if (Convert.ToDecimal(txtRecibido.Text) <= 0)
                     {
-                        txtNombres.Text = "SIN NOMBRE";
-                        txtApellidos.Text = "SIN APELLIDOS";
-                        txtDireccion.Text = "SIN DIRECCIÓN";
-                        txtDNI.Text = "00000000";
-                        txtTelefono.Text = "1111111";
-                        txtEmail.Text = "sincorreo@email.com";
+                        MessageBox.Show("El monto recibido no puede estar en S/. 0.00.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtRecibido.Select();
+                        return;
                     }
-                    else
+
+                    if (Convert.ToDecimal(txtVuelto.Text) < 0)
                     {
-                        txtNombres.Focus();
+                        MessageBox.Show("El vuelto no debe ser negativo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtRecibido.Select();
+                        return;
+                    }
+                } else
+                {
+                    if (Convert.ToDecimal(txtRecibido.Text) >= Convert.ToDecimal(txtTotal.Text))
+                    {
+                        MessageBox.Show("El monto recibido no puede estar en S/. 0.00.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtRecibido.Select();
+                        return;
+                    }
+
+                    if (Convert.ToDecimal(txtVuelto.Text) < 0)
+                    {
+                        MessageBox.Show("El vuelto no debe ser negativo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtRecibido.Select();
                         return;
                     }
                 }
 
-                if (txtDireccion.Text.Length == 0)
+                if (tipo_venta == "BO")
                 {
-                    txtDireccion.Text = "SIN DIRECCIÓN";
+                    if (txtDNI.Text.Length == 0)
+                    {
+                        var confirm = MessageBox.Show("¿Está seguro que desea realizar la venta sin cliente?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (confirm == DialogResult.Yes)
+                        {
+                            txtNombres.Text = "SIN NOMBRE";
+                            txtApellidos.Text = "SIN APELLIDOS";
+                            txtDireccion.Text = "SIN DIRECCIÓN";
+                            txtDNI.Text = "00000000";
+                            txtTelefono.Text = "1111111";
+                            txtEmail.Text = "sincorreo@email.com";
+                        }
+                        else
+                        {
+                            txtNombres.Focus();
+                            return;
+                        }
+                    }
+
+                    if (txtDireccion.Text.Length == 0)
+                    {
+                        txtDireccion.Text = "SIN DIRECCIÓN";
+                    }
+
+                    if (txtDNI.Text.Length != 8)
+                    {
+                        MessageBox.Show("Debe ingresar un DNI correcto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtDNI.Focus();
+                        return;
+                    }
+                }
+                else if (tipo_venta == "FA")
+                {
+                    if (txtNombres.Text.Length == 0)
+                    {
+                        MessageBox.Show("La Razón Social no puede estar vacía.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtNombres.Focus();
+                        return;
+                    }
+
+                    if (txtDNI.Text.Length == 0)
+                    {
+                        MessageBox.Show("El RUC no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtDNI.Focus();
+                        return;
+                    }
+                    else if (txtDNI.Text.Length != 11)
+                    {
+                        MessageBox.Show("El número RUC no es correcto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtDNI.Focus();
+                        return;
+                    }
+
+                    if (txtDireccion.Text.Length == 0)
+                    {
+                        MessageBox.Show("La Dirección no puede estar vacía.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtDireccion.Focus();
+                        return;
+                    }
                 }
 
-                if (txtDNI.Text.Length != 8)
+                if (txtEmail.Text.Length > 0 && !isValidEmail(txtEmail.Text))
                 {
-                    MessageBox.Show("Debe ingresar un DNI correcto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtDNI.Focus();
+                    MessageBox.Show("La dirección de email no es correcta, por favor verificar la información proporcionada.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtEmail.Focus();
                     return;
                 }
+
+                procesarCompra();
             }
-            else if (tipo_venta == "FA")
+            catch (Exception ex)
             {
-                if (txtNombres.Text.Length == 0)
-                {
-                    MessageBox.Show("La Razón Social no puede estar vacía.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtNombres.Focus();
-                    return;
-                }
-
-                if (txtDNI.Text.Length == 0)
-                {
-                    MessageBox.Show("El RUC no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtDNI.Focus();
-                    return;
-                }
-                else if (txtDNI.Text.Length != 11)
-                {
-                    MessageBox.Show("El número RUC no es correcto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtDNI.Focus();
-                    return;
-                }
-
-                if (txtDireccion.Text.Length == 0)
-                {
-                    MessageBox.Show("La Dirección no puede estar vacía.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtDireccion.Focus();
-                    return;
-                }
+                MessageBox.Show("Ocurrió un error al procesar la compra.\n\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                log.Error("Error al procesar la compra: " + ex.Message, System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
-
-            if (txtEmail.Text.Length > 0 && !isValidEmail(txtEmail.Text))
-            {
-                MessageBox.Show("La dirección de email no es correcta, por favor verificar la información proporcionada.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtEmail.Focus();
-                return;
-            }
-
-            bool existe_cliente = BL_Clientes.existeCliente(txtDNI.Text);
-
-            //save customer if doesnt exists
-            if (!existe_cliente)
-            {
-                log.Info("Cliente " + txtDNI.Text + " no existe en la base de datos.", System.Reflection.MethodBase.GetCurrentMethod().Name);
-
-                Ent_Clientes nuevo_cliente = new Ent_Clientes();
-                nuevo_cliente.dni = txtDNI.Text;
-                nuevo_cliente.nombres = txtNombres.Text;
-                nuevo_cliente.apellidos = txtApellidos.Text;
-                nuevo_cliente.direccion = txtDireccion.Text;
-                nuevo_cliente.telefono = txtTelefono.Text;
-                nuevo_cliente.email = txtEmail.Text;
-                nuevo_cliente.tipo = (tipo_venta == "FA") ? "E" : "N";
-
-                string result = BL_Clientes.insertarCliente(nuevo_cliente);
-
-                if (result == "1")
-                {
-                    log.Info("Cliente " + nuevo_cliente.dni + " grabado con éxito.", System.Reflection.MethodBase.GetCurrentMethod().Name);
-                }
-                else
-                {
-                    log.Error("Error al grabar cliente: " + result, System.Reflection.MethodBase.GetCurrentMethod().Name);
-                }
-            }
-
-            forma_pago = cboFormaPago.SelectedValue.ToString();
-            procesarCompra();
         }
 
         private void procesarCompra()
         {
+            forma_pago = cboFormaPago.SelectedValue.ToString();
+
             Ent_Venta venta = new Ent_Venta();
 
             venta.nro_doc = int.Parse(correlativo);
@@ -508,12 +551,45 @@ namespace VentasSys
 
             bool existe_cliente = BL_Clientes.existeCliente(venta.cliente_doc);
 
+            //save customer if doesnt exists
             if (!existe_cliente)
             {
-                var confirm = MessageBox.Show("¿Desea guardar el cliente en el sistema?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (confirm == System.Windows.Forms.DialogResult.Yes)
-                {
+                log.Info("Cliente " + txtDNI.Text + " no existe en la base de datos.", System.Reflection.MethodBase.GetCurrentMethod().Name);
 
+                var confirm = MessageBox.Show("¿Desea guardar el cliente en el sistema?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirm == DialogResult.Yes)
+                {
+                    Ent_Clientes nuevo_cliente = new Ent_Clientes();
+                    nuevo_cliente.dni = txtDNI.Text;
+                    nuevo_cliente.nombres = txtNombres.Text;
+                    nuevo_cliente.apellidos = txtApellidos.Text;
+                    nuevo_cliente.direccion = txtDireccion.Text;
+                    nuevo_cliente.telefono = txtTelefono.Text;
+                    nuevo_cliente.email = txtEmail.Text;
+                    nuevo_cliente.tipo = (tipo_venta == "FA") ? "E" : "N";
+
+                    try
+                    {
+                        string _result = BL_Clientes.insertarCliente(nuevo_cliente);
+
+                        if (_result == "1")
+                        {
+                            log.Info("Cliente " + nuevo_cliente.dni + " grabado con éxito.", System.Reflection.MethodBase.GetCurrentMethod().Name);
+                        }
+                        else
+                        {
+                            log.Error("Error al grabar cliente: " + _result, System.Reflection.MethodBase.GetCurrentMethod().Name);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ocurrió un error al grabar al cliente, sin embargo, el proceso de compra continuará.\n\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        log.Error("Error al grabar cliente: " + ex.Message, System.Reflection.MethodBase.GetCurrentMethod().Name);
+                    }
+                }
+                else
+                {
+                    log.Info("Cliente " + txtDNI.Text + " no se guardará en la base de datos.", System.Reflection.MethodBase.GetCurrentMethod().Name);
                 }
             }
 
@@ -528,24 +604,63 @@ namespace VentasSys
                 venta.lstProductos.Add(prd);
             }
 
-            string result = BL_Ventas.procesarVenta(venta);
+            try
+            {
+                string result = BL_Ventas.procesarVenta(venta);
 
-            if (result == "1")
-            {
-                MessageBox.Show("Venta Realizada con Éxito!.", "Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                reiniciarVenta();
+                if (result == "1")
+                {
+                    MessageBox.Show("Venta Realizada con Éxito!.", "Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    log.Info("Venta " + lblSerie.Text + " realizada con éxito.", System.Reflection.MethodBase.GetCurrentMethod().Name);
+                    string resumen = 
+                        "\n-----------------------------------\n" +
+                        "Resumen Venta:\n" +
+                        "Serie: " + lblSerie.Text + "\n" +
+                        "Tipo Venta: " + tipo_venta + "\n" +
+                        "Forma de Pago: " + cboFormaPago.Text + "\n" +
+                        "Cliente: " + txtDNI.Text + "\n" +
+                        "Productos:\n";
+                    foreach (DataGridViewRow item in dgvProductos.Rows)
+                    {
+                        resumen += "  - " + item.Cells["CODIGO"].Value.ToString() + " | " +
+                            item.Cells["DESCRIPCION"].Value.ToString() + " | " +
+                            item.Cells["CANTIDAD"].Value.ToString() + " | " +
+                            item.Cells["PU"].Value.ToString() + " | " +
+                            item.Cells["IMPORTE"].Value.ToString() + "\n";
+                    }
+                    resumen += 
+                        "Subtotal: " + txtSubTotal.Text + "\n" +
+                        "IGV: " + txtIGV.Text + "\n" +
+                        "TOTAL: " + txtTotal.Text + "\n" +
+                        "Recibido: " + txtRecibido.Text + "\n" +
+                        "Vuelto: " + txtVuelto.Text + "\n" +
+                        "-----------------------------------\n\n";
+                    log.Info(resumen, System.Reflection.MethodBase.GetCurrentMethod().Name);
+                    reiniciarVenta();
+                }
+                else
+                {
+                    MessageBox.Show(result, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show(result, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error en el proceso de compra.\n\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                log.Error("Error en el proceso de compra: " + ex.Message, System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
         }
 
         private void cambiarTipoVenta(string tipo_venta_des)
         {
-            correlativo = BL_Ventas.getCorrelativo(tipo_venta);
-            lblTipoVenta.Text = tipo_venta_des;
-            lblSerie.Text = "N° 001-" + correlativo;
+            try
+            {
+                correlativo = BL_Ventas.getCorrelativo(tipo_venta);
+                lblTipoVenta.Text = tipo_venta_des;
+                lblSerie.Text = "N° 001-" + correlativo;
+            } catch(Exception ex)
+            {
+                log.Error("Error al obtener correlativo: " + ex.Message, System.Reflection.MethodBase.GetCurrentMethod().Name);
+            }
 
             if (tipo_venta == "FA")
             {
@@ -588,7 +703,13 @@ namespace VentasSys
         {
             if (txtRecibido.Text.Length > 0)
             {
-                txtVuelto.Text = (Convert.ToDecimal(txtRecibido.Text) - Convert.ToDecimal(txtTotal.Text)).ToString("#0.00");
+                if(forma_pago == "CR")
+                {
+                    txtVuelto.Text = (Convert.ToDecimal(txtTotal.Text) - Convert.ToDecimal(txtRecibido.Text)).ToString("#0.00");
+                } else
+                {
+                    txtVuelto.Text = (Convert.ToDecimal(txtRecibido.Text) - Convert.ToDecimal(txtTotal.Text)).ToString("#0.00");
+                }
             }
             else
             {
@@ -606,6 +727,7 @@ namespace VentasSys
         {
             InicializarSistema();
             txtNombres.Text = String.Empty;
+            txtApellidos.Text = String.Empty;
             txtDireccion.Text = String.Empty;
             txtDNI.Text = String.Empty;
             txtTelefono.Text = String.Empty;
@@ -704,6 +826,7 @@ namespace VentasSys
 
             if (result == DialogResult.Yes)
             {
+                log.Info("Aplicación cerrada.", System.Reflection.MethodBase.GetCurrentMethod().Name);
                 Application.Exit();
             }
         }
@@ -732,11 +855,17 @@ namespace VentasSys
             if (cboFormaPago.SelectedValue.ToString() == "CR")
             {
                 lblRecibido.Text = "Restante";
+                lblVuelto.Text = "Saldo";
+                forma_pago = "CR";
             }
             else
             {
                 lblRecibido.Text = "Recibido";
+                lblVuelto.Text = "Vuelto";
+                forma_pago = "CO";
             }
+
+            txtRecibido_TextChanged(null, EventArgs.Empty);
         }
 
         private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
@@ -780,6 +909,12 @@ namespace VentasSys
         private void créditosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmCreditos frm = new frmCreditos(cod_tienda, ent_usuario.username);
+            frm.ShowDialog();
+        }
+
+        private void listadoDeVentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListadoVentas frm = new frmListadoVentas(cod_tienda, ent_usuario.username);
             frm.ShowDialog();
         }
     }

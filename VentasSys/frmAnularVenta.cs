@@ -117,6 +117,17 @@ namespace VentasSys
             id_cab = id;
             fillDetalles(id);
             lblTipoVenta.Text = dgvDocumentos.Rows[e.RowIndex].Cells["TIPO_VENTA_DES"].Value.ToString();
+
+            if(lblTipoVenta.Text == "Factura")
+            {
+                lbl_DNI.Text = "RUC:";
+                lbl_Nombres.Text = "Razón Social:";
+            } else
+            {
+                lbl_DNI.Text = "DNI:";
+                lbl_Nombres.Text = "Nombre Cliente:";
+            }
+
             lblFormaPago.Text = dgvDocumentos.Rows[e.RowIndex].Cells["FORMA_PAGO_DES"].Value.ToString();
             lblFecha.Text = dgvDocumentos.Rows[e.RowIndex].Cells["FECHA"].Value.ToString();
             lblUsuario.Text = dgvDocumentos.Rows[e.RowIndex].Cells["USUARIO"].Value.ToString();

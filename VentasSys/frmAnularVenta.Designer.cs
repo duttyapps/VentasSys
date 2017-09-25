@@ -67,8 +67,8 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblDNI = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.lbl_Nombres = new System.Windows.Forms.Label();
+            this.lbl_DNI = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
@@ -394,8 +394,8 @@
             this.gbDetalle.Controls.Add(this.lblNombre);
             this.gbDetalle.Controls.Add(this.lblDNI);
             this.gbDetalle.Controls.Add(this.label13);
-            this.gbDetalle.Controls.Add(this.label14);
-            this.gbDetalle.Controls.Add(this.label15);
+            this.gbDetalle.Controls.Add(this.lbl_Nombres);
+            this.gbDetalle.Controls.Add(this.lbl_DNI);
             this.gbDetalle.Controls.Add(this.lblUsuario);
             this.gbDetalle.Controls.Add(this.label7);
             this.gbDetalle.Controls.Add(this.lblFecha);
@@ -491,23 +491,23 @@
             this.label13.TabIndex = 10;
             this.label13.Text = "Monto Recibido:";
             // 
-            // label14
+            // lbl_Nombres
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 161);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(107, 15);
-            this.label14.TabIndex = 9;
-            this.label14.Text = "Nombre/R. Social:";
+            this.lbl_Nombres.AutoSize = true;
+            this.lbl_Nombres.Location = new System.Drawing.Point(6, 161);
+            this.lbl_Nombres.Name = "lbl_Nombres";
+            this.lbl_Nombres.Size = new System.Drawing.Size(61, 15);
+            this.lbl_Nombres.TabIndex = 9;
+            this.lbl_Nombres.Text = "Nombres:";
             // 
-            // label15
+            // lbl_DNI
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(6, 136);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(60, 15);
-            this.label15.TabIndex = 8;
-            this.label15.Text = "DNI/RUC:";
+            this.lbl_DNI.AutoSize = true;
+            this.lbl_DNI.Location = new System.Drawing.Point(6, 136);
+            this.lbl_DNI.Name = "lbl_DNI";
+            this.lbl_DNI.Size = new System.Drawing.Size(31, 15);
+            this.lbl_DNI.TabIndex = 8;
+            this.lbl_DNI.Text = "DNI:";
             // 
             // lblUsuario
             // 
@@ -650,8 +650,8 @@
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblDNI;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lbl_Nombres;
+        private System.Windows.Forms.Label lbl_DNI;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.DataGridViewTextBoxColumn NUMERO_DOC;

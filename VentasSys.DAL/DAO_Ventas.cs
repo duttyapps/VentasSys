@@ -507,7 +507,7 @@ namespace VentasSys.DAL
                 abonos.id = Convert.ToInt32(dr["ID"]);
                 abonos.id_cab = Convert.ToInt32(dr["ID_CAB"]);
                 abonos.nro_doc = Convert.ToInt32(dr["NRO_DOCUMENTO"]);
-                abonos.codigo = abonos.nro_doc.ToString("000000") + "-" + abonos.id;
+                abonos.codigo = "AB" + abonos.id.ToString("000000");
                 abonos.cod_tienda = Convert.ToString(dr["COD_TIENDA"]);
                 abonos.fecha_reg = Convert.ToString(dr["FECHA_REG"]);
                 abonos.usuario = Convert.ToString(dr["USUARIO"]);
