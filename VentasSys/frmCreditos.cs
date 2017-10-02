@@ -123,6 +123,7 @@ namespace VentasSys
                 txtTelefono.Text = res_venta.telefono;
                 txtDireccion.Text = res_venta.direccion;
                 txtTotal.Text = res_venta.monto_total.ToString("#0.00");
+                btnFinalizarVenta.Enabled = (res_venta.estado_credito == "P") ? true : false;
 
                 if (v_tipo_venta == "FA")
                 {

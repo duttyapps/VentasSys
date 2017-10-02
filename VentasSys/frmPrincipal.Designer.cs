@@ -382,7 +382,7 @@
             this.respaldoToolStripMenuItem,
             this.configuraciónToolStripMenuItem});
             this.baseDeDatosToolStripMenuItem.Name = "baseDeDatosToolStripMenuItem";
-            this.baseDeDatosToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.baseDeDatosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.baseDeDatosToolStripMenuItem.Text = "Base de Datos";
             // 
             // respaldoToolStripMenuItem
@@ -416,14 +416,15 @@
             // configuraciónToolStripMenuItem1
             // 
             this.configuraciónToolStripMenuItem1.Name = "configuraciónToolStripMenuItem1";
-            this.configuraciónToolStripMenuItem1.Size = new System.Drawing.Size(150, 22);
+            this.configuraciónToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.configuraciónToolStripMenuItem1.Text = "Configuración";
             // 
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
+            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // menuTienda
             // 

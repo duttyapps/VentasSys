@@ -473,6 +473,7 @@ namespace VentasSys.DAL
                 venta.email = Convert.ToString(dr["EMAIL"]);
                 venta.telefono = Convert.ToString(dr["TELEFONO"]);
                 venta.direccion = Convert.ToString(dr["DIRECCION"]);
+                venta.estado_credito = Convert.ToString(dr["ESTADO_CREDITO"]);
             }
 
             con.Close();

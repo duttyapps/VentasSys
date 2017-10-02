@@ -55,3 +55,4 @@ C:\Users\Carlos\Documents\Visual Studio 2015\Projects\VentasSys\VentasSys\obj\x8
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmCreditos.resources
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAgregarProducto.resources
 C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmListadoVentas.resources
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmUsuarios.resources

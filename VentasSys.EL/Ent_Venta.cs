@@ -29,6 +29,7 @@ namespace VentasSys.EL
         public string email { get; set; }
         public string telefono { get; set; }
         public string direccion { get; set; }
+        public string estado_credito { get; set; }
         public List<Ent_Productos> lstProductos { get; set; }
 
         public Ent_Venta()
@@ -54,6 +55,7 @@ namespace VentasSys.EL
             this.email = String.Empty;
             this.telefono = String.Empty;
             this.direccion = String.Empty;
+            this.estado_credito = String.Empty;
             this.lstProductos = new List<Ent_Productos>();
         }
     }

@@ -370,9 +370,13 @@ namespace VentasSys
                 {
                     if (item.Index > -1)
                     {
-                        dgvProductos.Rows.RemoveAt(item.Index);
-                        sumarTotal();
-                        log.Info("Producto removido: [" + item.Cells[0].Value + "] " + item.Cells[1].Value, System.Reflection.MethodBase.GetCurrentMethod().Name);
+                        var confirm = MessageBox.Show("¿Está seguro que desea el producto " + item.Cells[1].Value.ToString().ToUpper() + "?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if(confirm == DialogResult.Yes)
+                        {
+                            dgvProductos.Rows.RemoveAt(item.Index);
+                            sumarTotal();
+                            log.Info("Producto removido: [" + item.Cells[0].Value + "] " + item.Cells[1].Value, System.Reflection.MethodBase.GetCurrentMethod().Name);
+                        }
                     }
                 }
 
@@ -696,6 +700,7 @@ namespace VentasSys
             if (ent_usuario.rango == "0")
             {
                 sistemaToolStripMenuItem.Visible = false;
+                menuTienda.Visible = false;
             }
         }
 
@@ -915,6 +920,12 @@ namespace VentasSys
         private void listadoDeVentasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmListadoVentas frm = new frmListadoVentas(cod_tienda, ent_usuario.username);
+            frm.ShowDialog();
+        }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUsuarios frm = new frmUsuarios();
             frm.ShowDialog();
         }
     }
