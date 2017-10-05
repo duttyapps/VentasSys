@@ -940,5 +940,23 @@ namespace VentasSys
             frmDepositoCta frm = new frmDepositoCta();
             frm.ShowDialog();
         }
+
+        private void categoríasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmMantenimientoCategorias frm = new frmMantenimientoCategorias();
+            frm.ShowDialog();
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmMantenimientoCliente frm = new frmMantenimientoCliente();
+            frm.ShowDialog();
+        }
+
+        private void ventasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmConsultaVentas frm = new frmConsultaVentas();
+            frm.ShowDialog();
+        }
     }
 }
