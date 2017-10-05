@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace VentasSys
 {
-    public partial class frmProveedores : Form
+    public partial class frmDepositoCta : Form
     {
-        public frmProveedores()
+        public frmDepositoCta()
         {
             InitializeComponent();
         }

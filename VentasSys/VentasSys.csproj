@@ -94,6 +94,12 @@
     <Compile Include="frmCreditos.Designer.cs">
       <DependentUpon>frmCreditos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDepositoCta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDepositoCta.Designer.cs">
+      <DependentUpon>frmDepositoCta.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmListadoVentas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,11 +130,11 @@
     <Compile Include="frmAgregarProducto.Designer.cs">
       <DependentUpon>frmAgregarProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmProveedores.cs">
+    <Compile Include="frmPagoProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmProveedores.Designer.cs">
-      <DependentUpon>frmProveedores.cs</DependentUpon>
+    <Compile Include="frmPagoProveedores.Designer.cs">
+      <DependentUpon>frmPagoProveedores.cs</DependentUpon>
     </Compile>
     <Compile Include="frmUsuarios.cs">
       <SubType>Form</SubType>
@@ -156,6 +162,9 @@
     <EmbeddedResource Include="frmCreditos.resx">
       <DependentUpon>frmCreditos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDepositoCta.resx">
+      <DependentUpon>frmDepositoCta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmListadoVentas.resx">
       <DependentUpon>frmListadoVentas.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,8 +180,8 @@
     <EmbeddedResource Include="frmAgregarProducto.resx">
       <DependentUpon>frmAgregarProducto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmProveedores.resx">
-      <DependentUpon>frmProveedores.cs</DependentUpon>
+    <EmbeddedResource Include="frmPagoProveedores.resx">
+      <DependentUpon>frmPagoProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUsuarios.resx">
       <DependentUpon>frmUsuarios.cs</DependentUpon>

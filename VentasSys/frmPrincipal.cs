@@ -928,5 +928,17 @@ namespace VentasSys
             frmUsuarios frm = new frmUsuarios();
             frm.ShowDialog();
         }
+
+        private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPagoProveedores frm = new frmPagoProveedores();
+            frm.ShowDialog();
+        }
+
+        private void dptosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDepositoCta frm = new frmDepositoCta();
+            frm.ShowDialog();
+        }
     }
 }
