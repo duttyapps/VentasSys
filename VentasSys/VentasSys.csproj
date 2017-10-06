@@ -270,6 +270,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="infopago.ico" />
+    <None Include="Resources\Cancel-24.png" />
+    <None Include="Resources\Reset-24.png" />
+    <None Include="Resources\Exit-24.png" />
     <None Include="Resources\print_white_24x24.png" />
     <None Include="Resources\save_white_24x24.png" />
     <None Include="Resources\sign-delete-icon.png" />

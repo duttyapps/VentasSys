@@ -49,7 +49,6 @@ namespace VentasSys
             fillMenuTipoVenta();
             fillMenuTienda();
             fillFormaPago();
-            fillTipoMoneda();
             ent_configuracion = new Ent_Configuracion();
             ent_configuracion = BL_Configuracion.getConfiguracion();
             ent_tienda = BL_Tienda.getTienda(ent_configuracion.TIENDA);
@@ -126,19 +125,6 @@ namespace VentasSys
             cboFormaPago.DataSource = items;
             cboFormaPago.ValueMember = "codigo";
             cboFormaPago.DisplayMember = "descripcion";
-        }
-
-        public void fillTipoMoneda()
-        {
-            List<Ent_TipoMoneda> items = new List<Ent_TipoMoneda>();
-
-            var tipomoneda = BL_Ventas.getTipoMoneda();
-
-            items.AddRange(tipomoneda);
-
-            cboTipoMoneda.DataSource = items;
-            cboTipoMoneda.ValueMember = "id";
-            cboTipoMoneda.DisplayMember = "descripcion";
         }
 
         private void MenuVentasTipoItemClickHandler(object sender, EventArgs e)
@@ -957,6 +943,11 @@ namespace VentasSys
         {
             frmConsultaVentas frm = new frmConsultaVentas();
             frm.ShowDialog();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnSalir_Click(null, EventArgs.Empty);
         }
     }
 }

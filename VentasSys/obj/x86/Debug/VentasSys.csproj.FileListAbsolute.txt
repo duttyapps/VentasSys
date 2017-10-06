@@ -63,3 +63,8 @@ E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\VentasSys.fr
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmUsuarios.resources
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoCategorias.resources
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoCliente.resources
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmConsultaVentaCliente.resources
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmConsultaVentas.resources
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmDepositoCta.resources
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoCategorias.resources
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoCliente.resources
