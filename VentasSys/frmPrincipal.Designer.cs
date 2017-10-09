@@ -699,7 +699,7 @@
             // 
             // pbLogo
             // 
-            this.pbLogo.Location = new System.Drawing.Point(797, 27);
+            this.pbLogo.Location = new System.Drawing.Point(806, 33);
             this.pbLogo.Name = "pbLogo";
             this.pbLogo.Size = new System.Drawing.Size(100, 100);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
