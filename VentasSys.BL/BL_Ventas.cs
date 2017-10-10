@@ -61,5 +61,10 @@ namespace VentasSys.BL
         {
             return DAO_Ventas.setAbono(entity);
         }
+
+        public static string finalizarCredito(int id)
+        {
+            return DAO_Ventas.finalizarCredito(id);
+        }
     }
 }

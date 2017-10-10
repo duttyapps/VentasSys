@@ -149,7 +149,7 @@ namespace VentasSys
             }
             var confirm = MessageBox.Show("¿Está seguro que desea anular la venta?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
-            if (confirm == System.Windows.Forms.DialogResult.Yes)
+            if (confirm == DialogResult.Yes)
             {
                 if (id_cab == String.Empty)
                 {
@@ -157,7 +157,7 @@ namespace VentasSys
                     return;
                 }
 
-                if (txtMotivo.Text == String.Empty)
+                if (txtMotivo.Text.Trim() == String.Empty)
                 {
                     MessageBox.Show("El Motivo no puede estar vacío.", "Anular Venta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtMotivo.Focus();

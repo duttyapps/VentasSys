@@ -7,6 +7,7 @@ namespace VentasSys.EL
         public string id { get; set; }
         public string nombres { get; set; }
         public string apellidos { get; set; }
+        public string apellidos_nombres { get; set; }
         public string dni { get; set; }
         public string direccion { get; set; }
         public string telefono { get; set; }
@@ -19,6 +20,7 @@ namespace VentasSys.EL
             this.id = String.Empty;
             this.nombres = String.Empty;
             this.apellidos = String.Empty;
+            this.apellidos_nombres = String.Empty;
             this.dni = String.Empty;
             this.direccion = String.Empty;
             this.telefono = String.Empty;

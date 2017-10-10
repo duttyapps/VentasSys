@@ -38,6 +38,7 @@ namespace VentasSys.DAL
                 cliente.id = Convert.ToString(dr["ID"]);
                 cliente.nombres = Convert.ToString(dr["NOMBRES"]);
                 cliente.apellidos = Convert.ToString(dr["APELLIDOS"]);
+                cliente.apellidos_nombres = ((cliente.apellidos != String.Empty) ? cliente.apellidos + ", " : "") + cliente.nombres;
                 cliente.dni = Convert.ToString(dr["DNI"]);
                 cliente.direccion = Convert.ToString(dr["DIRECCION"]);
                 cliente.email = Convert.ToString(dr["EMAIL"]);
@@ -78,6 +79,7 @@ namespace VentasSys.DAL
                 cliente.id = Convert.ToString(dr["ID"]);
                 cliente.nombres = Convert.ToString(dr["NOMBRES"]);
                 cliente.apellidos = Convert.ToString(dr["APELLIDOS"]);
+                cliente.apellidos_nombres = ((cliente.apellidos != String.Empty) ? cliente.apellidos + ", " : "") + cliente.nombres;
                 cliente.dni = Convert.ToString(dr["DNI"]);
                 cliente.direccion = Convert.ToString(dr["DIRECCION"]);
                 cliente.email = Convert.ToString(dr["EMAIL"]);

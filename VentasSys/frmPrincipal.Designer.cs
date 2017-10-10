@@ -465,9 +465,9 @@
             this.lblTipoVenta.BackColor = System.Drawing.Color.Red;
             this.lblTipoVenta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTipoVenta.ForeColor = System.Drawing.Color.White;
-            this.lblTipoVenta.Location = new System.Drawing.Point(348, 46);
+            this.lblTipoVenta.Location = new System.Drawing.Point(348, 50);
             this.lblTipoVenta.Name = "lblTipoVenta";
-            this.lblTipoVenta.Size = new System.Drawing.Size(169, 36);
+            this.lblTipoVenta.Size = new System.Drawing.Size(169, 29);
             this.lblTipoVenta.TabIndex = 3;
             this.lblTipoVenta.Text = "BOLETA DE VENTA";
             this.lblTipoVenta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -487,9 +487,9 @@
             this.lblSerie.BackColor = System.Drawing.Color.Red;
             this.lblSerie.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSerie.ForeColor = System.Drawing.Color.White;
-            this.lblSerie.Location = new System.Drawing.Point(557, 46);
+            this.lblSerie.Location = new System.Drawing.Point(557, 50);
             this.lblSerie.Name = "lblSerie";
-            this.lblSerie.Size = new System.Drawing.Size(131, 36);
+            this.lblSerie.Size = new System.Drawing.Size(131, 29);
             this.lblSerie.TabIndex = 5;
             this.lblSerie.Text = "N° 001-000000";
             this.lblSerie.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -584,19 +584,21 @@
             this.label5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(6, 30);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 13);
+            this.label5.Size = new System.Drawing.Size(37, 13);
             this.label5.TabIndex = 15;
-            this.label5.Text = "Fecha:";
+            this.label5.Text = "Fecha";
             // 
             // lblFecha
             // 
-            this.lblFecha.AutoSize = true;
-            this.lblFecha.Font = new System.Drawing.Font("Segoe UI", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.Location = new System.Drawing.Point(52, 27);
+            this.lblFecha.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.lblFecha.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.ForeColor = System.Drawing.Color.White;
+            this.lblFecha.Location = new System.Drawing.Point(6, 50);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(76, 17);
+            this.lblFecha.Size = new System.Drawing.Size(121, 29);
             this.lblFecha.TabIndex = 16;
             this.lblFecha.Text = "30/06/2017";
+            this.lblFecha.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dgvProductos
             // 
@@ -699,10 +701,10 @@
             // 
             // pbLogo
             // 
-            this.pbLogo.Location = new System.Drawing.Point(806, 33);
+            this.pbLogo.Location = new System.Drawing.Point(729, 33);
             this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(100, 100);
-            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbLogo.Size = new System.Drawing.Size(257, 116);
+            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbLogo.TabIndex = 27;
             this.pbLogo.TabStop = false;
             // 
@@ -772,9 +774,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(349, 30);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 13);
+            this.label2.Size = new System.Drawing.Size(108, 13);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Forma de Pago";
+            this.label2.Text = "Tipo de Documento";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label9
@@ -790,7 +792,7 @@
             // cboFormaPago
             // 
             this.cboFormaPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboFormaPago.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboFormaPago.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboFormaPago.FormattingEnabled = true;
             this.cboFormaPago.Location = new System.Drawing.Point(168, 50);
             this.cboFormaPago.Name = "cboFormaPago";

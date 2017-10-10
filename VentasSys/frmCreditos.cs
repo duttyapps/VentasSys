@@ -268,7 +268,23 @@ namespace VentasSys
 
             if (confirm == DialogResult.Yes)
             {
+                finalizarCredito();
                 reiniciarCredito();
+            }
+        }
+
+        private void finalizarCredito()
+        {
+            string result = BL_Ventas.finalizarCredito(ent_venta.id);
+
+            if (result == "1")
+            {
+                MessageBox.Show("¡Crédito finalizado exitosamente!", "Finalizar Crédito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnFinalizarVenta.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("¡Ocurrió un error al finalizar el crédito!", "Finalizar Crédito", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

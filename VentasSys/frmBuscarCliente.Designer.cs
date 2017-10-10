@@ -30,17 +30,18 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.APELLIDOS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtCliente = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.lblBuscarCliente = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellidos_nombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.APELLIDOS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,6 +58,7 @@
             this.telefono,
             this.email,
             this.nombres,
+            this.apellidos_nombres,
             this.APELLIDOS,
             this.dni,
             this.direccion});
@@ -72,66 +74,6 @@
             this.dgvClientes.Size = new System.Drawing.Size(600, 242);
             this.dgvClientes.TabIndex = 2;
             this.dgvClientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellDoubleClick);
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.Frozen = true;
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            // 
-            // telefono
-            // 
-            this.telefono.DataPropertyName = "telefono";
-            this.telefono.Frozen = true;
-            this.telefono.HeaderText = "telefono";
-            this.telefono.Name = "telefono";
-            this.telefono.Visible = false;
-            // 
-            // email
-            // 
-            this.email.DataPropertyName = "email";
-            this.email.Frozen = true;
-            this.email.HeaderText = "email";
-            this.email.Name = "email";
-            this.email.Visible = false;
-            // 
-            // nombres
-            // 
-            this.nombres.DataPropertyName = "nombres";
-            this.nombres.Frozen = true;
-            this.nombres.HeaderText = "Apellidos y Nombres";
-            this.nombres.Name = "nombres";
-            this.nombres.ReadOnly = true;
-            this.nombres.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.nombres.Width = 200;
-            // 
-            // APELLIDOS
-            // 
-            this.APELLIDOS.DataPropertyName = "apellidos";
-            this.APELLIDOS.Frozen = true;
-            this.APELLIDOS.HeaderText = "APELLIDOS";
-            this.APELLIDOS.Name = "APELLIDOS";
-            this.APELLIDOS.Visible = false;
-            // 
-            // dni
-            // 
-            this.dni.DataPropertyName = "dni";
-            this.dni.Frozen = true;
-            this.dni.HeaderText = "DNI";
-            this.dni.Name = "dni";
-            this.dni.ReadOnly = true;
-            // 
-            // direccion
-            // 
-            this.direccion.DataPropertyName = "direccion";
-            this.direccion.Frozen = true;
-            this.direccion.HeaderText = "Dirección";
-            this.direccion.Name = "direccion";
-            this.direccion.ReadOnly = true;
-            this.direccion.Width = 300;
             // 
             // txtCliente
             // 
@@ -173,6 +115,76 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Resultados:";
             // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.Frozen = true;
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // telefono
+            // 
+            this.telefono.DataPropertyName = "telefono";
+            this.telefono.Frozen = true;
+            this.telefono.HeaderText = "telefono";
+            this.telefono.Name = "telefono";
+            this.telefono.Visible = false;
+            // 
+            // email
+            // 
+            this.email.DataPropertyName = "email";
+            this.email.Frozen = true;
+            this.email.HeaderText = "email";
+            this.email.Name = "email";
+            this.email.Visible = false;
+            // 
+            // nombres
+            // 
+            this.nombres.DataPropertyName = "nombres";
+            this.nombres.Frozen = true;
+            this.nombres.HeaderText = "nombres";
+            this.nombres.Name = "nombres";
+            this.nombres.ReadOnly = true;
+            this.nombres.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.nombres.Visible = false;
+            this.nombres.Width = 200;
+            // 
+            // apellidos_nombres
+            // 
+            this.apellidos_nombres.DataPropertyName = "apellidos_nombres";
+            this.apellidos_nombres.Frozen = true;
+            this.apellidos_nombres.HeaderText = "Apellidos y Nombres";
+            this.apellidos_nombres.Name = "apellidos_nombres";
+            this.apellidos_nombres.ReadOnly = true;
+            this.apellidos_nombres.Width = 200;
+            // 
+            // APELLIDOS
+            // 
+            this.APELLIDOS.DataPropertyName = "apellidos";
+            this.APELLIDOS.Frozen = true;
+            this.APELLIDOS.HeaderText = "APELLIDOS";
+            this.APELLIDOS.Name = "APELLIDOS";
+            this.APELLIDOS.Visible = false;
+            // 
+            // dni
+            // 
+            this.dni.DataPropertyName = "dni";
+            this.dni.Frozen = true;
+            this.dni.HeaderText = "DNI";
+            this.dni.Name = "dni";
+            this.dni.ReadOnly = true;
+            // 
+            // direccion
+            // 
+            this.direccion.DataPropertyName = "direccion";
+            this.direccion.Frozen = true;
+            this.direccion.HeaderText = "Dirección";
+            this.direccion.Name = "direccion";
+            this.direccion.ReadOnly = true;
+            this.direccion.Width = 300;
+            // 
             // frmBuscarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -208,6 +220,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn telefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombres;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apellidos_nombres;
         private System.Windows.Forms.DataGridViewTextBoxColumn APELLIDOS;
         private System.Windows.Forms.DataGridViewTextBoxColumn dni;
         private System.Windows.Forms.DataGridViewTextBoxColumn direccion;

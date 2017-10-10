@@ -593,5 +593,65 @@ namespace VentasSys.DAL
 
             return retval;
         }
+
+        public static string finalizarCredito(int id)
+        {
+            MySqlTransaction tr = null;
+            con = Conexion.getConnection();
+
+            string retval = "1";
+
+            try
+            {
+                con.Open();
+
+                tr = con.BeginTransaction();
+
+                MySqlCommand cmd = new MySqlCommand();
+
+                cmd.Connection = con;
+                cmd.Transaction = tr;
+
+                cmd.CommandText = "SP_SYS_FINALIZAR_CREDITO";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@RETVAL", MySqlDbType.VarChar);
+                cmd.Parameters["@RETVAL"].Direction = ParameterDirection.Output;
+
+                cmd.Parameters.AddWithValue("@PSTR_ID_CAB", id);
+                cmd.Parameters["@PSTR_ID_CAB"].Direction = ParameterDirection.Input;
+
+                cmd.ExecuteNonQuery();
+
+                retval = cmd.Parameters["@RETVAL"].Value.ToString();
+
+                if (retval != "1")
+                {
+                    tr.Rollback();
+                    return retval;
+                }
+
+                tr.Commit();
+            }
+            catch (MySqlException ex)
+            {
+                try
+                {
+                    tr.Rollback();
+                }
+                catch (MySqlException ex1)
+                {
+                    return ex1.ToString();
+                }
+
+                return ex.ToString();
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return retval;
+        }
     }
 }
