@@ -59,7 +59,7 @@ namespace VentasSys
 
             items.Add(new Ent_CategoriaProductos { id = "", nombre = "Todos los Productos" });
 
-            var categorias = BL_CategoriaProductos.getCategorias();
+            var categorias = BL_CategoriaProductos.getCategorias(null, "1");
 
             items.AddRange(categorias);
 

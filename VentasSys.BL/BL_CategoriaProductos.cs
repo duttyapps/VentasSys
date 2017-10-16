@@ -6,9 +6,9 @@ namespace VentasSys.BL
 {
     public static class BL_CategoriaProductos
     {
-        public static List<Ent_CategoriaProductos> getCategorias()
+        public static List<Ent_CategoriaProductos> getCategorias(string categoria = null, string activo = null)
         {
-            return DAO_CategoriaProductos.getCategorias();
+            return DAO_CategoriaProductos.getCategorias(categoria, activo);
         }
     }
 }
