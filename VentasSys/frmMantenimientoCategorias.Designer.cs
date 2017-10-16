@@ -60,7 +60,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(480, 58);
+            this.groupBox1.Size = new System.Drawing.Size(400, 58);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Buscar";
@@ -68,25 +68,25 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(262, 24);
+            this.label2.Location = new System.Drawing.Point(216, 24);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 13);
+            this.label2.Size = new System.Drawing.Size(42, 13);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Categoría";
+            this.label2.Text = "Estado";
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(69, 21);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(169, 22);
+            this.textBox1.Size = new System.Drawing.Size(130, 22);
             this.textBox1.TabIndex = 3;
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(325, 21);
+            this.comboBox1.Location = new System.Drawing.Point(274, 21);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(142, 21);
+            this.comboBox1.Size = new System.Drawing.Size(112, 21);
             this.comboBox1.TabIndex = 2;
             // 
             // label1
@@ -103,7 +103,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 76);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(480, 216);
+            this.dataGridView1.Size = new System.Drawing.Size(400, 216);
             this.dataGridView1.TabIndex = 1;
             // 
             // groupBox2
@@ -118,9 +118,9 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.dateTimePicker1);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(498, 12);
+            this.groupBox2.Location = new System.Drawing.Point(418, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(273, 226);
+            this.groupBox2.Size = new System.Drawing.Size(250, 226);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos de la Categoría";
@@ -132,7 +132,7 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(158, 79);
+            this.button4.Location = new System.Drawing.Point(134, 83);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(109, 38);
             this.button4.TabIndex = 10;
@@ -148,7 +148,7 @@
             this.button3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.Image = global::VentasSys.Properties.Resources.save_white_24x24;
-            this.button3.Location = new System.Drawing.Point(158, 35);
+            this.button3.Location = new System.Drawing.Point(134, 39);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(109, 38);
             this.button3.TabIndex = 9;
@@ -177,7 +177,7 @@
             // 
             this.textBox3.Location = new System.Drawing.Point(6, 146);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(261, 22);
+            this.textBox3.Size = new System.Drawing.Size(237, 22);
             this.textBox3.TabIndex = 7;
             // 
             // label5
@@ -230,7 +230,7 @@
             this.button1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Image = global::VentasSys.Properties.Resources.save_white_24x24;
-            this.button1.Location = new System.Drawing.Point(548, 254);
+            this.button1.Location = new System.Drawing.Point(457, 254);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(89, 38);
             this.button1.TabIndex = 3;
@@ -245,7 +245,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(643, 254);
+            this.button2.Location = new System.Drawing.Point(552, 254);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(89, 38);
             this.button2.TabIndex = 7;
@@ -257,7 +257,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(783, 304);
+            this.ClientSize = new System.Drawing.Size(677, 304);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);

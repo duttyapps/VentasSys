@@ -61,6 +61,7 @@
     <Compile Include="BL_CategoriaProductos.cs" />
     <Compile Include="BL_Clientes.cs" />
     <Compile Include="BL_Configuracion.cs" />
+    <Compile Include="BL_Depositos.cs" />
     <Compile Include="BL_Productos.cs" />
     <Compile Include="BL_Proveedores.cs" />
     <Compile Include="BL_Tienda.cs" />

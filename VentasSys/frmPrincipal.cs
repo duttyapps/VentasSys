@@ -917,13 +917,13 @@ namespace VentasSys
 
         private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmPagoProveedores frm = new frmPagoProveedores();
+            frmPagoProveedores frm = new frmPagoProveedores(ent_usuario.username);
             frm.ShowDialog();
         }
 
         private void dptosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmDepositoCta frm = new frmDepositoCta();
+            frmDepositoCta frm = new frmDepositoCta(ent_usuario.username);
             frm.ShowDialog();
         }
 

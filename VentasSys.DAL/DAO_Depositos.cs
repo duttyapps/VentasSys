@@ -2,18 +2,21 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using VentasSys.EL;
 using VentasSys.Utils;
 
 namespace VentasSys.DAL
 {
-    public class DAO_Proveedores
+    public static class DAO_Depositos
     {
         private static MySqlConnection con;
 
-        public static List<Ent_Proveedores> getProveedores()
+        public static List<Ent_Bancos> getBancos()
         {
-            List<Ent_Proveedores> lstProveedores = new List<Ent_Proveedores>();
+            List<Ent_Bancos> lstBancos = new List<Ent_Bancos>();
 
             con = Conexion.getConnection();
             MySqlCommand cmd = new MySqlCommand();
@@ -21,30 +24,30 @@ namespace VentasSys.DAL
             con.Open();
 
             cmd.Connection = con;
-            cmd.CommandText = "SP_SYS_GET_PROVEEDORES";
+            cmd.CommandText = "SP_SYS_GET_BANCOS";
             cmd.CommandType = CommandType.StoredProcedure;
 
             MySqlDataReader dr = cmd.ExecuteReader();
 
             while (dr.Read())
             {
-                Ent_Proveedores proveedor = new Ent_Proveedores();
-                proveedor.id = Convert.ToString(dr["ID"]);
-                proveedor.nombre = Convert.ToString(dr["NOMBRE"]);
-                proveedor.direccion = Convert.ToString(dr["DIRECCION"]);
-                proveedor.telefono = Convert.ToString(dr["TELEFONO"]);
+                Ent_Bancos banco = new Ent_Bancos();
+                banco.id = Convert.ToInt32(dr["ID"]);
+                banco.nombre = Convert.ToString(dr["NOMBRE"]);
+                banco.fecha_reg = Convert.ToString(dr["FECHA_REG"]);
+                banco.activo = Convert.ToString(dr["ACTIVO"]);
 
-                lstProveedores.Add(proveedor);
+                lstBancos.Add(banco);
             }
 
             con.Close();
 
-            return lstProveedores;
+            return lstBancos;
         }
 
-        public static List<Ent_PagosProveedores> getPagos(string fecha)
+        public static List<Ent_Depositos> getDepositos(string fecha)
         {
-            List<Ent_PagosProveedores> lstProveedores = new List<Ent_PagosProveedores>();
+            List<Ent_Depositos> lstDepositos = new List<Ent_Depositos>();
 
             con = Conexion.getConnection();
             MySqlCommand cmd = new MySqlCommand();
@@ -52,7 +55,7 @@ namespace VentasSys.DAL
             con.Open();
 
             cmd.Connection = con;
-            cmd.CommandText = "SP_SYS_GET_PAGO_PROVEEDOR";
+            cmd.CommandText = "SP_SYS_GET_DEPOSITOS";
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@PSTR_FECHA", fecha);
@@ -62,23 +65,23 @@ namespace VentasSys.DAL
 
             while (dr.Read())
             {
-                Ent_PagosProveedores proveedor = new Ent_PagosProveedores();
+                Ent_Depositos deposito = new Ent_Depositos();
 
-                proveedor.codigo = Convert.ToString(dr["CODIGO"]);
-                proveedor.fecha_emision = Convert.ToString(dr["FECHA_EMISION"]);
-                proveedor.proveedor = Convert.ToString(dr["PROVEEDOR"]);
-                proveedor.usuario = Convert.ToString(dr["USUARIO"]);
-                proveedor.monto = Convert.ToDouble(dr["MONTO"]);
+                deposito.codigo = Convert.ToString(dr["CODIGO"]);
+                deposito.fecha_emision = Convert.ToString(dr["FECHA_EMISION"]);
+                deposito.banco = Convert.ToString(dr["BANCO"]);
+                deposito.usuario = Convert.ToString(dr["USUARIO"]);
+                deposito.monto = Convert.ToDouble(dr["MONTO"]);
 
-                lstProveedores.Add(proveedor);
+                lstDepositos.Add(deposito);
             }
 
             con.Close();
 
-            return lstProveedores;
+            return lstDepositos;
         }
 
-        public static string registrarPago(Ent_PagosProveedores ent)
+        public static string registrarDeposito(Ent_Depositos ent)
         {
             MySqlTransaction tr = null;
             con = Conexion.getConnection();
@@ -96,24 +99,21 @@ namespace VentasSys.DAL
                 cmd.Connection = con;
                 cmd.Transaction = tr;
 
-                cmd.CommandText = "SP_SYS_SET_PAGO_PROVEEDOR";
+                cmd.CommandText = "SYS_SP_SET_DEPOSITO";
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@RETVAL", MySqlDbType.VarChar);
                 cmd.Parameters["@RETVAL"].Direction = ParameterDirection.Output;
 
-                cmd.Parameters.AddWithValue("@PSTR_ID_PROVEEDOR", ent.id_proveedor);
-                cmd.Parameters["@PSTR_ID_PROVEEDOR"].Direction = ParameterDirection.Input;
-
-                cmd.Parameters.AddWithValue("@PSTR_NRO_FACTURA", ent.nro_factura);
-                cmd.Parameters["@PSTR_NRO_FACTURA"].Direction = ParameterDirection.Input;
+                cmd.Parameters.AddWithValue("@PSTR_ID_BANCO", ent.id_banco);
+                cmd.Parameters["@PSTR_ID_BANCO"].Direction = ParameterDirection.Input;
 
                 cmd.Parameters.AddWithValue("@PSTR_USUARIO", ent.usuario);
                 cmd.Parameters["@PSTR_USUARIO"].Direction = ParameterDirection.Input;
 
                 cmd.Parameters.AddWithValue("@PSTR_MONTO", ent.monto);
                 cmd.Parameters["@PSTR_MONTO"].Direction = ParameterDirection.Input;
-                
+
                 cmd.ExecuteNonQuery();
 
                 retval = cmd.Parameters["@RETVAL"].Value.ToString();

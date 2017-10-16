@@ -60,10 +60,13 @@
   <ItemGroup>
     <Compile Include="Ent_Abonos.cs" />
     <Compile Include="Ent_Anular.cs" />
+    <Compile Include="Ent_Bancos.cs" />
     <Compile Include="Ent_CategoriaProductos.cs" />
     <Compile Include="Ent_Clientes.cs" />
     <Compile Include="Ent_Configuracion.cs" />
+    <Compile Include="Ent_Depositos.cs" />
     <Compile Include="Ent_FormaPago.cs" />
+    <Compile Include="Ent_PagosProveedores.cs" />
     <Compile Include="Ent_Productos.cs" />
     <Compile Include="Ent_Proveedores.cs" />
     <Compile Include="Ent_Tienda.cs" />

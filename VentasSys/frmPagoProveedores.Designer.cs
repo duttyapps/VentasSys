@@ -32,25 +32,25 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtFecha = new System.Windows.Forms.DateTimePicker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.btnRegistrarPago = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtMonto = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txrNroFactura = new System.Windows.Forms.TextBox();
+            this.txtNroFactura = new System.Windows.Forms.TextBox();
             this.cboProveedores = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.dgvPagos = new System.Windows.Forms.DataGridView();
             this.CODIGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PROVEEDOR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.USUARIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MONTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtTotal = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPagos)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -77,21 +77,21 @@
             // 
             this.txtFecha.CustomFormat = "dd/MM/yyyy";
             this.txtFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtFecha.Location = new System.Drawing.Point(64, 21);
+            this.txtFecha.Location = new System.Drawing.Point(82, 21);
             this.txtFecha.Name = "txtFecha";
-            this.txtFecha.Size = new System.Drawing.Size(142, 22);
+            this.txtFecha.Size = new System.Drawing.Size(135, 22);
             this.txtFecha.TabIndex = 0;
             this.txtFecha.Value = new System.DateTime(2017, 10, 1, 0, 0, 0, 0);
             this.txtFecha.ValueChanged += new System.EventHandler(this.txtFecha_ValueChanged);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.btnCancelar);
             this.groupBox2.Controls.Add(this.btnRegistrarPago);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.txtMonto);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.txrNroFactura);
+            this.groupBox2.Controls.Add(this.txtNroFactura);
             this.groupBox2.Controls.Add(this.cboProveedores);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Location = new System.Drawing.Point(12, 75);
@@ -100,21 +100,21 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
-            // button2
+            // btnCancelar
             // 
-            this.button2.BackColor = System.Drawing.Color.DimGray;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = global::VentasSys.Properties.Resources.Cancel_24;
-            this.button2.Location = new System.Drawing.Point(42, 154);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(142, 38);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "CANCELAR";
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnCancelar.BackColor = System.Drawing.Color.DimGray;
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
+            this.btnCancelar.Image = global::VentasSys.Properties.Resources.Cancel_24;
+            this.btnCancelar.Location = new System.Drawing.Point(42, 154);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(142, 38);
+            this.btnCancelar.TabIndex = 6;
+            this.btnCancelar.Text = "CANCELAR";
+            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             // 
             // btnRegistrarPago
             // 
@@ -131,6 +131,7 @@
             this.btnRegistrarPago.Text = "REGISTRAR PAGO";
             this.btnRegistrarPago.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRegistrarPago.UseVisualStyleBackColor = false;
+            this.btnRegistrarPago.Click += new System.EventHandler(this.btnRegistrarPago_Click);
             // 
             // label4
             // 
@@ -148,6 +149,9 @@
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(135, 22);
             this.txtMonto.TabIndex = 4;
+            this.txtMonto.Text = "0.00";
+            this.txtMonto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMonto_KeyPress);
             // 
             // label3
             // 
@@ -158,13 +162,13 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Nro. Factura";
             // 
-            // txrNroFactura
+            // txtNroFactura
             // 
-            this.txrNroFactura.Location = new System.Drawing.Point(82, 42);
-            this.txrNroFactura.MaxLength = 15;
-            this.txrNroFactura.Name = "txrNroFactura";
-            this.txrNroFactura.Size = new System.Drawing.Size(135, 22);
-            this.txrNroFactura.TabIndex = 2;
+            this.txtNroFactura.Location = new System.Drawing.Point(82, 42);
+            this.txtNroFactura.MaxLength = 15;
+            this.txtNroFactura.Name = "txtNroFactura";
+            this.txtNroFactura.Size = new System.Drawing.Size(135, 22);
+            this.txtNroFactura.TabIndex = 2;
             // 
             // cboProveedores
             // 
@@ -184,29 +188,71 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Proveedor";
             // 
-            // dataGridView1
+            // dgvPagos
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvPagos.AllowUserToAddRows = false;
+            this.dgvPagos.AllowUserToDeleteRows = false;
+            this.dgvPagos.AllowUserToResizeColumns = false;
+            this.dgvPagos.AllowUserToResizeRows = false;
+            this.dgvPagos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPagos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CODIGO,
             this.FECHA,
             this.PROVEEDOR,
             this.USUARIO,
             this.MONTO});
-            this.dataGridView1.Location = new System.Drawing.Point(249, 19);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(500, 236);
-            this.dataGridView1.TabIndex = 2;
+            this.dgvPagos.Location = new System.Drawing.Point(249, 19);
+            this.dgvPagos.MultiSelect = false;
+            this.dgvPagos.Name = "dgvPagos";
+            this.dgvPagos.ReadOnly = true;
+            this.dgvPagos.RowHeadersVisible = false;
+            this.dgvPagos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvPagos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvPagos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPagos.Size = new System.Drawing.Size(500, 236);
+            this.dgvPagos.TabIndex = 2;
+            // 
+            // CODIGO
+            // 
+            this.CODIGO.DataPropertyName = "codigo";
+            this.CODIGO.Frozen = true;
+            this.CODIGO.HeaderText = "Código";
+            this.CODIGO.Name = "CODIGO";
+            this.CODIGO.ReadOnly = true;
+            // 
+            // FECHA
+            // 
+            this.FECHA.DataPropertyName = "fecha_emision";
+            this.FECHA.Frozen = true;
+            this.FECHA.HeaderText = "Fecha";
+            this.FECHA.Name = "FECHA";
+            this.FECHA.ReadOnly = true;
+            // 
+            // PROVEEDOR
+            // 
+            this.PROVEEDOR.DataPropertyName = "proveedor";
+            this.PROVEEDOR.Frozen = true;
+            this.PROVEEDOR.HeaderText = "Proveedor";
+            this.PROVEEDOR.Name = "PROVEEDOR";
+            this.PROVEEDOR.ReadOnly = true;
+            this.PROVEEDOR.Width = 150;
+            // 
+            // USUARIO
+            // 
+            this.USUARIO.DataPropertyName = "usuario";
+            this.USUARIO.Frozen = true;
+            this.USUARIO.HeaderText = "Usuario";
+            this.USUARIO.Name = "USUARIO";
+            this.USUARIO.ReadOnly = true;
+            // 
+            // MONTO
+            // 
+            this.MONTO.DataPropertyName = "monto";
+            this.MONTO.Frozen = true;
+            this.MONTO.HeaderText = "Monto";
+            this.MONTO.Name = "MONTO";
+            this.MONTO.ReadOnly = true;
+            this.MONTO.Width = 50;
             // 
             // label5
             // 
@@ -218,48 +264,15 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Total";
             // 
-            // textBox3
+            // txtTotal
             // 
-            this.textBox3.Location = new System.Drawing.Point(678, 261);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(71, 22);
-            this.textBox3.TabIndex = 7;
-            // 
-            // CODIGO
-            // 
-            this.CODIGO.Frozen = true;
-            this.CODIGO.HeaderText = "Código";
-            this.CODIGO.Name = "CODIGO";
-            this.CODIGO.ReadOnly = true;
-            // 
-            // FECHA
-            // 
-            this.FECHA.Frozen = true;
-            this.FECHA.HeaderText = "Fecha";
-            this.FECHA.Name = "FECHA";
-            this.FECHA.ReadOnly = true;
-            // 
-            // PROVEEDOR
-            // 
-            this.PROVEEDOR.Frozen = true;
-            this.PROVEEDOR.HeaderText = "Proveedor";
-            this.PROVEEDOR.Name = "PROVEEDOR";
-            this.PROVEEDOR.ReadOnly = true;
-            // 
-            // USUARIO
-            // 
-            this.USUARIO.Frozen = true;
-            this.USUARIO.HeaderText = "Usuario";
-            this.USUARIO.Name = "USUARIO";
-            this.USUARIO.ReadOnly = true;
-            // 
-            // MONTO
-            // 
-            this.MONTO.Frozen = true;
-            this.MONTO.HeaderText = "Monto";
-            this.MONTO.Name = "MONTO";
-            this.MONTO.ReadOnly = true;
+            this.txtTotal.Location = new System.Drawing.Point(678, 261);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
+            this.txtTotal.Size = new System.Drawing.Size(71, 22);
+            this.txtTotal.TabIndex = 7;
+            this.txtTotal.Text = "0.00";
+            this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // frmPagoProveedores
             // 
@@ -267,8 +280,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(763, 294);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.dgvPagos);
+            this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -284,7 +297,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPagos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -299,14 +312,14 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtMonto;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txrNroFactura;
+        private System.Windows.Forms.TextBox txtNroFactura;
         private System.Windows.Forms.ComboBox cboProveedores;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnRegistrarPago;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvPagos;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn CODIGO;
         private System.Windows.Forms.DataGridViewTextBoxColumn FECHA;
         private System.Windows.Forms.DataGridViewTextBoxColumn PROVEEDOR;
