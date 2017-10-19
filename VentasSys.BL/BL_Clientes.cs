@@ -16,6 +16,11 @@ namespace VentasSys.BL
             return DAO_Clientes.getClientesxDNI(dni, tipo);
         }
 
+        public static List<Ent_Clientes> getClientesRegistrados(string dni, string nombre)
+        {
+            return DAO_Clientes.getClientesRegistrados(dni, nombre);
+        }
+
         public static bool existeCliente(string dni)
         {
             return DAO_Clientes.existeCliente(dni);
@@ -24,6 +29,16 @@ namespace VentasSys.BL
         public static string insertarCliente(Ent_Clientes cliente)
         {
             return DAO_Clientes.insertarCliente(cliente);
+        }
+
+        public static string editarCliente(Ent_Clientes cliente)
+        {
+            return DAO_Clientes.editarCliente(cliente);
+        }
+
+        public static string eliminarCliente(string id)
+        {
+            return DAO_Clientes.eliminarCliente(id);
         }
     }
 }

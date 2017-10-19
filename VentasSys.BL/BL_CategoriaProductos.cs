@@ -10,5 +10,20 @@ namespace VentasSys.BL
         {
             return DAO_CategoriaProductos.getCategorias(categoria, activo);
         }
+
+        public static string insertarCategoria(Ent_CategoriaProductos categoria)
+        {
+            return DAO_CategoriaProductos.insertarCategoria(categoria);
+        }
+
+        public static string editarCategoria(Ent_CategoriaProductos categoria)
+        {
+            return DAO_CategoriaProductos.editarCategoria(categoria);
+        }
+
+        public static string eliminarCategoria(string id)
+        {
+            return DAO_CategoriaProductos.eliminarCategoria(id);
+        }
     }
 }

@@ -148,7 +148,7 @@ namespace VentasSys
                 }
 
             }
-            catch (IndexOutOfRangeException ex)
+            catch (IndexOutOfRangeException)
             {
                 MessageBox.Show("Error en el formato del número de factura.\n\nFormato: 000-000000", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

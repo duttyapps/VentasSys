@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgvCategorias = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtFecha = new System.Windows.Forms.TextBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -46,10 +47,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.txtFecha = new System.Windows.Forms.TextBox();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CODIGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CATEGORIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ACTIVO = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategorias)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -112,9 +115,11 @@
             this.dgvCategorias.AllowUserToResizeRows = false;
             this.dgvCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCategorias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
             this.CODIGO,
             this.CATEGORIA,
-            this.ACTIVO});
+            this.ACTIVO,
+            this.FECHA});
             this.dgvCategorias.Location = new System.Drawing.Point(12, 76);
             this.dgvCategorias.MultiSelect = false;
             this.dgvCategorias.Name = "dgvCategorias";
@@ -124,9 +129,11 @@
             this.dgvCategorias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCategorias.Size = new System.Drawing.Size(400, 216);
             this.dgvCategorias.TabIndex = 1;
+            this.dgvCategorias.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategorias_CellClick);
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtID);
             this.groupBox2.Controls.Add(this.txtFecha);
             this.groupBox2.Controls.Add(this.btnEliminar);
             this.groupBox2.Controls.Add(this.btnNuevo);
@@ -144,9 +151,19 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos de la Categoría";
             // 
+            // txtFecha
+            // 
+            this.txtFecha.Enabled = false;
+            this.txtFecha.Location = new System.Drawing.Point(6, 44);
+            this.txtFecha.Name = "txtFecha";
+            this.txtFecha.Size = new System.Drawing.Size(109, 22);
+            this.txtFecha.TabIndex = 11;
+            this.txtFecha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // btnEliminar
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.Red;
+            this.btnEliminar.Enabled = false;
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -158,10 +175,12 @@
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnNuevo
             // 
             this.btnNuevo.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnNuevo.Enabled = false;
             this.btnNuevo.FlatAppearance.BorderSize = 0;
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -174,6 +193,7 @@
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // label6
             // 
@@ -187,6 +207,7 @@
             // cboEstadoDet
             // 
             this.cboEstadoDet.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEstadoDet.Enabled = false;
             this.cboEstadoDet.FormattingEnabled = true;
             this.cboEstadoDet.Location = new System.Drawing.Point(6, 197);
             this.cboEstadoDet.Name = "cboEstadoDet";
@@ -195,6 +216,7 @@
             // 
             // txtCategoriaDet
             // 
+            this.txtCategoriaDet.Enabled = false;
             this.txtCategoriaDet.Location = new System.Drawing.Point(6, 146);
             this.txtCategoriaDet.Name = "txtCategoriaDet";
             this.txtCategoriaDet.Size = new System.Drawing.Size(237, 22);
@@ -211,6 +233,7 @@
             // 
             // txtCodigo
             // 
+            this.txtCodigo.Enabled = false;
             this.txtCodigo.Location = new System.Drawing.Point(6, 95);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(109, 22);
@@ -249,6 +272,7 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnCancelar
             // 
@@ -265,13 +289,22 @@
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelar.UseVisualStyleBackColor = false;
             // 
-            // txtFecha
+            // txtID
             // 
-            this.txtFecha.Enabled = false;
-            this.txtFecha.Location = new System.Drawing.Point(6, 44);
-            this.txtFecha.Name = "txtFecha";
-            this.txtFecha.Size = new System.Drawing.Size(109, 22);
-            this.txtFecha.TabIndex = 11;
+            this.txtID.Enabled = false;
+            this.txtID.Location = new System.Drawing.Point(219, 197);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(25, 22);
+            this.txtID.TabIndex = 12;
+            this.txtID.Visible = false;
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "id";
+            this.ID.Frozen = true;
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.Visible = false;
             // 
             // CODIGO
             // 
@@ -301,6 +334,14 @@
             this.ACTIVO.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ACTIVO.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.ACTIVO.TrueValue = "1";
+            // 
+            // FECHA
+            // 
+            this.FECHA.DataPropertyName = "fecha";
+            this.FECHA.Frozen = true;
+            this.FECHA.HeaderText = "FECHA";
+            this.FECHA.Name = "FECHA";
+            this.FECHA.Visible = false;
             // 
             // frmMantenimientoCategorias
             // 
@@ -351,8 +392,11 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.TextBox txtFecha;
+        private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CODIGO;
         private System.Windows.Forms.DataGridViewTextBoxColumn CATEGORIA;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ACTIVO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FECHA;
     }
 }
