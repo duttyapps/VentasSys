@@ -12,6 +12,11 @@ namespace VentasSys.BL
             return DAO_Ventas.getVentas(ent_tienda);
         }
 
+        public static Ent_Venta getCabeceraVenta(string id)
+        {
+            return DAO_Ventas.getCabeceraVenta(id);
+        }
+
         public static List<Ent_Productos> getDetalleVenta(string id)
         {
             return DAO_Ventas.getDetalleVenta(id);
@@ -65,6 +70,16 @@ namespace VentasSys.BL
         public static string finalizarCredito(int id)
         {
             return DAO_Ventas.finalizarCredito(id);
+        }
+
+        public static List<Ent_Venta> getConsultaVentas(Ent_Venta ent_venta)
+        {
+            return DAO_Ventas.getConsultaVentas(ent_venta);
+        }
+
+        public static List<Ent_Venta> getVentasPorCliente(Ent_Venta entity)
+        {
+            return DAO_Ventas.getVentasPorCliente(entity);
         }
     }
 }

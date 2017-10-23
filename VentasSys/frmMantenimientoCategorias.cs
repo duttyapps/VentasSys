@@ -96,6 +96,7 @@ namespace VentasSys
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            reiniciarFormulario();
             txtCategoriaDet.Enabled = true;
             cboEstadoDet.Enabled = true;
 
@@ -181,6 +182,7 @@ namespace VentasSys
                     {
                         MessageBox.Show("¡Categoría eliminada exitosamente!", "Eliminar categoría", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         fillCategorias();
+                        reiniciarFormulario();
                     }
                     else
                     {
@@ -192,6 +194,17 @@ namespace VentasSys
                     MessageBox.Show("Error: " + ex.Message, "Eliminar categoría", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            reiniciarFormulario();
+            txtCategoriaDet.Enabled = false;
+            cboEstadoDet.Enabled = false;
+            btnNuevo.Enabled = false;
+            btnEliminar.Enabled = false;
+            btnGuardar.Enabled = false;
+            btnCancelar.Enabled = false;
         }
     }
 }

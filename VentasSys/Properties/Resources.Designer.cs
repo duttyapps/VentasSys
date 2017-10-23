@@ -73,6 +73,16 @@ namespace VentasSys.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap clipboard {
+            get {
+                object obj = ResourceManager.GetObject("clipboard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Exit_24 {
             get {
                 object obj = ResourceManager.GetObject("Exit_24", resourceCulture);

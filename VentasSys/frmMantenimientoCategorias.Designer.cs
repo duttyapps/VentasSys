@@ -34,7 +34,13 @@
             this.cboEstado = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvCategorias = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CODIGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CATEGORIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ACTIVO = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.txtFecha = new System.Windows.Forms.TextBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
@@ -47,12 +53,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.txtID = new System.Windows.Forms.TextBox();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CODIGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CATEGORIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ACTIVO = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategorias)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -131,6 +131,51 @@
             this.dgvCategorias.TabIndex = 1;
             this.dgvCategorias.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategorias_CellClick);
             // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "id";
+            this.ID.Frozen = true;
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.Visible = false;
+            // 
+            // CODIGO
+            // 
+            this.CODIGO.DataPropertyName = "codigo";
+            this.CODIGO.Frozen = true;
+            this.CODIGO.HeaderText = "Código";
+            this.CODIGO.Name = "CODIGO";
+            this.CODIGO.ReadOnly = true;
+            // 
+            // CATEGORIA
+            // 
+            this.CATEGORIA.DataPropertyName = "nombre";
+            this.CATEGORIA.Frozen = true;
+            this.CATEGORIA.HeaderText = "Categoría";
+            this.CATEGORIA.Name = "CATEGORIA";
+            this.CATEGORIA.ReadOnly = true;
+            this.CATEGORIA.Width = 200;
+            // 
+            // ACTIVO
+            // 
+            this.ACTIVO.DataPropertyName = "activo";
+            this.ACTIVO.FalseValue = "0";
+            this.ACTIVO.Frozen = true;
+            this.ACTIVO.HeaderText = "Activo";
+            this.ACTIVO.Name = "ACTIVO";
+            this.ACTIVO.ReadOnly = true;
+            this.ACTIVO.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ACTIVO.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ACTIVO.TrueValue = "1";
+            // 
+            // FECHA
+            // 
+            this.FECHA.DataPropertyName = "fecha";
+            this.FECHA.Frozen = true;
+            this.FECHA.HeaderText = "FECHA";
+            this.FECHA.Name = "FECHA";
+            this.FECHA.Visible = false;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txtID);
@@ -150,6 +195,15 @@
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos de la Categoría";
+            // 
+            // txtID
+            // 
+            this.txtID.Enabled = false;
+            this.txtID.Location = new System.Drawing.Point(219, 197);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(25, 22);
+            this.txtID.TabIndex = 12;
+            this.txtID.Visible = false;
             // 
             // txtFecha
             // 
@@ -288,60 +342,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelar.UseVisualStyleBackColor = false;
-            // 
-            // txtID
-            // 
-            this.txtID.Enabled = false;
-            this.txtID.Location = new System.Drawing.Point(219, 197);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(25, 22);
-            this.txtID.TabIndex = 12;
-            this.txtID.Visible = false;
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "id";
-            this.ID.Frozen = true;
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.Visible = false;
-            // 
-            // CODIGO
-            // 
-            this.CODIGO.DataPropertyName = "codigo";
-            this.CODIGO.Frozen = true;
-            this.CODIGO.HeaderText = "Código";
-            this.CODIGO.Name = "CODIGO";
-            this.CODIGO.ReadOnly = true;
-            // 
-            // CATEGORIA
-            // 
-            this.CATEGORIA.DataPropertyName = "nombre";
-            this.CATEGORIA.Frozen = true;
-            this.CATEGORIA.HeaderText = "Categoría";
-            this.CATEGORIA.Name = "CATEGORIA";
-            this.CATEGORIA.ReadOnly = true;
-            this.CATEGORIA.Width = 200;
-            // 
-            // ACTIVO
-            // 
-            this.ACTIVO.DataPropertyName = "activo";
-            this.ACTIVO.FalseValue = "0";
-            this.ACTIVO.Frozen = true;
-            this.ACTIVO.HeaderText = "Activo";
-            this.ACTIVO.Name = "ACTIVO";
-            this.ACTIVO.ReadOnly = true;
-            this.ACTIVO.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ACTIVO.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ACTIVO.TrueValue = "1";
-            // 
-            // FECHA
-            // 
-            this.FECHA.DataPropertyName = "fecha";
-            this.FECHA.Frozen = true;
-            this.FECHA.HeaderText = "FECHA";
-            this.FECHA.Name = "FECHA";
-            this.FECHA.Visible = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // frmMantenimientoCategorias
             // 

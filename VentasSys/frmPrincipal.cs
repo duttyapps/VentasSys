@@ -941,13 +941,19 @@ namespace VentasSys
 
         private void ventasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmConsultaVentas frm = new frmConsultaVentas();
+            frmConsultaVentas frm = new frmConsultaVentas(cod_tienda);
             frm.ShowDialog();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             btnSalir_Click(null, EventArgs.Empty);
+        }
+
+        private void clientesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmConsultaVentaCliente frm = new frmConsultaVentaCliente();
+            frm.ShowDialog();
         }
     }
 }

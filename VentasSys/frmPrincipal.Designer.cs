@@ -290,15 +290,16 @@
             // ventasToolStripMenuItem1
             // 
             this.ventasToolStripMenuItem1.Name = "ventasToolStripMenuItem1";
-            this.ventasToolStripMenuItem1.Size = new System.Drawing.Size(116, 22);
+            this.ventasToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.ventasToolStripMenuItem1.Text = "Ventas";
             this.ventasToolStripMenuItem1.Click += new System.EventHandler(this.ventasToolStripMenuItem1_Click);
             // 
             // clientesToolStripMenuItem1
             // 
             this.clientesToolStripMenuItem1.Name = "clientesToolStripMenuItem1";
-            this.clientesToolStripMenuItem1.Size = new System.Drawing.Size(116, 22);
+            this.clientesToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.clientesToolStripMenuItem1.Text = "Clientes";
+            this.clientesToolStripMenuItem1.Click += new System.EventHandler(this.clientesToolStripMenuItem1_Click);
             // 
             // reportesToolStripMenuItem
             // 

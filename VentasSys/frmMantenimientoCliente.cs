@@ -111,7 +111,47 @@ namespace VentasSys
             txtDireccion.Enabled = true;
             txtTelefono.Enabled = true;
             txtEmail.Enabled = true;
+        }
 
+        private void txtDNI_TextChanged(object sender, EventArgs e)
+        {
+            fillClientes();
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            fillClientes();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            var confirm = MessageBox.Show("¿Está seguro que desea eliminar el cliente: " + txtDNIDet.Text + " - " + txtNombreDet.Text + " " + txtApellidos.Text + "?.", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirm == DialogResult.Yes)
+            {
+                string id = txtID.Text;
+                try
+                {
+                    string result = BL_Clientes.eliminarCliente(id);
+
+                    if (result == "1")
+                    {
+                        MessageBox.Show("¡Cliente eliminado exitosamente!", "Eliminar cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        fillClientes();
+                    }
+                    else
+                    {
+                        MessageBox.Show("¡Ocurrió un error al eliminar el cliente!", "Eliminar cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Eliminar cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
             if (txtNombreDet.Text.Equals(String.Empty))
             {
                 MessageBox.Show("El nombre no puede estar vacío.", "Modificar cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -168,43 +208,6 @@ namespace VentasSys
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error: " + ex.Message, "Modificar cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-        private void txtDNI_TextChanged(object sender, EventArgs e)
-        {
-            fillClientes();
-        }
-
-        private void txtNombre_TextChanged(object sender, EventArgs e)
-        {
-            fillClientes();
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            var confirm = MessageBox.Show("¿Está seguro que desea eliminar el cliente: " + txtDNIDet.Text + " - " + txtNombreDet.Text + " " + txtApellidos.Text + "?.", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (confirm == DialogResult.Yes)
-            {
-                string id = txtID.Text;
-                try
-                {
-                    string result = BL_Clientes.eliminarCliente(id);
-
-                    if (result == "1")
-                    {
-                        MessageBox.Show("¡Cliente eliminado exitosamente!", "Eliminar cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        fillClientes();
-                    }
-                    else
-                    {
-                        MessageBox.Show("¡Ocurrió un error al eliminar el cliente!", "Eliminar cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message, "Eliminar cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

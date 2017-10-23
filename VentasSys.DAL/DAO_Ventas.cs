@@ -11,7 +11,7 @@ namespace VentasSys.DAL
     {
         private static MySqlConnection con;
 
-        public static List<Ent_Venta> getVentas(Ent_Venta ent_tienda)
+        public static List<Ent_Venta> getVentas(Ent_Venta ent_venta)
         {
             List<Ent_Venta> lstVenta = new List<Ent_Venta>();
 
@@ -24,13 +24,13 @@ namespace VentasSys.DAL
             cmd.CommandText = "SP_SYS_GET_VENTAS";
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@PSTR_TIENDA_COD", ent_tienda.cod_tienda);
+            cmd.Parameters.AddWithValue("@PSTR_TIENDA_COD", ent_venta.cod_tienda);
             cmd.Parameters["@PSTR_TIENDA_COD"].Direction = ParameterDirection.Input;
 
-            cmd.Parameters.AddWithValue("@PSTR_NRO_DOC", (ent_tienda.nro_doc.ToString() == "0") ? null : ent_tienda.nro_doc.ToString());
+            cmd.Parameters.AddWithValue("@PSTR_NRO_DOC", (ent_venta.nro_doc.ToString() == "0") ? null : ent_venta.nro_doc.ToString());
             cmd.Parameters["@PSTR_NRO_DOC"].Direction = ParameterDirection.Input;
 
-            cmd.Parameters.AddWithValue("@PSTR_TIPO_VENTA", ent_tienda.tipo_venta);
+            cmd.Parameters.AddWithValue("@PSTR_TIPO_VENTA", ent_venta.tipo_venta);
             cmd.Parameters["@PSTR_TIPO_VENTA"].Direction = ParameterDirection.Input;
 
             MySqlDataReader dr = cmd.ExecuteReader();
@@ -40,7 +40,7 @@ namespace VentasSys.DAL
                 Ent_Venta venta = new Ent_Venta();
                 venta.id_cab = Convert.ToInt32(dr["ID"]);
                 venta.nro_doc = Convert.ToInt32(dr["NUMERO_DOC"]);
-                venta.nro_doc_str = Convert.ToString(dr["TIPO_VENTA"]) + "-001-" + Convert.ToInt32(dr["NUMERO_DOC"]).ToString().PadLeft(6, '0');
+                venta.nro_doc_str = Convert.ToString(dr["TIPO_VENTA"]) + "001-" + Convert.ToInt32(dr["NUMERO_DOC"]).ToString().PadLeft(6, '0');
                 venta.cod_tienda = Convert.ToString(dr["COD_TIENDA"]);
                 venta.des_tienda = Convert.ToString(dr["DES_TIENDA"]);
                 venta.tipo_venta = Convert.ToString(dr["TIPO_VENTA"]);
@@ -62,6 +62,58 @@ namespace VentasSys.DAL
             con.Close();
 
             return lstVenta;
+        }
+
+        public static Ent_Venta getCabeceraVenta(string id)
+        {
+            Ent_Venta venta = new Ent_Venta();
+
+            con = Conexion.getConnection();
+            MySqlCommand cmd = new MySqlCommand();
+
+            con.Open();
+
+            cmd.Connection = con;
+            cmd.CommandText = "SP_SYS_GET_CABECERA_VENTA";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@PSTR_ID", id);
+            cmd.Parameters["@PSTR_ID"].Direction = ParameterDirection.Input;
+
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                venta.id_cab = Convert.ToInt32(dr["ID"]);
+                venta.nro_doc = Convert.ToInt32(dr["NUMERO_DOC"]);
+                venta.nro_doc_str = "001-" + Convert.ToInt32(dr["NUMERO_DOC"]).ToString().PadLeft(6, '0');
+                venta.cod_tienda = Convert.ToString(dr["COD_TIENDA"]);
+                venta.des_tienda = Convert.ToString(dr["DES_TIENDA"]);
+                venta.tipo_venta = Convert.ToString(dr["TIPO_VENTA"]);
+                venta.tipo_venta_des = Convert.ToString(dr["TIPO_VENTA_DES"]);
+                venta.forma_pago = Convert.ToString(dr["FORMA_PAGO"]);
+                venta.forma_pago_des = Convert.ToString(dr["FORMA_PAGO_DES"]);
+                venta.emision = Convert.ToString(dr["FECHA_EMISION"]);
+                venta.cantidad = Convert.ToInt32(dr["CANTIDAD"]);
+                venta.monto_total = Convert.ToDouble(dr["MONTO_TOTAL"]);
+                venta.monto_recibido = Convert.ToDouble(dr["MONTO_RECIBIDO"]);
+                venta.monto_vuelto = Convert.ToDouble(dr["MONTO_VUELTO"]);
+                venta.cliente_doc = Convert.ToString(dr["CLIENTE_DOC"]);
+                venta.cliente = Convert.ToString(dr["CLIENTE_DES"]);
+                venta.telefono = Convert.ToString(dr["TELEFONO"]);
+                venta.direccion = Convert.ToString(dr["DIRECCION"]);
+                venta.usuario = Convert.ToString(dr["USUARIO"]);
+                venta.usuario_tipo = Convert.ToString(dr["CLIENTE_TIPO"]);
+                venta.anulado = Convert.ToString(dr["ANULADO"]);
+                venta.usuario_anul = Convert.ToString(dr["USUARIO_ANUL"]);
+                venta.fecha_anul = Convert.ToString(dr["FECHA_ANUL"]);
+                venta.motivo_anul = Convert.ToString(dr["MOTIVO_ANUL"]);
+                venta.nro_guia = Convert.ToString(dr["NUMERO_GUIA"]);
+            }
+
+            con.Close();
+
+            return venta;
         }
 
         public static List<Ent_Productos> getDetalleVenta(string id)
@@ -652,6 +704,120 @@ namespace VentasSys.DAL
             }
 
             return retval;
+        }
+
+        public static List<Ent_Venta> getConsultaVentas(Ent_Venta ent_venta)
+        {
+            List<Ent_Venta> lstVenta = new List<Ent_Venta>();
+
+            con = Conexion.getConnection();
+            MySqlCommand cmd = new MySqlCommand();
+
+            con.Open();
+
+            cmd.Connection = con;
+            cmd.CommandText = "SP_SYS_GET_CONSULTA_VENTAS";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@PSTR_TIENDA_COD", ent_venta.cod_tienda);
+            cmd.Parameters["@PSTR_TIENDA_COD"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_NRO_DOC", (ent_venta.nro_doc_str == String.Empty) ? null : ent_venta.nro_doc_str);
+            cmd.Parameters["@PSTR_NRO_DOC"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_TIPO_VENTA", (ent_venta.tipo_venta == String.Empty) ? null : ent_venta.tipo_venta);
+            cmd.Parameters["@PSTR_TIPO_VENTA"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_FORMA_PAGO", (ent_venta.forma_pago == String.Empty) ? null : ent_venta.forma_pago);
+            cmd.Parameters["@PSTR_FORMA_PAGO"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_FECHA", (ent_venta.emision == String.Empty) ? null : ent_venta.emision);
+            cmd.Parameters["@PSTR_FECHA"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_ANULADO", (ent_venta.anulado == String.Empty) ? null : ent_venta.anulado);
+            cmd.Parameters["@PSTR_ANULADO"].Direction = ParameterDirection.Input;
+
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Ent_Venta venta = new Ent_Venta();
+                venta.id = Convert.ToInt32(dr["ID"]);
+                venta.nro_doc_str = Convert.ToString(dr["NRO_DOC"]);
+                venta.tipo_venta = Convert.ToString(dr["TIPO_VENTA"]);
+                venta.emision = Convert.ToString(dr["FECHA_EMISION"]);
+                venta.monto_total = Convert.ToDouble(dr["MONTO_TOTAL"]);
+                venta.cliente_doc = Convert.ToString(dr["CLIENTE_DOC"]);
+                venta.cliente = Convert.ToString(dr["CLIENTE_DES"]);
+                venta.anulado = Convert.ToString(dr["ANULADO"]);
+
+                lstVenta.Add(venta);
+            }
+
+            con.Close();
+
+            return lstVenta;
+        }
+
+        public static List<Ent_Venta> getVentasPorCliente(Ent_Venta entity)
+        {
+            List<Ent_Venta> lstVenta = new List<Ent_Venta>();
+
+            con = Conexion.getConnection();
+            MySqlCommand cmd = new MySqlCommand();
+
+            con.Open();
+
+            cmd.Connection = con;
+            cmd.CommandText = "SP_SYS_GET_VENTAS_X_CLIENTE";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@PSTR_CLIENTE_DOC", (entity.cliente_doc == String.Empty) ? null : entity.cliente_doc);
+            cmd.Parameters["@PSTR_CLIENTE_DOC"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_CLIENTE_NOMBRE", entity.cliente);
+            cmd.Parameters["@PSTR_CLIENTE_NOMBRE"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_FECHA", (entity.emision == String.Empty) ? null : entity.cliente_doc);
+            cmd.Parameters["@PSTR_FECHA"].Direction = ParameterDirection.Input;
+
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Ent_Venta venta = new Ent_Venta();
+                venta.id = Convert.ToInt32(dr["ID"]);
+                venta.nro_doc = Convert.ToInt32(dr["NUMERO_DOC"]);
+                venta.nro_doc_str = "001-" + Convert.ToInt32(dr["NUMERO_DOC"]).ToString().PadLeft(6, '0');
+                venta.cod_tienda = Convert.ToString(dr["COD_TIENDA"]);
+                venta.des_tienda = Convert.ToString(dr["DES_TIENDA"]);
+                venta.tipo_venta = Convert.ToString(dr["TIPO_VENTA"]);
+                venta.tipo_venta_des = Convert.ToString(dr["TIPO_VENTA_DES"]);
+                venta.forma_pago = Convert.ToString(dr["FORMA_PAGO"]);
+                venta.forma_pago_des = Convert.ToString(dr["FORMA_PAGO_DES"]);
+                venta.emision = Convert.ToString(dr["FECHA_EMISION"]);
+                venta.cantidad = Convert.ToInt32(dr["CANTIDAD"]);
+                venta.monto_total = Convert.ToDouble(dr["MONTO_TOTAL"]);
+                venta.monto_recibido = Convert.ToDouble(dr["MONTO_RECIBIDO"]);
+                venta.monto_vuelto = Convert.ToDouble(dr["MONTO_VUELTO"]);
+                venta.cliente_doc = Convert.ToString(dr["CLIENTE_DOC"]);
+                venta.cliente = Convert.ToString(dr["CLIENTE_DES"]);
+                venta.telefono = Convert.ToString(dr["TELEFONO"]);
+                venta.direccion = Convert.ToString(dr["DIRECCION"]);
+                venta.usuario = Convert.ToString(dr["USUARIO"]);
+                venta.usuario_tipo = Convert.ToString(dr["CLIENTE_TIPO"]);
+                venta.anulado = Convert.ToString(dr["ANULADO_DES"]);
+                venta.usuario_anul = Convert.ToString(dr["USUARIO_ANUL"]);
+                venta.fecha_anul = Convert.ToString(dr["FECHA_ANUL"]);
+                venta.motivo_anul = Convert.ToString(dr["MOTIVO_ANUL"]);
+                venta.nro_guia = Convert.ToString(dr["NUMERO_GUIA"]);
+
+                lstVenta.Add(venta);
+            }
+
+            con.Close();
+
+            return lstVenta;
         }
     }
 }
