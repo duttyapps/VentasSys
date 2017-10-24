@@ -123,6 +123,7 @@
             // btnSalir
             // 
             this.btnSalir.BackColor = System.Drawing.Color.DimGray;
+            this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSalir.FlatAppearance.BorderSize = 0;
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.ForeColor = System.Drawing.Color.White;
@@ -139,6 +140,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.CancelButton = this.btnSalir;
             this.ClientSize = new System.Drawing.Size(434, 539);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnEntrar);

@@ -71,3 +71,8 @@ C:\Users\Carlos\Documents\Visual Studio 2015\Projects\VentasSys\VentasSys\obj\x8
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmConsultaVentaCliente.resources
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmConsultaVentas.resources
 C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmDetalleVenta.resources
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmDetalleVenta.resources
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmReporteStockProducto.resources
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\RdlCompile.cache
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\RdlCompile.compiled
+E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\bin\x86\Debug\Reportes\StockProductos.rdlc

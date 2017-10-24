@@ -7,6 +7,7 @@ namespace VentasSys.EL
         public int id { get; set; }
         public string codigo { get; set; }
         public int id_cat { get; set; }
+        public string categoria_des { get; set; }
         public string nombre { get; set; }
         public double costo { get; set; }
         public double precio { get; set; }
@@ -25,6 +26,7 @@ namespace VentasSys.EL
             this.id = 0;
             this.codigo = String.Empty;
             this.id_cat = 0;
+            this.categoria_des = String.Empty;
             this.nombre = String.Empty;
             this.costo = 0D;
             this.precio = 0D;

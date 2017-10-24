@@ -187,5 +187,10 @@ namespace VentasSys
             btnGuardar.Enabled = true;
             btnCancelar.Enabled = true;
         }
+
+        private void btnRestaurar_Click(object sender, EventArgs e)
+        {
+            txtContrasena.Enabled = true;
+        }
     }
 }

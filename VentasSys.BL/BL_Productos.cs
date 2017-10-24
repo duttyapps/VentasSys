@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using VentasSys.DAL;
 using VentasSys.EL;
 
@@ -44,6 +45,11 @@ namespace VentasSys.BL
         public static List<Ent_Proveedores> getProveedores()
         {
             return DAO_Productos.getProveedores();
+        }
+
+        public static void getReporteStockProductos(string cat, string estado, string tienda, ref DataSet ds, ref DataTable dt)
+        {
+            DAO_Productos.getReporteStockProductos(cat, estado, tienda, ref ds, ref dt);
         }
 
         public static string generarCodigoProducto(string cod_tienda, int id, int cat)

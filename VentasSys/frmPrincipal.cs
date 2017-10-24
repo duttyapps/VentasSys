@@ -955,5 +955,11 @@ namespace VentasSys
             frmConsultaVentaCliente frm = new frmConsultaVentaCliente();
             frm.ShowDialog();
         }
+
+        private void stockDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteStockProducto frm = new frmReporteStockProducto();
+            frm.ShowDialog();
+        }
     }
 }

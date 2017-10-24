@@ -56,9 +56,12 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -70,6 +73,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSets\StockProductos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StockProductos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="frmAnularVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +174,12 @@
     <Compile Include="frmPagoProveedores.Designer.cs">
       <DependentUpon>frmPagoProveedores.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReporteStockProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteStockProducto.Designer.cs">
+      <DependentUpon>frmReporteStockProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,6 +242,9 @@
     <EmbeddedResource Include="frmPagoProveedores.resx">
       <DependentUpon>frmPagoProveedores.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteStockProducto.resx">
+      <DependentUpon>frmReporteStockProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmUsuarios.resx">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
     </EmbeddedResource>
@@ -241,9 +258,23 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\StockProductos.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sistema\Base de Datos\frmConfiguracion.resx">
       <DependentUpon>frmConfiguracion.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DataSets\StockProductos.xsc">
+      <DependentUpon>StockProductos.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\StockProductos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StockProductos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\StockProductos.xss">
+      <DependentUpon>StockProductos.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

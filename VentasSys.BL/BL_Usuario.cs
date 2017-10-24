@@ -20,5 +20,25 @@ namespace VentasSys.BL
         {
             return DAO_Usuario.getUsuario(id);
         }
+
+        public static string insertarUsuario(Ent_Usuario usuario)
+        {
+            return DAO_Usuario.insertarUsuario(usuario);
+        }
+
+        public static string editarUsuario(Ent_Usuario usuario)
+        {
+            return DAO_Usuario.editarUsuario(usuario);
+        }
+
+        public static string eliminarUsuario(string id)
+        {
+            return DAO_Usuario.eliminarUsuario(id);
+        }
+
+        public static string restablecerContraseña(string id, string pass)
+        {
+            return DAO_Usuario.restablecerContraseña(id, pass);
+        }
     }
 }

@@ -122,5 +122,287 @@ namespace VentasSys.DAL
 
             return usuario;
         }
+
+        public static string insertarUsuario(Ent_Usuario usuario)
+        {
+            MySqlTransaction tr = null;
+            con = Conexion.getConnection();
+
+            string retval = "1";
+
+            try
+            {
+                con.Open();
+
+                tr = con.BeginTransaction();
+
+                MySqlCommand cmd = new MySqlCommand();
+
+                cmd.Connection = con;
+                cmd.Transaction = tr;
+
+                cmd.CommandText = "SP_SYS_SET_USUARIO";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@RETVAL", MySqlDbType.VarChar);
+                cmd.Parameters["@RETVAL"].Direction = ParameterDirection.Output;
+
+                cmd.Parameters.AddWithValue("@PSTR_NRO_DOC", usuario.dni);
+                cmd.Parameters["@PSTR_NRO_DOC"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_PASSWORD", usuario.password);
+                cmd.Parameters["@PSTR_PASSWORD"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_NOMBRES", usuario.nombres);
+                cmd.Parameters["@PSTR_NOMBRES"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_SEXO", usuario.sexo);
+                cmd.Parameters["@PSTR_SEXO"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_FECHA_NAC", usuario.fecha_nac);
+                cmd.Parameters["@PSTR_FECHA_NAC"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_EMAIL", usuario.email);
+                cmd.Parameters["@PSTR_EMAIL"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_TELEFONO", usuario.telefono);
+                cmd.Parameters["@PSTR_TELEFONO"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_RANGO", usuario.rango);
+                cmd.Parameters["@PSTR_RANGO"].Direction = ParameterDirection.Input;
+
+                cmd.ExecuteNonQuery();
+
+                retval = cmd.Parameters["@RETVAL"].Value.ToString();
+
+                if (retval == "1")
+                {
+                    tr.Commit();
+                }
+                else
+                {
+                    tr.Rollback();
+                    return retval;
+                }
+
+            }
+            catch (MySqlException ex)
+            {
+                try
+                {
+                    tr.Rollback();
+                }
+                catch (MySqlException ex1)
+                {
+                    return ex1.ToString();
+                }
+
+                return ex.ToString();
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return retval;
+        }
+
+        public static string editarUsuario(Ent_Usuario usuario)
+        {
+            MySqlTransaction tr = null;
+            con = Conexion.getConnection();
+
+            string retval = "1";
+
+            try
+            {
+                con.Open();
+
+                tr = con.BeginTransaction();
+
+                MySqlCommand cmd = new MySqlCommand();
+
+                cmd.Connection = con;
+                cmd.Transaction = tr;
+
+                cmd.CommandText = "SP_SYS_UPD_USUARIO";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@RETVAL", MySqlDbType.VarChar);
+                cmd.Parameters["@RETVAL"].Direction = ParameterDirection.Output;
+
+                cmd.Parameters.AddWithValue("@PSTR_ID", usuario.id);
+                cmd.Parameters["@PSTR_ID"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_EMAIL", usuario.email);
+                cmd.Parameters["@PSTR_EMAIL"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_TELEFONO", usuario.telefono);
+                cmd.Parameters["@PSTR_TELEFONO"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_RANGO", usuario.rango);
+                cmd.Parameters["@PSTR_RANGO"].Direction = ParameterDirection.Input;
+
+                cmd.ExecuteNonQuery();
+
+                retval = cmd.Parameters["@RETVAL"].Value.ToString();
+
+                if (retval == "1")
+                {
+                    tr.Commit();
+                }
+                else
+                {
+                    tr.Rollback();
+                    return retval;
+                }
+
+            }
+            catch (MySqlException ex)
+            {
+                try
+                {
+                    tr.Rollback();
+                }
+                catch (MySqlException ex1)
+                {
+                    return ex1.ToString();
+                }
+
+                return ex.ToString();
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return retval;
+        }
+
+        public static string eliminarUsuario(string id)
+        {
+            MySqlTransaction tr = null;
+            con = Conexion.getConnection();
+
+            string retval = "1";
+
+            try
+            {
+                con.Open();
+
+                tr = con.BeginTransaction();
+
+                MySqlCommand cmd = new MySqlCommand();
+
+                cmd.Connection = con;
+                cmd.Transaction = tr;
+
+                cmd.CommandText = "SP_SYS_DEL_USUARIO";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@RETVAL", MySqlDbType.VarChar);
+                cmd.Parameters["@RETVAL"].Direction = ParameterDirection.Output;
+
+                cmd.ExecuteNonQuery();
+
+                retval = cmd.Parameters["@RETVAL"].Value.ToString();
+
+                if (retval == "1")
+                {
+                    tr.Commit();
+                }
+                else
+                {
+                    tr.Rollback();
+                    return retval;
+                }
+
+            }
+            catch (MySqlException ex)
+            {
+                try
+                {
+                    tr.Rollback();
+                }
+                catch (MySqlException ex1)
+                {
+                    return ex1.ToString();
+                }
+
+                return ex.ToString();
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return retval;
+        }
+
+        public static string restablecerContraseña(string id, string pass)
+        {
+            MySqlTransaction tr = null;
+            con = Conexion.getConnection();
+
+            string retval = "1";
+
+            try
+            {
+                con.Open();
+
+                tr = con.BeginTransaction();
+
+                MySqlCommand cmd = new MySqlCommand();
+
+                cmd.Connection = con;
+                cmd.Transaction = tr;
+
+                cmd.CommandText = "SP_SYS_UPD_USUARIO_PWD";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@RETVAL", MySqlDbType.VarChar);
+                cmd.Parameters["@RETVAL"].Direction = ParameterDirection.Output;
+
+                cmd.Parameters.AddWithValue("@PSTR_ID", id);
+                cmd.Parameters["@PSTR_ID"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_PASSWORD", pass);
+                cmd.Parameters["@PSTR_PASSWORD"].Direction = ParameterDirection.Input;
+
+                cmd.ExecuteNonQuery();
+
+                retval = cmd.Parameters["@RETVAL"].Value.ToString();
+
+                if (retval == "1")
+                {
+                    tr.Commit();
+                }
+                else
+                {
+                    tr.Rollback();
+                    return retval;
+                }
+
+            }
+            catch (MySqlException ex)
+            {
+                try
+                {
+                    tr.Rollback();
+                }
+                catch (MySqlException ex1)
+                {
+                    return ex1.ToString();
+                }
+
+                return ex.ToString();
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return retval;
+        }
     }
 }
