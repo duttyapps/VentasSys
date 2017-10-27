@@ -328,6 +328,7 @@
             this.utilidadPorProductoToolStripMenuItem.Name = "utilidadPorProductoToolStripMenuItem";
             this.utilidadPorProductoToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.utilidadPorProductoToolStripMenuItem.Text = "Utilidad por Producto";
+            this.utilidadPorProductoToolStripMenuItem.Click += new System.EventHandler(this.utilidadPorProductoToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 

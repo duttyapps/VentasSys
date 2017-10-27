@@ -76,3 +76,21 @@ E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\VentasSys.fr
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\RdlCompile.cache
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\RdlCompile.compiled
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\bin\x86\Debug\Reportes\StockProductos.rdlc
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\Reportes\StockProductos.rdlc
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\Microsoft.ReportViewer.WinForms.DLL
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\Carlos\Documents\Visual Studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmReporteStockProducto.resources
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\RdlCompile.cache
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\RdlCompile.compiled
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmReporteVentasxProducto.resources
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\de\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\es\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\fr\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\it\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\ja\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\ko\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\pt\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\ru\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll

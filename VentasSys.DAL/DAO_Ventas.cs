@@ -819,5 +819,38 @@ namespace VentasSys.DAL
 
             return lstVenta;
         }
+
+        public static void getReporteVentasxProductos(string fecha, string mes, string tienda, string cat, ref DataSet ds, ref DataTable dt)
+        {
+            List<Ent_Productos> lstProductos = new List<Ent_Productos>();
+
+            con = Conexion.getConnection();
+            MySqlCommand cmd = new MySqlCommand();
+
+            con.Open();
+
+            cmd.Connection = con;
+            cmd.CommandText = "SP_SYS_GET_REPORTE_VENTA_PRODUCTO";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@PSTR_FECHA", fecha);
+            cmd.Parameters["@PSTR_FECHA"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_MES", mes);
+            cmd.Parameters["@PSTR_MES"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_ID_CAT", (cat == String.Empty) ? null : cat);
+            cmd.Parameters["@PSTR_ID_CAT"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_ID_TIENDA", (tienda == String.Empty) ? null : tienda);
+            cmd.Parameters["@PSTR_ID_TIENDA"].Direction = ParameterDirection.Input;
+
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+
+            da.Fill(ds);
+            da.Fill(dt);
+
+            con.Close();
+        }
     }
 }

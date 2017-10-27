@@ -961,5 +961,11 @@ namespace VentasSys
             frmReporteStockProducto frm = new frmReporteStockProducto();
             frm.ShowDialog();
         }
+
+        private void utilidadPorProductoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteVentasxProducto frm = new frmReporteVentasxProducto();
+            frm.ShowDialog();
+        }
     }
 }

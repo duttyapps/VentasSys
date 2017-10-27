@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using VentasSys.DAL;
 using VentasSys.EL;
 
@@ -80,6 +81,11 @@ namespace VentasSys.BL
         public static List<Ent_Venta> getVentasPorCliente(Ent_Venta entity)
         {
             return DAO_Ventas.getVentasPorCliente(entity);
+        }
+
+        public static void getReporteVentasxProductos(string fecha, string mes, string tienda, string cat, ref DataSet ds, ref DataTable dt)
+        {
+            DAO_Ventas.getReporteVentasxProductos(fecha, mes, tienda, cat, ref ds, ref dt);
         }
     }
 }

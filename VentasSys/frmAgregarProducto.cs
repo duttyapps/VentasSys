@@ -23,7 +23,7 @@ namespace VentasSys
         {
             List<Ent_CategoriaProductos> items = new List<Ent_CategoriaProductos>();
 
-            var categorias = BL_CategoriaProductos.getCategorias(null, "1");
+            var categorias = BL_CategoriaProductos.getCategorias(String.Empty, "1");
 
             items.AddRange(categorias);
 

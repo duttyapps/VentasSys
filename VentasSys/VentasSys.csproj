@@ -56,8 +56,8 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -180,6 +180,12 @@
     <Compile Include="frmReporteStockProducto.Designer.cs">
       <DependentUpon>frmReporteStockProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReporteVentasxProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteVentasxProducto.Designer.cs">
+      <DependentUpon>frmReporteVentasxProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -245,6 +251,9 @@
     <EmbeddedResource Include="frmReporteStockProducto.resx">
       <DependentUpon>frmReporteStockProducto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteVentasxProducto.resx">
+      <DependentUpon>frmReporteVentasxProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmUsuarios.resx">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
     </EmbeddedResource>
@@ -260,6 +269,7 @@
     </Compile>
     <EmbeddedResource Include="Reportes\StockProductos.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Sistema\Base de Datos\frmConfiguracion.resx">
       <DependentUpon>frmConfiguracion.cs</DependentUpon>
