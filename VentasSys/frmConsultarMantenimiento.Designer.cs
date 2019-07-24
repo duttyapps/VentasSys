@@ -46,11 +46,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dgvDetalle = new System.Windows.Forms.DataGridView();
+            this.MANTENIMIENTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtDNI = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvDocumentos = new System.Windows.Forms.DataGridView();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.NUMERO_DOC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID_CAB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TIENDA = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,7 +58,9 @@
             this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NOMBRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FECHA_SALIDA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MANTENIMIENTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnVer = new System.Windows.Forms.Button();
             this.gbDetalle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocumentos)).BeginInit();
@@ -77,7 +78,7 @@
             this.gbDetalle.Controls.Add(this.lblFechaSalida);
             this.gbDetalle.Controls.Add(this.label6);
             this.gbDetalle.Controls.Add(this.label4);
-            this.gbDetalle.Location = new System.Drawing.Point(466, 86);
+            this.gbDetalle.Location = new System.Drawing.Point(443, 12);
             this.gbDetalle.Name = "gbDetalle";
             this.gbDetalle.Size = new System.Drawing.Size(295, 230);
             this.gbDetalle.TabIndex = 62;
@@ -87,101 +88,106 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(99, 109);
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Location = new System.Drawing.Point(114, 109);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(12, 15);
+            this.lblNombre.Size = new System.Drawing.Size(11, 13);
             this.lblNombre.TabIndex = 12;
             this.lblNombre.Text = "-";
             // 
             // lblDNI
             // 
             this.lblDNI.AutoSize = true;
-            this.lblDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDNI.Location = new System.Drawing.Point(100, 69);
+            this.lblDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDNI.Location = new System.Drawing.Point(115, 69);
             this.lblDNI.Name = "lblDNI";
-            this.lblDNI.Size = new System.Drawing.Size(12, 15);
+            this.lblDNI.Size = new System.Drawing.Size(11, 13);
             this.lblDNI.TabIndex = 11;
             this.lblDNI.Text = "-";
             // 
             // lbl_Nombres
             // 
             this.lbl_Nombres.AutoSize = true;
+            this.lbl_Nombres.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Nombres.Location = new System.Drawing.Point(14, 111);
             this.lbl_Nombres.Name = "lbl_Nombres";
-            this.lbl_Nombres.Size = new System.Drawing.Size(52, 13);
+            this.lbl_Nombres.Size = new System.Drawing.Size(60, 13);
             this.lbl_Nombres.TabIndex = 9;
             this.lbl_Nombres.Text = "Nombres:";
             // 
             // lbl_DNI
             // 
             this.lbl_DNI.AutoSize = true;
+            this.lbl_DNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_DNI.Location = new System.Drawing.Point(16, 71);
             this.lbl_DNI.Name = "lbl_DNI";
-            this.lbl_DNI.Size = new System.Drawing.Size(29, 13);
+            this.lbl_DNI.Size = new System.Drawing.Size(65, 13);
             this.lbl_DNI.TabIndex = 8;
-            this.lbl_DNI.Text = "DNI:";
+            this.lbl_DNI.Text = "DNI/RUC:";
             // 
             // lblTipo
             // 
             this.lblTipo.AutoSize = true;
-            this.lblTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipo.Location = new System.Drawing.Point(99, 28);
+            this.lblTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipo.Location = new System.Drawing.Point(114, 28);
             this.lblTipo.Name = "lblTipo";
-            this.lblTipo.Size = new System.Drawing.Size(12, 15);
+            this.lblTipo.Size = new System.Drawing.Size(11, 13);
             this.lblTipo.TabIndex = 7;
             this.lblTipo.Text = "-";
             // 
             // Tipo
             // 
             this.Tipo.AutoSize = true;
+            this.Tipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Tipo.Location = new System.Drawing.Point(14, 30);
             this.Tipo.Name = "Tipo";
-            this.Tipo.Size = new System.Drawing.Size(31, 13);
+            this.Tipo.Size = new System.Drawing.Size(36, 13);
             this.Tipo.TabIndex = 6;
             this.Tipo.Text = "Tipo:";
             // 
             // lblFechaEmision
             // 
             this.lblFechaEmision.AutoSize = true;
-            this.lblFechaEmision.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaEmision.Location = new System.Drawing.Point(99, 187);
+            this.lblFechaEmision.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaEmision.Location = new System.Drawing.Point(114, 187);
             this.lblFechaEmision.Name = "lblFechaEmision";
-            this.lblFechaEmision.Size = new System.Drawing.Size(12, 15);
+            this.lblFechaEmision.Size = new System.Drawing.Size(11, 13);
             this.lblFechaEmision.TabIndex = 5;
             this.lblFechaEmision.Text = "-";
             // 
             // lblFechaSalida
             // 
             this.lblFechaSalida.AutoSize = true;
-            this.lblFechaSalida.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaSalida.Location = new System.Drawing.Point(100, 148);
+            this.lblFechaSalida.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaSalida.Location = new System.Drawing.Point(115, 148);
             this.lblFechaSalida.Name = "lblFechaSalida";
-            this.lblFechaSalida.Size = new System.Drawing.Size(12, 15);
+            this.lblFechaSalida.Size = new System.Drawing.Size(11, 13);
             this.lblFechaSalida.TabIndex = 3;
             this.lblFechaSalida.Text = "-";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(14, 187);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 13);
+            this.label6.Size = new System.Drawing.Size(93, 13);
             this.label6.TabIndex = 2;
             this.label6.Text = "Fecha Emisión:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(14, 150);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 13);
+            this.label4.Size = new System.Drawing.Size(85, 13);
             this.label4.TabIndex = 0;
             this.label4.Text = "Fecha Salida:";
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(325, 48);
+            this.btnBuscar.Location = new System.Drawing.Point(362, 35);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 24);
             this.btnBuscar.TabIndex = 60;
@@ -209,7 +215,7 @@
             this.dgvDetalle.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MANTENIMIENTO});
             this.dgvDetalle.GridColor = System.Drawing.Color.White;
-            this.dgvDetalle.Location = new System.Drawing.Point(175, 86);
+            this.dgvDetalle.Location = new System.Drawing.Point(169, 64);
             this.dgvDetalle.MultiSelect = false;
             this.dgvDetalle.Name = "dgvDetalle";
             this.dgvDetalle.ReadOnly = true;
@@ -226,9 +232,18 @@
             this.dgvDetalle.Size = new System.Drawing.Size(268, 230);
             this.dgvDetalle.TabIndex = 59;
             // 
+            // MANTENIMIENTO
+            // 
+            this.MANTENIMIENTO.DataPropertyName = "nombre";
+            this.MANTENIMIENTO.Frozen = true;
+            this.MANTENIMIENTO.HeaderText = "MANTENIMIENTO";
+            this.MANTENIMIENTO.Name = "MANTENIMIENTO";
+            this.MANTENIMIENTO.ReadOnly = true;
+            this.MANTENIMIENTO.Width = 268;
+            // 
             // txtDNI
             // 
-            this.txtDNI.Location = new System.Drawing.Point(89, 48);
+            this.txtDNI.Location = new System.Drawing.Point(79, 38);
             this.txtDNI.MaxLength = 14;
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(178, 20);
@@ -237,7 +252,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 51);
+            this.label1.Location = new System.Drawing.Point(10, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 13);
             this.label1.TabIndex = 55;
@@ -278,7 +293,7 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvDocumentos.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDocumentos.GridColor = System.Drawing.Color.White;
-            this.dgvDocumentos.Location = new System.Drawing.Point(18, 86);
+            this.dgvDocumentos.Location = new System.Drawing.Point(12, 64);
             this.dgvDocumentos.MultiSelect = false;
             this.dgvDocumentos.Name = "dgvDocumentos";
             this.dgvDocumentos.ReadOnly = true;
@@ -297,23 +312,6 @@
             this.dgvDocumentos.Size = new System.Drawing.Size(151, 230);
             this.dgvDocumentos.TabIndex = 54;
             this.dgvDocumentos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocumentos_CellClick);
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(89, 22);
-            this.txtNombre.MaxLength = 14;
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(354, 20);
-            this.txtNombre.TabIndex = 64;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 25);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 13);
-            this.label2.TabIndex = 63;
-            this.label2.Text = "Nombres :";
             // 
             // NUMERO_DOC
             // 
@@ -371,20 +369,45 @@
             this.FECHA_SALIDA.Name = "FECHA_SALIDA";
             this.FECHA_SALIDA.ReadOnly = true;
             // 
-            // MANTENIMIENTO
+            // txtNombre
             // 
-            this.MANTENIMIENTO.DataPropertyName = "nombre";
-            this.MANTENIMIENTO.Frozen = true;
-            this.MANTENIMIENTO.HeaderText = "MANTENIMIENTO";
-            this.MANTENIMIENTO.Name = "MANTENIMIENTO";
-            this.MANTENIMIENTO.ReadOnly = true;
-            this.MANTENIMIENTO.Width = 250;
+            this.txtNombre.Location = new System.Drawing.Point(79, 12);
+            this.txtNombre.MaxLength = 14;
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(358, 20);
+            this.txtNombre.TabIndex = 64;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(10, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 13);
+            this.label2.TabIndex = 63;
+            this.label2.Text = "Nombres :";
+            // 
+            // btnVer
+            // 
+            this.btnVer.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnVer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVer.ForeColor = System.Drawing.Color.White;
+            this.btnVer.Image = global::VentasSys.Properties.Resources.clipboard;
+            this.btnVer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVer.Location = new System.Drawing.Point(519, 248);
+            this.btnVer.Name = "btnVer";
+            this.btnVer.Size = new System.Drawing.Size(145, 45);
+            this.btnVer.TabIndex = 65;
+            this.btnVer.Text = "Ver Documento";
+            this.btnVer.UseVisualStyleBackColor = false;
+            this.btnVer.Click += new System.EventHandler(this.btnVer_Click);
             // 
             // frmConsultarMantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(782, 328);
+            this.ClientSize = new System.Drawing.Size(749, 305);
+            this.Controls.Add(this.btnVer);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.gbDetalle);
@@ -395,7 +418,7 @@
             this.Controls.Add(this.dgvDocumentos);
             this.Name = "frmConsultarMantenimiento";
             this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Consulta de Mantenimiento";
             this.gbDetalle.ResumeLayout(false);
             this.gbDetalle.PerformLayout();
@@ -434,6 +457,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DNI;
         private System.Windows.Forms.DataGridViewTextBoxColumn NOMBRE;
         private System.Windows.Forms.DataGridViewTextBoxColumn FECHA_SALIDA;
+        private System.Windows.Forms.Button btnVer;
         private System.Windows.Forms.DataGridViewTextBoxColumn MANTENIMIENTO;
     }
 }

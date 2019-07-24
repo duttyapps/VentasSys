@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +16,8 @@ namespace VentasSys
 {
     public partial class frmConsultarMantenimiento : Form
     {
+        private String nro_doc;
+
         public frmConsultarMantenimiento()
         {
             InitializeComponent();
@@ -44,9 +48,10 @@ namespace VentasSys
 
         private void showDetallesDoc(DataGridViewCellEventArgs e)
         {
+            nro_doc = dgvDocumentos.Rows[e.RowIndex].Cells["ID_CAB"].Value.ToString();
             fillDetalle(Int32.Parse(dgvDocumentos.Rows[e.RowIndex].Cells["ID_CAB"].Value.ToString()));
             string tipo = dgvDocumentos.Rows[e.RowIndex].Cells["ESTADO"].Value.ToString();
-            if (tipo == "RE") { lblTipo.Text = "REALIZADO"; } else if (tipo == "NR") { lblTipo.Text = "NO REAIZADO"; } else { lblTipo.Text = "REPARACION"; }
+            if (tipo == "RE") { lblTipo.Text = "REALIZADO"; } else if (tipo == "NR") { lblTipo.Text = "NO REALIZADO"; } else { lblTipo.Text = "REPARACIÓN"; }
 
             lblFechaSalida.Text = dgvDocumentos.Rows[e.RowIndex].Cells["FECHA_SALIDA"].Value.ToString();
 
@@ -80,5 +85,17 @@ namespace VentasSys
             lblNombre.Text = "-";
         }
 
+        private void btnVer_Click(object sender, EventArgs e)
+        {
+            String filename = "invoices\\serviciotecnico_" + nro_doc + ".pdf";
+            if (File.Exists(filename))
+            {
+                Process.Start(filename);
+            }
+            else
+            {
+                MessageBox.Show("Documento no encontrado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
