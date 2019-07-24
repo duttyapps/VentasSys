@@ -56,11 +56,23 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
-    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=8.0.16.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.16\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -77,6 +89,40 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>StockProductos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\VentasxFecha.cs">
+      <DependentUpon>VentasxFecha.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\VentasxFecha.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VentasxFecha.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\VentasxProducto.cs">
+      <DependentUpon>VentasxProducto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\VentasxProducto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VentasxProducto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgregarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAgregarCliente.Designer.cs">
+      <DependentUpon>frmAgregarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAlerta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAlerta.Designer.cs">
+      <DependentUpon>frmAlerta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAlmacenProd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAlmacenProd.Designer.cs">
+      <DependentUpon>frmAlmacenProd.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAnularVenta.cs">
       <SubType>Form</SubType>
@@ -96,6 +142,18 @@
     <Compile Include="frmBuscarProducto.Designer.cs">
       <DependentUpon>frmBuscarProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmConsultarMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultarMantenimiento.Designer.cs">
+      <DependentUpon>frmConsultarMantenimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConsultarCotizacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultarCotizacion.Designer.cs">
+      <DependentUpon>frmConsultarCotizacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmConsultaVentaCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +165,12 @@
     </Compile>
     <Compile Include="frmConsultaVentas.Designer.cs">
       <DependentUpon>frmConsultaVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCotizacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCotizacion.Designer.cs">
+      <DependentUpon>frmCotizacion.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCreditos.cs">
       <SubType>Form</SubType>
@@ -125,6 +189,18 @@
     </Compile>
     <Compile Include="frmDetalleVenta.Designer.cs">
       <DependentUpon>frmDetalleVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGuiaRemision.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGuiaRemision.Designer.cs">
+      <DependentUpon>frmGuiaRemision.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmIngresoAlmacen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIngresoAlmacen.Designer.cs">
+      <DependentUpon>frmIngresoAlmacen.cs</DependentUpon>
     </Compile>
     <Compile Include="frmListadoVentas.cs">
       <SubType>Form</SubType>
@@ -150,6 +226,12 @@
     <Compile Include="frmMantenimientoProductos.Designer.cs">
       <DependentUpon>frmMantenimientoProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMantenimientoProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMantenimientoProveedor.Designer.cs">
+      <DependentUpon>frmMantenimientoProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +255,24 @@
     </Compile>
     <Compile Include="frmPagoProveedores.Designer.cs">
       <DependentUpon>frmPagoProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAlquiler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAlquiler.Designer.cs">
+      <DependentUpon>frmAlquiler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProgDistribucion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProgDistribucion.Designer.cs">
+      <DependentUpon>frmProgDistribucion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProgMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProgMantenimiento.Designer.cs">
+      <DependentUpon>frmProgMantenimiento.cs</DependentUpon>
     </Compile>
     <Compile Include="frmReporteStockProducto.cs">
       <SubType>Form</SubType>
@@ -200,6 +300,15 @@
     <Compile Include="Sistema\Base de Datos\frmConfiguracion.Designer.cs">
       <DependentUpon>frmConfiguracion.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmAgregarCliente.resx">
+      <DependentUpon>frmAgregarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAlerta.resx">
+      <DependentUpon>frmAlerta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAlmacenProd.resx">
+      <DependentUpon>frmAlmacenProd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAnularVenta.resx">
       <DependentUpon>frmAnularVenta.cs</DependentUpon>
     </EmbeddedResource>
@@ -209,11 +318,20 @@
     <EmbeddedResource Include="frmBuscarProducto.resx">
       <DependentUpon>frmBuscarProducto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultarMantenimiento.resx">
+      <DependentUpon>frmConsultarMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultarCotizacion.resx">
+      <DependentUpon>frmConsultarCotizacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmConsultaVentaCliente.resx">
       <DependentUpon>frmConsultaVentaCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultaVentas.resx">
       <DependentUpon>frmConsultaVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCotizacion.resx">
+      <DependentUpon>frmCotizacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCreditos.resx">
       <DependentUpon>frmCreditos.cs</DependentUpon>
@@ -223,6 +341,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDetalleVenta.resx">
       <DependentUpon>frmDetalleVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGuiaRemision.resx">
+      <DependentUpon>frmGuiaRemision.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIngresoAlmacen.resx">
+      <DependentUpon>frmIngresoAlmacen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmListadoVentas.resx">
       <DependentUpon>frmListadoVentas.cs</DependentUpon>
@@ -236,6 +360,9 @@
     <EmbeddedResource Include="frmMantenimientoProductos.resx">
       <DependentUpon>frmMantenimientoProductos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMantenimientoProveedor.resx">
+      <DependentUpon>frmMantenimientoProveedor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -247,6 +374,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPagoProveedores.resx">
       <DependentUpon>frmPagoProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAlquiler.resx">
+      <DependentUpon>frmAlquiler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProgDistribucion.resx">
+      <DependentUpon>frmProgDistribucion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProgMantenimiento.resx">
+      <DependentUpon>frmProgMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporteStockProducto.resx">
       <DependentUpon>frmReporteStockProducto.cs</DependentUpon>
@@ -271,6 +407,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\VentasxFecha.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\VentasxProductos.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sistema\Base de Datos\frmConfiguracion.resx">
       <DependentUpon>frmConfiguracion.cs</DependentUpon>
     </EmbeddedResource>
@@ -285,6 +427,29 @@
     <None Include="DataSets\StockProductos.xss">
       <DependentUpon>StockProductos.xsd</DependentUpon>
     </None>
+    <None Include="DataSets\VentasxFecha.xsc">
+      <DependentUpon>VentasxFecha.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\VentasxFecha.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VentasxFecha.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\VentasxFecha.xss">
+      <DependentUpon>VentasxFecha.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\VentasxProducto.xsc">
+      <DependentUpon>VentasxProducto.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\VentasxProducto.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VentasxProducto.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\VentasxProducto.xss">
+      <DependentUpon>VentasxProducto.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

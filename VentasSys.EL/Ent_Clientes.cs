@@ -14,6 +14,8 @@ namespace VentasSys.EL
         public string email { get; set; }
         public string fecha_reg { get; set; }
         public string tipo { get; set; }
+        public string posible { get; set; }
+        public string recomendado { get; set; }
 
         public Ent_Clientes()
         {
@@ -27,6 +29,8 @@ namespace VentasSys.EL
             this.email = String.Empty;
             this.fecha_reg = String.Empty;
             this.tipo = String.Empty;
+            this.posible = String.Empty;
+            this.recomendado = String.Empty;
         }
     }
 }

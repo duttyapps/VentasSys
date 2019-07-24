@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 using VentasSys.BL;
 using VentasSys.EL;
@@ -13,6 +14,13 @@ namespace VentasSys
 
         public frmLogin()
         {
+            Process[] result = Process.GetProcessesByName("VentasSys");
+            if (result.Length > 1)
+            {
+                MessageBox.Show("There is already a instance running.", "Information");
+                System.Environment.Exit(0);
+            }
+
             InitializeComponent();
         }
 
@@ -91,7 +99,7 @@ namespace VentasSys
 
         private void doCancel()
         {
-            Application.Exit();
+            System.Environment.Exit(0);
         }
 
         private void txtUser_TextChanged(object sender, EventArgs e)

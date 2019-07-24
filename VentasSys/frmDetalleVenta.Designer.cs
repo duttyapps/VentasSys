@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvDetalles = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -69,7 +69,7 @@
             this.txtSubTotal = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.txtRecibido = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
+            this.lblVuelto = new System.Windows.Forms.Label();
             this.txtVuelto = new System.Windows.Forms.TextBox();
             this.PRODUCTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CANTIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -467,14 +467,14 @@
             this.txtRecibido.Text = "0.00";
             this.txtRecibido.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // label19
+            // lblVuelto
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(455, 575);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(41, 13);
-            this.label19.TabIndex = 15;
-            this.label19.Text = "Vuelto";
+            this.lblVuelto.AutoSize = true;
+            this.lblVuelto.Location = new System.Drawing.Point(455, 575);
+            this.lblVuelto.Name = "lblVuelto";
+            this.lblVuelto.Size = new System.Drawing.Size(41, 13);
+            this.lblVuelto.TabIndex = 15;
+            this.lblVuelto.Text = "Vuelto";
             // 
             // txtVuelto
             // 
@@ -493,13 +493,13 @@
             this.PRODUCTO.HeaderText = "Producto";
             this.PRODUCTO.Name = "PRODUCTO";
             this.PRODUCTO.ReadOnly = true;
-            this.PRODUCTO.Width = 300;
+            this.PRODUCTO.Width = 280;
             // 
             // CANTIDAD
             // 
             this.CANTIDAD.DataPropertyName = "cantidad";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.CANTIDAD.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.CANTIDAD.DefaultCellStyle = dataGridViewCellStyle1;
             this.CANTIDAD.Frozen = true;
             this.CANTIDAD.HeaderText = "Cant.";
             this.CANTIDAD.Name = "CANTIDAD";
@@ -508,10 +508,10 @@
             // PU
             // 
             this.PU.DataPropertyName = "precio";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "N2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.PU.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.PU.DefaultCellStyle = dataGridViewCellStyle2;
             this.PU.Frozen = true;
             this.PU.HeaderText = "P. Unit.";
             this.PU.Name = "PU";
@@ -520,10 +520,10 @@
             // TOTAL
             // 
             this.TOTAL.DataPropertyName = "monto_total";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Format = "N2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.TOTAL.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.TOTAL.DefaultCellStyle = dataGridViewCellStyle3;
             this.TOTAL.Frozen = true;
             this.TOTAL.HeaderText = "Importe";
             this.TOTAL.Name = "TOTAL";
@@ -535,7 +535,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(623, 606);
-            this.Controls.Add(this.label19);
+            this.Controls.Add(this.lblVuelto);
             this.Controls.Add(this.txtVuelto);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.groupBox3);
@@ -604,7 +604,7 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox txtRecibido;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label lblVuelto;
         private System.Windows.Forms.TextBox txtVuelto;
         private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCTO;
         private System.Windows.Forms.DataGridViewTextBoxColumn CANTIDAD;

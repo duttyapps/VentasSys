@@ -56,7 +56,7 @@ namespace VentasSys
             }
 
             txtTipoVenta.Text = entity.tipo_venta_des;
-            txtNroDoc.Text = entity.nro_doc_str;            
+            txtNroDoc.Text = entity.nro_doc_str;
             txtDNI.Text = entity.cliente_doc;
             txtNombres.Text = entity.cliente;
             txtDireccion.Text = entity.direccion;
@@ -74,11 +74,27 @@ namespace VentasSys
 
             Ent_Configuracion ent_configuracion = BL_Configuracion.getConfiguracion();
 
-            txtSubTotal.Text = (Convert.ToDouble(lblTotal.Text) / Convert.ToDouble(ent_configuracion.IGV + 1)).ToString("#0.00");
-            txtIGV.Text = (Convert.ToDouble(lblTotal.Text) - Convert.ToDouble(txtSubTotal.Text)).ToString("#0.00");
+            if (entity.tipo_venta.Equals("FA"))
+            {
+                txtSubTotal.Text = (Convert.ToDouble(lblTotal.Text) / Convert.ToDouble(ent_configuracion.IGV + 1)).ToString("#0.00");
+                txtIGV.Text = (Convert.ToDouble(lblTotal.Text) - Convert.ToDouble(txtSubTotal.Text)).ToString("#0.00");
+            }
+            else
+            {
+                txtSubTotal.Text = "0.00";
+                txtIGV.Text = "0.00";
+            }
 
             txtRecibido.Text = entity.monto_recibido.ToString("#0.00");
-            txtVuelto.Text = entity.monto_vuelto.ToString("#0.00");
+            if (entity.forma_pago == "CR")
+            {
+                lblVuelto.Text = "Saldo";
+                txtVuelto.Text = (entity.monto_total - entity.monto_recibido).ToString("#0.00");
+            }
+            else
+            {
+                txtVuelto.Text = entity.monto_vuelto.ToString("#0.00");
+            }
 
             fillDetalles();
         }

@@ -1,0 +1,13 @@
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\bin\x86\Debug\VentasSys.DAL.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\bin\x86\Debug\VentasSys.DAL.pdb
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\bin\x86\Debug\MySql.Data.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\bin\x86\Debug\VentasSys.EL.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\bin\x86\Debug\VentasSys.Utils.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\bin\x86\Debug\log4net.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\bin\x86\Debug\VentasSys.EL.pdb
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\bin\x86\Debug\VentasSys.Utils.pdb
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\bin\x86\Debug\MySql.Data.xml
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\bin\x86\Debug\log4net.xml
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\obj\x86\Debug\vsdalib.csprojResolveAssemblyReference.cache
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\obj\x86\Debug\VentasSys.DAL.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\obj\x86\Debug\VentasSys.DAL.pdb

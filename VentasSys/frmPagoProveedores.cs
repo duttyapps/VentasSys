@@ -30,7 +30,9 @@ namespace VentasSys
         {
             List<Ent_Proveedores> items = new List<Ent_Proveedores>();
 
-            var formapago = BL_Proveedores.getProveedores();
+            Ent_Proveedores prov = new Ent_Proveedores();
+
+            var formapago = BL_Proveedores.getProveedores(prov);
 
             items.AddRange(formapago);
 

@@ -16,6 +16,7 @@ namespace VentasSys
     {
         private string cod_tienda { get; set; }
         private string usuario { get; set; }
+        private int id_prod_selec { get; set; }
         private string fecha_actual = DateTime.Now.ToString("dd/MM/yyyy");
 
         public frmMantenimientoProductos(string _cod_tienda, string _usuario)
@@ -80,18 +81,24 @@ namespace VentasSys
             reiniciarValores();
 
             string nombre = txtProducto.Text;
+            string codigo = txtCodigoS.Text;
             string cat = cboCategoria.SelectedValue.ToString();
             string tienda = cboTienda.SelectedValue.ToString();
             string estado = (cboEstado.SelectedValue == null) ? "1" : cboEstado.SelectedValue.ToString();
 
             dgvProductos.AutoGenerateColumns = false;
+            
+            if (tienda == "VentasSys.EL.Ent_Tienda" || cat == "VentasSys.EL.Ent_CategoriaProductos" || estado == "{ id = 1, desc = Activo }")
+            {
+                return;
+            }
 
             if (dgvProductos.Rows.Count > 0)
             {
                 dgvProductos.Rows.Clear();
             }
 
-            List<Ent_Productos> lstProductos = BL_Productos.getProductos(nombre, cat, tienda, estado);
+            List<Ent_Productos> lstProductos = BL_Productos.getProductos(nombre, codigo, cat, tienda, estado, "0");
 
             var bindingList = new BindingList<Ent_Productos>(lstProductos);
             var source = new BindingSource(bindingList, null);
@@ -161,7 +168,8 @@ namespace VentasSys
 
         private void cargarDetalles(Ent_Productos producto)
         {
-            txtCodigo.Text = BL_Productos.generarCodigoProducto(producto.cod_tienda, producto.id, producto.id_cat);
+            id_prod_selec = producto.id;
+            txtCodigo.Text = producto.cod_producto;
             txtFecha.Text = producto.fecha_registro.Split(' ')[0];
             txtProductoDet.Text = producto.nombre;
             txtCantidad.Text = producto.stock.ToString();
@@ -171,6 +179,8 @@ namespace VentasSys
             cboEstadoDet.SelectedValue = producto.activo;
             txtCosto.Text = producto.costo.ToString("#0.00");
             txtPrecio.Text = producto.precio.ToString("#0.00");
+            chkAlquiler.Checked = producto.alquiler == "1" ? true : false;
+            txtMonto_Alquiler.Text = producto.monto_alquiler.ToString("#0.00");
         }
 
         private void dgvProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -193,7 +203,7 @@ namespace VentasSys
 
             if (confirm == DialogResult.Yes)
             {
-                int id = int.Parse(txtCodigo.Text.Substring(4, txtCodigo.Text.Length - 4));
+                int id = id_prod_selec;
                 string result = BL_Productos.eliminarProducto(id.ToString());
 
                 if (result == "1")
@@ -220,6 +230,8 @@ namespace VentasSys
             txtCantidad.Text = "0";
             txtCosto.Text = "0.00";
             txtPrecio.Text = "0.00";
+            txtMedida.Text = "0.00";
+            txtPeso.Text = "0.00";
         }
 
         private void habilitarBotones()
@@ -314,8 +326,9 @@ namespace VentasSys
             {
                 Ent_Productos prod = new Ent_Productos();
 
-                int id = int.Parse(txtCodigo.Text.Substring(4, txtCodigo.Text.Length - 4));
-                prod.id = id;
+                //int id = int.Parse(txtCodigo.Text.Substring(4, txtCodigo.Text.Length - 4));
+                prod.id = id_prod_selec;
+                prod.cod_producto = txtCodigo.Text;
                 prod.id_cat = int.Parse(cboCategoriaDet.SelectedValue.ToString());
                 prod.cod_tienda = cboTiendaDet.SelectedValue.ToString();
                 prod.nombre = txtProductoDet.Text;
@@ -325,6 +338,10 @@ namespace VentasSys
                 prod.costo = double.Parse(txtCosto.Text);
                 prod.precio = double.Parse(txtPrecio.Text);
                 prod.usuario = usuario;
+                prod.medida = double.Parse(txtMedida.Text);
+                prod.peso = double.Parse(txtPeso.Text);
+                prod.alquiler = chkAlquiler.Checked ? "1" : "0";
+                prod.monto_alquiler = double.Parse(txtMonto_Alquiler.Text);
 
                 string result = BL_Productos.editarProducto(prod);
 
@@ -345,9 +362,32 @@ namespace VentasSys
         {
             frmAgregarProducto frm = new frmAgregarProducto(cod_tienda, usuario);
             frm.ShowDialog();
+            fillProductos();
+
         }
 
         private void cboEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            fillProductos();
+        }
+
+        private void chkAlquiler_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkAlquiler.Checked)
+            {
+                chkAlquiler.Text = "Si";
+                txtMonto_Alquiler.Enabled = true;
+                txtMonto_Alquiler.Text = "0.00";
+            }
+            else
+            {
+                chkAlquiler.Text = "No";
+                txtMonto_Alquiler.Enabled = false;
+                txtMonto_Alquiler.Text = "0.00";
+            }
+        }
+
+        private void txtCodigoS_TextChanged(object sender, EventArgs e)
         {
             fillProductos();
         }

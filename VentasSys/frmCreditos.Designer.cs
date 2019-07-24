@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnBuscarDoc = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtFecha = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
@@ -54,11 +55,6 @@
             this.txtIGV = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.dgvDetalleVenta = new System.Windows.Forms.DataGridView();
-            this.CODIGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DETALLE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CANTIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PRECIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IMPORTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblFecha = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -91,6 +87,11 @@
             this.btnGrabarAbono = new System.Windows.Forms.Button();
             this.lblNroDocumento2 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
+            this.CODIGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DETALLE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CANTIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PRECIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IMPORTE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.tbDetalles.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -105,6 +106,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnBuscarDoc);
             this.groupBox1.Controls.Add(this.btnBuscar);
             this.groupBox1.Controls.Add(this.txtFecha);
             this.groupBox1.Controls.Add(this.label3);
@@ -118,6 +120,18 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Documento";
+            // 
+            // btnBuscarDoc
+            // 
+            this.btnBuscarDoc.FlatAppearance.BorderSize = 0;
+            this.btnBuscarDoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarDoc.Image = global::VentasSys.Properties.Resources.search;
+            this.btnBuscarDoc.Location = new System.Drawing.Point(216, 19);
+            this.btnBuscarDoc.Name = "btnBuscarDoc";
+            this.btnBuscarDoc.Size = new System.Drawing.Size(23, 23);
+            this.btnBuscarDoc.TabIndex = 100;
+            this.btnBuscarDoc.UseVisualStyleBackColor = true;
+            this.btnBuscarDoc.Click += new System.EventHandler(this.btnBuscarDoc_Click);
             // 
             // btnBuscar
             // 
@@ -173,7 +187,7 @@
             this.txtNroDocumento.Location = new System.Drawing.Point(104, 21);
             this.txtNroDocumento.MaxLength = 11;
             this.txtNroDocumento.Name = "txtNroDocumento";
-            this.txtNroDocumento.Size = new System.Drawing.Size(135, 22);
+            this.txtNroDocumento.Size = new System.Drawing.Size(106, 22);
             this.txtNroDocumento.TabIndex = 1;
             this.txtNroDocumento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNroDocumento_KeyPress);
             // 
@@ -421,42 +435,6 @@
             this.dgvDetalleVenta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDetalleVenta.Size = new System.Drawing.Size(600, 170);
             this.dgvDetalleVenta.TabIndex = 12;
-            // 
-            // CODIGO
-            // 
-            this.CODIGO.DataPropertyName = "id";
-            this.CODIGO.HeaderText = "Código";
-            this.CODIGO.Name = "CODIGO";
-            this.CODIGO.ReadOnly = true;
-            // 
-            // DETALLE
-            // 
-            this.DETALLE.DataPropertyName = "nombre";
-            this.DETALLE.HeaderText = "Detalle";
-            this.DETALLE.Name = "DETALLE";
-            this.DETALLE.ReadOnly = true;
-            this.DETALLE.Width = 200;
-            // 
-            // CANTIDAD
-            // 
-            this.CANTIDAD.DataPropertyName = "stock";
-            this.CANTIDAD.HeaderText = "Cantidad";
-            this.CANTIDAD.Name = "CANTIDAD";
-            this.CANTIDAD.ReadOnly = true;
-            // 
-            // PRECIO
-            // 
-            this.PRECIO.DataPropertyName = "precio";
-            this.PRECIO.HeaderText = "Precio";
-            this.PRECIO.Name = "PRECIO";
-            this.PRECIO.ReadOnly = true;
-            // 
-            // IMPORTE
-            // 
-            this.IMPORTE.DataPropertyName = "monto_total";
-            this.IMPORTE.HeaderText = "Importe";
-            this.IMPORTE.Name = "IMPORTE";
-            this.IMPORTE.ReadOnly = true;
             // 
             // groupBox2
             // 
@@ -820,6 +798,42 @@
             this.label19.Text = "Nro. Documento";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // CODIGO
+            // 
+            this.CODIGO.DataPropertyName = "id";
+            this.CODIGO.HeaderText = "Código";
+            this.CODIGO.Name = "CODIGO";
+            this.CODIGO.ReadOnly = true;
+            // 
+            // DETALLE
+            // 
+            this.DETALLE.DataPropertyName = "nombre";
+            this.DETALLE.HeaderText = "Detalle";
+            this.DETALLE.Name = "DETALLE";
+            this.DETALLE.ReadOnly = true;
+            this.DETALLE.Width = 200;
+            // 
+            // CANTIDAD
+            // 
+            this.CANTIDAD.DataPropertyName = "cantidad";
+            this.CANTIDAD.HeaderText = "Cantidad";
+            this.CANTIDAD.Name = "CANTIDAD";
+            this.CANTIDAD.ReadOnly = true;
+            // 
+            // PRECIO
+            // 
+            this.PRECIO.DataPropertyName = "precio";
+            this.PRECIO.HeaderText = "Precio";
+            this.PRECIO.Name = "PRECIO";
+            this.PRECIO.ReadOnly = true;
+            // 
+            // IMPORTE
+            // 
+            this.IMPORTE.DataPropertyName = "monto_total";
+            this.IMPORTE.HeaderText = "Importe";
+            this.IMPORTE.Name = "IMPORTE";
+            this.IMPORTE.ReadOnly = true;
+            // 
             // frmCreditos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -913,14 +927,15 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.TextBox txtAmortizar;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CODIGOP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FECHA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn USUARIO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MONTO;
+        private System.Windows.Forms.Button btnBuscarDoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn CODIGO;
         private System.Windows.Forms.DataGridViewTextBoxColumn DETALLE;
         private System.Windows.Forms.DataGridViewTextBoxColumn CANTIDAD;
         private System.Windows.Forms.DataGridViewTextBoxColumn PRECIO;
         private System.Windows.Forms.DataGridViewTextBoxColumn IMPORTE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CODIGOP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FECHA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn USUARIO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MONTO;
     }
 }

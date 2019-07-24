@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VentasSys.DAL", "VentasSys.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VentasSys.BL", "VentasSys.BL\VentasSys.BL.csproj", "{624CF55B-75D4-418F-9EF3-1229B4D69C2C}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "VentasSys_Setup", "VentasSys_Setup\VentasSys_Setup.vdproj", "{8601EA91-1F08-4569-A0B3-46701F6150AC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,8 @@ Global
 		{624CF55B-75D4-418F-9EF3-1229B4D69C2C}.Debug|Any CPU.Build.0 = Debug|x86
 		{624CF55B-75D4-418F-9EF3-1229B4D69C2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{624CF55B-75D4-418F-9EF3-1229B4D69C2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8601EA91-1F08-4569-A0B3-46701F6150AC}.Debug|Any CPU.ActiveCfg = Debug
+		{8601EA91-1F08-4569-A0B3-46701F6150AC}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -56,12 +56,12 @@ namespace VentasSys
         {
             if (cboTipo.SelectedValue.ToString().Equals("N"))
             {
-                txtApellidos.Enabled = true;
+                txtApellidos.ReadOnly = false;
             }
             else
             {
                 txtApellidos.Text = String.Empty;
-                txtApellidos.Enabled = false;
+                txtApellidos.ReadOnly = true;
             }
         }
 
@@ -190,6 +190,7 @@ namespace VentasSys
                 cliente.direccion = txtDireccion.Text;
                 cliente.telefono = txtTelefono.Text;
                 cliente.email = txtEmail.Text;
+                cliente.tipo = cboTipo.SelectedValue.ToString();
 
                 try
                 {
@@ -210,6 +211,24 @@ namespace VentasSys
                     MessageBox.Show("Error: " + ex.Message, "Modificar cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void txtDNI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

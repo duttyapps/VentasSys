@@ -201,8 +201,8 @@ namespace VentasSys
             reiniciarFormulario();
             txtCategoriaDet.Enabled = false;
             cboEstadoDet.Enabled = false;
-            btnNuevo.Enabled = false;
-            btnEliminar.Enabled = false;
+            btnNuevo.Enabled = true;
+            btnEliminar.Enabled = true;
             btnGuardar.Enabled = false;
             btnCancelar.Enabled = false;
         }

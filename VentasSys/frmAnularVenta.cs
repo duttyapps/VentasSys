@@ -218,5 +218,10 @@ namespace VentasSys
             gbDetalle.Visible = false;
             btnAnular.Enabled = false;
         }
+
+        private void frmAnularVenta_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

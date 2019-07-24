@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,14 +17,21 @@ namespace VentasSys
     public partial class frmConsultaVentas : Form
     {
         private string tienda { get; set; }
-        public frmConsultaVentas(string _tienda)
+        public Ent_Venta ent_venta { get; set; }
+        private bool auto_close { get; set; }
+        public frmConsultaVentas(string _tienda, bool _auto_close = false, bool doc_credito = false)
         {
             tienda = _tienda;
+            auto_close = _auto_close;
             InitializeComponent();
             txtFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
             fillComboEstados();
             fillTipoVenta();
             fillFormaPago();
+            if (doc_credito) {
+                cboFormaPago.SelectedValue = "CR";
+                cboFormaPago.Enabled = false;
+            }
             fillVentas();
         }
 
@@ -104,12 +113,42 @@ namespace VentasSys
         {
             var senderGrid = (DataGridView)sender;
 
-            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewImageColumn &&
-                e.RowIndex >= 0)
+            if (e.ColumnIndex == 9)
             {
                 string id = dgvVentas.Rows[e.RowIndex].Cells["ID"].Value.ToString();
                 frmDetalleVenta frm = new frmDetalleVenta(id);
                 frm.ShowDialog();
+            }
+
+            if (e.ColumnIndex == 10)
+            {
+                string nro_doc = dgvVentas.Rows[e.RowIndex].Cells["DOC"].Value.ToString();
+                string tipo = dgvVentas.Rows[e.RowIndex].Cells["TIPO_VENTA"].Value.ToString();
+
+                String filename = "invoices\\" + (tipo == "BO" ? "boleta" : "factura") + "_" + nro_doc + ".pdf";
+                if (File.Exists(filename))
+                {
+                    Process.Start(filename);
+                } else
+                {
+                    MessageBox.Show((tipo == "BO" ? "Boleta" : "Factura") + " no encontrada.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void dgvVentas_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex > -1)
+            {
+                ent_venta = new Ent_Venta();
+                ent_venta.nro_doc_str = dgvVentas.Rows[e.RowIndex].Cells["NRO_DOC"].Value.ToString();
+                ent_venta.tipo_venta = dgvVentas.Rows[e.RowIndex].Cells["TIPO_VENTA"].Value.ToString();
+                ent_venta.emision = dgvVentas.Rows[e.RowIndex].Cells["FECHA"].Value.ToString();
+
+                if(auto_close)
+                {
+                    this.Close();
+                }
             }
         }
     }

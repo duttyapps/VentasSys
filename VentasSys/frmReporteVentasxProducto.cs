@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Reporting.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,8 +19,9 @@ namespace VentasSys
         {
             InitializeComponent();
             customPickers();
+            fillMeses();
             txtFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
-            txtMes.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            cboMes.SelectedValue = DateTime.Now.ToString("MM");
             txtYear.Text = DateTime.Now.ToString("dd/MM/yyyy");
             fillTiendas();
             fillCategorias();
@@ -28,25 +30,44 @@ namespace VentasSys
         private void rbFecha_CheckedChanged(object sender, EventArgs e)
         {
             txtFecha.Enabled = true;
-            txtMes.Enabled = false;
+            cboMes.Enabled = false;
             txtYear.Enabled = false;
         }
 
         private void rbMesYear_CheckedChanged(object sender, EventArgs e)
         {
             txtFecha.Enabled = false;
-            txtMes.Enabled = true;
+            cboMes.Enabled = true;
             txtYear.Enabled = true;
         }
 
         private void customPickers()
         {
-            txtMes.Format = DateTimePickerFormat.Custom;
-            txtMes.CustomFormat = "MMMM";
-            txtMes.ShowUpDown = true;
             txtYear.Format = DateTimePickerFormat.Custom;
             txtYear.CustomFormat = "yyyy";
             txtYear.ShowUpDown = true;
+        }
+
+        private void fillMeses()
+        {
+            List<Object> meses = new List<Object>();
+            meses.Add(new { mes = "", nombre = "Todos"});
+            meses.Add(new { mes = "01", nombre = "Enero" });
+            meses.Add(new { mes = "02", nombre = "Febrero" });
+            meses.Add(new { mes = "03", nombre = "Marzo" });
+            meses.Add(new { mes = "04", nombre = "Abril" });
+            meses.Add(new { mes = "05", nombre = "Mayo" });
+            meses.Add(new { mes = "06", nombre = "Junio" });
+            meses.Add(new { mes = "07", nombre = "Julio" });
+            meses.Add(new { mes = "08", nombre = "Agosto" });
+            meses.Add(new { mes = "09", nombre = "Septiembre" });
+            meses.Add(new { mes = "10", nombre = "Octubre" });
+            meses.Add(new { mes = "11", nombre = "Noviembre" });
+            meses.Add(new { mes = "12", nombre = "Diciembre" });
+
+            cboMes.DataSource = meses;
+            cboMes.ValueMember = "mes";
+            cboMes.DisplayMember = "nombre";
         }
 
         private void fillTiendas()
@@ -81,8 +102,48 @@ namespace VentasSys
 
         private void frmReporteVentasxProducto_Load(object sender, EventArgs e)
         {
+            fillReporte();
+        }
 
-            this.rvVentasProductos.RefreshReport();
+        private void fillReporte()
+        {
+            DataTable dt = new DataTable();
+            DataSet ds = new DataSet();
+
+            string fecha = String.Empty;
+            string mes = String.Empty;
+
+            if (rbFecha.Checked)
+            {
+                fecha = txtFecha.Text;
+                mes = String.Empty;
+            }
+            else
+            {
+                mes = cboMes.SelectedValue.ToString() + "/" + txtYear.Text;
+                fecha = String.Empty;
+            }
+
+            string tienda = cboTiendas.SelectedValue.ToString();
+            string cat = cboCategoria.SelectedValue.ToString();
+
+            BL_Ventas.getReporteVentasxProductos(fecha, mes, tienda, cat, ref ds, ref dt);
+
+            rpvVentasProductos.ProcessingMode = ProcessingMode.Local;
+            rpvVentasProductos.LocalReport.ReportPath = "Reportes/VentasxProductos.rdlc";
+
+            rpvVentasProductos.LocalReport.DataSources.Clear();
+            ReportDataSource source = new ReportDataSource("dsReporteVentasxProducto", dt);
+            source.Value = ds.Tables[0];
+
+            rpvVentasProductos.LocalReport.DataSources.Add(source);
+
+            rpvVentasProductos.RefreshReport();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            fillReporte();
         }
     }
 }

@@ -40,5 +40,10 @@ namespace VentasSys.BL
         {
             return DAO_Clientes.eliminarCliente(id);
         }
+
+        public static List<Ent_MediosContacto> getMediosContacto()
+        {
+            return DAO_Clientes.getMediosContacto();
+        }
     }
 }

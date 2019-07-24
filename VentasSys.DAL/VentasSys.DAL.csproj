@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>VentasSys.DAL</RootNamespace>
-    <AssemblyName>VentasSys.DAL</AssemblyName>
+    <AssemblyName>vsdalib</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -59,10 +59,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO_Almacen.cs" />
+    <Compile Include="DAO_Alquiler.cs" />
     <Compile Include="DAO_CategoriaProductos.cs" />
     <Compile Include="DAO_Clientes.cs" />
     <Compile Include="DAO_Configuracion.cs" />
     <Compile Include="DAO_Depositos.cs" />
+    <Compile Include="DAO_Distribucion.cs" />
+    <Compile Include="DAO_Mantenimiento.cs" />
     <Compile Include="DAO_Productos.cs" />
     <Compile Include="DAO_Proveedores.cs" />
     <Compile Include="DAO_Tienda.cs" />

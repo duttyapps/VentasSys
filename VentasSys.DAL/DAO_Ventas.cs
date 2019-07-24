@@ -142,6 +142,9 @@ namespace VentasSys.DAL
                 producto.cantidad = Convert.ToInt32(dr["CANTIDAD"]);
                 producto.precio = Convert.ToDouble(dr["PRECIO_UNIT"]);
                 producto.monto_total = Convert.ToDouble(dr["MONTO_TOTAL"]);
+                producto.medida = Convert.ToDouble(dr["MEDIDA"]);
+                producto.peso = Convert.ToDouble(dr["PESO"]);
+                producto.cod_producto = Convert.ToString(dr["CODIGO_PRODUCTO"]);
 
                 lstProducto.Add(producto);
             }
@@ -267,6 +270,12 @@ namespace VentasSys.DAL
                 cmd.Parameters.AddWithValue("@PSTR_USUARIO", cabecera.usuario);
                 cmd.Parameters["@PSTR_USUARIO"].Direction = ParameterDirection.Input;
 
+                cmd.Parameters.AddWithValue("@PSTR_ALQUILER_INICIO", cabecera.fecha_inicio);
+                cmd.Parameters["@PSTR_ALQUILER_INICIO"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_ALQUILER_ENTREGA", cabecera.fecha_fin);
+                cmd.Parameters["@PSTR_ALQUILER_ENTREGA"].Direction = ParameterDirection.Input;
+
                 cmd.ExecuteNonQuery();
 
                 retval = cmd.Parameters["@RETVAL"].Value.ToString();
@@ -306,6 +315,9 @@ namespace VentasSys.DAL
 
                         cmd.Parameters.AddWithValue("@PSTR_MONTO_TOTAL", (prd.precio * prd.cantidad));
                         cmd.Parameters["@PSTR_MONTO_TOTAL"].Direction = ParameterDirection.Input;
+
+                        cmd.Parameters.AddWithValue("@PSTR_CLIENTE", cabecera.cliente_doc);
+                        cmd.Parameters["@PSTR_CLIENTE"].Direction = ParameterDirection.Input;
 
                         cmd.ExecuteNonQuery();
 
@@ -743,6 +755,7 @@ namespace VentasSys.DAL
             {
                 Ent_Venta venta = new Ent_Venta();
                 venta.id = Convert.ToInt32(dr["ID"]);
+                venta.nro_doc = Convert.ToInt32(Convert.ToString(dr["NRO_DOC"]).Split('-')[1]);
                 venta.nro_doc_str = Convert.ToString(dr["NRO_DOC"]);
                 venta.tipo_venta = Convert.ToString(dr["TIPO_VENTA"]);
                 venta.emision = Convert.ToString(dr["FECHA_EMISION"]);
@@ -778,7 +791,7 @@ namespace VentasSys.DAL
             cmd.Parameters.AddWithValue("@PSTR_CLIENTE_NOMBRE", entity.cliente);
             cmd.Parameters["@PSTR_CLIENTE_NOMBRE"].Direction = ParameterDirection.Input;
 
-            cmd.Parameters.AddWithValue("@PSTR_FECHA", (entity.emision == String.Empty) ? null : entity.cliente_doc);
+            cmd.Parameters.AddWithValue("@PSTR_FECHA", (entity.emision == String.Empty) ? null : entity.emision);
             cmd.Parameters["@PSTR_FECHA"].Direction = ParameterDirection.Input;
 
             MySqlDataReader dr = cmd.ExecuteReader();
@@ -852,5 +865,479 @@ namespace VentasSys.DAL
 
             con.Close();
         }
+
+        public static List<Ent_Motivos> getMotivos()
+        {
+            List<Ent_Motivos> lstMotivos = new List<Ent_Motivos>();
+
+            con = Conexion.getConnection();
+            MySqlCommand cmd = new MySqlCommand();
+
+            con.Open();
+
+            cmd.Connection = con;
+            cmd.CommandText = "SP_SYS_GET_MOTIVOS";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Ent_Motivos motivo = new Ent_Motivos();
+                motivo.codigo = Convert.ToString(dr["COD_MOTIVO"]);
+                motivo.descripcion = Convert.ToString(dr["MOTIVO_DES"]);
+
+                lstMotivos.Add(motivo);
+            }
+
+            con.Close();
+
+            return lstMotivos;
+        }
+
+        public static string emitirGuiaRemision(Ent_GuiaRemision entity)
+        {
+            MySqlTransaction tr = null;
+            con = Conexion.getConnection();
+
+            string retval = "1";
+
+            try
+            {
+                con.Open();
+
+                tr = con.BeginTransaction();
+
+                MySqlCommand cmd = new MySqlCommand();
+
+                cmd.Connection = con;
+                cmd.Transaction = tr;
+
+                cmd.CommandText = "SP_SET_EMITIR_GUIA_REMISION";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@RETVAL", MySqlDbType.VarChar);
+                cmd.Parameters["@RETVAL"].Direction = ParameterDirection.Output;
+
+                cmd.Parameters.AddWithValue("@PSTR_NRO_GUIA", entity.nro_guia);
+                cmd.Parameters["@PSTR_NRO_GUIA"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_COD_TIENDA", entity.cod_tienda);
+                cmd.Parameters["@PSTR_COD_TIENDA"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_FECHA_TRASLADO", entity.fecha_traslado);
+                cmd.Parameters["@PSTR_FECHA_TRASLADO"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PTR_CANTIDAD", entity.cantidad);
+                cmd.Parameters["@PTR_CANTIDAD"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_CLIENTE", entity.destinatario_ruc);
+                cmd.Parameters["@PSTR_CLIENTE"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_TIPO_DOC_REF", entity.ref_tipo_doc);
+                cmd.Parameters["@PSTR_TIPO_DOC_REF"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_NRO_DOC_REF", entity.ref_nro_doc);
+                cmd.Parameters["@PSTR_NRO_DOC_REF"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_MOTIVO", entity.motivo);
+                cmd.Parameters["@PSTR_MOTIVO"].Direction = ParameterDirection.Input;
+
+                cmd.ExecuteNonQuery();
+
+                retval = cmd.Parameters["@RETVAL"].Value.ToString();
+
+                if (retval != "1")
+                {
+                    tr.Rollback();
+                    return retval;
+                }
+
+                tr.Commit();
+            }
+            catch (MySqlException ex)
+            {
+                try
+                {
+                    tr.Rollback();
+                }
+                catch (MySqlException ex1)
+                {
+                    return ex1.ToString();
+                }
+
+                return ex.ToString();
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return retval;
+        }
+
+        public static string procesarCotizacion(Ent_Venta cabecera)
+        {
+            MySqlTransaction tr = null;
+            con = Conexion.getConnection();
+
+            string retval = "1";
+
+            try
+            {
+                con.Open();
+
+                tr = con.BeginTransaction();
+
+                MySqlCommand cmd = new MySqlCommand();
+
+                cmd.Connection = con;
+                cmd.Transaction = tr;
+
+                cmd.CommandText = "SP_SET_GUARDARCOTIZACION_CAB";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@RETVAL", MySqlDbType.VarChar);
+                cmd.Parameters["@RETVAL"].Direction = ParameterDirection.Output;
+
+                cmd.Parameters.AddWithValue("@RETID", MySqlDbType.VarChar);
+                cmd.Parameters["@RETID"].Direction = ParameterDirection.Output;
+
+                cmd.Parameters.AddWithValue("@PSTR_TIENDA", cabecera.cod_tienda);
+                cmd.Parameters["@PSTR_TIENDA"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_CANTIDAD", cabecera.cantidad);
+                cmd.Parameters["@PSTR_CANTIDAD"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_MONTO_TOTAL", double.Parse(cabecera.monto_total.ToString("#.##")));
+                cmd.Parameters["@PSTR_MONTO_TOTAL"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_CLIENTE", cabecera.cliente_doc);
+                cmd.Parameters["@PSTR_CLIENTE"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_USUARIO", cabecera.usuario);
+                cmd.Parameters["@PSTR_USUARIO"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_TIPO_COTIZACION", cabecera.tipo_cotizacion);
+                cmd.Parameters["@PSTR_TIPO_COTIZACION"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_DIAS_ALQUILER", cabecera.dias_alquiler);
+                cmd.Parameters["@PSTR_DIAS_ALQUILER"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_DENOMINACION", cabecera.dias_alquiler);
+                cmd.Parameters["@PSTR_DENOMINACION"].Direction = ParameterDirection.Input;
+
+                cmd.ExecuteNonQuery();
+
+                retval = cmd.Parameters["@RETVAL"].Value.ToString();
+                string id_cab = cmd.Parameters["@RETID"].Value.ToString();
+
+                if (retval == "1")
+                {
+                    string retval_det;
+
+                    cmd.CommandText = "SP_SET_GUARDARCOTIZACION_DET";
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    foreach (Ent_Productos prd in cabecera.lstProductos)
+                    {
+                        cmd.Parameters.Clear();
+
+                        cmd.Parameters.AddWithValue("@RETVAL", MySqlDbType.VarChar);
+                        cmd.Parameters["@RETVAL"].Direction = ParameterDirection.Output;
+
+                        cmd.Parameters.AddWithValue("@PSTR_ID_CAB", id_cab);
+                        cmd.Parameters["@PSTR_ID_CAB"].Direction = ParameterDirection.Input;
+
+                        cmd.Parameters.AddWithValue("@PSTR_ID_PRODUCTO", prd.id);
+                        cmd.Parameters["@PSTR_ID_PRODUCTO"].Direction = ParameterDirection.Input;
+
+                        cmd.Parameters.AddWithValue("@PSTR_DESC_PRODUCTO", prd.nombre);
+                        cmd.Parameters["@PSTR_DESC_PRODUCTO"].Direction = ParameterDirection.Input;
+
+                        cmd.Parameters.AddWithValue("@PSTR_CANTIDAD", prd.cantidad);
+                        cmd.Parameters["@PSTR_CANTIDAD"].Direction = ParameterDirection.Input;
+
+                        cmd.Parameters.AddWithValue("@PSTR_PRECIO_UNIT", prd.precio);
+                        cmd.Parameters["@PSTR_PRECIO_UNIT"].Direction = ParameterDirection.Input;
+
+                        cmd.Parameters.AddWithValue("@PSTR_MONTO_TOTAL", (prd.precio * prd.cantidad));
+                        cmd.Parameters["@PSTR_MONTO_TOTAL"].Direction = ParameterDirection.Input;
+
+                        cmd.Parameters.AddWithValue("@PSTR_CLIENTE", cabecera.cliente_doc);
+                        cmd.Parameters["@PSTR_CLIENTE"].Direction = ParameterDirection.Input;
+
+                        cmd.ExecuteNonQuery();
+
+                        retval_det = cmd.Parameters["@RETVAL"].Value.ToString();
+
+                        if (retval_det != "1")
+                        {
+                            tr.Rollback();
+                            return retval_det;
+                        }
+                    }
+                }
+                else
+                {
+                    tr.Rollback();
+                    return retval;
+                }
+
+                tr.Commit();
+            }
+            catch (MySqlException ex)
+            {
+                try
+                {
+                    tr.Rollback();
+                }
+                catch (MySqlException ex1)
+                {
+                    return ex1.ToString();
+                }
+
+                return ex.ToString();
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return retval;
+        }
+
+        public static List<Ent_Venta> getConsultaCotizacion(Ent_Venta ent_venta) {
+            List<Ent_Venta> lista = new List<Ent_Venta>();
+
+            con = Conexion.getConnection();
+            MySqlCommand cmd = new MySqlCommand();
+
+            con.Open();
+
+            cmd.Connection = con;
+            cmd.CommandText = "SP_SYS_GET_CONTIZACION";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@PSTR_TIENDA_COD", ent_venta.cod_tienda);
+            cmd.Parameters["@PSTR_TIENDA_COD"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_NRO_DOC", (ent_venta.nro_doc.ToString() == "0") ? null : ent_venta.nro_doc.ToString());
+            cmd.Parameters["@PSTR_NRO_DOC"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_TIPO", ent_venta.tipo_cotizacion ==""?null:ent_venta.tipo_cotizacion);
+            cmd.Parameters["@PSTR_TIPO"].Direction = ParameterDirection.Input;
+
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Ent_Venta venta = new Ent_Venta();
+                venta.id_cab = Convert.ToInt32(dr["ID"]);
+                venta.nro_doc_str = Convert.ToString(dr["CLIENTE_DOC"]) + "-" + Convert.ToString(dr["ID"]).ToString().PadLeft(3, '0');
+                venta.cod_tienda = Convert.ToString(dr["COD_TIENDA"]);
+                venta.tipo_cotizacion = Convert.ToString(dr["TIPO_COTIZACION"]);                
+                venta.emision = Convert.ToString(dr["FECHA_EMISION"]);
+                venta.cantidad = Convert.ToInt32(dr["CANTIDAD"]);
+                venta.monto_total = Convert.ToDouble(dr["MONTO_TOTAL"]);
+                venta.cliente_doc = Convert.ToString(dr["CLIENTE_DOC"]);
+                venta.cliente = Convert.ToString(dr["CLIENTE_DES"]);
+                venta.usuario = Convert.ToString(dr["USUARIO"]);
+
+                lista.Add(venta);
+            }
+
+            con.Close();
+            return lista;
+        }
+
+
+        public static List<Ent_Productos> getDetalleCotizacion(string id)
+        {
+            List<Ent_Productos> lstProducto = new List<Ent_Productos>();
+
+            con = Conexion.getConnection();
+            MySqlCommand cmd = new MySqlCommand();
+
+            con.Open();
+
+            cmd.Connection = con;
+            cmd.CommandText = "SP_SYS_GET_DETALLE_COTIZACION";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@PSTR_ID_CAB", id);
+            cmd.Parameters["@PSTR_ID_CAB"].Direction = ParameterDirection.Input;
+
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Ent_Productos producto = new Ent_Productos();
+                producto.id = Convert.ToInt32(dr["ID_PRODUCTO"]);
+                producto.nombre = Convert.ToString(dr["DESC_PRODUCTO"]);
+                producto.cantidad = Convert.ToInt32(dr["CANTIDAD"]);
+                producto.precio = Convert.ToDouble(dr["PRECIO_UNIT"]);
+                producto.monto_total = Convert.ToDouble(dr["MONTO_TOTAL"]);
+                producto.medida = Convert.ToDouble(dr["MEDIDA"]);
+                producto.peso = Convert.ToDouble(dr["PESO"]);
+                producto.cod_producto = Convert.ToString(dr["CODIGO_PRODUCTO"]);
+
+                lstProducto.Add(producto);
+            }
+
+            con.Close();
+
+            return lstProducto;
+        }
+
+        public static string procesarIngresoAlmacen(Ent_Venta cabecera)
+        {
+            MySqlTransaction tr = null;
+            con = Conexion.getConnection();
+
+            string retval = "1";
+
+            try
+            {
+                con.Open();
+
+                tr = con.BeginTransaction();
+
+                MySqlCommand cmd = new MySqlCommand();
+
+                cmd.Connection = con;
+                cmd.Transaction = tr;
+
+                cmd.CommandText = "SP_SET_GUARDARALMACEN_CAB";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@RETVAL", MySqlDbType.VarChar);
+                cmd.Parameters["@RETVAL"].Direction = ParameterDirection.Output;
+
+                cmd.Parameters.AddWithValue("@RETID", MySqlDbType.VarChar);
+                cmd.Parameters["@RETID"].Direction = ParameterDirection.Output;
+
+                cmd.Parameters.AddWithValue("@PSTR_TIENDA", cabecera.cod_tienda);
+                cmd.Parameters["@PSTR_TIENDA"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_CANTIDAD", cabecera.cantidad);
+                cmd.Parameters["@PSTR_CANTIDAD"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_USUARIO", cabecera.usuario);
+                cmd.Parameters["@PSTR_USUARIO"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_TIPO_ALMACEN", cabecera.tipo_ingreso_almacen);
+                cmd.Parameters["@PSTR_TIPO_ALMACEN"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_FECHA_FIN", cabecera.fecha_fin);
+                cmd.Parameters["@PSTR_FECHA_FIN"].Direction = ParameterDirection.Input;
+
+                cmd.ExecuteNonQuery();
+
+                retval = cmd.Parameters["@RETVAL"].Value.ToString();
+                string id_cab = cmd.Parameters["@RETID"].Value.ToString();
+
+                if (retval == "1")
+                {
+                    string retval_det;
+
+                    cmd.CommandText = "SP_SET_GUARDARALMACEN_DET";
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    foreach (Ent_Productos prd in cabecera.lstProductos)
+                    {
+                        cmd.Parameters.Clear();
+
+                        cmd.Parameters.AddWithValue("@RETVAL", MySqlDbType.VarChar);
+                        cmd.Parameters["@RETVAL"].Direction = ParameterDirection.Output;
+
+                        cmd.Parameters.AddWithValue("@PSTR_ID_CAB", id_cab);
+                        cmd.Parameters["@PSTR_ID_CAB"].Direction = ParameterDirection.Input;
+
+                        cmd.Parameters.AddWithValue("@PSTR_ID_PRODUCTO", prd.id);
+                        cmd.Parameters["@PSTR_ID_PRODUCTO"].Direction = ParameterDirection.Input;
+
+                        cmd.Parameters.AddWithValue("@PSTR_DESC_PRODUCTO", prd.nombre);
+                        cmd.Parameters["@PSTR_DESC_PRODUCTO"].Direction = ParameterDirection.Input;
+
+                        cmd.Parameters.AddWithValue("@PSTR_CANTIDAD", prd.cantidad);
+                        cmd.Parameters["@PSTR_CANTIDAD"].Direction = ParameterDirection.Input;
+
+                        cmd.ExecuteNonQuery();
+
+                        retval_det = cmd.Parameters["@RETVAL"].Value.ToString();
+
+                        if (retval_det != "1")
+                        {
+                            tr.Rollback();
+                            return retval_det;
+                        }
+                    }
+                }
+                else
+                {
+                    tr.Rollback();
+                    return retval;
+                }
+
+                tr.Commit();
+            }
+            catch (MySqlException ex)
+            {
+                try
+                {
+                    tr.Rollback();
+                }
+                catch (MySqlException ex1)
+                {
+                    return ex1.ToString();
+                }
+
+                return ex.ToString();
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return retval;
+        }
+
+
+        public static List<Ent_Venta> get_CotizacionAlerta()
+        {
+            List<Ent_Venta> lista = new List<Ent_Venta>();
+
+            con = Conexion.getConnection();
+            MySqlCommand cmd = new MySqlCommand();
+
+            con.Open();
+
+            cmd.Connection = con;
+            cmd.CommandText = "sp_get_alerta_cotizacion";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Ent_Venta venta = new Ent_Venta();
+                venta.emision = Convert.ToString(dr["fecha_emision"]);
+                venta.cliente_doc = Convert.ToString(dr["cliente_doc"]);
+                venta.cliente = Convert.ToString(dr["nombres"]);
+                venta.telefono = Convert.ToString(dr["telefono"]);
+                venta.tipo_cotizacion = Convert.ToString(dr["tipo_cotizacion"]);
+                venta.dias_alquiler = Convert.ToInt32(dr["dias_alquiler"]);
+                venta.cantidad = Convert.ToInt32(dr["cantidad"]);
+                venta.monto_total = Convert.ToDouble(dr["monto_total"]);
+
+                lista.Add(venta);
+            }
+
+            con.Close();
+
+            return lista;        
+        } 
+
     }
 }

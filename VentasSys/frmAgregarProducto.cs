@@ -17,6 +17,7 @@ namespace VentasSys
             usuario = _usuario;
             InitializeComponent();
             fillCategorias();
+            fillProveedores();
         }
 
         public void fillCategorias()
@@ -30,6 +31,21 @@ namespace VentasSys
             cboCategoria.DataSource = items;
             cboCategoria.ValueMember = "id";
             cboCategoria.DisplayMember = "nombre";
+        }
+
+        private void fillProveedores()
+        {
+            List<Ent_Proveedores> items = new List<Ent_Proveedores>();
+
+            items.Add(new Ent_Proveedores { id = "", nombre = "Seleccione" });
+
+            var proveedores = BL_Productos.getProveedores();
+
+            items.AddRange(proveedores);
+
+            cboProveedor.DataSource = items;
+            cboProveedor.ValueMember = "id";
+            cboProveedor.DisplayMember = "nombre";
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -48,6 +64,7 @@ namespace VentasSys
             }
 
             Ent_Productos producto = new Ent_Productos();
+            producto.cod_producto = txtCodigo.Text;
             producto.nombre = txtNombre.Text;
             producto.id_cat = int.Parse(cboCategoria.SelectedValue.ToString());
             producto.costo = double.Parse(txtCosto.Text);
@@ -55,6 +72,11 @@ namespace VentasSys
             producto.stock = int.Parse(txtStock.Text);
             producto.usuario = usuario;
             producto.activo = chkActivo.Checked ? "1" : "0";
+            producto.medida = double.Parse(txtMedida.Text);
+            producto.peso = double.Parse(txtPeso.Text);
+            producto.alquiler = chkAlquiler.Checked ? "1" : "0";
+            producto.proveedor = cboProveedor.SelectedValue.ToString();
+            producto.monto_alquiler = double.Parse(txtMonto_Alquiler.Text);
 
             if (producto.nombre == String.Empty)
             {
@@ -136,10 +158,52 @@ namespace VentasSys
 
         private void limpiarFormulario()
         {
+            txtCodigo.Text = String.Empty;
             txtNombre.Text = String.Empty;
             txtCosto.Text = "0.00";
             txtPrecio.Text = "0.00";
             txtStock.Text = "0";
+        }
+
+        private void txtMedida_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPeso_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void chkAlquiler_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkAlquiler.Checked)
+            {
+                chkAlquiler.Text = "Si";
+                txtMonto_Alquiler.Enabled = true;
+                txtMonto_Alquiler.Text = "0.00";
+            }
+            else {
+                chkAlquiler.Text = "No";
+                txtMonto_Alquiler.Enabled = false;
+                txtMonto_Alquiler.Text = "0.00";
+            }
         }
     }
 }

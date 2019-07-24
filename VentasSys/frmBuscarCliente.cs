@@ -107,5 +107,16 @@ namespace VentasSys
         {
             BuscarCliente();
         }
+
+        private void txtCliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (tipo == "dni")
+            {
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+            }
+        }
     }
 }

@@ -1,16 +1,3 @@
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\bin\x86\Debug\VentasSys.DAL.dll
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\bin\x86\Debug\VentasSys.DAL.pdb
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\bin\x86\Debug\MySql.Data.dll
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\bin\x86\Debug\VentasSys.EL.dll
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\bin\x86\Debug\VentasSys.Utils.dll
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\bin\x86\Debug\log4net.dll
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\bin\x86\Debug\VentasSys.EL.pdb
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\bin\x86\Debug\VentasSys.Utils.pdb
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\bin\x86\Debug\MySql.Data.xml
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\bin\x86\Debug\log4net.xml
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\obj\x86\Debug\VentasSys.DAL.csprojResolveAssemblyReference.cache
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\obj\x86\Debug\VentasSys.DAL.dll
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\obj\x86\Debug\VentasSys.DAL.pdb
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.DAL\bin\x86\Debug\VentasSys.DAL.dll
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.DAL\bin\x86\Debug\VentasSys.DAL.pdb
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.DAL\bin\x86\Debug\VentasSys.EL.dll
@@ -22,3 +9,105 @@ E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.DAL\bin\x86\Debug\log4net.
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.DAL\obj\x86\Debug\VentasSys.DAL.csprojResolveAssemblyReference.cache
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.DAL\obj\x86\Debug\VentasSys.DAL.dll
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.DAL\obj\x86\Debug\VentasSys.DAL.pdb
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\bin\x86\Debug\vsdalib.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\bin\x86\Debug\vsdalib.pdb
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\bin\x86\Debug\MySql.Data.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\bin\x86\Debug\vsellib.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\bin\x86\Debug\vsutlib.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\bin\x86\Debug\log4net.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\bin\x86\Debug\vsellib.pdb
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\bin\x86\Debug\vsutlib.pdb
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\bin\x86\Debug\MySql.Data.xml
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\bin\x86\Debug\log4net.xml
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\obj\x86\Debug\VentasSys.DAL.csprojResolveAssemblyReference.cache
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\obj\x86\Debug\vsdalib.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.DAL\obj\x86\Debug\vsdalib.pdb
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys.DAL\bin\x86\Debug\vsdalib.dll
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys.DAL\bin\x86\Debug\vsdalib.pdb
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys.DAL\bin\x86\Debug\vsellib.dll
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys.DAL\bin\x86\Debug\vsutlib.dll
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys.DAL\bin\x86\Debug\log4net.dll
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys.DAL\bin\x86\Debug\vsellib.pdb
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys.DAL\bin\x86\Debug\vsutlib.pdb
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys.DAL\bin\x86\Debug\log4net.xml
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys.DAL\obj\x86\Debug\VentasSys.DAL.csprojAssemblyReference.cache
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys.DAL\obj\x86\Debug\VentasSys.DAL.csproj.CoreCompileInputs.cache
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys.DAL\obj\x86\Debug\VentasSys.DAL.csproj.CopyComplete
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys.DAL\obj\x86\Debug\vsdalib.dll
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys.DAL\obj\x86\Debug\vsdalib.pdb
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys.DAL\bin\x86\Debug\MySql.Data.xml
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys.DAL\bin\x86\Debug\vsdalib.dll
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys.DAL\bin\x86\Debug\vsdalib.pdb
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys.DAL\bin\x86\Debug\vsellib.dll
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys.DAL\bin\x86\Debug\vsutlib.dll
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys.DAL\bin\x86\Debug\log4net.dll
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys.DAL\bin\x86\Debug\vsellib.pdb
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys.DAL\bin\x86\Debug\vsutlib.pdb
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys.DAL\bin\x86\Debug\MySql.Data.xml
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys.DAL\bin\x86\Debug\log4net.xml
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys.DAL\obj\x86\Debug\VentasSys.DAL.csprojResolveAssemblyReference.cache
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys.DAL\obj\x86\Debug\vsdalib.dll
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys.DAL\obj\x86\Debug\vsdalib.pdb
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys.DAL\bin\x86\Debug\vsdalib.dll
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys.DAL\bin\x86\Debug\vsdalib.pdb
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys.DAL\bin\x86\Debug\vsellib.dll
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys.DAL\bin\x86\Debug\vsutlib.dll
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys.DAL\bin\x86\Debug\log4net.dll
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys.DAL\bin\x86\Debug\vsellib.pdb
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys.DAL\bin\x86\Debug\vsutlib.pdb
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys.DAL\bin\x86\Debug\log4net.xml
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys.DAL\obj\x86\Debug\vsdalib.dll
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys.DAL\obj\x86\Debug\vsdalib.pdb
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys.DAL\obj\x86\Debug\VentasSys.DAL.csprojResolveAssemblyReference.cache
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys.DAL\bin\x86\Debug\vsdalib.dll
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys.DAL\bin\x86\Debug\vsdalib.pdb
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys.DAL\bin\x86\Debug\vsellib.dll
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys.DAL\bin\x86\Debug\vsutlib.dll
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys.DAL\bin\x86\Debug\log4net.dll
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys.DAL\bin\x86\Debug\vsellib.pdb
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys.DAL\bin\x86\Debug\vsutlib.pdb
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys.DAL\bin\x86\Debug\log4net.xml
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys.DAL\obj\x86\Debug\VentasSys.DAL.csprojResolveAssemblyReference.cache
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys.DAL\obj\x86\Debug\vsdalib.dll
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys.DAL\obj\x86\Debug\vsdalib.pdb
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys.DAL\bin\x86\Debug\vsdalib.dll
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys.DAL\bin\x86\Debug\vsdalib.pdb
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys.DAL\bin\x86\Debug\vsellib.dll
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys.DAL\bin\x86\Debug\vsutlib.dll
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys.DAL\bin\x86\Debug\log4net.dll
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys.DAL\bin\x86\Debug\vsellib.pdb
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys.DAL\bin\x86\Debug\vsutlib.pdb
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys.DAL\bin\x86\Debug\log4net.xml
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys.DAL\obj\x86\Debug\VentasSys.DAL.csprojResolveAssemblyReference.cache
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys.DAL\obj\x86\Debug\vsdalib.dll
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys.DAL\obj\x86\Debug\vsdalib.pdb
+C:\Users\Home\Desktop\VentasSys\VentasSys.DAL\bin\x86\Debug\vsdalib.dll
+C:\Users\Home\Desktop\VentasSys\VentasSys.DAL\bin\x86\Debug\vsdalib.pdb
+C:\Users\Home\Desktop\VentasSys\VentasSys.DAL\bin\x86\Debug\vsellib.dll
+C:\Users\Home\Desktop\VentasSys\VentasSys.DAL\bin\x86\Debug\vsutlib.dll
+C:\Users\Home\Desktop\VentasSys\VentasSys.DAL\bin\x86\Debug\log4net.dll
+C:\Users\Home\Desktop\VentasSys\VentasSys.DAL\bin\x86\Debug\vsellib.pdb
+C:\Users\Home\Desktop\VentasSys\VentasSys.DAL\bin\x86\Debug\vsutlib.pdb
+C:\Users\Home\Desktop\VentasSys\VentasSys.DAL\bin\x86\Debug\log4net.xml
+C:\Users\Home\Desktop\VentasSys\VentasSys.DAL\obj\x86\Debug\VentasSys.DAL.csprojResolveAssemblyReference.cache
+C:\Users\Home\Desktop\VentasSys\VentasSys.DAL\obj\x86\Debug\vsdalib.dll
+C:\Users\Home\Desktop\VentasSys\VentasSys.DAL\obj\x86\Debug\vsdalib.pdb
+C:\Users\Carlos\Desktop\VentasSys\VentasSys.DAL\bin\x86\Debug\vsdalib.dll
+C:\Users\Carlos\Desktop\VentasSys\VentasSys.DAL\bin\x86\Debug\vsdalib.pdb
+C:\Users\Carlos\Desktop\VentasSys\VentasSys.DAL\bin\x86\Debug\MySql.Data.dll
+C:\Users\Carlos\Desktop\VentasSys\VentasSys.DAL\bin\x86\Debug\vsellib.dll
+C:\Users\Carlos\Desktop\VentasSys\VentasSys.DAL\bin\x86\Debug\vsutlib.dll
+C:\Users\Carlos\Desktop\VentasSys\VentasSys.DAL\bin\x86\Debug\log4net.dll
+C:\Users\Carlos\Desktop\VentasSys\VentasSys.DAL\bin\x86\Debug\vsellib.pdb
+C:\Users\Carlos\Desktop\VentasSys\VentasSys.DAL\bin\x86\Debug\vsutlib.pdb
+C:\Users\Carlos\Desktop\VentasSys\VentasSys.DAL\bin\x86\Debug\MySql.Data.xml
+C:\Users\Carlos\Desktop\VentasSys\VentasSys.DAL\bin\x86\Debug\log4net.xml
+C:\Users\Carlos\Desktop\VentasSys\VentasSys.DAL\obj\x86\Debug\VentasSys.DAL.csprojResolveAssemblyReference.cache
+C:\Users\Carlos\Desktop\VentasSys\VentasSys.DAL\obj\x86\Debug\vsdalib.dll
+C:\Users\Carlos\Desktop\VentasSys\VentasSys.DAL\obj\x86\Debug\vsdalib.pdb
+C:\Users\Carlos\Desktop\VentasSys\VentasSys.DAL\bin\x86\Debug\PdfSharp.dll
+C:\Users\Carlos\Desktop\VentasSys\VentasSys.DAL\bin\x86\Debug\PdfSharp.xml
+C:\Users\Carlos\Desktop\VentasSys\VentasSys.DAL\bin\x86\Debug\de\PdfSharp.resources.dll
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys.DAL\bin\x86\Debug\PdfSharp.dll
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys.DAL\bin\x86\Debug\PdfSharp.xml
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys.DAL\bin\x86\Debug\de\PdfSharp.resources.dll

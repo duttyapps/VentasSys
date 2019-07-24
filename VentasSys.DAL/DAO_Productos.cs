@@ -12,7 +12,7 @@ namespace VentasSys.DAL
     {
         private static MySqlConnection con;
 
-        public static List<Ent_Productos> getProductos(string nombre, string cat, string tienda, string estado)
+        public static List<Ent_Productos> getProductos(string nombre, string codigo, string cat, string tienda, string estado, string alquiler)
         {
             List<Ent_Productos> lstProductos = new List<Ent_Productos>();
 
@@ -28,6 +28,9 @@ namespace VentasSys.DAL
             cmd.Parameters.AddWithValue("@PSTR_CATEGORIA", (cat == String.Empty) ? null : cat);
             cmd.Parameters["@PSTR_CATEGORIA"].Direction = ParameterDirection.Input;
 
+            cmd.Parameters.AddWithValue("@PSTR_CODIGO", codigo);
+            cmd.Parameters["@PSTR_CODIGO"].Direction = ParameterDirection.Input;
+
             cmd.Parameters.AddWithValue("@PSTR_NOMBRE", nombre);
             cmd.Parameters["@PSTR_NOMBRE"].Direction = ParameterDirection.Input;
 
@@ -37,12 +40,16 @@ namespace VentasSys.DAL
             cmd.Parameters.AddWithValue("@PSTR_ESTADO", estado);
             cmd.Parameters["@PSTR_ESTADO"].Direction = ParameterDirection.Input;
 
+            cmd.Parameters.AddWithValue("@PSTR_ALQUILER", alquiler);
+            cmd.Parameters["@PSTR_ALQUILER"].Direction = ParameterDirection.Input;
+
             MySqlDataReader dr = cmd.ExecuteReader();
 
             while (dr.Read())
             {
                 Ent_Productos producto = new Ent_Productos();
                 producto.id = Convert.ToInt32(dr["ID"]);
+                producto.cod_producto = Convert.ToString(dr["CODIGO"]);
                 producto.id_cat = Convert.ToInt32(dr["ID_CAT"]);
                 producto.nombre = Convert.ToString(dr["NOMBRE"]);
                 producto.precio = Convert.ToDouble(dr["PRECIO"]);
@@ -82,6 +89,7 @@ namespace VentasSys.DAL
             while (dr.Read())
             {
                 producto.id = Convert.ToInt32(dr["ID"]);
+                producto.cod_producto = Convert.ToString(dr["CODIGO"]);
                 producto.id_cat = Convert.ToInt32(dr["ID_CAT"]);
                 producto.nombre = Convert.ToString(dr["NOMBRE"]);
                 producto.precio = Convert.ToDouble(dr["PRECIO"]);
@@ -91,6 +99,8 @@ namespace VentasSys.DAL
                 producto.fecha_registro = Convert.ToString(dr["FECHA_REG"]);
                 producto.proveedor = Convert.ToString(dr["PROVEEDOR"]);
                 producto.activo = Convert.ToString(dr["ACTIVO"]);
+                producto.alquiler = Convert.ToString(dr["ALQUILER"]);
+                producto.monto_alquiler = Convert.ToDouble(dr["MONTO_ALQUILER"]);
             }
 
             con.Close();
@@ -144,11 +154,17 @@ namespace VentasSys.DAL
             cmd.Parameters.AddWithValue("@PSTR_TIENDA_COD", tienda);
             cmd.Parameters["@PSTR_TIENDA_COD"].Direction = ParameterDirection.Input;
 
+            cmd.Parameters.AddWithValue("@PSTR_PROVEEDOR", producto.proveedor);
+            cmd.Parameters["@PSTR_PROVEEDOR"].Direction = ParameterDirection.Input;
+
             cmd.Parameters.AddWithValue("@PSTR_CAT_ID", producto.id_cat);
             cmd.Parameters["@PSTR_CAT_ID"].Direction = ParameterDirection.Input;
 
             cmd.Parameters.AddWithValue("@PSTR_NOMBRE", producto.nombre);
             cmd.Parameters["@PSTR_NOMBRE"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_USUARIO", producto.usuario);
+            cmd.Parameters["@PSTR_USUARIO"].Direction = ParameterDirection.Input;
 
             cmd.Parameters.AddWithValue("@PSTR_COSTO", producto.costo);
             cmd.Parameters["@PSTR_COSTO"].Direction = ParameterDirection.Input;
@@ -159,11 +175,23 @@ namespace VentasSys.DAL
             cmd.Parameters.AddWithValue("@PSTR_STOCK", producto.stock);
             cmd.Parameters["@PSTR_STOCK"].Direction = ParameterDirection.Input;
 
-            cmd.Parameters.AddWithValue("@PSTR_USUARIO", producto.usuario);
-            cmd.Parameters["@PSTR_USUARIO"].Direction = ParameterDirection.Input;
+            cmd.Parameters.AddWithValue("@PSTR_MEDIDA", producto.medida);
+            cmd.Parameters["@PSTR_MEDIDA"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_PESO", producto.peso);
+            cmd.Parameters["@PSTR_PESO"].Direction = ParameterDirection.Input;
 
             cmd.Parameters.AddWithValue("@PSTR_ACTIVO", producto.activo);
             cmd.Parameters["@PSTR_ACTIVO"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_ALQUILER", producto.alquiler);
+            cmd.Parameters["@PSTR_ALQUILER"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_PRECIO_ALQUILER", producto.monto_alquiler);
+            cmd.Parameters["@PSTR_PRECIO_ALQUILER"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_CODIGO", producto.cod_producto);
+            cmd.Parameters["@PSTR_CODIGO"].Direction = ParameterDirection.Input;
 
             cmd.ExecuteNonQuery();
 
@@ -308,14 +336,26 @@ namespace VentasSys.DAL
                 cmd.Parameters.AddWithValue("@PSTR_STOCK", producto.stock);
                 cmd.Parameters["@PSTR_STOCK"].Direction = ParameterDirection.Input;
 
-                cmd.Parameters.AddWithValue("@PSTR_USUARIO", producto.usuario);
-                cmd.Parameters["@PSTR_USUARIO"].Direction = ParameterDirection.Input;
-
                 cmd.Parameters.AddWithValue("@PSTR_PROV_ID", producto.proveedor);
                 cmd.Parameters["@PSTR_PROV_ID"].Direction = ParameterDirection.Input;
 
+                cmd.Parameters.AddWithValue("@PSTR_MEDIDA", producto.medida);
+                cmd.Parameters["@PSTR_MEDIDA"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_PESO", producto.peso);
+                cmd.Parameters["@PSTR_PESO"].Direction = ParameterDirection.Input;
+
                 cmd.Parameters.AddWithValue("@PSTR_ACTIVO", producto.activo);
                 cmd.Parameters["@PSTR_ACTIVO"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_ALQUILER", producto.alquiler);
+                cmd.Parameters["@PSTR_ALQUILER"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_PRECIO_ALQUILER", producto.monto_alquiler);
+                cmd.Parameters["@PSTR_PRECIO_ALQUILER"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_CODIGO", producto.cod_producto);
+                cmd.Parameters["@PSTR_CODIGO"].Direction = ParameterDirection.Input; 
 
                 cmd.ExecuteNonQuery();
 
@@ -366,6 +406,9 @@ namespace VentasSys.DAL
             cmd.CommandText = "SP_SYS_GET_PROVEEDORES";
             cmd.CommandType = CommandType.StoredProcedure;
 
+            cmd.Parameters.AddWithValue("@PSTR_PROVEEDOR", "");
+            cmd.Parameters["@PSTR_PROVEEDOR"].Direction = ParameterDirection.Input;
+
             MySqlDataReader dr = cmd.ExecuteReader();
 
             while (dr.Read())
@@ -412,6 +455,37 @@ namespace VentasSys.DAL
             da.Fill(dt);
 
             con.Close();
+        }
+
+        public static List<Ent_Productos> get_ProductoAlerta()
+        {
+            List<Ent_Productos> lista = new List<Ent_Productos>();
+
+            con = Conexion.getConnection();
+            MySqlCommand cmd = new MySqlCommand();
+
+            con.Open();
+
+            cmd.Connection = con;
+            cmd.CommandText = "sp_get_producto_Alerta";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Ent_Productos producto = new Ent_Productos();
+                producto.id = Convert.ToInt32(dr["ID"]);
+                producto.nombre = Convert.ToString(dr["NOMBRE"]);
+                producto.precio = Convert.ToDouble(dr["PRECIO"]);
+                producto.costo = Convert.ToDouble(dr["COSTO"]);
+                producto.stock = Convert.ToInt32(dr["cantidad"]);
+                lista.Add(producto);
+            }
+
+            con.Close();
+
+            return lista;
         }
     }
 }

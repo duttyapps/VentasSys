@@ -17,6 +17,7 @@ namespace VentasSys
         private string cod_tienda { get; set; }
         private string usuario { get; set; }
         private Ent_Venta ent_venta { get; set; }
+        private Ent_Configuracion ent_configuracion;
         public frmCreditos(string _cod_tienda, string _usuario)
         {
             InitializeComponent();
@@ -27,6 +28,9 @@ namespace VentasSys
             dgvDetalleVenta.Columns["PRECIO"].DefaultCellStyle.Format = "f";
             dgvDetalleVenta.Columns["IMPORTE"].DefaultCellStyle.Format = "f";
             dgvAbonos.Columns["MONTO"].DefaultCellStyle.Format = "f";
+
+            ent_configuracion = new Ent_Configuracion();
+            ent_configuracion = BL_Configuracion.getConfiguracion();
         }
 
         private void fillTipoVenta()
@@ -83,8 +87,8 @@ namespace VentasSys
             double total = dgvAbonos.Rows.Cast<DataGridViewRow>()
                   .Sum(t => Convert.ToDouble(t.Cells["MONTO"].Value));
 
-            txtTotalRecibido.Text = total.ToString("#0.00");
             txtRecibido.Text = (total + ent_venta.monto_recibido).ToString("#0.00");
+            txtTotalRecibido.Text = (double.Parse(txtRecibido.Text)).ToString("#0.00");
             txtSaldo.Text = (ent_venta.monto_total - double.Parse(txtRecibido.Text)).ToString("#0.00");
         }
 
@@ -122,6 +126,11 @@ namespace VentasSys
                 txtEmail.Text = res_venta.email;
                 txtTelefono.Text = res_venta.telefono;
                 txtDireccion.Text = res_venta.direccion;
+                if (res_venta.tipo_venta == "FA")
+                {
+                    txtSubTotal.Text = Convert.ToDouble(res_venta.monto_total / (ent_configuracion.IGV + 1)).ToString("#0.00");
+                    txtIGV.Text = (res_venta.monto_total - Convert.ToDouble(txtSubTotal.Text)).ToString("#0.00");
+                }
                 txtTotal.Text = res_venta.monto_total.ToString("#0.00");
                 btnFinalizarVenta.Enabled = (res_venta.estado_credito == "P") ? true : false;
 
@@ -137,7 +146,7 @@ namespace VentasSys
                 }
             }
 
-            fillDetalles(v_nro_doc.ToString());
+            fillDetalles(res_venta.id_cab.ToString());
             fillAbonos(res_venta.id_cab, res_venta.nro_doc);
         }
 
@@ -242,7 +251,7 @@ namespace VentasSys
             txtDireccion.Text = String.Empty;
             txtEmail.Text = String.Empty;
 
-            if(dgvDetalleVenta.Rows.Count > 0)
+            if (dgvDetalleVenta.Rows.Count > 0)
             {
                 dgvDetalleVenta.Rows.Clear();
             }
@@ -292,9 +301,24 @@ namespace VentasSys
         {
             var confirm = MessageBox.Show("¿Está seguro que desea cancelar el proceso?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if(confirm == DialogResult.Yes)
+            if (confirm == DialogResult.Yes)
             {
                 reiniciarCredito();
+            }
+        }
+
+        private void btnBuscarDoc_Click(object sender, EventArgs e)
+        {
+            frmConsultaVentas frm = new frmConsultaVentas(cod_tienda, true, true);
+            frm.ShowDialog();
+
+            if ((frm.ent_venta != null))
+            {
+                reiniciarCredito();
+
+                txtNroDocumento.Text = (frm.ent_venta.nro_doc_str == null) ? "" : frm.ent_venta.nro_doc_str;
+                cboTipoVenta.SelectedValue = (frm.ent_venta.tipo_venta == null) ? "" : frm.ent_venta.tipo_venta;
+                txtFecha.Text = (frm.ent_venta.emision == null) ? "" : frm.ent_venta.emision;
             }
         }
     }

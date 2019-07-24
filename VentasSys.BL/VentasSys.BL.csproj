@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>VentasSys.BL</RootNamespace>
-    <AssemblyName>VentasSys.BL</AssemblyName>
+    <AssemblyName>vsbllib</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -58,11 +58,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL_Almacen.cs" />
     <Compile Include="BL_CategoriaProductos.cs" />
     <Compile Include="BL_Clientes.cs" />
     <Compile Include="BL_Configuracion.cs" />
     <Compile Include="BL_Depositos.cs" />
+    <Compile Include="BL_Mantenimiento.cs" />
     <Compile Include="BL_Productos.cs" />
+    <Compile Include="BL_Programacion.cs" />
     <Compile Include="BL_Proveedores.cs" />
     <Compile Include="BL_Tienda.cs" />
     <Compile Include="BL_Usuario.cs" />

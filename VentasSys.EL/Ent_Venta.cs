@@ -20,6 +20,8 @@ namespace VentasSys.EL
         public string forma_pago_des { get; set; }
         public string emision { get; set; }
         public int cantidad { get; set; }
+        public double monto_subtotal { get; set; }
+        public double monto_igv { get; set; }
         public double monto_total { get; set; }
         public double monto_recibido { get; set; }
         public double monto_vuelto { get; set; }
@@ -36,6 +38,12 @@ namespace VentasSys.EL
         public string fecha_anul { get; set; }
         public string motivo_anul { get; set; }
         public string nro_guia { get; set; }
+        public string tipo_cotizacion { get; set; }
+        public int dias_alquiler { get; set; }
+        public string tipo_ingreso_almacen { get; set; }
+        public string fecha_inicio { get; set; }
+        public string fecha_fin { get; set; }
+        public string denominacion { get; set; }
         public List<Ent_Productos> lstProductos { get; set; }
 
         public Ent_Venta()
@@ -52,6 +60,8 @@ namespace VentasSys.EL
             this.forma_pago_des = String.Empty;
             this.emision = String.Empty;
             this.cantidad = 0;
+            this.monto_subtotal = 0D;
+            this.monto_igv = 0D;
             this.monto_total = 0D;
             this.monto_recibido = 0D;
             this.monto_vuelto = 0D;
@@ -68,7 +78,11 @@ namespace VentasSys.EL
             this.fecha_anul = String.Empty;
             this.motivo_anul = String.Empty;
             this.nro_guia = String.Empty;
+            this.tipo_cotizacion = String.Empty;
+            this.tipo_ingreso_almacen = String.Empty;
+            this.fecha_fin = String.Empty;
             this.lstProductos = new List<Ent_Productos>();
+            denominacion = string.Empty;
         }
     }
 }

@@ -14,6 +14,8 @@ namespace VentasSys
 {
     public partial class frmUsuarios : Form
     {
+        private string accion { get; set; }
+        private string id_usuario { get; set; }
         public frmUsuarios()
         {
             InitializeComponent();
@@ -25,7 +27,7 @@ namespace VentasSys
         private void fillUsuarios()
         {
             dgvUsuarios.AutoGenerateColumns = false;
-
+            
             if (dgvUsuarios.Rows.Count > 0)
             {
                 dgvUsuarios.Rows.Clear();
@@ -34,6 +36,11 @@ namespace VentasSys
             Ent_Usuario entity = new Ent_Usuario();
             entity.dni = txtDNI.Text;
             entity.rango = cboRango.SelectedValue.ToString();
+
+            if (entity.rango == "{ id = , desc = Todos }")
+            {
+                return;
+            }
 
             List<Ent_Usuario> lstUsuarios = BL_Usuario.getUsuarios(entity);
 
@@ -54,6 +61,8 @@ namespace VentasSys
             cboRango.DataSource = items;
             cboRango.ValueMember = "id";
             cboRango.DisplayMember = "desc";
+
+            cboRango.SelectedValue = "";
         }
 
         private void fillComboSexo()
@@ -80,7 +89,7 @@ namespace VentasSys
             txtNombres.Text = usuario.nombres;
             txtEmail.Text = usuario.email;
             cboSexo.SelectedValue = usuario.sexo;
-            if(usuario.rango == "1")
+            if(usuario.rango == "A")
             {
                 rbAdmin.Checked = true;
             } else
@@ -130,6 +139,8 @@ namespace VentasSys
 
             btnGuardar.Enabled = true;
             btnCancelar.Enabled = true;
+
+            accion = "N";
         }
 
         private void limpiarDatos()
@@ -184,13 +195,71 @@ namespace VentasSys
 
             btnRestaurar.Enabled = true;
 
+            btnNuevo.Enabled = false;
+            btnEliminar.Enabled = false;
+
             btnGuardar.Enabled = true;
             btnCancelar.Enabled = true;
+
+            accion = "M";
         }
 
         private void btnRestaurar_Click(object sender, EventArgs e)
         {
             txtContrasena.Enabled = true;
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            Ent_Usuario user = new Ent_Usuario();
+
+            user.dni = txtDNIDet.Text;
+            user.password = txtContrasena.Text;
+            user.nombres = txtNombres.Text;
+            user.sexo = cboSexo.SelectedValue.ToString();
+            user.fecha_nac = txtFechaNac.Value.ToShortDateString();
+            user.email = txtEmail.Text;
+            user.telefono = txtTelefono.Text;
+            if (rbAdmin.Checked == true) user.rango = "A";
+            else if (rbCajero.Checked == true) user.rango = "C";
+            else return;
+
+            if (accion == "N")
+            {
+                string inserta_usuario = BL_Usuario.insertarUsuario(user);
+                if (inserta_usuario == "1")
+                {
+                    MessageBox.Show("Se agrego usuario exitosamente");
+                    fillUsuarios();
+                    limpiarDatos();
+                }
+                else
+                {
+                    MessageBox.Show(inserta_usuario);
+                }
+            }
+            else if (accion=="M"){
+                user.id = txtCodigo.Text;
+                string inserta_usuario = BL_Usuario.editarUsuario(user);
+                if (inserta_usuario == "1")
+                {
+                    MessageBox.Show("Se modifico usuario exitosamente");
+                    fillUsuarios();
+                    limpiarDatos();
+                }
+                else
+                {
+                    MessageBox.Show(inserta_usuario);
+                }
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (txtCodigo.Text != "") {
+                string delete_usuario = BL_Usuario.eliminarUsuario(txtCodigo.Text);
+                fillUsuarios();
+            }
         }
     }
 }

@@ -47,6 +47,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.dgvVentas = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DOC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TIPO_VENTA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NRO_DOC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +56,7 @@
             this.ANULADO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VER = new System.Windows.Forms.DataGridViewImageColumn();
+            this.VerBol = new System.Windows.Forms.DataGridViewImageColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
             this.SuspendLayout();
@@ -210,6 +212,7 @@
             this.dgvVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVentas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
+            this.DOC,
             this.TIPO_VENTA,
             this.NRO_DOC,
             this.DNI,
@@ -217,7 +220,8 @@
             this.FECHA,
             this.ANULADO,
             this.TOTAL,
-            this.VER});
+            this.VER,
+            this.VerBol});
             this.dgvVentas.Location = new System.Drawing.Point(12, 98);
             this.dgvVentas.MultiSelect = false;
             this.dgvVentas.Name = "dgvVentas";
@@ -230,6 +234,7 @@
             this.dgvVentas.Size = new System.Drawing.Size(750, 314);
             this.dgvVentas.TabIndex = 13;
             this.dgvVentas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVentas_CellContentClick);
+            this.dgvVentas.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVentas_CellContentDoubleClick);
             // 
             // ID
             // 
@@ -238,6 +243,14 @@
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
             this.ID.Visible = false;
+            // 
+            // DOC
+            // 
+            this.DOC.DataPropertyName = "nro_doc";
+            this.DOC.HeaderText = "DOC";
+            this.DOC.Name = "DOC";
+            this.DOC.ReadOnly = true;
+            this.DOC.Visible = false;
             // 
             // TIPO_VENTA
             // 
@@ -267,7 +280,7 @@
             this.NOMBRES.HeaderText = "Cliente/Empresa";
             this.NOMBRES.Name = "NOMBRES";
             this.NOMBRES.ReadOnly = true;
-            this.NOMBRES.Width = 250;
+            this.NOMBRES.Width = 200;
             // 
             // FECHA
             // 
@@ -302,12 +315,20 @@
             // 
             // VER
             // 
-            this.VER.HeaderText = "Ver";
+            this.VER.HeaderText = "Det.";
             this.VER.Image = global::VentasSys.Properties.Resources.clipboard;
             this.VER.Name = "VER";
             this.VER.ReadOnly = true;
             this.VER.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.VER.Width = 50;
+            // 
+            // VerBol
+            // 
+            this.VerBol.HeaderText = "Doc.";
+            this.VerBol.Image = global::VentasSys.Properties.Resources.clipboard;
+            this.VerBol.Name = "VerBol";
+            this.VerBol.ReadOnly = true;
+            this.VerBol.Width = 50;
             // 
             // frmConsultaVentas
             // 
@@ -352,6 +373,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dgvVentas;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DOC;
         private System.Windows.Forms.DataGridViewTextBoxColumn TIPO_VENTA;
         private System.Windows.Forms.DataGridViewTextBoxColumn NRO_DOC;
         private System.Windows.Forms.DataGridViewTextBoxColumn DNI;
@@ -360,5 +382,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ANULADO;
         private System.Windows.Forms.DataGridViewTextBoxColumn TOTAL;
         private System.Windows.Forms.DataGridViewImageColumn VER;
+        private System.Windows.Forms.DataGridViewImageColumn VerBol;
     }
 }

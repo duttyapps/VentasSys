@@ -20,6 +20,11 @@ namespace VentasSys.EL
         public string fecha_registro { get; set; }
         public string proveedor { get; set; }
         public string activo { get; set; }
+        public double medida { get; set; }
+        public double peso { get; set; }
+        public string cod_producto { get; set; }
+        public string alquiler { get; set; }
+        public double monto_alquiler { get; set; }
 
         public Ent_Productos()
         {
@@ -38,6 +43,11 @@ namespace VentasSys.EL
             this.fecha_registro = String.Empty;
             this.proveedor = String.Empty;
             this.activo = "1";
+            this.medida = 0D;
+            this.peso = 0D;
+            this.cod_producto = String.Empty;
+            this.alquiler = "1";
+            this.monto_alquiler = 0D;
         }
     }
 }

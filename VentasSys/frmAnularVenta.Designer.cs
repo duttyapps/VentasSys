@@ -50,6 +50,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cboTipoVenta = new System.Windows.Forms.ComboBox();
             this.dgvDetalle = new System.Windows.Forms.DataGridView();
+            this.PRODUCTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CANTIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnAnular = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -73,10 +77,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.PRODUCTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CANTIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PU = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocumentos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
             this.gbDetalle.SuspendLayout();
@@ -304,6 +304,42 @@
             this.dgvDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDetalle.Size = new System.Drawing.Size(400, 230);
             this.dgvDetalle.TabIndex = 5;
+            // 
+            // PRODUCTO
+            // 
+            this.PRODUCTO.DataPropertyName = "nombre";
+            this.PRODUCTO.Frozen = true;
+            this.PRODUCTO.HeaderText = "Producto";
+            this.PRODUCTO.Name = "PRODUCTO";
+            this.PRODUCTO.ReadOnly = true;
+            this.PRODUCTO.Width = 200;
+            // 
+            // CANTIDAD
+            // 
+            this.CANTIDAD.DataPropertyName = "cantidad";
+            this.CANTIDAD.Frozen = true;
+            this.CANTIDAD.HeaderText = "Cant.";
+            this.CANTIDAD.Name = "CANTIDAD";
+            this.CANTIDAD.ReadOnly = true;
+            this.CANTIDAD.Width = 60;
+            // 
+            // PU
+            // 
+            this.PU.DataPropertyName = "precio";
+            this.PU.Frozen = true;
+            this.PU.HeaderText = "P.U.";
+            this.PU.Name = "PU";
+            this.PU.ReadOnly = true;
+            this.PU.Width = 60;
+            // 
+            // TOTAL
+            // 
+            this.TOTAL.DataPropertyName = "monto_total";
+            this.TOTAL.Frozen = true;
+            this.TOTAL.HeaderText = "Total";
+            this.TOTAL.Name = "TOTAL";
+            this.TOTAL.ReadOnly = true;
+            this.TOTAL.Width = 60;
             // 
             // btnBuscar
             // 
@@ -549,42 +585,6 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Tipo Venta:";
             // 
-            // PRODUCTO
-            // 
-            this.PRODUCTO.DataPropertyName = "nombre";
-            this.PRODUCTO.Frozen = true;
-            this.PRODUCTO.HeaderText = "Producto";
-            this.PRODUCTO.Name = "PRODUCTO";
-            this.PRODUCTO.ReadOnly = true;
-            this.PRODUCTO.Width = 200;
-            // 
-            // CANTIDAD
-            // 
-            this.CANTIDAD.DataPropertyName = "cantidad";
-            this.CANTIDAD.Frozen = true;
-            this.CANTIDAD.HeaderText = "Cant.";
-            this.CANTIDAD.Name = "CANTIDAD";
-            this.CANTIDAD.ReadOnly = true;
-            this.CANTIDAD.Width = 60;
-            // 
-            // PU
-            // 
-            this.PU.DataPropertyName = "precio";
-            this.PU.Frozen = true;
-            this.PU.HeaderText = "P.U.";
-            this.PU.Name = "PU";
-            this.PU.ReadOnly = true;
-            this.PU.Width = 60;
-            // 
-            // TOTAL
-            // 
-            this.TOTAL.DataPropertyName = "monto_total";
-            this.TOTAL.Frozen = true;
-            this.TOTAL.HeaderText = "Total";
-            this.TOTAL.Name = "TOTAL";
-            this.TOTAL.ReadOnly = true;
-            this.TOTAL.Width = 60;
-            // 
             // frmAnularVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -610,6 +610,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Anular Venta";
+            this.Load += new System.EventHandler(this.frmAnularVenta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocumentos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).EndInit();
             this.gbDetalle.ResumeLayout(false);

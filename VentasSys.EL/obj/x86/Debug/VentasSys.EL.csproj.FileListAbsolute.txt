@@ -1,10 +1,44 @@
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.EL\bin\x86\Debug\VentasSys.EL.dll
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.EL\bin\x86\Debug\VentasSys.EL.pdb
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.EL\obj\x86\Debug\VentasSys.EL.dll
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.EL\obj\x86\Debug\VentasSys.EL.pdb
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.EL\obj\x86\Debug\VentasSys.EL.csprojResolveAssemblyReference.cache
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.EL\bin\x86\Debug\VentasSys.EL.dll
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.EL\bin\x86\Debug\VentasSys.EL.pdb
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.EL\obj\x86\Debug\VentasSys.EL.csprojResolveAssemblyReference.cache
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.EL\obj\x86\Debug\VentasSys.EL.dll
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys.EL\obj\x86\Debug\VentasSys.EL.pdb
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.EL\bin\x86\Debug\vsellib.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.EL\bin\x86\Debug\vsellib.pdb
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.EL\obj\x86\Debug\vsellib.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.EL\obj\x86\Debug\vsellib.pdb
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys.EL\obj\x86\Debug\VentasSys.EL.csprojResolveAssemblyReference.cache
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys.EL\bin\x86\Debug\vsellib.dll
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys.EL\bin\x86\Debug\vsellib.pdb
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys.EL\obj\x86\Debug\VentasSys.EL.csproj.CoreCompileInputs.cache
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys.EL\obj\x86\Debug\vsellib.dll
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys.EL\obj\x86\Debug\vsellib.pdb
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys.EL\obj\x86\Debug\VentasSys.EL.csprojAssemblyReference.cache
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys.EL\bin\x86\Debug\vsellib.dll
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys.EL\bin\x86\Debug\vsellib.pdb
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys.EL\obj\x86\Debug\VentasSys.EL.csprojResolveAssemblyReference.cache
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys.EL\obj\x86\Debug\vsellib.dll
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys.EL\obj\x86\Debug\vsellib.pdb
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys.EL\bin\x86\Debug\vsellib.dll
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys.EL\bin\x86\Debug\vsellib.pdb
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys.EL\obj\x86\Debug\VentasSys.EL.csprojResolveAssemblyReference.cache
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys.EL\obj\x86\Debug\vsellib.dll
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys.EL\obj\x86\Debug\vsellib.pdb
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys.EL\bin\x86\Debug\vsellib.dll
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys.EL\bin\x86\Debug\vsellib.pdb
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys.EL\obj\x86\Debug\VentasSys.EL.csprojResolveAssemblyReference.cache
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys.EL\obj\x86\Debug\vsellib.dll
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys.EL\obj\x86\Debug\vsellib.pdb
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys.EL\bin\x86\Debug\vsellib.dll
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys.EL\bin\x86\Debug\vsellib.pdb
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys.EL\obj\x86\Debug\vsellib.dll
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys.EL\obj\x86\Debug\vsellib.pdb
+C:\Users\Home\Desktop\VentasSys\VentasSys.EL\bin\x86\Debug\vsellib.dll
+C:\Users\Home\Desktop\VentasSys\VentasSys.EL\bin\x86\Debug\vsellib.pdb
+C:\Users\Home\Desktop\VentasSys\VentasSys.EL\obj\x86\Debug\vsellib.dll
+C:\Users\Home\Desktop\VentasSys\VentasSys.EL\obj\x86\Debug\vsellib.pdb
+C:\Users\Carlos\Desktop\VentasSys\VentasSys.EL\bin\x86\Debug\vsellib.dll
+C:\Users\Carlos\Desktop\VentasSys\VentasSys.EL\bin\x86\Debug\vsellib.pdb
+C:\Users\Carlos\Desktop\VentasSys\VentasSys.EL\obj\x86\Debug\VentasSys.EL.csprojResolveAssemblyReference.cache
+C:\Users\Carlos\Desktop\VentasSys\VentasSys.EL\obj\x86\Debug\vsellib.dll
+C:\Users\Carlos\Desktop\VentasSys\VentasSys.EL\obj\x86\Debug\vsellib.pdb

@@ -198,6 +198,9 @@ namespace VentasSys.DAL
             cmd.Parameters.AddWithValue("@PSTR_TIPO", cliente.tipo);
             cmd.Parameters["@PSTR_TIPO"].Direction = ParameterDirection.Input;
 
+            cmd.Parameters.AddWithValue("@PSTR_POSIBLE", cliente.posible);
+            cmd.Parameters["@PSTR_POSIBLE"].Direction = ParameterDirection.Input;
+
             cmd.ExecuteNonQuery();
 
             string retval = cmd.Parameters["@RETVAL"].Value.ToString();
@@ -248,6 +251,9 @@ namespace VentasSys.DAL
 
                 cmd.Parameters.AddWithValue("@PSTR_TELEFONO", cliente.telefono);
                 cmd.Parameters["@PSTR_TELEFONO"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_TIPO", cliente.tipo);
+                cmd.Parameters["@PSTR_TIPO"].Direction = ParameterDirection.Input;
 
                 cmd.ExecuteNonQuery();
 
@@ -346,6 +352,35 @@ namespace VentasSys.DAL
             }
 
             return retval;
+        }
+
+        public static List<Ent_MediosContacto> getMediosContacto()
+        {
+            List<Ent_MediosContacto> lstMedios = new List<Ent_MediosContacto>();
+
+            con = Conexion.getConnection();
+            MySqlCommand cmd = new MySqlCommand();
+
+            con.Open();
+
+            cmd.Connection = con;
+            cmd.CommandText = "SP_SYS_GET_MEDIOS_CONTACTO";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Ent_MediosContacto ent = new Ent_MediosContacto();
+                ent.id = Convert.ToString(dr["ID"]);
+                ent.descripcion = Convert.ToString(dr["DESCRIPCION"]);
+
+                lstMedios.Add(ent);
+            }
+
+            con.Close();
+
+            return lstMedios;
         }
     }
 }

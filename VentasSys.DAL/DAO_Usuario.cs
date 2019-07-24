@@ -303,6 +303,9 @@ namespace VentasSys.DAL
                 cmd.Parameters.AddWithValue("@RETVAL", MySqlDbType.VarChar);
                 cmd.Parameters["@RETVAL"].Direction = ParameterDirection.Output;
 
+                cmd.Parameters.AddWithValue("@PSTR_ID", id);
+                cmd.Parameters["@PSTR_ID"].Direction = ParameterDirection.Input;
+
                 cmd.ExecuteNonQuery();
 
                 retval = cmd.Parameters["@RETVAL"].Value.ToString();

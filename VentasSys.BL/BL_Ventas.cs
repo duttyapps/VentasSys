@@ -87,5 +87,41 @@ namespace VentasSys.BL
         {
             DAO_Ventas.getReporteVentasxProductos(fecha, mes, tienda, cat, ref ds, ref dt);
         }
+
+        public static List<Ent_Motivos> getMotivos()
+        {
+            return DAO_Ventas.getMotivos();
+        }
+
+        public static string emitirGuiaRemision(Ent_GuiaRemision entity)
+        {
+            return DAO_Ventas.emitirGuiaRemision(entity);
+        }
+
+        public static string procesarCotizacion(Ent_Venta venta)
+        {
+            return DAO_Ventas.procesarCotizacion(venta);
+        }
+        public static List<Ent_Venta> getConsultaCotizacion(Ent_Venta venta)
+        {
+            return DAO_Ventas.getConsultaCotizacion(venta);
+        }
+
+        public static List<Ent_Productos> getDetalleCotizacion(string id)
+        {
+            return DAO_Ventas.getDetalleCotizacion(id);
+        }
+
+        public static string procesarIngresoAlmacen(Ent_Venta venta)
+        {
+            return DAO_Ventas.procesarIngresoAlmacen(venta);
+        }
+
+        public static List<Ent_Venta> get_CotizacionAlerta()
+        {
+            return DAO_Ventas.get_CotizacionAlerta();
+        }
+
+
     }
 }

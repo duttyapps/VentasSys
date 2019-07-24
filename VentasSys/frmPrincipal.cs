@@ -21,6 +21,7 @@ namespace VentasSys
         private string correlativo { get; set; }
         private string cod_tienda { get; set; }
         private string des_tienda { get; set; }
+        private string alquiler { get; set; }
         public double total;
 
         public frmPrincipal(Ent_Usuario ent_us)
@@ -36,6 +37,9 @@ namespace VentasSys
                 lblTienda.Text = "Tienda: " + des_tienda;
                 log.Info("Tipo de Venta: " + tipo_venta, System.Reflection.MethodBase.GetCurrentMethod().Name);
                 log.Info("Serie N°: " + lblSerie.Text, System.Reflection.MethodBase.GetCurrentMethod().Name);
+
+                frmAlerta frm = new frmAlerta(cod_tienda);
+                frm.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -58,7 +62,7 @@ namespace VentasSys
             pbLogo.Image = logo;
             correlativo = BL_Ventas.getCorrelativo(tipo_venta);
             lblBienvenido.Text = "Bienvenid@ " + ent_usuario.nombres;
-            lblRango.Text = (ent_usuario.rango == "1") ? "(Administrador)" : "(Cajero)";
+            lblRango.Text = (ent_usuario.rango == "A") ? "(Administrador)" : "(Cajero)";
             lblTienda.Text = "Tienda: " + des_tienda;
             lblSerie.Text = "N° 001-" + correlativo;
             lblFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
@@ -194,7 +198,7 @@ namespace VentasSys
 
         private void btnAgregarProducto_Click(object sender, EventArgs e)
         {
-            frmBuscarProducto frm = new frmBuscarProducto(cod_tienda);
+            frmBuscarProducto frm = new frmBuscarProducto(cod_tienda, alquiler);
             frm.ShowDialog();
 
             if (frm.ent_producto != null)
@@ -222,15 +226,15 @@ namespace VentasSys
                     }
                     if (agregar)
                     {
-                        dgvProductos.Rows.Add(BL_Productos.generarCodigoProducto(cod_tienda, frm.ent_producto.id, frm.ent_producto.id_cat), frm.ent_producto.nombre, "1", frm.ent_producto.precio.ToString("#0.00"), frm.ent_producto.precio.ToString("#0.00"), frm.ent_producto.id);
+                        dgvProductos.Rows.Add(frm.ent_producto.cod_producto, frm.ent_producto.nombre, "1", frm.ent_producto.precio.ToString("#0.00"), frm.ent_producto.precio.ToString("#0.00"), frm.ent_producto.id);
                     }
                 }
                 else
                 {
-                    dgvProductos.Rows.Add(BL_Productos.generarCodigoProducto(cod_tienda, frm.ent_producto.id, frm.ent_producto.id_cat), frm.ent_producto.nombre, "1", frm.ent_producto.precio.ToString("#0.00"), frm.ent_producto.precio.ToString("#0.00"), frm.ent_producto.id);
+                    dgvProductos.Rows.Add(frm.ent_producto.cod_producto, frm.ent_producto.nombre, "1", frm.ent_producto.precio.ToString("#0.00"), frm.ent_producto.precio.ToString("#0.00"), frm.ent_producto.id);
                 }
 
-                log.Info("Producto agregado: [" + BL_Productos.generarCodigoProducto(cod_tienda, frm.ent_producto.id, frm.ent_producto.id_cat) + "] " + frm.ent_producto.nombre, System.Reflection.MethodBase.GetCurrentMethod().Name);
+                log.Info("Producto agregado: [" + frm.ent_producto.cod_producto + "] " + frm.ent_producto.nombre, System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
 
             sumarTotal();
@@ -238,12 +242,15 @@ namespace VentasSys
 
         private void sumarTotal()
         {
+            int dias_alquiler = (dtpFechaEntrega.Value - dtpFechaInicio.Value).Days+1;
             try
             {
                 total = dgvProductos.Rows.Cast<DataGridViewRow>()
                     .Sum(t => Convert.ToDouble(t.Cells["IMPORTE"].Value));
 
-                if (tipo_venta == "FA")
+                total =  cboFormaPago.SelectedValue.ToString() == "AL" ? total * dias_alquiler : total;
+
+                /*if (tipo_venta == "FA")
                 {
                     txtSubTotal.Text = Convert.ToDouble(total / (ent_configuracion.IGV + 1)).ToString("#0.00");
                     txtIGV.Text = (total - Convert.ToDouble(txtSubTotal.Text)).ToString("#0.00");
@@ -252,7 +259,9 @@ namespace VentasSys
                 {
                     txtSubTotal.Text = "0.00";
                     txtIGV.Text = "0.00";
-                }
+                }*/
+                txtSubTotal.Text = Convert.ToDouble(total / (ent_configuracion.IGV + 1)).ToString("#0.00");
+                txtIGV.Text = (total - Convert.ToDouble(txtSubTotal.Text)).ToString("#0.00");
 
                 txtTotal.Text = total.ToString("#0.00");
 
@@ -400,6 +409,14 @@ namespace VentasSys
         {
             try
             {
+                if (alquiler == "1") {
+                    int dias_alquiler = (dtpFechaEntrega.Value - dtpFechaInicio.Value).Days + 1;
+                    if (dias_alquiler < 0) {
+                        MessageBox.Show("Ingrese un rango de fechas correctas para el alquiler.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+
                 if (dgvProductos.Rows.Count == 0)
                 {
                     MessageBox.Show("No se agregó ningún producto. La compra no puede ser realizada.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -411,7 +428,7 @@ namespace VentasSys
                     txtRecibido.Text = "0.00";
                 }
 
-                if (cboFormaPago.SelectedValue.ToString() == "CO")
+                if (cboFormaPago.SelectedValue.ToString() == "CO" || cboFormaPago.SelectedValue.ToString() == "AL")
                 {
                     if (Convert.ToDecimal(txtRecibido.Text) <= 0)
                     {
@@ -529,15 +546,23 @@ namespace VentasSys
             Ent_Venta venta = new Ent_Venta();
 
             venta.nro_doc = int.Parse(correlativo);
+            venta.nro_doc_str = lblSerie.Text;
             venta.cod_tienda = cod_tienda;
             venta.tipo_venta = tipo_venta;
             venta.forma_pago = forma_pago;
             venta.cantidad = sumarCantidad();
             venta.monto_total = total;
+            venta.monto_subtotal = double.Parse(txtSubTotal.Text);
+            venta.monto_igv = double.Parse(txtIGV.Text);
             venta.monto_recibido = double.Parse(txtRecibido.Text);
             venta.monto_vuelto = double.Parse(txtVuelto.Text);
             venta.cliente_doc = txtDNI.Text;
+            venta.cliente = txtNombres.Text + " " + txtApellidos.Text;
+            venta.direccion = txtDireccion.Text;
             venta.usuario = ent_usuario.username;
+
+            venta.fecha_inicio = dtpFechaInicio.Value.ToShortDateString();
+            venta.fecha_fin = dtpFechaEntrega.Value.ToShortDateString();
 
             bool existe_cliente = BL_Clientes.existeCliente(venta.cliente_doc);
 
@@ -557,6 +582,7 @@ namespace VentasSys
                     nuevo_cliente.telefono = txtTelefono.Text;
                     nuevo_cliente.email = txtEmail.Text;
                     nuevo_cliente.tipo = (tipo_venta == "FA") ? "E" : "N";
+                    nuevo_cliente.posible = "1";
 
                     try
                     {
@@ -601,6 +627,16 @@ namespace VentasSys
                 if (result == "1")
                 {
                     MessageBox.Show("Venta Realizada con Éxito!.", "Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    InvoicePDF pdf = new InvoicePDF();
+                    if (venta.tipo_venta == "BO")
+                    {
+                        pdf.createBoleta(ent_configuracion, venta);
+                    } else
+                    {
+                        pdf.createFactura(ent_configuracion, venta);
+                    }
+
                     log.Info("Venta " + lblSerie.Text + " realizada con éxito.", System.Reflection.MethodBase.GetCurrentMethod().Name);
                     string resumen = 
                         "\n-----------------------------------\n" +
@@ -683,10 +719,15 @@ namespace VentasSys
 
         private void menuAdmin()
         {
-            if (ent_usuario.rango == "0")
+            if (ent_usuario.rango != "A")
             {
+                pagosToolStripMenuItem.Visible = false;
+                manteniToolStripMenuItem.Visible = false;
+                reportesToolStripMenuItem.Visible = false;
                 sistemaToolStripMenuItem.Visible = false;
                 menuTienda.Visible = false;
+                otrosToolStripMenuItem.Visible = false;
+                almacenToolStripMenuItem.Visible = false;
             }
         }
 
@@ -729,6 +770,7 @@ namespace VentasSys
             txtSubTotal.Text = "0.00";
             txtRecibido.Text = "0.00";
             txtVuelto.Text = "0.00";
+            btnAgregarProducto.Enabled = true;
         }
 
         private void btnReiniciar_Click(object sender, EventArgs e)
@@ -784,9 +826,12 @@ namespace VentasSys
 
         private void txtCliente_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            if(tipo_venta == "BO")
             {
-                e.Handled = true;
+                if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
             }
         }
 
@@ -843,17 +888,27 @@ namespace VentasSys
 
         private void cboFormaPago_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cboFormaPago.SelectedValue.ToString() == "VentasSys.EL.Ent_FormaPago") { return; }
             if (cboFormaPago.SelectedValue.ToString() == "CR")
             {
                 lblRecibido.Text = "Restante";
                 lblVuelto.Text = "Saldo";
                 forma_pago = "CR";
+                gbAlquiler.Enabled = false;
+                alquiler = "0";
             }
-            else
+            else if (cboFormaPago.SelectedValue.ToString() == "CO")
             {
                 lblRecibido.Text = "Recibido";
                 lblVuelto.Text = "Vuelto";
                 forma_pago = "CO";
+                gbAlquiler.Enabled = false;
+                alquiler = "0";
+            }
+            else if (cboFormaPago.SelectedValue.ToString() == "AL")
+            {
+                gbAlquiler.Enabled = true;
+                alquiler = "1";
             }
 
             txtRecibido_TextChanged(null, EventArgs.Empty);
@@ -965,6 +1020,113 @@ namespace VentasSys
         private void utilidadPorProductoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmReporteVentasxProducto frm = new frmReporteVentasxProducto();
+            frm.ShowDialog();
+        }
+
+        private void guiaDeRemisiónRemitenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmGuiaRemision frm = new frmGuiaRemision(cod_tienda);
+            frm.ShowDialog();
+        }
+
+        private void alquilerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAlquiler frm = new frmAlquiler();
+            frm.ShowDialog();
+        }
+
+        private void distribuciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProgDistribucion frm = new frmProgDistribucion();
+            frm.ShowDialog();
+        }
+
+        private void mantenimientosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProgMantenimiento frm = new frmProgMantenimiento(cod_tienda, ent_usuario.username);
+            frm.ShowDialog();
+        }
+
+        private void cotizaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCotizacion frm = new frmCotizacion(cod_tienda, ent_usuario.username, ent_tienda);
+            frm.ShowDialog();
+        }
+
+        private void cotizacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConsultarCotizacion frm = new frmConsultarCotizacion(cod_tienda);
+            frm.ShowDialog();
+            if (frm.continuar == "1")
+            {
+                foreach (Ent_Productos prod in frm.lista_producto)
+                {
+                    dgvProductos.Rows.Add(BL_Productos.generarCodigoProducto(cod_tienda, prod.id, prod.id_cat), prod.nombre, "1", prod.precio.ToString("#0.00"), prod.precio.ToString("#0.00"), prod.id);
+                }
+                cboFormaPago.SelectedValue = frm.tipo;
+                txtDNI.Text = frm.numero_doc;
+                txtNombres.Text = frm.nombres;
+                sumarTotal();
+            }            
+        }
+
+        private void almacenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void dtpFechaEntrega_ValueChanged(object sender, EventArgs e)
+        {
+            sumarTotal();
+        }
+
+        private void dtpFechaInicio_ValueChanged(object sender, EventArgs e)
+        {
+            sumarTotal();
+        }
+
+        private void proveedoresToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmMantenimientoProveedor frm = new frmMantenimientoProveedor();
+            frm.ShowDialog();
+        }
+
+        private void ventasPorFechaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ventasCréditoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void generalDeVentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cuadreDeCajaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAlmacenProd frm = new frmAlmacenProd();
+            frm.ShowDialog();
+        }
+
+        private void ingresarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            frmIngresoAlmacen frm = new frmIngresoAlmacen(cod_tienda, ent_usuario.username);
+            frm.ShowDialog();
+        }
+
+        private void mantenimientoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            frmConsultarMantenimiento frm = new frmConsultarMantenimiento();
             frm.ShowDialog();
         }
     }

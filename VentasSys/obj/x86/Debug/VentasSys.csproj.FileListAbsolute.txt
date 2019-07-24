@@ -1,28 +1,3 @@
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\VentasSys.exe.config
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\VentasSys.exe
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\VentasSys.pdb
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\MySql.Data.dll
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\VentasSys.BL.dll
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\VentasSys.EL.dll
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\VentasSys.Utils.dll
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\VentasSys.DAL.dll
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\log4net.dll
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\VentasSys.BL.pdb
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\VentasSys.EL.pdb
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\VentasSys.Utils.pdb
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\MySql.Data.xml
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\VentasSys.DAL.pdb
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\log4net.xml
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.csprojResolveAssemblyReference.cache
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmBuscarCliente.resources
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmBuscarProducto.resources
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmPrincipal.resources
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmLogin.resources
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.Properties.Resources.resources
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.Sistema.Base_de_Datos.frmConfiguracion.resources
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.csproj.GenerateResource.Cache
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.exe
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.pdb
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\bin\x86\Debug\VentasSys.exe.config
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\VentasSys.exe
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\VentasSys.pdb
@@ -46,51 +21,529 @@ E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\VentasSys.fr
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\VentasSys.Properties.Resources.resources
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\VentasSys.Sistema.Base_de_Datos.frmConfiguracion.resources
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\VentasSys.csproj.GenerateResource.Cache
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoProductos.resources
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAnularVenta.resources
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoProductos.resources
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAnularVenta.resources
-C:\Users\Carlos\Documents\Visual Studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAgregarProducto.resources
-C:\Users\Carlos\Documents\Visual Studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmCreditos.resources
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmCreditos.resources
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAgregarProducto.resources
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmListadoVentas.resources
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmUsuarios.resources
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmPagoProveedores.resources
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmDepositoCta.resources
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmListadoVentas.resources
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmPagoProveedores.resources
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmUsuarios.resources
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoCategorias.resources
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoCliente.resources
-C:\Users\Carlos\Documents\Visual Studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmConsultaVentaCliente.resources
-C:\Users\Carlos\Documents\Visual Studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmConsultaVentas.resources
-C:\Users\Carlos\Documents\Visual Studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmDepositoCta.resources
-C:\Users\Carlos\Documents\Visual Studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoCategorias.resources
-C:\Users\Carlos\Documents\Visual Studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoCliente.resources
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmConsultaVentaCliente.resources
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmConsultaVentas.resources
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmDetalleVenta.resources
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmDetalleVenta.resources
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmReporteStockProducto.resources
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\RdlCompile.cache
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\obj\x86\Debug\RdlCompile.compiled
 E:\Fuente Aplicativos\C#\Personal\VentasSys\VentasSys\bin\x86\Debug\Reportes\StockProductos.rdlc
-C:\Users\Carlos\Documents\Visual Studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\Reportes\StockProductos.rdlc
-C:\Users\Carlos\Documents\Visual Studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\Microsoft.ReportViewer.WinForms.DLL
-C:\Users\Carlos\Documents\Visual Studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\Microsoft.SqlServer.Types.dll
-C:\Users\Carlos\Documents\Visual Studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmReporteStockProducto.resources
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\Reportes\StockProductos.rdlc
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\Reportes\VentasxFecha.rdlc
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\Reportes\VentasxProductos.rdlc
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\VentasSys.exe.config
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\VentasSys.exe
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\VentasSys.pdb
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\MySql.Data.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\vsbllib.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\vsellib.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\vsutlib.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\vsdalib.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\log4net.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\vsbllib.pdb
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\vsellib.pdb
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\vsutlib.pdb
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\MySql.Data.xml
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\vsdalib.pdb
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\log4net.xml
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.csprojResolveAssemblyReference.cache
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAnularVenta.resources
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmBuscarCliente.resources
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmBuscarProducto.resources
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmConsultaVentaCliente.resources
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmConsultaVentas.resources
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmCreditos.resources
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmDepositoCta.resources
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmDetalleVenta.resources
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmGuiaRemision.resources
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmListadoVentas.resources
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoCategorias.resources
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoCliente.resources
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoProductos.resources
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmPrincipal.resources
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmLogin.resources
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAgregarProducto.resources
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmPagoProveedores.resources
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmReporteStockProducto.resources
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmReporteVentasxProducto.resources
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmUsuarios.resources
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.Properties.Resources.resources
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.Sistema.Base_de_Datos.frmConfiguracion.resources
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.csproj.GenerateResource.Cache
 C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\RdlCompile.cache
 C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\RdlCompile.compiled
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmReporteVentasxProducto.resources
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\de\Microsoft.SqlServer.Types.resources.dll
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\es\Microsoft.SqlServer.Types.resources.dll
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\fr\Microsoft.SqlServer.Types.resources.dll
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\it\Microsoft.SqlServer.Types.resources.dll
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\ja\Microsoft.SqlServer.Types.resources.dll
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\ko\Microsoft.SqlServer.Types.resources.dll
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\pt\Microsoft.SqlServer.Types.resources.dll
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\ru\Microsoft.SqlServer.Types.resources.dll
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
-C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.exe
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.pdb
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\Reportes\StockProductos.rdlc
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\Reportes\VentasxFecha.rdlc
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\Reportes\VentasxProductos.rdlc
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\VentasSys.exe.config
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\VentasSys.exe
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\VentasSys.pdb
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\BouncyCastle.Crypto.dll
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\Google.Protobuf.dll
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\MySql.Data.dll
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\vsbllib.dll
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\vsellib.dll
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\vsutlib.dll
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\vsdalib.dll
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\log4net.dll
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\vsbllib.pdb
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\vsellib.pdb
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\vsutlib.pdb
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\MySql.Data.xml
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\vsdalib.pdb
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\log4net.xml
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.csprojAssemblyReference.cache
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.exe.config
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAnularVenta.resources
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmBuscarCliente.resources
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmBuscarProducto.resources
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmConsultaVentaCliente.resources
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmConsultaVentas.resources
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmCreditos.resources
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmDepositoCta.resources
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmDetalleVenta.resources
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmGuiaRemision.resources
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmListadoVentas.resources
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoCategorias.resources
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoCliente.resources
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoProductos.resources
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmPrincipal.resources
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmLogin.resources
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAgregarProducto.resources
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmPagoProveedores.resources
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAlquiler.resources
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmProgDistribucion.resources
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmProgMantenimiento.resources
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmReporteStockProducto.resources
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmReporteVentasxProducto.resources
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmUsuarios.resources
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.Properties.Resources.resources
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.Sistema.Base_de_Datos.frmConfiguracion.resources
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.csproj.GenerateResource.cache
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.csproj.CoreCompileInputs.cache
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.csproj.CopyComplete
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.exe
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.pdb
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\BouncyCastle.Crypto.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\Google.Protobuf.dll
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\bin\x86\Debug\Google.Protobuf.xml
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.csproj.VentasSys.exe.config
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmCotizacion.resources
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAlquiler.resources
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmProgDistribucion.resources
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmProgMantenimiento.resources
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmCotizacion.resources
+C:\Users\Carlos\documents\visual studio 2015\Projects\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAgregarCliente.resources
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAgregarCliente.resources
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\bin\x86\Debug\Reportes\StockProductos.rdlc
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\bin\x86\Debug\Reportes\VentasxFecha.rdlc
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\bin\x86\Debug\Reportes\VentasxProductos.rdlc
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\bin\x86\Debug\VentasSys.exe.config
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\bin\x86\Debug\VentasSys.exe
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\bin\x86\Debug\VentasSys.pdb
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\bin\x86\Debug\BouncyCastle.Crypto.dll
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\bin\x86\Debug\Google.Protobuf.dll
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\bin\x86\Debug\MySql.Data.dll
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\bin\x86\Debug\vsbllib.dll
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\bin\x86\Debug\vsellib.dll
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\bin\x86\Debug\vsutlib.dll
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\bin\x86\Debug\vsdalib.dll
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\bin\x86\Debug\log4net.dll
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\bin\x86\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\bin\x86\Debug\vsbllib.pdb
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\bin\x86\Debug\vsellib.pdb
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\bin\x86\Debug\vsutlib.pdb
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\bin\x86\Debug\Google.Protobuf.xml
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\bin\x86\Debug\MySql.Data.xml
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\bin\x86\Debug\vsdalib.pdb
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\bin\x86\Debug\log4net.xml
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\bin\x86\Debug\de\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\bin\x86\Debug\es\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\bin\x86\Debug\fr\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\bin\x86\Debug\it\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\bin\x86\Debug\ja\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\bin\x86\Debug\ko\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\bin\x86\Debug\pt\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\bin\x86\Debug\ru\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\bin\x86\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\bin\x86\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\obj\x86\Debug\VentasSys.csprojResolveAssemblyReference.cache
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\obj\x86\Debug\VentasSys.csproj.VentasSys.exe.config
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAgregarCliente.resources
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAnularVenta.resources
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmBuscarCliente.resources
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmBuscarProducto.resources
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmConsultaVentaCliente.resources
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmConsultaVentas.resources
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmCotizacion.resources
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmCreditos.resources
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmDepositoCta.resources
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmDetalleVenta.resources
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmGuiaRemision.resources
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmListadoVentas.resources
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoCategorias.resources
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoCliente.resources
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoProductos.resources
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmPrincipal.resources
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmLogin.resources
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAgregarProducto.resources
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmPagoProveedores.resources
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAlquiler.resources
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmProgDistribucion.resources
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmProgMantenimiento.resources
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmReporteStockProducto.resources
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmReporteVentasxProducto.resources
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmUsuarios.resources
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\obj\x86\Debug\VentasSys.Properties.Resources.resources
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\obj\x86\Debug\VentasSys.Sistema.Base_de_Datos.frmConfiguracion.resources
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\obj\x86\Debug\VentasSys.csproj.GenerateResource.Cache
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\obj\x86\Debug\VentasSys.exe
+C:\Users\Home\Desktop\bk\VentasSys\VentasSys\obj\x86\Debug\VentasSys.pdb
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\bin\x86\Debug\VentasSys.exe.config
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.exe
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.pdb
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\bin\x86\Debug\Reportes\StockProductos.rdlc
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\bin\x86\Debug\Reportes\VentasxFecha.rdlc
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\bin\x86\Debug\Reportes\VentasxProductos.rdlc
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\bin\x86\Debug\VentasSys.exe
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\bin\x86\Debug\VentasSys.pdb
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\bin\x86\Debug\BouncyCastle.Crypto.dll
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\bin\x86\Debug\Google.Protobuf.dll
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\bin\x86\Debug\MySql.Data.dll
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\bin\x86\Debug\vsbllib.dll
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\bin\x86\Debug\vsellib.dll
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\bin\x86\Debug\vsutlib.dll
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\bin\x86\Debug\vsdalib.dll
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\bin\x86\Debug\log4net.dll
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\bin\x86\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\bin\x86\Debug\vsbllib.pdb
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\bin\x86\Debug\vsellib.pdb
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\bin\x86\Debug\vsutlib.pdb
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\bin\x86\Debug\Google.Protobuf.xml
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\bin\x86\Debug\MySql.Data.xml
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\bin\x86\Debug\vsdalib.pdb
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\bin\x86\Debug\log4net.xml
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\bin\x86\Debug\de\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\bin\x86\Debug\es\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\bin\x86\Debug\fr\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\bin\x86\Debug\it\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\bin\x86\Debug\ja\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\bin\x86\Debug\ko\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\bin\x86\Debug\pt\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\bin\x86\Debug\ru\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\bin\x86\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\bin\x86\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.csprojResolveAssemblyReference.cache
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.csproj.VentasSys.exe.config
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.frmAgregarCliente.resources
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.frmAnularVenta.resources
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.frmBuscarCliente.resources
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.frmBuscarProducto.resources
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.frmConsultarCotizacion.resources
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.frmConsultaVentaCliente.resources
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.frmConsultaVentas.resources
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.frmCotizacion.resources
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.frmCreditos.resources
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.frmDepositoCta.resources
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.frmDetalleVenta.resources
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.frmGuiaRemision.resources
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.frmListadoVentas.resources
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoCategorias.resources
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoCliente.resources
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoProductos.resources
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.frmPrincipal.resources
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.frmLogin.resources
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.frmAgregarProducto.resources
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.frmPagoProveedores.resources
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.frmAlquiler.resources
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.frmProgDistribucion.resources
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.frmProgMantenimiento.resources
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.frmReporteStockProducto.resources
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.frmReporteVentasxProducto.resources
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.frmUsuarios.resources
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.Properties.Resources.resources
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.Sistema.Base_de_Datos.frmConfiguracion.resources
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.csproj.GenerateResource.Cache
+C:\Users\Home\Desktop\bk\VentasSys - copia\VentasSys\obj\x86\Debug\VentasSys.frmIngresoAlmacen.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\bin\x86\Debug\VentasSys.exe.config
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.exe
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.pdb
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\bin\x86\Debug\Reportes\StockProductos.rdlc
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\bin\x86\Debug\Reportes\VentasxFecha.rdlc
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\bin\x86\Debug\Reportes\VentasxProductos.rdlc
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\bin\x86\Debug\VentasSys.exe
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\bin\x86\Debug\VentasSys.pdb
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\bin\x86\Debug\BouncyCastle.Crypto.dll
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\bin\x86\Debug\Google.Protobuf.dll
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\bin\x86\Debug\MySql.Data.dll
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\bin\x86\Debug\vsbllib.dll
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\bin\x86\Debug\vsellib.dll
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\bin\x86\Debug\vsutlib.dll
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\bin\x86\Debug\vsdalib.dll
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\bin\x86\Debug\log4net.dll
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\bin\x86\Debug\vsbllib.pdb
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\bin\x86\Debug\vsellib.pdb
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\bin\x86\Debug\vsutlib.pdb
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\bin\x86\Debug\Google.Protobuf.xml
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\bin\x86\Debug\MySql.Data.xml
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\bin\x86\Debug\vsdalib.pdb
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\bin\x86\Debug\log4net.xml
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.csprojResolveAssemblyReference.cache
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.frmAgregarCliente.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.frmAnularVenta.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.frmBuscarCliente.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.frmBuscarProducto.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.frmConsultarCotizacion.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.frmConsultaVentaCliente.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.frmConsultaVentas.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.frmCotizacion.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.frmCreditos.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.frmDepositoCta.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.frmDetalleVenta.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.frmGuiaRemision.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.frmIngresoAlmacen.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.frmListadoVentas.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoCategorias.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoCliente.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoProductos.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.frmPrincipal.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.frmLogin.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.frmAgregarProducto.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.frmPagoProveedores.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.frmAlquiler.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.frmProgDistribucion.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.frmProgMantenimiento.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.frmReporteStockProducto.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.frmReporteVentasxProducto.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.frmUsuarios.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.Properties.Resources.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.Sistema.Base_de_Datos.frmConfiguracion.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\VentasSys.csproj.GenerateResource.Cache
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\RdlCompile.cache
+C:\Users\mhuingo\Desktop\sistema\VentasSys - 2406\VentasSys\obj\x86\Debug\RdlCompile.compiled
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\bin\x86\Debug\VentasSys.exe.config
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.exe
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.pdb
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\bin\x86\Debug\Reportes\StockProductos.rdlc
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\bin\x86\Debug\Reportes\VentasxFecha.rdlc
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\bin\x86\Debug\Reportes\VentasxProductos.rdlc
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\bin\x86\Debug\VentasSys.exe
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\bin\x86\Debug\VentasSys.pdb
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\bin\x86\Debug\BouncyCastle.Crypto.dll
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\bin\x86\Debug\MySql.Data.dll
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\bin\x86\Debug\vsbllib.dll
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\bin\x86\Debug\vsellib.dll
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\bin\x86\Debug\vsutlib.dll
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\bin\x86\Debug\vsdalib.dll
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\bin\x86\Debug\log4net.dll
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\bin\x86\Debug\vsbllib.pdb
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\bin\x86\Debug\vsellib.pdb
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\bin\x86\Debug\vsutlib.pdb
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\bin\x86\Debug\MySql.Data.xml
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\bin\x86\Debug\vsdalib.pdb
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\bin\x86\Debug\log4net.xml
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.csprojResolveAssemblyReference.cache
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAgregarCliente.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAnularVenta.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmBuscarCliente.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmBuscarProducto.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmConsultarCotizacion.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmConsultaVentaCliente.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmConsultaVentas.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmCotizacion.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmCreditos.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmDepositoCta.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmDetalleVenta.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmGuiaRemision.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmIngresoAlmacen.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmListadoVentas.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoCategorias.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoCliente.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoProductos.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmPrincipal.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmLogin.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAgregarProducto.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmPagoProveedores.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAlquiler.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmProgDistribucion.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmProgMantenimiento.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmReporteStockProducto.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmReporteVentasxProducto.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmUsuarios.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.Properties.Resources.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.Sistema.Base_de_Datos.frmConfiguracion.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.csproj.GenerateResource.Cache
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\RdlCompile.cache
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\RdlCompile.compiled
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAlerta.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoProveedor.resources
+C:\Users\Home\Desktop\VentasSys\VentasSys\bin\x86\Debug\VentasSys.exe.config
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.exe
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.pdb
+C:\Users\Home\Desktop\VentasSys\VentasSys\bin\x86\Debug\Reportes\StockProductos.rdlc
+C:\Users\Home\Desktop\VentasSys\VentasSys\bin\x86\Debug\Reportes\VentasxFecha.rdlc
+C:\Users\Home\Desktop\VentasSys\VentasSys\bin\x86\Debug\Reportes\VentasxProductos.rdlc
+C:\Users\Home\Desktop\VentasSys\VentasSys\bin\x86\Debug\VentasSys.exe
+C:\Users\Home\Desktop\VentasSys\VentasSys\bin\x86\Debug\VentasSys.pdb
+C:\Users\Home\Desktop\VentasSys\VentasSys\bin\x86\Debug\BouncyCastle.Crypto.dll
+C:\Users\Home\Desktop\VentasSys\VentasSys\bin\x86\Debug\Google.Protobuf.dll
+C:\Users\Home\Desktop\VentasSys\VentasSys\bin\x86\Debug\MySql.Data.dll
+C:\Users\Home\Desktop\VentasSys\VentasSys\bin\x86\Debug\vsbllib.dll
+C:\Users\Home\Desktop\VentasSys\VentasSys\bin\x86\Debug\vsellib.dll
+C:\Users\Home\Desktop\VentasSys\VentasSys\bin\x86\Debug\vsutlib.dll
+C:\Users\Home\Desktop\VentasSys\VentasSys\bin\x86\Debug\vsdalib.dll
+C:\Users\Home\Desktop\VentasSys\VentasSys\bin\x86\Debug\log4net.dll
+C:\Users\Home\Desktop\VentasSys\VentasSys\bin\x86\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\Home\Desktop\VentasSys\VentasSys\bin\x86\Debug\vsbllib.pdb
+C:\Users\Home\Desktop\VentasSys\VentasSys\bin\x86\Debug\vsellib.pdb
+C:\Users\Home\Desktop\VentasSys\VentasSys\bin\x86\Debug\vsutlib.pdb
+C:\Users\Home\Desktop\VentasSys\VentasSys\bin\x86\Debug\Google.Protobuf.xml
+C:\Users\Home\Desktop\VentasSys\VentasSys\bin\x86\Debug\MySql.Data.xml
+C:\Users\Home\Desktop\VentasSys\VentasSys\bin\x86\Debug\vsdalib.pdb
+C:\Users\Home\Desktop\VentasSys\VentasSys\bin\x86\Debug\log4net.xml
+C:\Users\Home\Desktop\VentasSys\VentasSys\bin\x86\Debug\de\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Home\Desktop\VentasSys\VentasSys\bin\x86\Debug\es\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Home\Desktop\VentasSys\VentasSys\bin\x86\Debug\fr\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Home\Desktop\VentasSys\VentasSys\bin\x86\Debug\it\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Home\Desktop\VentasSys\VentasSys\bin\x86\Debug\ja\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Home\Desktop\VentasSys\VentasSys\bin\x86\Debug\ko\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Home\Desktop\VentasSys\VentasSys\bin\x86\Debug\pt\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Home\Desktop\VentasSys\VentasSys\bin\x86\Debug\ru\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Home\Desktop\VentasSys\VentasSys\bin\x86\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Home\Desktop\VentasSys\VentasSys\bin\x86\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.csprojResolveAssemblyReference.cache
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.csproj.VentasSys.exe.config
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAgregarCliente.resources
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAlerta.resources
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAnularVenta.resources
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmBuscarCliente.resources
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmBuscarProducto.resources
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmConsultarCotizacion.resources
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmConsultaVentaCliente.resources
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmConsultaVentas.resources
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmCotizacion.resources
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmCreditos.resources
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmDepositoCta.resources
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmDetalleVenta.resources
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmGuiaRemision.resources
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmIngresoAlmacen.resources
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmListadoVentas.resources
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoCategorias.resources
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoCliente.resources
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoProductos.resources
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoProveedor.resources
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmPrincipal.resources
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmLogin.resources
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAgregarProducto.resources
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmPagoProveedores.resources
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAlquiler.resources
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmProgDistribucion.resources
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmProgMantenimiento.resources
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmReporteStockProducto.resources
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmReporteVentasxProducto.resources
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmUsuarios.resources
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.Properties.Resources.resources
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.Sistema.Base_de_Datos.frmConfiguracion.resources
+C:\Users\Home\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.csproj.GenerateResource.Cache
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAlmacenProd.resources
+C:\Users\mhuingo\Desktop\sistema\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmConsultarMantenimiento.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\bin\x86\Debug\VentasSys.exe.config
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.exe
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.pdb
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.csprojResolveAssemblyReference.cache
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.csproj.VentasSys.exe.config
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAgregarCliente.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAlerta.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAlmacenProd.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAnularVenta.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmBuscarCliente.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmBuscarProducto.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmConsultarMantenimiento.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmConsultarCotizacion.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmConsultaVentaCliente.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmConsultaVentas.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmCotizacion.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmCreditos.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmDepositoCta.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmDetalleVenta.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmGuiaRemision.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmIngresoAlmacen.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmListadoVentas.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoCategorias.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoCliente.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoProductos.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoProveedor.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmPrincipal.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmLogin.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAgregarProducto.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmPagoProveedores.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAlquiler.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmProgDistribucion.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmProgMantenimiento.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmReporteStockProducto.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmReporteVentasxProducto.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmUsuarios.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.Properties.Resources.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.Sistema.Base_de_Datos.frmConfiguracion.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\VentasSys.csproj.GenerateResource.Cache
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\RdlCompile.cache
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\obj\x86\Debug\RdlCompile.compiled
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\bin\x86\Debug\Reportes\StockProductos.rdlc
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\bin\x86\Debug\Reportes\VentasxFecha.rdlc
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\bin\x86\Debug\Reportes\VentasxProductos.rdlc
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\bin\x86\Debug\VentasSys.exe
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\bin\x86\Debug\VentasSys.pdb
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\bin\x86\Debug\BouncyCastle.Crypto.dll
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\bin\x86\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\bin\x86\Debug\MySql.Data.dll
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\bin\x86\Debug\vsbllib.dll
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\bin\x86\Debug\vsellib.dll
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\bin\x86\Debug\vsutlib.dll
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\bin\x86\Debug\vsdalib.dll
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\bin\x86\Debug\log4net.dll
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\bin\x86\Debug\PdfSharp.dll
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\bin\x86\Debug\vsbllib.pdb
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\bin\x86\Debug\vsellib.pdb
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\bin\x86\Debug\vsutlib.pdb
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\bin\x86\Debug\MySql.Data.xml
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\bin\x86\Debug\vsdalib.pdb
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\bin\x86\Debug\log4net.xml
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\bin\x86\Debug\PdfSharp.xml
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\bin\x86\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\bin\x86\Debug\de\PdfSharp.resources.dll
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\PdfSharp.dll
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\Microsoft.SqlServer.Types.dll
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\PdfSharp.xml
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\de\PdfSharp.resources.dll
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\de\Microsoft.SqlServer.Types.resources.dll
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\es\Microsoft.SqlServer.Types.resources.dll
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\fr\Microsoft.SqlServer.Types.resources.dll
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\it\Microsoft.SqlServer.Types.resources.dll
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\ja\Microsoft.SqlServer.Types.resources.dll
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\ko\Microsoft.SqlServer.Types.resources.dll
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\pt\Microsoft.SqlServer.Types.resources.dll
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\ru\Microsoft.SqlServer.Types.resources.dll
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\bin\x86\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAlerta.resources
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmAlmacenProd.resources
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmConsultarMantenimiento.resources
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmConsultarCotizacion.resources
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmIngresoAlmacen.resources
+D:\Workstation\dotNet\Peru\VentasSys\VentasSys\obj\x86\Debug\VentasSys.frmMantenimientoProveedor.resources
+C:\Users\Carlos\Desktop\VentasSys\VentasSys\bin\x86\Debug\Google.Protobuf.dll

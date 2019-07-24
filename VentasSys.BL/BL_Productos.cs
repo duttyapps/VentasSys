@@ -7,9 +7,9 @@ namespace VentasSys.BL
 {
     public static class BL_Productos
     {
-        public static List<Ent_Productos> getProductos(string nombre, string cat, string tienda, string estado)
+        public static List<Ent_Productos> getProductos(string nombre, string codigo, string cat, string tienda, string estado, string alquiler)
         {
-            return DAO_Productos.getProductos(nombre, cat, tienda, estado);
+            return DAO_Productos.getProductos(nombre, codigo, cat, tienda, estado, alquiler);
         }
 
         public static Ent_Productos getProducto(string id, string tienda)
@@ -55,6 +55,11 @@ namespace VentasSys.BL
         public static string generarCodigoProducto(string cod_tienda, int id, int cat)
         {
             return id.ToString(cod_tienda + cat.ToString("00") + "00000");
+        }
+
+        public static List<Ent_Productos> get_ProductoAlerta()
+        {
+            return DAO_Productos.get_ProductoAlerta();
         }
     }
 }

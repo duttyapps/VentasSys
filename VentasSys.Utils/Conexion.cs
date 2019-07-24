@@ -9,7 +9,7 @@ namespace VentasSys.Utils
         private static String USER = IniFile.IniReadValue("DATABASE", "USER");
         private static String PASS = IniFile.IniReadValue("DATABASE", "PASS");
         private static String DB = IniFile.IniReadValue("DATABASE", "DB");
-        private static String myConnectionString = "server=" + IP + ";uid=" + USER + ";pwd=" + PASS + ";database=" + DB + ";";
+        private static String myConnectionString = "server=" + IP + ";uid=" + USER + ";pwd=" + PASS + ";database=" + DB + ";CheckParameters=False;";
 
         public static MySqlConnection getConnection()
         {
@@ -22,7 +22,7 @@ namespace VentasSys.Utils
             MySqlConnection conn = null;
             try
             {
-                String _myConnectionString = "server=" + _IP + ";uid=" + _USER + ";pwd=" + _PASS + ";database=" + _DB + ";";
+                String _myConnectionString = "server=" + _IP + ";uid=" + _USER + ";pwd=" + _PASS + ";database=" + _DB + ";CheckParameters=False;";
                 conn = new MySqlConnection(_myConnectionString);
                 conn.Open();
                 return "0";
