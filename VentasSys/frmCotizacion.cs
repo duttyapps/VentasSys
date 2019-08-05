@@ -302,6 +302,8 @@ namespace VentasSys
             venta.usuario = usuario;
             venta.tipo_cotizacion = cboTipo.SelectedValue.ToString();
             venta.dias_alquiler = int.Parse(txtDias.Text);
+            venta.monto_subtotal = double.Parse(txtSubTotal.Text);
+            venta.monto_igv = double.Parse(txtIGV.Text);
             venta.monto_total = total;
             venta.denominacion = txtDenominación.Text;
 
@@ -360,8 +362,9 @@ namespace VentasSys
 
                 if (result == "1")
                 {
-                    MessageBox.Show("Venta Realizada con Éxito!.", "Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                    MessageBox.Show("Cotización Realizada con Éxito!.", "Cotización", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    InvoicePDF pdf = new InvoicePDF();
+                    pdf.createCotizacion(ent_configuracion, venta);
                     reiniciarVenta();
                 }
                 else
@@ -371,7 +374,7 @@ namespace VentasSys
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error en el proceso de compra.\n\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error en el proceso de cotización.\n\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -425,7 +428,7 @@ namespace VentasSys
 
         private void cboTipo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cboTipo.SelectedValue.ToString() == "C")
+            if (cboTipo.SelectedValue.ToString() == "CO")
             {
                 alquiler = "0";
                 lbldias.Visible = false;
