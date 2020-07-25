@@ -55,6 +55,7 @@ namespace VentasSys.DAL
                 venta.cliente_doc = Convert.ToString(dr["CLIENTE_DOC"]);
                 venta.cliente = Convert.ToString(dr["CLIENTE_DES"]);
                 venta.usuario = Convert.ToString(dr["USUARIO"]);
+                venta.moneda = Convert.ToString(dr["MONEDA"]);
 
                 lstVenta.Add(venta);
             }
@@ -264,6 +265,9 @@ namespace VentasSys.DAL
                 cmd.Parameters.AddWithValue("@PSTR_MONTO_VUELTO", cabecera.monto_vuelto);
                 cmd.Parameters["@PSTR_MONTO_VUELTO"].Direction = ParameterDirection.Input;
 
+                cmd.Parameters.AddWithValue("@PSTR_MONTO_DESCUENTO", cabecera.monto_descuento);
+                cmd.Parameters["@PSTR_MONTO_DESCUENTO"].Direction = ParameterDirection.Input;
+
                 cmd.Parameters.AddWithValue("@PSTR_CLIENTE", cabecera.cliente_doc);
                 cmd.Parameters["@PSTR_CLIENTE"].Direction = ParameterDirection.Input;
 
@@ -275,6 +279,9 @@ namespace VentasSys.DAL
 
                 cmd.Parameters.AddWithValue("@PSTR_ALQUILER_ENTREGA", cabecera.fecha_fin);
                 cmd.Parameters["@PSTR_ALQUILER_ENTREGA"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_MONEDA", cabecera.moneda);
+                cmd.Parameters["@PSTR_MONEDA"].Direction = ParameterDirection.Input;
 
                 cmd.ExecuteNonQuery();
 
@@ -763,6 +770,9 @@ namespace VentasSys.DAL
                 venta.cliente_doc = Convert.ToString(dr["CLIENTE_DOC"]);
                 venta.cliente = Convert.ToString(dr["CLIENTE_DES"]);
                 venta.anulado = Convert.ToString(dr["ANULADO"]);
+                venta.direccion = Convert.ToString(dr["DIRECCION"]);
+                venta.monto_descuento = Convert.ToInt32(dr["DESCUENTO"]);
+                venta.moneda = Convert.ToString(dr["MONEDA"]);
 
                 lstVenta.Add(venta);
             }
@@ -824,6 +834,7 @@ namespace VentasSys.DAL
                 venta.fecha_anul = Convert.ToString(dr["FECHA_ANUL"]);
                 venta.motivo_anul = Convert.ToString(dr["MOTIVO_ANUL"]);
                 venta.nro_guia = Convert.ToString(dr["NUMERO_GUIA"]);
+                venta.moneda = Convert.ToString(dr["MONEDA"]);
 
                 lstVenta.Add(venta);
             }
@@ -976,12 +987,37 @@ namespace VentasSys.DAL
             return retval;
         }
 
-        public static string procesarCotizacion(Ent_Venta cabecera)
+        public static string getCorrelativoCotizacion()
+        {
+            con = Conexion.getConnection();
+            MySqlCommand cmd = new MySqlCommand();
+
+            con.Open();
+
+            cmd.Connection = con;
+            cmd.CommandText = "SP_SYS_GET_CORRELATIVO_COTIZACION";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@RETVAL", MySqlDbType.VarChar);
+            cmd.Parameters["@RETVAL"].Direction = ParameterDirection.Output;
+
+            cmd.ExecuteNonQuery();
+
+            string retval = cmd.Parameters["@RETVAL"].Value.ToString();
+
+            con.Close();
+
+            return retval;
+        }
+
+        public static string procesarCotizacion(Ent_Venta cabecera, out String id_cab)
         {
             MySqlTransaction tr = null;
             con = Conexion.getConnection();
 
             string retval = "1";
+
+            id_cab = "";
 
             try
             {
@@ -1027,10 +1063,13 @@ namespace VentasSys.DAL
                 cmd.Parameters.AddWithValue("@PSTR_DENOMINACION", cabecera.dias_alquiler);
                 cmd.Parameters["@PSTR_DENOMINACION"].Direction = ParameterDirection.Input;
 
+                cmd.Parameters.AddWithValue("@PSTR_MONEDA", cabecera.moneda);
+                cmd.Parameters["@PSTR_MONEDA"].Direction = ParameterDirection.Input;
+
                 cmd.ExecuteNonQuery();
 
                 retval = cmd.Parameters["@RETVAL"].Value.ToString();
-                string id_cab = cmd.Parameters["@RETID"].Value.ToString();
+                id_cab = cmd.Parameters["@RETID"].Value.ToString();
 
                 if (retval == "1")
                 {
@@ -1143,6 +1182,8 @@ namespace VentasSys.DAL
                 venta.cliente_doc = Convert.ToString(dr["CLIENTE_DOC"]);
                 venta.cliente = Convert.ToString(dr["CLIENTE_DES"]);
                 venta.usuario = Convert.ToString(dr["USUARIO"]);
+                venta.dias_alquiler = Convert.ToInt32(dr["DIAS_ALQUILER"]);
+                venta.moneda = Convert.ToString(dr["MONEDA"]);
 
                 lista.Add(venta);
             }
@@ -1337,7 +1378,67 @@ namespace VentasSys.DAL
             con.Close();
 
             return lista;        
-        } 
+        }
+
+        public static string delCotizacion(String id)
+        {
+            MySqlTransaction tr = null;
+            con = Conexion.getConnection();
+
+            string retval = "1";
+
+            try
+            {
+                con.Open();
+
+                tr = con.BeginTransaction();
+
+                MySqlCommand cmd = new MySqlCommand();
+
+                cmd.Connection = con;
+                cmd.Transaction = tr;
+
+                cmd.CommandText = "sp_sys_del_cotizacion";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@RETVAL", MySqlDbType.VarChar);
+                cmd.Parameters["@RETVAL"].Direction = ParameterDirection.Output;
+
+                cmd.Parameters.AddWithValue("@PSTR_ID", id);
+                cmd.Parameters["@PSTR_ID"].Direction = ParameterDirection.Input;
+
+                cmd.ExecuteNonQuery();
+
+                retval = cmd.Parameters["@RETVAL"].Value.ToString();
+
+                if (retval != "1")
+                {
+                    tr.Rollback();
+                    return retval;
+                }
+
+                tr.Commit();
+            }
+            catch (MySqlException ex)
+            {
+                try
+                {
+                    tr.Rollback();
+                }
+                catch (MySqlException ex1)
+                {
+                    return ex1.ToString();
+                }
+
+                return ex.ToString();
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return retval;
+        }
 
     }
 }

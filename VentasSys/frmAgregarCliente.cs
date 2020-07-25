@@ -67,7 +67,7 @@ namespace VentasSys
                 return;
             }
 
-            if (txtApellidos.Text.Equals(String.Empty))
+            if (txtApellidos.Text.Equals(String.Empty) && cboTipo.SelectedValue.ToString().Equals("N"))
             {
                 MessageBox.Show("El apellido no puede estar vacío.", "Agregar cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtApellidos.Focus();
@@ -92,12 +92,15 @@ namespace VentasSys
             if (confirm == DialogResult.Yes)
             {
                 Ent_Clientes cliente = new Ent_Clientes();
+                cliente.dni = txtDNIDet.Text;
                 cliente.nombres = txtNombreDet.Text;
                 cliente.apellidos = txtApellidos.Text;
                 cliente.direccion = txtDireccion.Text;
                 cliente.telefono = txtTelefono.Text;
                 cliente.email = txtEmail.Text;
                 cliente.tipo = cboTipo.SelectedValue.ToString();
+                cliente.medio = cboMedio.SelectedValue.ToString();
+                cliente.otro_medio = txtRecomendado.Text;
 
                 try
                 {
@@ -125,7 +128,7 @@ namespace VentasSys
             {
                 txtApellidos.ReadOnly = false;
             }
-            else
+            else if (cboTipo.SelectedValue.ToString().Equals("E"))
             {
                 txtApellidos.Text = String.Empty;
                 txtApellidos.ReadOnly = true;
@@ -134,12 +137,13 @@ namespace VentasSys
 
         private void cboMedio_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cboMedio.SelectedValue.ToString().Equals("5"))
+            if (cboMedio.SelectedValue.ToString().Equals("5"))
             {
                 txtRecomendado.Visible = true;
                 txtRecomendado.Text = String.Empty;
                 txtRecomendado.Enabled = true;
-            } else
+            }
+            else
             {
                 txtRecomendado.Visible = false;
                 txtRecomendado.Text = String.Empty;

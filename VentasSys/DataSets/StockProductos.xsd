@@ -2,8 +2,11 @@
 <xs:schema id="StockProductos" targetNamespace="http://tempuri.org/StockProductos.xsd" xmlns:mstns="http://tempuri.org/StockProductos.xsd" xmlns="http://tempuri.org/StockProductos.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-        <Connections />
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="osmos_ventassysConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="osmos_ventassysConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.VentasSys.Properties.Settings.GlobalReference.Default.osmos_ventassysConnectionString" Provider="MySql.Data.MySqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="osmos_ventassys" IsAppSettingsProperty="true" Modifier="Assembly" Name="osmos_ventassys (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.VentasSys.Properties.Settings.GlobalReference.Default.osmos_ventassys" Provider="MySql.Data.MySqlClient" />
+        </Connections>
         <Tables />
         <Sources />
       </DataSource>
@@ -12,7 +15,7 @@
   <xs:element name="StockProductos" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="StockProductos" msprop:Generator_UserDSName="StockProductos">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="StockProductos" msprop:Generator_TableClassName="StockProductosDataTable" msprop:Generator_TableVarName="tableStockProductos" msprop:Generator_TablePropName="_StockProductos" msprop:Generator_RowDeletingName="StockProductosRowDeleting" msprop:Generator_RowChangingName="StockProductosRowChanging" msprop:Generator_RowEvHandlerName="StockProductosRowChangeEventHandler" msprop:Generator_RowDeletedName="StockProductosRowDeleted" msprop:Generator_UserTableName="StockProductos" msprop:Generator_RowChangedName="StockProductosRowChanged" msprop:Generator_RowEvArgName="StockProductosRowChangeEvent" msprop:Generator_RowClassName="StockProductosRow">
+        <xs:element name="StockProductos" msdata:Locale="es-PE" msprop:Generator_TableClassName="StockProductosDataTable" msprop:Generator_TableVarName="tableStockProductos" msprop:Generator_TablePropName="_StockProductos" msprop:Generator_RowDeletingName="StockProductosRowDeleting" msprop:Generator_RowChangingName="StockProductosRowChanging" msprop:Generator_RowEvHandlerName="StockProductosRowChangeEventHandler" msprop:Generator_RowDeletedName="StockProductosRowDeleted" msprop:Generator_UserTableName="StockProductos" msprop:Generator_RowChangedName="StockProductosRowChanged" msprop:Generator_RowEvArgName="StockProductosRowChangeEvent" msprop:Generator_RowClassName="StockProductosRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CODIGO" msprop:Generator_ColumnVarNameInTable="columnCODIGO" msprop:Generator_ColumnPropNameInRow="CODIGO" msprop:Generator_ColumnPropNameInTable="CODIGOColumn" msprop:Generator_UserColumnName="CODIGO" minOccurs="0">

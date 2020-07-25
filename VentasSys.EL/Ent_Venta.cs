@@ -25,6 +25,7 @@ namespace VentasSys.EL
         public double monto_total { get; set; }
         public double monto_recibido { get; set; }
         public double monto_vuelto { get; set; }
+        public double monto_descuento { get; set; }
         public string cliente_doc { get; set; }
         public string cliente { get; set; }
         public string usuario { get; set; }
@@ -45,6 +46,8 @@ namespace VentasSys.EL
         public string fecha_fin { get; set; }
         public string denominacion { get; set; }
         public List<Ent_Productos> lstProductos { get; set; }
+        public string observacion { get; set; }
+        public string moneda { get; set; }
 
         public Ent_Venta()
         {
@@ -65,6 +68,7 @@ namespace VentasSys.EL
             this.monto_total = 0D;
             this.monto_recibido = 0D;
             this.monto_vuelto = 0D;
+            this.monto_descuento = 0D;
             this.cliente_doc = String.Empty;
             this.cliente = String.Empty;
             this.usuario = String.Empty;
@@ -83,6 +87,8 @@ namespace VentasSys.EL
             this.fecha_fin = String.Empty;
             this.lstProductos = new List<Ent_Productos>();
             denominacion = string.Empty;
+            this.observacion = String.Empty;
+            this.moneda = String.Empty;
         }
     }
 }

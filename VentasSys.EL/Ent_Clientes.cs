@@ -16,6 +16,8 @@ namespace VentasSys.EL
         public string tipo { get; set; }
         public string posible { get; set; }
         public string recomendado { get; set; }
+        public string medio { get; set; }
+        public string otro_medio { get; set; }
 
         public Ent_Clientes()
         {
@@ -31,6 +33,8 @@ namespace VentasSys.EL
             this.tipo = String.Empty;
             this.posible = String.Empty;
             this.recomendado = String.Empty;
+            this.medio = String.Empty;
+            this.otro_medio = String.Empty;
         }
     }
 }

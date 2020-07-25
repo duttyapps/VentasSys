@@ -23,20 +23,25 @@ namespace VentasSys
         private string tipo_venta { get; set; }
         private string usuario { get; set; }
         private string alquiler { get; set; }
+        private string correlativo { get; set; }
+        private string adjunto { get; set; }
 
         public frmCotizacion(String tienda, String user, Ent_Tienda ent_tienda)
         {
             InitializeComponent();
+            fillMonedas();
             _ent_tienda = ent_tienda;
             ent_configuracion = new Ent_Configuracion();
             ent_configuracion = BL_Configuracion.getConfiguracion();
             ent_tienda = BL_Tienda.getTienda(ent_configuracion.TIENDA);
+            correlativo = BL_Mantenimiento.getCorrelativo();
+            lblSerie.Text = "N° 001-" + correlativo.PadLeft(6, '0');
             tipo_venta = "FA";
             cod_tienda = tienda;
             usuario = user;
-            txtFechaEmision.Text = DateTime.Now.ToString("dd/MM/yyyy");
             Image logo = Image.FromFile("logo.png");
             pbLogo.Image = logo;
+            adjunto = "";
 
             Dictionary<string, string> lista_tipo = new Dictionary<string, string>();
             lista_tipo.Add("CO", "COMPRA");
@@ -50,6 +55,17 @@ namespace VentasSys
             txtDias.Text = "1";
         }
 
+        public void fillMonedas()
+        {
+            List<Object> items = new List<Object>();
+            items.Add(new { id = "PEN", desc = "Soles" });
+            items.Add(new { id = "USD", desc = "Dólares" });
+
+            cboMoneda.DataSource = items;
+            cboMoneda.ValueMember = "id";
+            cboMoneda.DisplayMember = "desc";
+        }
+
         private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
             frmBuscarCliente frm = new frmBuscarCliente(String.Empty, "nombre");
@@ -57,7 +73,7 @@ namespace VentasSys
 
             if (frm.ent_cliente != null)
             {
-                txtDesCliente.Text = (frm.ent_cliente.nombres == null) ? "" : frm.ent_cliente.nombres;
+                txtDesCliente.Text = (frm.ent_cliente.nombres == null) ? "" : frm.ent_cliente.nombres + " " + frm.ent_cliente.apellidos;
                 txtDesRuc.Text = (frm.ent_cliente.dni == null) ? "" : frm.ent_cliente.dni;
                 txtEmail.Text = (frm.ent_cliente.email == null) ? "" : frm.ent_cliente.email;
             }
@@ -65,7 +81,7 @@ namespace VentasSys
 
         private void btnBuscarRuc_Click(object sender, EventArgs e)
         {
-            frmBuscarCliente frm = new frmBuscarCliente(String.Empty, "dni", "FA");
+            frmBuscarCliente frm = new frmBuscarCliente(String.Empty, "dni");
             frm.ShowDialog();
 
             if (frm.ent_cliente != null)
@@ -296,7 +312,7 @@ namespace VentasSys
             venta.tipo_venta = tipo_venta;
             venta.cantidad = sumarCantidad();
             venta.cliente_doc = txtDesRuc.Text;
-            venta.emision = txtFechaEmision.Text;
+            venta.emision = DateTime.Now.ToString("dd/MM/yyyy");
             venta.cliente = txtDesCliente.Text;
             venta.email = txtEmail.Text;
             venta.usuario = usuario;
@@ -306,6 +322,8 @@ namespace VentasSys
             venta.monto_igv = double.Parse(txtIGV.Text);
             venta.monto_total = total;
             venta.denominacion = txtDenominación.Text;
+            venta.observacion = txtObservacion.Text;
+            venta.moneda = cboMoneda.SelectedValue.ToString();
 
             bool existe_cliente = BL_Clientes.existeCliente(venta.cliente_doc);
 
@@ -355,10 +373,13 @@ namespace VentasSys
 
             try
             {
-                string result = BL_Ventas.procesarCotizacion(venta);
+                string id_cab = "";
+                string result = BL_Ventas.procesarCotizacion(venta, out id_cab);
+
+                venta.id_cab = Convert.ToInt32(id_cab);
 
                 Email email = new Email();
-                email.Send_Email(venta, _ent_tienda, ent_configuracion, txtObservacion.Text);
+                email.Send_Email(venta, _ent_tienda, ent_configuracion, txtObservacion.Text, adjunto);
 
                 if (result == "1")
                 {
@@ -447,6 +468,17 @@ namespace VentasSys
         private void txtDias_TextChanged(object sender, EventArgs e)
         {
             sumarTotal();
+        }
+
+        private void btnExaminar_Click(object sender, EventArgs e)
+        {
+            ofd.FileName = String.Empty;
+            ofd.ShowDialog();
+            if(ofd.CheckFileExists)
+            {
+                adjunto = ofd.FileName;
+                txtAdjunto.Text = ofd.FileName;
+            }
         }
     }
 }

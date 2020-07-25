@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Net.Mail;
 using VentasSys.EL;
+using Humanizer;
 
 namespace VentasSys.Utils
 {
@@ -15,7 +16,7 @@ namespace VentasSys.Utils
         private Ent_Tienda _ent_tienda { get; set; }
         private Ent_Configuracion _ent_configuracion { get; set; }
         private string obser { get; set; }
-        public string Send_Email(Ent_Venta venta, Ent_Tienda ent_tienda, Ent_Configuracion ent_configuracion, string observacion)
+        public string Send_Email(Ent_Venta venta, Ent_Tienda ent_tienda, Ent_Configuracion ent_configuracion, string observacion, string adjunto)
         {
             string send ="1";
             try
@@ -26,8 +27,13 @@ namespace VentasSys.Utils
                 MailMessage mail = new MailMessage();
                 SmtpClient SmtpServer = new SmtpClient("gator4068.hostgator.com");
 
-                mail.From = new MailAddress("info@osmosisperu.com");
-                //mail.To.Add("ohuingo.18@gmail.com");
+                mail.From = new MailAddress("info@osmosisperu.com", "Osmosis Perú");
+                if (!adjunto.Equals(String.Empty))
+                {
+                    Attachment attachment = new Attachment(adjunto);
+                    mail.Attachments.Add(attachment);
+                }
+                //mail.To.Add("carlosarcesh@gmail.com");
                 mail.To.Add(venta.email);
                 mail.Subject = "Cotización";
                 mail.IsBodyHtml = true;
@@ -63,10 +69,10 @@ namespace VentasSys.Utils
                 html += "<table style='width:100%'>";
                 html += "<tr><td colspan='4' align=center><img src='cid:" + res.ContentId + @"'/></td></tr>";
                 html += "<tr><td colspan='4' style='font-weight: bold;font-size: 20px; height:60px; line-height:60px; text-align:center'>OFERTA</td></tr>";
-                html += "<tr><td>N° Oferta : </td><td><span>" + venta.emision + "</span></td></tr>";
-                html += "<tr><td>Denominación: </td><td colspan='3'><span>" + venta.denominacion + "</span></td></tr>";
+                html += "<tr><td></td><td>N° Oferta : </td><td><span>" + venta.id_cab.ToString().PadLeft(6, '0') + "</span></td></tr>";
+                html += "<tr><td>Observaciones: </td><td colspan='3'><span>" + venta.denominacion + "</span></td></tr>";
                 html += "<tr><td>Cliente :</td><td><span>" + venta.cliente + "</span></td><td>DNI/RUC :</td><td><span>" + venta.cliente_doc + "</span></td></tr>";
-                html += "<tr><td>Obra :</td><td><span>LIMA</span></td><td>Fecha Emision</td><td><span>" + venta.emision + "</span></td></tr>";
+                html += "<tr><td>Ubicación :</td><td><span>LIMA</span></td><td>Fecha Emision</td><td><span>" + venta.emision + "</span></td></tr>";
                 html += venta.tipo_cotizacion == "AL" ? "<tr><td>Dia(s) de Alquiler:</td><td><span>" + venta.dias_alquiler + " dia(s)</span></td></tr>" : "";
                 html += "</table>";
                 html += "<p style='font-weight: bold;font-size: 14px; padding-left:20px;'> Detalle de Producto(s):</p>";
@@ -79,6 +85,15 @@ namespace VentasSys.Utils
                 html += "<tr style='font-weight: normal;font-size: 10px;'><th></th><th></th><th style='border: 1px solid #ddd;' colspan='2'>IGV - 18%</th><th style='border: 1px solid #ddd;'>" + (venta.monto_total * 0.18).ToString("#0.00") + "</th></tr>";
                 html += "<tr style='font-weight: normal;font-size: 10px;'><th></th><th></th><th style='border: 1px solid #ddd;' colspan='2'>Monto Total</th><th style='border: 1px solid #ddd;'>" + venta.monto_total.ToString("#0.00") + "</th></tr>";
                 html += "</table>";
+
+                String intPart = venta.monto_total.ToString().Split('.')[0];
+
+                String totalString = Convert.ToInt32(intPart).ToWords().ToUpper();
+                var decimalPart = (int)(((decimal)venta.monto_total % 1) * 100);
+                String textoTotal = "Son " + totalString + " Y " + decimalPart.ToString().PadLeft(2, '0') + "/100 " + ((venta.moneda == "PEN") ? "Soles" : "Dólares Americanos");
+
+                html += "<p style='font-weight: bold;font-size: 11px; padding-left:20px;'>" + textoTotal + "</p>";
+
                 html += "<span style='font-weight: bold;font-size: 11px; padding-left:20px;'>" + obser + "</span><br/>";
                 html += "<span style='color:red; font-weight: bold;font-size: 11px; padding-left:20px;'>SOLO POR PAGO POR TRANSFERENCIA BANCARIA</span><br/>";
                 html += "<span style='color:red; font-weight: bold;font-size: 11px; padding-left:20px;'>RECOGER CON VOUCHER DE DEPOSITO</span><br/>";
@@ -87,6 +102,9 @@ namespace VentasSys.Utils
                 html += "<span style='font-weight: bold;font-size: 11px; padding-left:20px;'>CUENTA BBVA</span><br/>";
                 html += "<span style='font-weight: bold;font-size: 11px; padding-left:20px;'>SOLES: 0011-0117-0100097865 INTERBANCARIO SOLES 011-117-000100097865</span><br/>";
                 html += "<span style='font-weight: bold;font-size: 11px; padding-left:20px;'>DOLARES: 0011-0117-01-00095641 INTERBANCARIO DOLARES 011-117-000100095641-95</span><br/>";
+
+                html += "<p style='color: red'>NOTA IMPORTANTE DE INSTALACIÓN: OSMOSISPERU NO SE HACE RESPONSABLE POR DESPERFECTOS PRODUCIDO POR ACCIONES AJENAS A NUESTRA INSTALACIÓN COMO POR EJEMPLO, TUBERIAS ANTIGUAS, TUBOS DE ABASTO VIEJOS, O DESPERFECTOS EN SUS DESAGÜES, ASI TAMBIÉN  NO NOS HACEMOS RESPONSABLES POR ALGUNA MODIFICACIÓN QUE SE HAYA REALIZADO AL MOMENTO DE INSTALARLO.</p>";
+                html += "<p style='color: red'>SI NO ESTUVIERA CONFORME CON EL EQUIPO TIENE DENTRO DE LOS 07 DÍAS NATURALES PARA REALIZAR LA DEVOLUCIÓN DEL EQUIPO DEBIDAMENTE EMBALADO Y CON SU RESPECTIVA CAJA PREVIA REVISIÓN DEL MISMO. SI TODO ESTA CONFORME PASAREMOS A REALIZAR LA DEVOLUCIÓN DEL COSTO DEL EQUIPO, MAS NO DE LA INSTALACIÓN NI DE LOS FILTROS, PUES YA ESTAN USADOS Y SE TIENEN QUE DESHECHAR, SE CONSIDERA COMO PÉRDIDA. EL COSTO DE LOS FILTROS.</p>";
 
 
                 html += "</body>";

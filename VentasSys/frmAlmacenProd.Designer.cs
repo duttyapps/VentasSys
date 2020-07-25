@@ -28,10 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtCodigoS = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txtProducto = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.dgvProducto = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CODIGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,42 +37,10 @@
             this.FECHA_EMISION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CANTIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TIPO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txtCodigoS
-            // 
-            this.txtCodigoS.Location = new System.Drawing.Point(92, 22);
-            this.txtCodigoS.Name = "txtCodigoS";
-            this.txtCodigoS.Size = new System.Drawing.Size(183, 20);
-            this.txtCodigoS.TabIndex = 48;
-            this.txtCodigoS.TextChanged += new System.EventHandler(this.txtCodigoS_TextChanged);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(33, 25);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(43, 13);
-            this.label19.TabIndex = 47;
-            this.label19.Text = "Codigo:";
-            // 
-            // txtProducto
-            // 
-            this.txtProducto.Location = new System.Drawing.Point(92, 48);
-            this.txtProducto.Name = "txtProducto";
-            this.txtProducto.Size = new System.Drawing.Size(468, 20);
-            this.txtProducto.TabIndex = 46;
-            this.txtProducto.TextChanged += new System.EventHandler(this.txtProducto_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 51);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 13);
-            this.label1.TabIndex = 49;
-            this.label1.Text = "Producto:";
             // 
             // dgvProducto
             // 
@@ -91,10 +55,10 @@
             this.FECHA_EMISION,
             this.CANTIDAD,
             this.TIPO});
-            this.dgvProducto.Location = new System.Drawing.Point(12, 97);
+            this.dgvProducto.Location = new System.Drawing.Point(12, 12);
             this.dgvProducto.Name = "dgvProducto";
             this.dgvProducto.RowHeadersVisible = false;
-            this.dgvProducto.Size = new System.Drawing.Size(769, 330);
+            this.dgvProducto.Size = new System.Drawing.Size(754, 330);
             this.dgvProducto.TabIndex = 50;
             // 
             // ID
@@ -107,61 +71,81 @@
             // CODIGO
             // 
             this.CODIGO.DataPropertyName = "codigo";
-            this.CODIGO.HeaderText = "CODIGO";
+            this.CODIGO.HeaderText = "Código";
             this.CODIGO.Name = "CODIGO";
             // 
             // PRODUCTO
             // 
             this.PRODUCTO.DataPropertyName = "producto";
-            this.PRODUCTO.HeaderText = "PRODUCTO";
+            this.PRODUCTO.HeaderText = "Producto";
             this.PRODUCTO.Name = "PRODUCTO";
             this.PRODUCTO.Width = 170;
             // 
             // FECHA_REG
             // 
             this.FECHA_REG.DataPropertyName = "fecha_registro";
-            this.FECHA_REG.HeaderText = "FECHA_REG";
+            this.FECHA_REG.HeaderText = "Fecha Registro";
             this.FECHA_REG.Name = "FECHA_REG";
             // 
             // TIENDA
             // 
             this.TIENDA.DataPropertyName = "tienda";
-            this.TIENDA.HeaderText = "TIENDA";
+            this.TIENDA.HeaderText = "Tienda";
             this.TIENDA.Name = "TIENDA";
             // 
             // FECHA_EMISION
             // 
             this.FECHA_EMISION.DataPropertyName = "fecha_salida";
-            this.FECHA_EMISION.HeaderText = "FECHA_EMISION";
+            this.FECHA_EMISION.HeaderText = "Fecha Emisión";
             this.FECHA_EMISION.Name = "FECHA_EMISION";
             // 
             // CANTIDAD
             // 
             this.CANTIDAD.DataPropertyName = "cantidad";
-            this.CANTIDAD.HeaderText = "CANTIDAD";
+            this.CANTIDAD.HeaderText = "Cantidad";
             this.CANTIDAD.Name = "CANTIDAD";
             this.CANTIDAD.Width = 80;
             // 
             // TIPO
             // 
             this.TIPO.DataPropertyName = "tipo";
-            this.TIPO.HeaderText = "TIPO";
+            this.TIPO.HeaderText = "Tipo";
             this.TIPO.Name = "TIPO";
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Location = new System.Drawing.Point(723, 348);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
+            this.txtTotal.Size = new System.Drawing.Size(43, 20);
+            this.txtTotal.TabIndex = 52;
+            this.txtTotal.Text = "0";
+            this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(639, 351);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(78, 13);
+            this.label6.TabIndex = 51;
+            this.label6.Text = "Total Registros";
             // 
             // frmAlmacenProd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(793, 451);
+            this.ClientSize = new System.Drawing.Size(779, 375);
+            this.Controls.Add(this.txtTotal);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.dgvProducto);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtCodigoS);
-            this.Controls.Add(this.label19);
-            this.Controls.Add(this.txtProducto);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAlmacenProd";
             this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmAlmacenProd";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Almacen";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -169,11 +153,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtCodigoS;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox txtProducto;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CODIGO;
@@ -183,5 +162,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FECHA_EMISION;
         private System.Windows.Forms.DataGridViewTextBoxColumn CANTIDAD;
         private System.Windows.Forms.DataGridViewTextBoxColumn TIPO;
+        private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.Label label6;
     }
 }

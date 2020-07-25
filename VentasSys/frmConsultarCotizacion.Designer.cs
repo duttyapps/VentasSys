@@ -58,6 +58,8 @@
             this.txtDNI = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvDocumentos = new System.Windows.Forms.DataGridView();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.NUMERO_DOC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID_CAB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TIPO_VENTA = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,6 +68,8 @@
             this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NOMBRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MONTO_TOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DIAS_ALQUILER = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MONEDA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbDetalle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocumentos)).BeginInit();
@@ -210,15 +214,15 @@
             // 
             // btnConfirmar
             // 
-            this.btnConfirmar.BackColor = System.Drawing.Color.Red;
+            this.btnConfirmar.BackColor = System.Drawing.Color.Green;
             this.btnConfirmar.Enabled = false;
             this.btnConfirmar.FlatAppearance.BorderSize = 0;
             this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirmar.ForeColor = System.Drawing.Color.White;
-            this.btnConfirmar.Location = new System.Drawing.Point(643, 236);
+            this.btnConfirmar.Location = new System.Drawing.Point(570, 236);
             this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(164, 40);
+            this.btnConfirmar.Size = new System.Drawing.Size(93, 40);
             this.btnConfirmar.TabIndex = 50;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = false;
@@ -318,6 +322,7 @@
             this.cboTipo.Name = "cboTipo";
             this.cboTipo.Size = new System.Drawing.Size(130, 21);
             this.cboTipo.TabIndex = 47;
+            this.cboTipo.SelectedIndexChanged += new System.EventHandler(this.cboTipo_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -370,7 +375,9 @@
             this.USUARIO,
             this.DNI,
             this.NOMBRE,
-            this.MONTO_TOTAL});
+            this.MONTO_TOTAL,
+            this.DIAS_ALQUILER,
+            this.MONEDA});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -399,6 +406,36 @@
             this.dgvDocumentos.Size = new System.Drawing.Size(151, 230);
             this.dgvDocumentos.TabIndex = 43;
             this.dgvDocumentos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocumentos_CellClick);
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnImprimir.FlatAppearance.BorderSize = 0;
+            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimir.ForeColor = System.Drawing.Color.White;
+            this.btnImprimir.Location = new System.Drawing.Point(669, 236);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(97, 40);
+            this.btnImprimir.TabIndex = 54;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = false;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.Red;
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.White;
+            this.btnEliminar.Location = new System.Drawing.Point(772, 236);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(93, 40);
+            this.btnEliminar.TabIndex = 55;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // NUMERO_DOC
             // 
@@ -456,12 +493,28 @@
             this.MONTO_TOTAL.Name = "MONTO_TOTAL";
             this.MONTO_TOTAL.ReadOnly = true;
             // 
+            // DIAS_ALQUILER
+            // 
+            this.DIAS_ALQUILER.HeaderText = "DIAS_ALQUILER";
+            this.DIAS_ALQUILER.Name = "DIAS_ALQUILER";
+            this.DIAS_ALQUILER.ReadOnly = true;
+            this.DIAS_ALQUILER.Visible = false;
+            // 
+            // MONEDA
+            // 
+            this.MONEDA.HeaderText = "MONEDA";
+            this.MONEDA.Name = "MONEDA";
+            this.MONEDA.ReadOnly = true;
+            this.MONEDA.Visible = false;
+            // 
             // frmConsultarCotizacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(877, 289);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.gbDetalle);
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.btnBuscar);
@@ -511,6 +564,8 @@
         private System.Windows.Forms.TextBox txtDNI;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvDocumentos;
+        private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.DataGridViewTextBoxColumn NUMERO_DOC;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID_CAB;
         private System.Windows.Forms.DataGridViewTextBoxColumn TIPO_VENTA;
@@ -519,5 +574,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DNI;
         private System.Windows.Forms.DataGridViewTextBoxColumn NOMBRE;
         private System.Windows.Forms.DataGridViewTextBoxColumn MONTO_TOTAL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DIAS_ALQUILER;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MONEDA;
     }
 }

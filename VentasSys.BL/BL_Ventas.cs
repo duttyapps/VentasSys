@@ -98,9 +98,14 @@ namespace VentasSys.BL
             return DAO_Ventas.emitirGuiaRemision(entity);
         }
 
-        public static string procesarCotizacion(Ent_Venta venta)
+        public static string getCorrelativoCotizacion()
         {
-            return DAO_Ventas.procesarCotizacion(venta);
+            return DAO_Ventas.getCorrelativoCotizacion();
+        }
+
+        public static string procesarCotizacion(Ent_Venta venta, out String id_cab)
+        {
+            return DAO_Ventas.procesarCotizacion(venta, out id_cab);
         }
         public static List<Ent_Venta> getConsultaCotizacion(Ent_Venta venta)
         {
@@ -122,6 +127,9 @@ namespace VentasSys.BL
             return DAO_Ventas.get_CotizacionAlerta();
         }
 
-
+        public static string delCotizacion(String id)
+        {
+            return DAO_Ventas.delCotizacion(id);
+        }
     }
 }

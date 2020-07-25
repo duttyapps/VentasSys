@@ -127,6 +127,7 @@ namespace VentasSys.DAL
                 cliente.telefono = Convert.ToString(dr["TELEFONO"]);
                 cliente.fecha_reg = Convert.ToString(dr["FECHA_REG"]);
                 cliente.tipo = Convert.ToString(dr["TIPO"]);
+                cliente.medio = Convert.ToString(dr["MEDIO"]);
 
                 lstClientes.Add(cliente);
             }
@@ -134,6 +135,42 @@ namespace VentasSys.DAL
             con.Close();
 
             return lstClientes;
+        }
+
+        public static Ent_Clientes getCliente(string dni)
+        {
+            Ent_Clientes cliente = new Ent_Clientes();
+
+            con = Conexion.getConnection();
+            MySqlCommand cmd = new MySqlCommand();
+
+            con.Open();
+
+            cmd.Connection = con;
+            cmd.CommandText = "SP_SYS_GET_CLIENTE";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@PSTR_COD_CLIENTE", dni);
+            cmd.Parameters["@PSTR_COD_CLIENTE"].Direction = ParameterDirection.Input;
+
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                cliente = new Ent_Clientes();
+                cliente.id = Convert.ToString(dr["ID"]);
+                cliente.nombres = Convert.ToString(dr["NOMBRES"]);
+                cliente.apellidos = Convert.ToString(dr["APELLIDOS"]);
+                cliente.apellidos_nombres = ((cliente.apellidos != String.Empty) ? cliente.apellidos + ", " : "") + cliente.nombres;
+                cliente.dni = Convert.ToString(dr["DNI"]);
+                cliente.direccion = Convert.ToString(dr["DIRECCION"]);
+                cliente.email = Convert.ToString(dr["EMAIL"]);
+                cliente.telefono = Convert.ToString(dr["TELEFONO"]);
+                cliente.fecha_reg = Convert.ToString(dr["FECHA_REG"]);
+                cliente.tipo = Convert.ToString(dr["TIPO"]);
+            }
+
+            return cliente;
         }
 
         public static bool existeCliente(string dni)
@@ -201,6 +238,12 @@ namespace VentasSys.DAL
             cmd.Parameters.AddWithValue("@PSTR_POSIBLE", cliente.posible);
             cmd.Parameters["@PSTR_POSIBLE"].Direction = ParameterDirection.Input;
 
+            cmd.Parameters.AddWithValue("@PSTR_MEDIO", cliente.medio);
+            cmd.Parameters["@PSTR_MEDIO"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_OTRO_MEDIO", cliente.otro_medio);
+            cmd.Parameters["@PSTR_OTRO_MEDIO"].Direction = ParameterDirection.Input;
+
             cmd.ExecuteNonQuery();
 
             string retval = cmd.Parameters["@RETVAL"].Value.ToString();
@@ -236,6 +279,9 @@ namespace VentasSys.DAL
 
                 cmd.Parameters.AddWithValue("@PSTR_ID", cliente.id);
                 cmd.Parameters["@PSTR_ID"].Direction = ParameterDirection.Input;
+
+                cmd.Parameters.AddWithValue("@PSTR_DNI", cliente.dni);
+                cmd.Parameters["@PSTR_DNI"].Direction = ParameterDirection.Input;
 
                 cmd.Parameters.AddWithValue("@PSTR_NOMBRE", cliente.nombres);
                 cmd.Parameters["@PSTR_NOMBRE"].Direction = ParameterDirection.Input;
@@ -381,6 +427,36 @@ namespace VentasSys.DAL
             con.Close();
 
             return lstMedios;
+        }
+
+        public static void getReporteClientes(string nombres, string dni, string tipo, ref DataSet ds, ref DataTable dt)
+        {
+            List<Ent_Productos> lstProductos = new List<Ent_Productos>();
+
+            con = Conexion.getConnection();
+            MySqlCommand cmd = new MySqlCommand();
+
+            con.Open();
+
+            cmd.Connection = con;
+            cmd.CommandText = "sp_sys_get_reporte_clientes";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@PSTR_NOMBRES", nombres);
+            cmd.Parameters["@PSTR_NOMBRES"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_DNI", dni);
+            cmd.Parameters["@PSTR_DNI"].Direction = ParameterDirection.Input;
+
+            cmd.Parameters.AddWithValue("@PSTR_TIPO", tipo);
+            cmd.Parameters["@PSTR_TIPO"].Direction = ParameterDirection.Input;
+
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+
+            da.Fill(ds);
+            da.Fill(dt);
+
+            con.Close();
         }
     }
 }

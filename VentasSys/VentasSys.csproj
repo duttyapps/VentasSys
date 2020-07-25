@@ -85,6 +85,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSets\Clientes.cs">
+      <DependentUpon>Clientes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\Clientes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Clientes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\StockProductos.cs">
+      <DependentUpon>StockProductos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSets\StockProductos.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -208,6 +219,12 @@
     <Compile Include="frmListadoVentas.Designer.cs">
       <DependentUpon>frmListadoVentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmListarProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListarProductos.Designer.cs">
+      <DependentUpon>frmListarProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMantenimientoCategorias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -274,6 +291,12 @@
     <Compile Include="frmProgMantenimiento.Designer.cs">
       <DependentUpon>frmProgMantenimiento.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReporteClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteClientes.Designer.cs">
+      <DependentUpon>frmReporteClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmReporteStockProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,6 +308,12 @@
     </Compile>
     <Compile Include="frmReporteVentasxProducto.Designer.cs">
       <DependentUpon>frmReporteVentasxProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTipoMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTipoMantenimiento.Designer.cs">
+      <DependentUpon>frmTipoMantenimiento.cs</DependentUpon>
     </Compile>
     <Compile Include="frmUsuarios.cs">
       <SubType>Form</SubType>
@@ -351,6 +380,9 @@
     <EmbeddedResource Include="frmListadoVentas.resx">
       <DependentUpon>frmListadoVentas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmListarProductos.resx">
+      <DependentUpon>frmListarProductos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMantenimientoCategorias.resx">
       <DependentUpon>frmMantenimientoCategorias.cs</DependentUpon>
     </EmbeddedResource>
@@ -384,11 +416,17 @@
     <EmbeddedResource Include="frmProgMantenimiento.resx">
       <DependentUpon>frmProgMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteClientes.resx">
+      <DependentUpon>frmReporteClientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmReporteStockProducto.resx">
       <DependentUpon>frmReporteStockProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporteVentasxProducto.resx">
       <DependentUpon>frmReporteVentasxProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTipoMantenimiento.resx">
+      <DependentUpon>frmTipoMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUsuarios.resx">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
@@ -403,6 +441,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\Clientes.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\StockProductos.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
@@ -416,6 +457,17 @@
     <EmbeddedResource Include="Sistema\Base de Datos\frmConfiguracion.resx">
       <DependentUpon>frmConfiguracion.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DataSets\Clientes.xsc">
+      <DependentUpon>Clientes.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\Clientes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Clientes.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\Clientes.xss">
+      <DependentUpon>Clientes.xsd</DependentUpon>
+    </None>
     <None Include="DataSets\StockProductos.xsc">
       <DependentUpon>StockProductos.xsd</DependentUpon>
     </None>
@@ -494,6 +546,9 @@
     <None Include="Resources\sign-delete-icon.png" />
     <None Include="Resources\sign-add-icon.png" />
     <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

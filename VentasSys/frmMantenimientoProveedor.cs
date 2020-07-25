@@ -147,7 +147,7 @@ namespace VentasSys
                     MessageBox.Show(set);
                 }
                 else {
-                    MessageBox.Show("Se agrego correctamente.");
+                    MessageBox.Show("Se agregó correctamente.");
                 }
             }
             else if (accion == "M") {
@@ -160,7 +160,7 @@ namespace VentasSys
                 }
                 else
                 {
-                    MessageBox.Show("Se aactualizo correctamente.");
+                    MessageBox.Show("Se actualizó correctamente.");
                 }
             }
             fillProveedores();
@@ -177,7 +177,7 @@ namespace VentasSys
             }
             else
             {
-                MessageBox.Show("Se elimino correctamente.");
+                MessageBox.Show("Se eliminó correctamente.");
             }
             fillProveedores();
             limpiarDatos();

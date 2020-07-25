@@ -23,6 +23,7 @@ namespace VentasSys
 
             fillTrx();
             fillProduct();
+            fillMantenimiento();
         }
 
         void fillTrx() {
@@ -39,6 +40,15 @@ namespace VentasSys
             foreach (Ent_Productos prod in lista)
             {
                 dgvProducto.Rows.Add(prod.id, prod.nombre, prod.costo, prod.precio, prod.stock);
+            }
+        }
+
+        void fillMantenimiento()
+        {
+            List<Ent_Mantenimiento> lista = BL_Mantenimiento.getAlertaMantenimiento();
+            foreach(Ent_Mantenimiento mant in lista)
+            {
+                dgvMant.Rows.Add(mant.id, mant.cliente, mant.tienda, mant.fecha_salida);
             }
         }
 

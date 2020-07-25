@@ -181,6 +181,8 @@ namespace VentasSys
             txtPrecio.Text = producto.precio.ToString("#0.00");
             chkAlquiler.Checked = producto.alquiler == "1" ? true : false;
             txtMonto_Alquiler.Text = producto.monto_alquiler.ToString("#0.00");
+            txtPeso.Text = producto.peso.ToString("#0.00");
+            txtMedida.Text = producto.medida.ToString("#0.00");
         }
 
         private void dgvProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

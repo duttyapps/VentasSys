@@ -34,17 +34,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtDNI = new System.Windows.Forms.TextBox();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
-            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NOMBRES = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DIRECCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TELEFONO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EMAIL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TIPO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NOMBRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.APELLIDOS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtMedio = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.txtFecha = new System.Windows.Forms.TextBox();
             this.cboTipo = new System.Windows.Forms.ComboBox();
@@ -66,6 +58,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NOMBRES = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DIRECCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TELEFONO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EMAIL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TIPO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NOMBRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.APELLIDOS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MEDIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -100,7 +103,6 @@
             this.txtNombre.Size = new System.Drawing.Size(261, 22);
             this.txtNombre.TabIndex = 2;
             this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
-            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // label1
             // 
@@ -137,7 +139,8 @@
             this.EMAIL,
             this.TIPO,
             this.NOMBRE,
-            this.APELLIDOS});
+            this.APELLIDOS,
+            this.MEDIO});
             this.dgvClientes.Location = new System.Drawing.Point(12, 104);
             this.dgvClientes.MultiSelect = false;
             this.dgvClientes.Name = "dgvClientes";
@@ -145,93 +148,14 @@
             this.dgvClientes.RowHeadersVisible = false;
             this.dgvClientes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClientes.Size = new System.Drawing.Size(450, 331);
+            this.dgvClientes.Size = new System.Drawing.Size(450, 387);
             this.dgvClientes.TabIndex = 1;
             this.dgvClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellClick);
             // 
-            // DNI
-            // 
-            this.DNI.DataPropertyName = "dni";
-            this.DNI.Frozen = true;
-            this.DNI.HeaderText = "Nro. Doc./RUC";
-            this.DNI.Name = "DNI";
-            this.DNI.ReadOnly = true;
-            // 
-            // NOMBRES
-            // 
-            this.NOMBRES.DataPropertyName = "apellidos_nombres";
-            this.NOMBRES.Frozen = true;
-            this.NOMBRES.HeaderText = "Cliente/R. Social";
-            this.NOMBRES.Name = "NOMBRES";
-            this.NOMBRES.ReadOnly = true;
-            this.NOMBRES.Width = 150;
-            // 
-            // DIRECCION
-            // 
-            this.DIRECCION.DataPropertyName = "direccion";
-            this.DIRECCION.Frozen = true;
-            this.DIRECCION.HeaderText = "Dirección";
-            this.DIRECCION.Name = "DIRECCION";
-            this.DIRECCION.ReadOnly = true;
-            // 
-            // TELEFONO
-            // 
-            this.TELEFONO.DataPropertyName = "telefono";
-            this.TELEFONO.Frozen = true;
-            this.TELEFONO.HeaderText = "Teléfono";
-            this.TELEFONO.Name = "TELEFONO";
-            this.TELEFONO.ReadOnly = true;
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "id";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Visible = false;
-            // 
-            // FECHA
-            // 
-            this.FECHA.DataPropertyName = "fecha_reg";
-            this.FECHA.HeaderText = "FECHA";
-            this.FECHA.Name = "FECHA";
-            this.FECHA.ReadOnly = true;
-            this.FECHA.Visible = false;
-            // 
-            // EMAIL
-            // 
-            this.EMAIL.DataPropertyName = "email";
-            this.EMAIL.HeaderText = "EMAIL";
-            this.EMAIL.Name = "EMAIL";
-            this.EMAIL.ReadOnly = true;
-            this.EMAIL.Visible = false;
-            // 
-            // TIPO
-            // 
-            this.TIPO.DataPropertyName = "tipo";
-            this.TIPO.HeaderText = "TIPO";
-            this.TIPO.Name = "TIPO";
-            this.TIPO.ReadOnly = true;
-            this.TIPO.Visible = false;
-            // 
-            // NOMBRE
-            // 
-            this.NOMBRE.DataPropertyName = "nombres";
-            this.NOMBRE.HeaderText = "NOMBRE";
-            this.NOMBRE.Name = "NOMBRE";
-            this.NOMBRE.ReadOnly = true;
-            this.NOMBRE.Visible = false;
-            // 
-            // APELLIDOS
-            // 
-            this.APELLIDOS.DataPropertyName = "apellidos";
-            this.APELLIDOS.HeaderText = "APELLIDOS";
-            this.APELLIDOS.Name = "APELLIDOS";
-            this.APELLIDOS.ReadOnly = true;
-            this.APELLIDOS.Visible = false;
-            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtMedio);
+            this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.txtID);
             this.groupBox2.Controls.Add(this.txtFecha);
             this.groupBox2.Controls.Add(this.cboTipo);
@@ -253,10 +177,27 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Location = new System.Drawing.Point(468, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(306, 379);
+            this.groupBox2.Size = new System.Drawing.Size(306, 435);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos del Cliente";
+            // 
+            // txtMedio
+            // 
+            this.txtMedio.Enabled = false;
+            this.txtMedio.Location = new System.Drawing.Point(6, 399);
+            this.txtMedio.Name = "txtMedio";
+            this.txtMedio.Size = new System.Drawing.Size(294, 22);
+            this.txtMedio.TabIndex = 34;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(6, 383);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(106, 13);
+            this.label11.TabIndex = 33;
+            this.label11.Text = "Medio de Contacto";
             // 
             // txtID
             // 
@@ -450,14 +391,13 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(628, 397);
+            this.btnCancelar.Location = new System.Drawing.Point(628, 453);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(89, 38);
             this.btnCancelar.TabIndex = 9;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGuardar
             // 
@@ -468,7 +408,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
             this.btnGuardar.Image = global::VentasSys.Properties.Resources.save_white_24x24;
-            this.btnGuardar.Location = new System.Drawing.Point(533, 397);
+            this.btnGuardar.Location = new System.Drawing.Point(533, 453);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(89, 38);
             this.btnGuardar.TabIndex = 8;
@@ -477,11 +417,110 @@
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
+            // DNI
+            // 
+            this.DNI.DataPropertyName = "dni";
+            this.DNI.Frozen = true;
+            this.DNI.HeaderText = "Nro. Doc./RUC";
+            this.DNI.Name = "DNI";
+            this.DNI.ReadOnly = true;
+            this.DNI.Width = 80;
+            // 
+            // NOMBRES
+            // 
+            this.NOMBRES.DataPropertyName = "apellidos_nombres";
+            this.NOMBRES.Frozen = true;
+            this.NOMBRES.HeaderText = "Cliente/R. Social";
+            this.NOMBRES.Name = "NOMBRES";
+            this.NOMBRES.ReadOnly = true;
+            this.NOMBRES.Width = 170;
+            // 
+            // DIRECCION
+            // 
+            this.DIRECCION.DataPropertyName = "direccion";
+            this.DIRECCION.Frozen = true;
+            this.DIRECCION.HeaderText = "Dirección";
+            this.DIRECCION.Name = "DIRECCION";
+            this.DIRECCION.ReadOnly = true;
+            this.DIRECCION.Width = 120;
+            // 
+            // TELEFONO
+            // 
+            this.TELEFONO.DataPropertyName = "telefono";
+            this.TELEFONO.Frozen = true;
+            this.TELEFONO.HeaderText = "Teléfono";
+            this.TELEFONO.Name = "TELEFONO";
+            this.TELEFONO.ReadOnly = true;
+            this.TELEFONO.Width = 80;
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "id";
+            this.ID.Frozen = true;
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            // 
+            // FECHA
+            // 
+            this.FECHA.DataPropertyName = "fecha_reg";
+            this.FECHA.Frozen = true;
+            this.FECHA.HeaderText = "FECHA";
+            this.FECHA.Name = "FECHA";
+            this.FECHA.ReadOnly = true;
+            this.FECHA.Visible = false;
+            // 
+            // EMAIL
+            // 
+            this.EMAIL.DataPropertyName = "email";
+            this.EMAIL.Frozen = true;
+            this.EMAIL.HeaderText = "EMAIL";
+            this.EMAIL.Name = "EMAIL";
+            this.EMAIL.ReadOnly = true;
+            this.EMAIL.Visible = false;
+            // 
+            // TIPO
+            // 
+            this.TIPO.DataPropertyName = "tipo";
+            this.TIPO.Frozen = true;
+            this.TIPO.HeaderText = "TIPO";
+            this.TIPO.Name = "TIPO";
+            this.TIPO.ReadOnly = true;
+            this.TIPO.Visible = false;
+            // 
+            // NOMBRE
+            // 
+            this.NOMBRE.DataPropertyName = "nombres";
+            this.NOMBRE.Frozen = true;
+            this.NOMBRE.HeaderText = "NOMBRE";
+            this.NOMBRE.Name = "NOMBRE";
+            this.NOMBRE.ReadOnly = true;
+            this.NOMBRE.Visible = false;
+            // 
+            // APELLIDOS
+            // 
+            this.APELLIDOS.DataPropertyName = "apellidos";
+            this.APELLIDOS.Frozen = true;
+            this.APELLIDOS.HeaderText = "APELLIDOS";
+            this.APELLIDOS.Name = "APELLIDOS";
+            this.APELLIDOS.ReadOnly = true;
+            this.APELLIDOS.Visible = false;
+            // 
+            // MEDIO
+            // 
+            this.MEDIO.DataPropertyName = "medio";
+            this.MEDIO.Frozen = true;
+            this.MEDIO.HeaderText = "MEDIO";
+            this.MEDIO.Name = "MEDIO";
+            this.MEDIO.ReadOnly = true;
+            this.MEDIO.Visible = false;
+            // 
             // frmMantenimientoCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(785, 445);
+            this.ClientSize = new System.Drawing.Size(785, 501);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBox2);
@@ -535,6 +574,8 @@
         private System.Windows.Forms.ComboBox cboTipo;
         private System.Windows.Forms.TextBox txtFecha;
         private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.TextBox txtMedio;
+        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridViewTextBoxColumn DNI;
         private System.Windows.Forms.DataGridViewTextBoxColumn NOMBRES;
         private System.Windows.Forms.DataGridViewTextBoxColumn DIRECCION;
@@ -545,5 +586,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TIPO;
         private System.Windows.Forms.DataGridViewTextBoxColumn NOMBRE;
         private System.Windows.Forms.DataGridViewTextBoxColumn APELLIDOS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MEDIO;
     }
 }

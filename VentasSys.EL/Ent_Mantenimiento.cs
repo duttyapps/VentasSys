@@ -18,6 +18,7 @@ namespace VentasSys.EL
         public string fecha_registro { get; set; }
         public string estado { get; set; }
         public string fecha_salida { get; set; }
+        public string direccion { get; set; }
 
         public List<Ent_Tipo_Mantenimiento> lista_tipo { get; set; }
 
@@ -33,6 +34,7 @@ namespace VentasSys.EL
             fecha_registro = string.Empty;
             estado = string.Empty;
             fecha_salida = string.Empty;
+            direccion = string.Empty;
         }
     }
 }

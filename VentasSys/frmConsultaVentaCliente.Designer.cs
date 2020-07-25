@@ -28,25 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dgvVentas = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TIPO_VENTA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NRO_DOC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NOMBRES = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ANULADO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDNI = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -60,6 +52,15 @@
             this.CANTIDAD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PU = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TIPO_VENTA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NRO_DOC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NOMBRES = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ANULADO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MONEDA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
@@ -99,6 +100,7 @@
             this.NOMBRES,
             this.FECHA,
             this.ANULADO,
+            this.MONEDA,
             this.TOTAL});
             this.dgvVentas.Location = new System.Drawing.Point(12, 77);
             this.dgvVentas.MultiSelect = false;
@@ -112,76 +114,6 @@
             this.dgvVentas.Size = new System.Drawing.Size(600, 259);
             this.dgvVentas.TabIndex = 14;
             this.dgvVentas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVentas_CellClick);
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "id";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Visible = false;
-            // 
-            // TIPO_VENTA
-            // 
-            this.TIPO_VENTA.DataPropertyName = "tipo_venta";
-            this.TIPO_VENTA.HeaderText = "Tipo Doc.";
-            this.TIPO_VENTA.Name = "TIPO_VENTA";
-            this.TIPO_VENTA.ReadOnly = true;
-            this.TIPO_VENTA.Width = 50;
-            // 
-            // NRO_DOC
-            // 
-            this.NRO_DOC.DataPropertyName = "nro_doc_str";
-            this.NRO_DOC.HeaderText = "Nro. Doc.";
-            this.NRO_DOC.Name = "NRO_DOC";
-            this.NRO_DOC.ReadOnly = true;
-            // 
-            // DNI
-            // 
-            this.DNI.DataPropertyName = "cliente_doc";
-            this.DNI.HeaderText = "DNI/RUC";
-            this.DNI.Name = "DNI";
-            this.DNI.ReadOnly = true;
-            this.DNI.Width = 80;
-            // 
-            // NOMBRES
-            // 
-            this.NOMBRES.DataPropertyName = "cliente";
-            this.NOMBRES.HeaderText = "Cliente/Empresa";
-            this.NOMBRES.Name = "NOMBRES";
-            this.NOMBRES.ReadOnly = true;
-            this.NOMBRES.Width = 150;
-            // 
-            // FECHA
-            // 
-            this.FECHA.DataPropertyName = "emision";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.FECHA.DefaultCellStyle = dataGridViewCellStyle1;
-            this.FECHA.HeaderText = "Fecha Emisión";
-            this.FECHA.Name = "FECHA";
-            this.FECHA.ReadOnly = true;
-            // 
-            // ANULADO
-            // 
-            this.ANULADO.DataPropertyName = "anulado";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.ANULADO.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ANULADO.HeaderText = "Anulado";
-            this.ANULADO.Name = "ANULADO";
-            this.ANULADO.ReadOnly = true;
-            this.ANULADO.Width = 50;
-            // 
-            // TOTAL
-            // 
-            this.TOTAL.DataPropertyName = "monto_total";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = "0.00";
-            this.TOTAL.DefaultCellStyle = dataGridViewCellStyle3;
-            this.TOTAL.HeaderText = "Total";
-            this.TOTAL.Name = "TOTAL";
-            this.TOTAL.ReadOnly = true;
-            this.TOTAL.Width = 50;
             // 
             // label1
             // 
@@ -349,6 +281,85 @@
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             this.dataGridViewTextBoxColumn1.Width = 60;
             // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "id";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            // 
+            // TIPO_VENTA
+            // 
+            this.TIPO_VENTA.DataPropertyName = "tipo_venta";
+            this.TIPO_VENTA.HeaderText = "Tipo Doc.";
+            this.TIPO_VENTA.Name = "TIPO_VENTA";
+            this.TIPO_VENTA.ReadOnly = true;
+            this.TIPO_VENTA.Width = 50;
+            // 
+            // NRO_DOC
+            // 
+            this.NRO_DOC.DataPropertyName = "nro_doc_str";
+            this.NRO_DOC.HeaderText = "Nro. Doc.";
+            this.NRO_DOC.Name = "NRO_DOC";
+            this.NRO_DOC.ReadOnly = true;
+            this.NRO_DOC.Width = 80;
+            // 
+            // DNI
+            // 
+            this.DNI.DataPropertyName = "cliente_doc";
+            this.DNI.HeaderText = "DNI/RUC";
+            this.DNI.Name = "DNI";
+            this.DNI.ReadOnly = true;
+            this.DNI.Width = 70;
+            // 
+            // NOMBRES
+            // 
+            this.NOMBRES.DataPropertyName = "cliente";
+            this.NOMBRES.HeaderText = "Cliente/Empresa";
+            this.NOMBRES.Name = "NOMBRES";
+            this.NOMBRES.ReadOnly = true;
+            this.NOMBRES.Width = 150;
+            // 
+            // FECHA
+            // 
+            this.FECHA.DataPropertyName = "emision";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.FECHA.DefaultCellStyle = dataGridViewCellStyle1;
+            this.FECHA.HeaderText = "Fecha Emisión";
+            this.FECHA.Name = "FECHA";
+            this.FECHA.ReadOnly = true;
+            // 
+            // ANULADO
+            // 
+            this.ANULADO.DataPropertyName = "anulado";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.ANULADO.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ANULADO.HeaderText = "Anulado";
+            this.ANULADO.Name = "ANULADO";
+            this.ANULADO.ReadOnly = true;
+            this.ANULADO.Width = 50;
+            // 
+            // MONEDA
+            // 
+            this.MONEDA.DataPropertyName = "moneda";
+            this.MONEDA.HeaderText = "Divisa";
+            this.MONEDA.Name = "MONEDA";
+            this.MONEDA.ReadOnly = true;
+            this.MONEDA.Width = 30;
+            // 
+            // TOTAL
+            // 
+            this.TOTAL.DataPropertyName = "monto_total";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = "0.00";
+            this.TOTAL.DefaultCellStyle = dataGridViewCellStyle3;
+            this.TOTAL.HeaderText = "Total";
+            this.TOTAL.Name = "TOTAL";
+            this.TOTAL.ReadOnly = true;
+            this.TOTAL.Width = 50;
+            // 
             // frmConsultaVentaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -390,6 +401,10 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvDetalle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCTO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CANTIDAD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PU;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn TIPO_VENTA;
         private System.Windows.Forms.DataGridViewTextBoxColumn NRO_DOC;
@@ -397,10 +412,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NOMBRES;
         private System.Windows.Forms.DataGridViewTextBoxColumn FECHA;
         private System.Windows.Forms.DataGridViewTextBoxColumn ANULADO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MONEDA;
         private System.Windows.Forms.DataGridViewTextBoxColumn TOTAL;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCTO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CANTIDAD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PU;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
     }
 }

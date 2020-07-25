@@ -189,7 +189,7 @@ namespace VentasSys
 
             if (txtAmortizar.Text == "0.00")
             {
-                MessageBox.Show("El monto a amortizar no puede ser S/. 0.00", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El monto a amortizar no puede ser 0.00", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtAmortizar.Focus();
                 return;
             }
@@ -199,12 +199,12 @@ namespace VentasSys
 
             if (monto_abono > ent_venta.monto_total)
             {
-                MessageBox.Show("El monto a amortizar no puede ser mayor al monto de deuda.\nMonto Deuda: S/. " + monto_deuda.ToString("#0.00"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El monto a amortizar no puede ser mayor al monto de deuda.\nMonto Deuda: " + monto_deuda.ToString("#0.00"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtAmortizar.Focus();
                 return;
             }
 
-            var confirm = MessageBox.Show("¿Está seguro que desea amortizar S/. " + txtAmortizar.Text + " en la cuenta?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var confirm = MessageBox.Show("¿Está seguro que desea amortizar " + txtAmortizar.Text + " en la cuenta?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (confirm == DialogResult.Yes)
             {

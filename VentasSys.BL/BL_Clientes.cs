@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using VentasSys.DAL;
 using VentasSys.EL;
 
@@ -19,6 +20,11 @@ namespace VentasSys.BL
         public static List<Ent_Clientes> getClientesRegistrados(string dni, string nombre)
         {
             return DAO_Clientes.getClientesRegistrados(dni, nombre);
+        }
+
+        public static Ent_Clientes getCliente(string dni)
+        {
+            return DAO_Clientes.getCliente(dni);
         }
 
         public static bool existeCliente(string dni)
@@ -44,6 +50,11 @@ namespace VentasSys.BL
         public static List<Ent_MediosContacto> getMediosContacto()
         {
             return DAO_Clientes.getMediosContacto();
+        }
+
+        public static void getReporteClientes(string nombres, string dni, string tipo, ref DataSet ds, ref DataTable dt)
+        {
+            DAO_Clientes.getReporteClientes(nombres, dni, tipo, ref ds, ref dt);
         }
     }
 }

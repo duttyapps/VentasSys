@@ -34,17 +34,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvDocumentos = new System.Windows.Forms.DataGridView();
-            this.NUMERO_DOC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID_CAB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TIPO_VENTA_DES = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FORMA_PAGO_DES = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.USUARIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NOMBRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MONTO_RECIBIDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MONTO_VUELTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MONTO_TOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNroDocumento = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -77,6 +66,18 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.NUMERO_DOC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID_CAB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TIPO_VENTA_DES = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FORMA_PAGO_DES = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.USUARIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NOMBRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MONTO_RECIBIDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MONTO_VUELTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MONTO_TOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MONEDA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocumentos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
             this.gbDetalle.SuspendLayout();
@@ -110,7 +111,8 @@
             this.NOMBRE,
             this.MONTO_RECIBIDO,
             this.MONTO_VUELTO,
-            this.MONTO_TOTAL});
+            this.MONTO_TOTAL,
+            this.MONEDA});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -139,95 +141,6 @@
             this.dgvDocumentos.Size = new System.Drawing.Size(150, 230);
             this.dgvDocumentos.TabIndex = 0;
             this.dgvDocumentos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocumentos_CellClick);
-            // 
-            // NUMERO_DOC
-            // 
-            this.NUMERO_DOC.DataPropertyName = "nro_doc_str";
-            this.NUMERO_DOC.HeaderText = "Nro. Documento";
-            this.NUMERO_DOC.Name = "NUMERO_DOC";
-            this.NUMERO_DOC.ReadOnly = true;
-            this.NUMERO_DOC.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.NUMERO_DOC.Width = 147;
-            // 
-            // ID_CAB
-            // 
-            this.ID_CAB.DataPropertyName = "id_cab";
-            this.ID_CAB.HeaderText = "ID_CAB";
-            this.ID_CAB.Name = "ID_CAB";
-            this.ID_CAB.ReadOnly = true;
-            this.ID_CAB.Visible = false;
-            // 
-            // TIPO_VENTA_DES
-            // 
-            this.TIPO_VENTA_DES.DataPropertyName = "tipo_venta_des";
-            this.TIPO_VENTA_DES.HeaderText = "TIPO_VENTA_DES";
-            this.TIPO_VENTA_DES.Name = "TIPO_VENTA_DES";
-            this.TIPO_VENTA_DES.ReadOnly = true;
-            this.TIPO_VENTA_DES.Visible = false;
-            // 
-            // FORMA_PAGO_DES
-            // 
-            this.FORMA_PAGO_DES.DataPropertyName = "forma_pago_des";
-            this.FORMA_PAGO_DES.HeaderText = "FORMA_PAGO_DES";
-            this.FORMA_PAGO_DES.Name = "FORMA_PAGO_DES";
-            this.FORMA_PAGO_DES.ReadOnly = true;
-            this.FORMA_PAGO_DES.Visible = false;
-            // 
-            // FECHA
-            // 
-            this.FECHA.DataPropertyName = "emision";
-            this.FECHA.HeaderText = "FECHA";
-            this.FECHA.Name = "FECHA";
-            this.FECHA.ReadOnly = true;
-            this.FECHA.Visible = false;
-            // 
-            // USUARIO
-            // 
-            this.USUARIO.DataPropertyName = "usuario";
-            this.USUARIO.HeaderText = "USUARIO";
-            this.USUARIO.Name = "USUARIO";
-            this.USUARIO.ReadOnly = true;
-            this.USUARIO.Visible = false;
-            // 
-            // DNI
-            // 
-            this.DNI.DataPropertyName = "cliente_doc";
-            this.DNI.HeaderText = "DNI";
-            this.DNI.Name = "DNI";
-            this.DNI.ReadOnly = true;
-            this.DNI.Visible = false;
-            // 
-            // NOMBRE
-            // 
-            this.NOMBRE.DataPropertyName = "cliente";
-            this.NOMBRE.HeaderText = "NOMBRE";
-            this.NOMBRE.Name = "NOMBRE";
-            this.NOMBRE.ReadOnly = true;
-            this.NOMBRE.Visible = false;
-            // 
-            // MONTO_RECIBIDO
-            // 
-            this.MONTO_RECIBIDO.DataPropertyName = "monto_recibido";
-            this.MONTO_RECIBIDO.HeaderText = "MONTO_RECIBIDO";
-            this.MONTO_RECIBIDO.Name = "MONTO_RECIBIDO";
-            this.MONTO_RECIBIDO.ReadOnly = true;
-            this.MONTO_RECIBIDO.Visible = false;
-            // 
-            // MONTO_VUELTO
-            // 
-            this.MONTO_VUELTO.DataPropertyName = "monto_vuelto";
-            this.MONTO_VUELTO.HeaderText = "MONTO_VUELTO";
-            this.MONTO_VUELTO.Name = "MONTO_VUELTO";
-            this.MONTO_VUELTO.ReadOnly = true;
-            this.MONTO_VUELTO.Visible = false;
-            // 
-            // MONTO_TOTAL
-            // 
-            this.MONTO_TOTAL.DataPropertyName = "monto_total";
-            this.MONTO_TOTAL.HeaderText = "MONTO_TOTAL";
-            this.MONTO_TOTAL.Name = "MONTO_TOTAL";
-            this.MONTO_TOTAL.ReadOnly = true;
-            this.MONTO_TOTAL.Visible = false;
             // 
             // label1
             // 
@@ -585,6 +498,103 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Tipo Venta:";
             // 
+            // NUMERO_DOC
+            // 
+            this.NUMERO_DOC.DataPropertyName = "nro_doc_str";
+            this.NUMERO_DOC.HeaderText = "Nro. Documento";
+            this.NUMERO_DOC.Name = "NUMERO_DOC";
+            this.NUMERO_DOC.ReadOnly = true;
+            this.NUMERO_DOC.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.NUMERO_DOC.Width = 147;
+            // 
+            // ID_CAB
+            // 
+            this.ID_CAB.DataPropertyName = "id_cab";
+            this.ID_CAB.HeaderText = "ID_CAB";
+            this.ID_CAB.Name = "ID_CAB";
+            this.ID_CAB.ReadOnly = true;
+            this.ID_CAB.Visible = false;
+            // 
+            // TIPO_VENTA_DES
+            // 
+            this.TIPO_VENTA_DES.DataPropertyName = "tipo_venta_des";
+            this.TIPO_VENTA_DES.HeaderText = "TIPO_VENTA_DES";
+            this.TIPO_VENTA_DES.Name = "TIPO_VENTA_DES";
+            this.TIPO_VENTA_DES.ReadOnly = true;
+            this.TIPO_VENTA_DES.Visible = false;
+            // 
+            // FORMA_PAGO_DES
+            // 
+            this.FORMA_PAGO_DES.DataPropertyName = "forma_pago_des";
+            this.FORMA_PAGO_DES.HeaderText = "FORMA_PAGO_DES";
+            this.FORMA_PAGO_DES.Name = "FORMA_PAGO_DES";
+            this.FORMA_PAGO_DES.ReadOnly = true;
+            this.FORMA_PAGO_DES.Visible = false;
+            // 
+            // FECHA
+            // 
+            this.FECHA.DataPropertyName = "emision";
+            this.FECHA.HeaderText = "FECHA";
+            this.FECHA.Name = "FECHA";
+            this.FECHA.ReadOnly = true;
+            this.FECHA.Visible = false;
+            // 
+            // USUARIO
+            // 
+            this.USUARIO.DataPropertyName = "usuario";
+            this.USUARIO.HeaderText = "USUARIO";
+            this.USUARIO.Name = "USUARIO";
+            this.USUARIO.ReadOnly = true;
+            this.USUARIO.Visible = false;
+            // 
+            // DNI
+            // 
+            this.DNI.DataPropertyName = "cliente_doc";
+            this.DNI.HeaderText = "DNI";
+            this.DNI.Name = "DNI";
+            this.DNI.ReadOnly = true;
+            this.DNI.Visible = false;
+            // 
+            // NOMBRE
+            // 
+            this.NOMBRE.DataPropertyName = "cliente";
+            this.NOMBRE.HeaderText = "NOMBRE";
+            this.NOMBRE.Name = "NOMBRE";
+            this.NOMBRE.ReadOnly = true;
+            this.NOMBRE.Visible = false;
+            // 
+            // MONTO_RECIBIDO
+            // 
+            this.MONTO_RECIBIDO.DataPropertyName = "monto_recibido";
+            this.MONTO_RECIBIDO.HeaderText = "MONTO_RECIBIDO";
+            this.MONTO_RECIBIDO.Name = "MONTO_RECIBIDO";
+            this.MONTO_RECIBIDO.ReadOnly = true;
+            this.MONTO_RECIBIDO.Visible = false;
+            // 
+            // MONTO_VUELTO
+            // 
+            this.MONTO_VUELTO.DataPropertyName = "monto_vuelto";
+            this.MONTO_VUELTO.HeaderText = "MONTO_VUELTO";
+            this.MONTO_VUELTO.Name = "MONTO_VUELTO";
+            this.MONTO_VUELTO.ReadOnly = true;
+            this.MONTO_VUELTO.Visible = false;
+            // 
+            // MONTO_TOTAL
+            // 
+            this.MONTO_TOTAL.DataPropertyName = "monto_total";
+            this.MONTO_TOTAL.HeaderText = "MONTO_TOTAL";
+            this.MONTO_TOTAL.Name = "MONTO_TOTAL";
+            this.MONTO_TOTAL.ReadOnly = true;
+            this.MONTO_TOTAL.Visible = false;
+            // 
+            // MONEDA
+            // 
+            this.MONEDA.DataPropertyName = "moneda";
+            this.MONEDA.HeaderText = "MONEDA";
+            this.MONEDA.Name = "MONEDA";
+            this.MONEDA.ReadOnly = true;
+            this.MONEDA.Visible = false;
+            // 
             // frmAnularVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -651,6 +661,10 @@
         private System.Windows.Forms.Label lbl_DNI;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label label;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCTO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CANTIDAD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PU;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TOTAL;
         private System.Windows.Forms.DataGridViewTextBoxColumn NUMERO_DOC;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID_CAB;
         private System.Windows.Forms.DataGridViewTextBoxColumn TIPO_VENTA_DES;
@@ -662,9 +676,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MONTO_RECIBIDO;
         private System.Windows.Forms.DataGridViewTextBoxColumn MONTO_VUELTO;
         private System.Windows.Forms.DataGridViewTextBoxColumn MONTO_TOTAL;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCTO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CANTIDAD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PU;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TOTAL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MONEDA;
     }
 }

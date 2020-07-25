@@ -54,6 +54,8 @@
             this.categoríasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedoresToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mantenimientoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tiposToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stockDeProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.utilidadPorProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,6 +82,8 @@
             this.almacenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ingresarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listarProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.alertasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.lblBienvenido = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblRango = new System.Windows.Forms.ToolStripStatusLabel();
@@ -109,11 +113,15 @@
             this.btnPagar = new System.Windows.Forms.Button();
             this.btnReiniciar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cboMoneda = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.cboFormaPago = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtDescuento = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -140,6 +148,8 @@
             this.dtpFechaInicio = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.clientesToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolbar.SuspendLayout();
             this.statusBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
@@ -163,7 +173,8 @@
             this.menuTienda,
             this.otrosToolStripMenuItem,
             this.cotizaciónToolStripMenuItem,
-            this.almacenToolStripMenuItem});
+            this.almacenToolStripMenuItem,
+            this.alertasToolStripMenuItem});
             this.toolbar.Location = new System.Drawing.Point(0, 0);
             this.toolbar.Name = "toolbar";
             this.toolbar.Size = new System.Drawing.Size(999, 24);
@@ -297,7 +308,8 @@
             this.productosToolStripMenuItem,
             this.categoríasToolStripMenuItem,
             this.clientesToolStripMenuItem,
-            this.proveedoresToolStripMenuItem1});
+            this.proveedoresToolStripMenuItem1,
+            this.mantenimientoToolStripMenuItem1});
             this.manteniToolStripMenuItem.Name = "manteniToolStripMenuItem";
             this.manteniToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
             this.manteniToolStripMenuItem.Text = "Administrador";
@@ -307,7 +319,7 @@
             this.productosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.modificarEliminarToolStripMenuItem});
             this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            this.productosToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.productosToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.productosToolStripMenuItem.Text = "Productos";
             // 
             // modificarEliminarToolStripMenuItem
@@ -320,23 +332,38 @@
             // categoríasToolStripMenuItem
             // 
             this.categoríasToolStripMenuItem.Name = "categoríasToolStripMenuItem";
-            this.categoríasToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.categoríasToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.categoríasToolStripMenuItem.Text = "Categorías";
             this.categoríasToolStripMenuItem.Click += new System.EventHandler(this.categoríasToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
             // proveedoresToolStripMenuItem1
             // 
             this.proveedoresToolStripMenuItem1.Name = "proveedoresToolStripMenuItem1";
-            this.proveedoresToolStripMenuItem1.Size = new System.Drawing.Size(139, 22);
+            this.proveedoresToolStripMenuItem1.Size = new System.Drawing.Size(156, 22);
             this.proveedoresToolStripMenuItem1.Text = "Proveedores";
             this.proveedoresToolStripMenuItem1.Click += new System.EventHandler(this.proveedoresToolStripMenuItem1_Click);
+            // 
+            // mantenimientoToolStripMenuItem1
+            // 
+            this.mantenimientoToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tiposToolStripMenuItem1});
+            this.mantenimientoToolStripMenuItem1.Name = "mantenimientoToolStripMenuItem1";
+            this.mantenimientoToolStripMenuItem1.Size = new System.Drawing.Size(156, 22);
+            this.mantenimientoToolStripMenuItem1.Text = "Mantenimiento";
+            // 
+            // tiposToolStripMenuItem1
+            // 
+            this.tiposToolStripMenuItem1.Name = "tiposToolStripMenuItem1";
+            this.tiposToolStripMenuItem1.Size = new System.Drawing.Size(103, 22);
+            this.tiposToolStripMenuItem1.Text = "Tipos";
+            this.tiposToolStripMenuItem1.Click += new System.EventHandler(this.tiposToolStripMenuItem1_Click);
             // 
             // reportesToolStripMenuItem
             // 
@@ -348,7 +375,9 @@
             this.ventasCréditoToolStripMenuItem,
             this.toolStripSeparator4,
             this.generalDeVentasToolStripMenuItem,
-            this.cuadreDeCajaToolStripMenuItem});
+            this.cuadreDeCajaToolStripMenuItem,
+            this.toolStripSeparator5,
+            this.clientesToolStripMenuItem2});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.reportesToolStripMenuItem.Text = "Reportes";
@@ -436,6 +465,7 @@
             this.respaldoToolStripMenuItem.Name = "respaldoToolStripMenuItem";
             this.respaldoToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.respaldoToolStripMenuItem.Text = "Respaldo";
+            this.respaldoToolStripMenuItem.Visible = false;
             // 
             // realizarRespaldoToolStripMenuItem
             // 
@@ -461,6 +491,7 @@
             this.configuraciónToolStripMenuItem1.Name = "configuraciónToolStripMenuItem1";
             this.configuraciónToolStripMenuItem1.Size = new System.Drawing.Size(150, 22);
             this.configuraciónToolStripMenuItem1.Text = "Configuración";
+            this.configuraciónToolStripMenuItem1.Visible = false;
             // 
             // usuariosToolStripMenuItem
             // 
@@ -474,6 +505,7 @@
             this.menuTienda.Name = "menuTienda";
             this.menuTienda.Size = new System.Drawing.Size(55, 20);
             this.menuTienda.Text = "Tienda";
+            this.menuTienda.Click += new System.EventHandler(this.menuTienda_Click);
             // 
             // otrosToolStripMenuItem
             // 
@@ -519,7 +551,8 @@
             // 
             this.almacenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ingresarToolStripMenuItem,
-            this.listarToolStripMenuItem});
+            this.listarToolStripMenuItem,
+            this.listarProductosToolStripMenuItem});
             this.almacenToolStripMenuItem.Name = "almacenToolStripMenuItem";
             this.almacenToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.almacenToolStripMenuItem.Text = "Almacen";
@@ -528,16 +561,30 @@
             // ingresarToolStripMenuItem
             // 
             this.ingresarToolStripMenuItem.Name = "ingresarToolStripMenuItem";
-            this.ingresarToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.ingresarToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.ingresarToolStripMenuItem.Text = "Ingresar";
             this.ingresarToolStripMenuItem.Click += new System.EventHandler(this.ingresarToolStripMenuItem_Click);
             // 
             // listarToolStripMenuItem
             // 
             this.listarToolStripMenuItem.Name = "listarToolStripMenuItem";
-            this.listarToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.listarToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.listarToolStripMenuItem.Text = "Listar";
             this.listarToolStripMenuItem.Click += new System.EventHandler(this.listarToolStripMenuItem_Click);
+            // 
+            // listarProductosToolStripMenuItem
+            // 
+            this.listarProductosToolStripMenuItem.Name = "listarProductosToolStripMenuItem";
+            this.listarProductosToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.listarProductosToolStripMenuItem.Text = "Listar Productos";
+            this.listarProductosToolStripMenuItem.Click += new System.EventHandler(this.listarProductosToolStripMenuItem_Click);
+            // 
+            // alertasToolStripMenuItem
+            // 
+            this.alertasToolStripMenuItem.Name = "alertasToolStripMenuItem";
+            this.alertasToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.alertasToolStripMenuItem.Text = "Alertas";
+            this.alertasToolStripMenuItem.Click += new System.EventHandler(this.alertasToolStripMenuItem_Click);
             // 
             // statusBar
             // 
@@ -577,7 +624,7 @@
             this.lblTipoVenta.BackColor = System.Drawing.Color.Red;
             this.lblTipoVenta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTipoVenta.ForeColor = System.Drawing.Color.White;
-            this.lblTipoVenta.Location = new System.Drawing.Point(348, 50);
+            this.lblTipoVenta.Location = new System.Drawing.Point(375, 50);
             this.lblTipoVenta.Name = "lblTipoVenta";
             this.lblTipoVenta.Size = new System.Drawing.Size(169, 29);
             this.lblTipoVenta.TabIndex = 3;
@@ -707,7 +754,7 @@
             this.lblFecha.ForeColor = System.Drawing.Color.White;
             this.lblFecha.Location = new System.Drawing.Point(6, 50);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(121, 29);
+            this.lblFecha.Size = new System.Drawing.Size(104, 29);
             this.lblFecha.TabIndex = 16;
             this.lblFecha.Text = "30/06/2017";
             this.lblFecha.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -856,6 +903,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.cboMoneda);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.lblSerie);
@@ -871,6 +920,26 @@
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(245, 31);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(50, 13);
+            this.label13.TabIndex = 18;
+            this.label13.Text = "Moneda";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cboMoneda
+            // 
+            this.cboMoneda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboMoneda.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboMoneda.FormattingEnabled = true;
+            this.cboMoneda.Location = new System.Drawing.Point(248, 51);
+            this.cboMoneda.Name = "cboMoneda";
+            this.cboMoneda.Size = new System.Drawing.Size(111, 29);
+            this.cboMoneda.TabIndex = 17;
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -884,7 +953,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(349, 30);
+            this.label2.Location = new System.Drawing.Point(376, 30);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(108, 13);
             this.label2.TabIndex = 6;
@@ -894,7 +963,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(165, 30);
+            this.label9.Location = new System.Drawing.Point(118, 31);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(29, 13);
             this.label9.TabIndex = 1;
@@ -906,14 +975,16 @@
             this.cboFormaPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFormaPago.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboFormaPago.FormattingEnabled = true;
-            this.cboFormaPago.Location = new System.Drawing.Point(168, 50);
+            this.cboFormaPago.Location = new System.Drawing.Point(121, 51);
             this.cboFormaPago.Name = "cboFormaPago";
-            this.cboFormaPago.Size = new System.Drawing.Size(135, 29);
+            this.cboFormaPago.Size = new System.Drawing.Size(111, 29);
             this.cboFormaPago.TabIndex = 0;
             this.cboFormaPago.SelectedIndexChanged += new System.EventHandler(this.cboFormaPago_SelectedIndexChanged);
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtDescuento);
+            this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.panel2);
             this.groupBox2.Controls.Add(this.txtVuelto);
             this.groupBox2.Controls.Add(this.lblVuelto);
@@ -929,20 +1000,44 @@
             this.groupBox2.TabIndex = 32;
             this.groupBox2.TabStop = false;
             // 
+            // txtDescuento
+            // 
+            this.txtDescuento.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescuento.Location = new System.Drawing.Point(119, 89);
+            this.txtDescuento.Name = "txtDescuento";
+            this.txtDescuento.Size = new System.Drawing.Size(100, 25);
+            this.txtDescuento.TabIndex = 39;
+            this.txtDescuento.Text = "0.00";
+            this.txtDescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtDescuento.TextChanged += new System.EventHandler(this.txtDescuento_TextChanged);
+            this.txtDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescuento_KeyPress);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label11.Location = new System.Drawing.Point(40, 92);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(73, 17);
+            this.label11.TabIndex = 40;
+            this.label11.Text = "Descuento";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.PowderBlue;
             this.panel2.Controls.Add(this.txtTotal);
             this.panel2.Controls.Add(this.label8);
-            this.panel2.Location = new System.Drawing.Point(6, 89);
+            this.panel2.Location = new System.Drawing.Point(6, 121);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(245, 75);
+            this.panel2.Size = new System.Drawing.Size(245, 43);
             this.panel2.TabIndex = 38;
             // 
             // txtTotal
             // 
             this.txtTotal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(113, 24);
+            this.txtTotal.Location = new System.Drawing.Point(113, 7);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(100, 29);
@@ -955,7 +1050,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(59, 30);
+            this.label8.Location = new System.Drawing.Point(59, 13);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(48, 17);
             this.label8.TabIndex = 33;
@@ -1036,7 +1131,7 @@
             // txtIGV
             // 
             this.txtIGV.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIGV.Location = new System.Drawing.Point(119, 59);
+            this.txtIGV.Location = new System.Drawing.Point(119, 61);
             this.txtIGV.Name = "txtIGV";
             this.txtIGV.ReadOnly = true;
             this.txtIGV.Size = new System.Drawing.Size(100, 25);
@@ -1048,7 +1143,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(85, 62);
+            this.label7.Location = new System.Drawing.Point(85, 64);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(28, 17);
             this.label7.TabIndex = 31;
@@ -1242,6 +1337,18 @@
             this.label16.TabIndex = 9;
             this.label16.Text = "Dia de Inicio:";
             // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(185, 6);
+            // 
+            // clientesToolStripMenuItem2
+            // 
+            this.clientesToolStripMenuItem2.Name = "clientesToolStripMenuItem2";
+            this.clientesToolStripMenuItem2.Size = new System.Drawing.Size(188, 22);
+            this.clientesToolStripMenuItem2.Text = "Clientes";
+            this.clientesToolStripMenuItem2.Click += new System.EventHandler(this.clientesToolStripMenuItem2_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1404,5 +1511,15 @@
         private System.Windows.Forms.ToolStripMenuItem ingresarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mantenimientoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem alertasToolStripMenuItem;
+        private System.Windows.Forms.TextBox txtDescuento;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ToolStripMenuItem listarProductosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mantenimientoToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem tiposToolStripMenuItem1;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox cboMoneda;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem2;
     }
 }

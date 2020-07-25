@@ -40,7 +40,7 @@ namespace VentasSys
             lista_tipo.Add("", "SELECCIONE");
             lista_tipo.Add("RE", "REALIZADO");
             lista_tipo.Add("NR", "NO REALIZADO");
-            lista_tipo.Add("RP", "REPACION");
+            lista_tipo.Add("RP", "EN REPARACIÓN");
             cboEstado.DataSource = new BindingSource(lista_tipo, null);
             cboEstado.DisplayMember = "Value";
             cboEstado.ValueMember = "Key";
@@ -50,7 +50,7 @@ namespace VentasSys
         {
             List<Ent_Tipo_Mantenimiento> lista_tipo = new List<Ent_Tipo_Mantenimiento>();
 
-            var tipos = BL_Programacion.getTipoMantenimiento();
+            var tipos = BL_Programacion.getTipoMantenimiento("0");
 
             lista_tipo.AddRange(tipos);
 
@@ -70,7 +70,7 @@ namespace VentasSys
             if (frm.ent_cliente != null)
             {
                 cliente = frm.ent_cliente;
-                txtDesCliente.Text = (frm.ent_cliente.nombres == null) ? "" : frm.ent_cliente.nombres;
+                txtDesCliente.Text = (frm.ent_cliente.nombres == null) ? "" : frm.ent_cliente.nombres + ((frm.ent_cliente.apellidos == null) ? "" : " " + frm.ent_cliente.apellidos);
                 txtDesRuc.Text = (frm.ent_cliente.dni == null) ? "" : frm.ent_cliente.dni;
             }
         }
@@ -86,7 +86,7 @@ namespace VentasSys
             if (frm.ent_cliente != null)
             {
                 cliente = frm.ent_cliente;
-                txtDesCliente.Text = (frm.ent_cliente.nombres == null) ? "" : frm.ent_cliente.nombres;
+                txtDesCliente.Text = (frm.ent_cliente.nombres == null) ? "" : frm.ent_cliente.nombres + ((frm.ent_cliente.apellidos == null) ? "" : " " + frm.ent_cliente.apellidos);
                 txtDesRuc.Text = (frm.ent_cliente.dni == null) ? "" : frm.ent_cliente.dni;
             }
         }
@@ -149,6 +149,14 @@ namespace VentasSys
             }
             else {
                 MessageBox.Show(request);
+            }
+        }
+
+        private void dgvMantenimiento_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 2)
+            {
+                dgvMantenimiento.Rows.RemoveAt(e.RowIndex);
             }
         }
     }

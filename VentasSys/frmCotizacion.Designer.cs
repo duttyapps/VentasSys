@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txtDenominación = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,10 +45,12 @@
             this.txtDesCliente = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cboMoneda = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblSerie = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.cboTipo = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtFechaEmision = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.btnEliminarProducto = new System.Windows.Forms.Button();
@@ -71,6 +73,10 @@
             this.btnPagar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtObservacion = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtAdjunto = new System.Windows.Forms.TextBox();
+            this.btnExaminar = new System.Windows.Forms.Button();
+            this.ofd = new System.Windows.Forms.OpenFileDialog();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
@@ -81,8 +87,6 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.txtDenominación);
-            this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.txtDias);
             this.groupBox4.Controls.Add(this.lbldias);
             this.groupBox4.Controls.Add(this.btnNuevoCliente);
@@ -96,27 +100,27 @@
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Location = new System.Drawing.Point(7, 134);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(712, 121);
+            this.groupBox4.Size = new System.Drawing.Size(712, 79);
             this.groupBox4.TabIndex = 41;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Destinatario";
             // 
             // txtDenominación
             // 
-            this.txtDenominación.Location = new System.Drawing.Point(131, 78);
+            this.txtDenominación.Location = new System.Drawing.Point(183, 503);
             this.txtDenominación.Multiline = true;
             this.txtDenominación.Name = "txtDenominación";
-            this.txtDenominación.Size = new System.Drawing.Size(534, 37);
+            this.txtDenominación.Size = new System.Drawing.Size(534, 40);
             this.txtDenominación.TabIndex = 110;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 78);
+            this.label3.Location = new System.Drawing.Point(87, 507);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 13);
+            this.label3.Size = new System.Drawing.Size(67, 13);
             this.label3.TabIndex = 109;
-            this.label3.Text = "Denominación";
+            this.label3.Text = "Observación";
             // 
             // txtDias
             // 
@@ -226,10 +230,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.cboMoneda);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.lblSerie);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.cboTipo);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtFechaEmision);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(7, 12);
             this.groupBox1.Name = "groupBox1";
@@ -237,10 +243,52 @@
             this.groupBox1.TabIndex = 38;
             this.groupBox1.TabStop = false;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(291, 59);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(46, 13);
+            this.label13.TabIndex = 128;
+            this.label13.Text = "Moneda";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cboMoneda
+            // 
+            this.cboMoneda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboMoneda.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboMoneda.FormattingEnabled = true;
+            this.cboMoneda.Location = new System.Drawing.Point(294, 79);
+            this.cboMoneda.Name = "cboMoneda";
+            this.cboMoneda.Size = new System.Drawing.Size(135, 29);
+            this.cboMoneda.TabIndex = 127;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 59);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.TabIndex = 126;
+            this.label1.Text = "Número";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblSerie
+            // 
+            this.lblSerie.BackColor = System.Drawing.Color.Red;
+            this.lblSerie.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSerie.ForeColor = System.Drawing.Color.White;
+            this.lblSerie.Location = new System.Drawing.Point(6, 79);
+            this.lblSerie.Name = "lblSerie";
+            this.lblSerie.Size = new System.Drawing.Size(131, 29);
+            this.lblSerie.TabIndex = 125;
+            this.lblSerie.Text = "N° 001-000000";
+            this.lblSerie.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(173, 59);
+            this.label9.Location = new System.Drawing.Point(150, 59);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(80, 13);
             this.label9.TabIndex = 35;
@@ -252,33 +300,11 @@
             this.cboTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTipo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboTipo.FormattingEnabled = true;
-            this.cboTipo.Location = new System.Drawing.Point(176, 79);
+            this.cboTipo.Location = new System.Drawing.Point(153, 79);
             this.cboTipo.Name = "cboTipo";
             this.cboTipo.Size = new System.Drawing.Size(135, 29);
             this.cboTipo.TabIndex = 34;
             this.cboTipo.SelectedIndexChanged += new System.EventHandler(this.cboTipo_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(14, 59);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 13);
-            this.label1.TabIndex = 36;
-            this.label1.Text = "Fecha";
-            // 
-            // txtFechaEmision
-            // 
-            this.txtFechaEmision.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.txtFechaEmision.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFechaEmision.ForeColor = System.Drawing.Color.White;
-            this.txtFechaEmision.Location = new System.Drawing.Point(14, 79);
-            this.txtFechaEmision.Name = "txtFechaEmision";
-            this.txtFechaEmision.Size = new System.Drawing.Size(121, 29);
-            this.txtFechaEmision.TabIndex = 37;
-            this.txtFechaEmision.Text = "30/06/2017";
-            this.txtFechaEmision.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
@@ -311,7 +337,7 @@
             this.btnEliminarProducto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnEliminarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarProducto.Image = global::VentasSys.Properties.Resources.sign_delete_icon;
-            this.btnEliminarProducto.Location = new System.Drawing.Point(8, 342);
+            this.btnEliminarProducto.Location = new System.Drawing.Point(8, 300);
             this.btnEliminarProducto.Name = "btnEliminarProducto";
             this.btnEliminarProducto.Size = new System.Drawing.Size(75, 75);
             this.btnEliminarProducto.TabIndex = 44;
@@ -326,7 +352,7 @@
             this.btnAgregarProducto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btnAgregarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarProducto.Image = global::VentasSys.Properties.Resources.sign_add_icon;
-            this.btnAgregarProducto.Location = new System.Drawing.Point(8, 261);
+            this.btnAgregarProducto.Location = new System.Drawing.Point(8, 219);
             this.btnAgregarProducto.Name = "btnAgregarProducto";
             this.btnAgregarProducto.Size = new System.Drawing.Size(75, 75);
             this.btnAgregarProducto.TabIndex = 43;
@@ -339,14 +365,14 @@
             this.dgvProductos.AllowUserToOrderColumns = true;
             this.dgvProductos.AllowUserToResizeColumns = false;
             this.dgvProductos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CODIGO,
@@ -355,15 +381,15 @@
             this.PU,
             this.IMPORTE,
             this.ID});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvProductos.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvProductos.Location = new System.Drawing.Point(89, 261);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProductos.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvProductos.Location = new System.Drawing.Point(89, 219);
             this.dgvProductos.MultiSelect = false;
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.RowHeadersVisible = false;
@@ -426,7 +452,7 @@
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.txtIGV);
             this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Location = new System.Drawing.Point(89, 515);
+            this.groupBox3.Location = new System.Drawing.Point(89, 549);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(416, 107);
             this.groupBox3.TabIndex = 45;
@@ -518,7 +544,7 @@
             this.btnPagar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPagar.ForeColor = System.Drawing.Color.White;
             this.btnPagar.Image = global::VentasSys.Properties.Resources.save_white_24x24;
-            this.btnPagar.Location = new System.Drawing.Point(511, 526);
+            this.btnPagar.Location = new System.Drawing.Point(511, 560);
             this.btnPagar.Name = "btnPagar";
             this.btnPagar.Size = new System.Drawing.Size(208, 83);
             this.btnPagar.TabIndex = 46;
@@ -530,7 +556,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(87, 496);
+            this.label4.Location = new System.Drawing.Point(87, 454);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 13);
             this.label4.TabIndex = 107;
@@ -538,18 +564,54 @@
             // 
             // txtObservacion
             // 
-            this.txtObservacion.Location = new System.Drawing.Point(183, 493);
+            this.txtObservacion.Location = new System.Drawing.Point(183, 451);
             this.txtObservacion.Name = "txtObservacion";
             this.txtObservacion.Size = new System.Drawing.Size(341, 20);
             this.txtObservacion.TabIndex = 106;
-            this.txtObservacion.Text = "OFERTA VALIDA POR 15 DIAS";
+            this.txtObservacion.Text = "COTIZACIONES VALIDAS POR 15 DIAS";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(87, 480);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 13);
+            this.label5.TabIndex = 109;
+            this.label5.Text = "Adjuntar";
+            // 
+            // txtAdjunto
+            // 
+            this.txtAdjunto.Enabled = false;
+            this.txtAdjunto.Location = new System.Drawing.Point(183, 477);
+            this.txtAdjunto.Name = "txtAdjunto";
+            this.txtAdjunto.Size = new System.Drawing.Size(260, 20);
+            this.txtAdjunto.TabIndex = 110;
+            // 
+            // btnExaminar
+            // 
+            this.btnExaminar.Location = new System.Drawing.Point(449, 475);
+            this.btnExaminar.Name = "btnExaminar";
+            this.btnExaminar.Size = new System.Drawing.Size(75, 23);
+            this.btnExaminar.TabIndex = 111;
+            this.btnExaminar.Text = "Examinar...";
+            this.btnExaminar.UseVisualStyleBackColor = true;
+            this.btnExaminar.Click += new System.EventHandler(this.btnExaminar_Click);
+            // 
+            // ofd
+            // 
+            this.ofd.FileName = "openFileDialog1";
             // 
             // frmCotizacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(727, 634);
+            this.ClientSize = new System.Drawing.Size(727, 665);
+            this.Controls.Add(this.txtDenominación);
+            this.Controls.Add(this.btnExaminar);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtAdjunto);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtObservacion);
             this.Controls.Add(this.btnPagar);
@@ -613,13 +675,19 @@
         private System.Windows.Forms.Button btnNuevoCliente;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cboTipo;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label txtFechaEmision;
         private System.Windows.Forms.Label lbldias;
         private System.Windows.Forms.TextBox txtDias;
         private System.Windows.Forms.TextBox txtDenominación;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtObservacion;
+        private System.Windows.Forms.Label lblSerie;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtAdjunto;
+        private System.Windows.Forms.Button btnExaminar;
+        private System.Windows.Forms.OpenFileDialog ofd;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox cboMoneda;
     }
 }

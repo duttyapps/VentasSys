@@ -133,9 +133,9 @@ namespace VentasSys
             lblUsuario.Text = dgvDocumentos.Rows[e.RowIndex].Cells["USUARIO"].Value.ToString();
             lblDNI.Text = dgvDocumentos.Rows[e.RowIndex].Cells["DNI"].Value.ToString();
             lblNombre.Text = dgvDocumentos.Rows[e.RowIndex].Cells["NOMBRE"].Value.ToString();
-            lblRecibido.Text = String.Format("{0:f2}", dgvDocumentos.Rows[e.RowIndex].Cells["MONTO_RECIBIDO"].Value);
-            lblVuelto.Text = String.Format("{0:f2}", dgvDocumentos.Rows[e.RowIndex].Cells["MONTO_VUELTO"].Value);
-            lblTotal.Text = String.Format("{0:f2}", dgvDocumentos.Rows[e.RowIndex].Cells["MONTO_TOTAL"].Value);
+            lblRecibido.Text = dgvDocumentos.Rows[e.RowIndex].Cells["MONEDA"].Value + " " + String.Format("{0:f2}", dgvDocumentos.Rows[e.RowIndex].Cells["MONTO_RECIBIDO"].Value);
+            lblVuelto.Text = dgvDocumentos.Rows[e.RowIndex].Cells["MONEDA"].Value + " " + String.Format("{0:f2}", dgvDocumentos.Rows[e.RowIndex].Cells["MONTO_VUELTO"].Value);
+            lblTotal.Text = dgvDocumentos.Rows[e.RowIndex].Cells["MONEDA"].Value + " " + String.Format("{0:f2}", dgvDocumentos.Rows[e.RowIndex].Cells["MONTO_TOTAL"].Value);
             gbDetalle.Visible = true;
             btnAnular.Enabled = true;
         }

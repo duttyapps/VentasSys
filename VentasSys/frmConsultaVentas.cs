@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using VentasSys.BL;
 using VentasSys.EL;
+using VentasSys.Utils;
 
 namespace VentasSys
 {
@@ -19,8 +20,12 @@ namespace VentasSys
         private string tienda { get; set; }
         public Ent_Venta ent_venta { get; set; }
         private bool auto_close { get; set; }
+        private Ent_Configuracion ent_configuracion;
+
         public frmConsultaVentas(string _tienda, bool _auto_close = false, bool doc_credito = false)
         {
+            ent_configuracion = new Ent_Configuracion();
+            ent_configuracion = BL_Configuracion.getConfiguracion();
             tienda = _tienda;
             auto_close = _auto_close;
             InitializeComponent();
@@ -120,19 +125,46 @@ namespace VentasSys
                 frm.ShowDialog();
             }
 
-            if (e.ColumnIndex == 10)
+            if (e.ColumnIndex == 11)
             {
                 string nro_doc = dgvVentas.Rows[e.RowIndex].Cells["DOC"].Value.ToString();
                 string tipo = dgvVentas.Rows[e.RowIndex].Cells["TIPO_VENTA"].Value.ToString();
 
-                String filename = "invoices\\" + (tipo == "BO" ? "boleta" : "factura") + "_" + nro_doc + ".pdf";
+                InvoicePDF pdf = new InvoicePDF();
+
+                ent_venta = new Ent_Venta();
+                ent_venta.nro_doc_str = dgvVentas.Rows[e.RowIndex].Cells["NRO_DOC"].Value.ToString();
+                ent_venta.tipo_venta = dgvVentas.Rows[e.RowIndex].Cells["TIPO_VENTA"].Value.ToString();
+                ent_venta.emision = dgvVentas.Rows[e.RowIndex].Cells["FECHA"].Value.ToString();
+                ent_venta.cliente = dgvVentas.Rows[e.RowIndex].Cells["NOMBRES"].Value.ToString();
+                ent_venta.cliente_doc = dgvVentas.Rows[e.RowIndex].Cells["DNI"].Value.ToString();
+                ent_venta.direccion = dgvVentas.Rows[e.RowIndex].Cells["DIRECCION"].Value.ToString();
+                ent_venta.monto_total = Convert.ToDouble(dgvVentas.Rows[e.RowIndex].Cells["TOTAL"].Value.ToString());
+                ent_venta.monto_subtotal = Convert.ToDouble(ent_venta.monto_total / (ent_configuracion.IGV + 1));
+                ent_venta.monto_igv = (ent_venta.monto_total - Convert.ToDouble(ent_venta.monto_subtotal));
+                ent_venta.monto_descuento = Convert.ToDouble(dgvVentas.Rows[e.RowIndex].Cells["DESCUENTO"].Value.ToString()); ;
+                ent_venta.nro_doc = Convert.ToInt32(dgvVentas.Rows[e.RowIndex].Cells["DOC"].Value.ToString());
+                ent_venta.moneda = dgvVentas.Rows[e.RowIndex].Cells["MONEDA"].Value.ToString();
+
+                ent_venta.lstProductos = BL_Ventas.getDetalleVenta(nro_doc);
+
+                if (tipo == "BO")
+                {
+                    pdf.createBoleta(ent_configuracion, ent_venta);
+                }
+                else
+                {
+                    pdf.createFactura(ent_configuracion, ent_venta);
+                }
+
+                /*String filename = "invoices\\" + (tipo == "BO" ? "boleta" : "factura") + "_" + nro_doc + ".pdf";
                 if (File.Exists(filename))
                 {
                     Process.Start(filename);
                 } else
                 {
                     MessageBox.Show((tipo == "BO" ? "Boleta" : "Factura") + " no encontrada.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                }*/
             }
         }
 

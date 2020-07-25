@@ -58,7 +58,7 @@ namespace VentasSys
             {
                 txtApellidos.ReadOnly = false;
             }
-            else
+            else if(cboTipo.SelectedValue.ToString().Equals("E"))
             {
                 txtApellidos.Text = String.Empty;
                 txtApellidos.ReadOnly = true;
@@ -98,6 +98,7 @@ namespace VentasSys
             txtDireccion.Text = dgvClientes.Rows[e.RowIndex].Cells["DIRECCION"].Value.ToString();
             txtTelefono.Text = dgvClientes.Rows[e.RowIndex].Cells["TELEFONO"].Value.ToString();
             txtEmail.Text = dgvClientes.Rows[e.RowIndex].Cells["EMAIL"].Value.ToString();
+            txtMedio.Text = dgvClientes.Rows[e.RowIndex].Cells["MEDIO"].Value.ToString();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -106,6 +107,7 @@ namespace VentasSys
             btnCancelar.Enabled = true;
 
             cboTipo.Enabled = true;
+            txtDNIDet.Enabled = true;
             txtNombreDet.Enabled = true;
             txtApellidos.Enabled = true;
             txtDireccion.Enabled = true;
@@ -159,7 +161,7 @@ namespace VentasSys
                 return;
             }
 
-            if (txtApellidos.Text.Equals(String.Empty))
+            if (txtApellidos.Text.Equals(String.Empty) && cboTipo.SelectedValue.ToString().Equals("N"))
             {
                 MessageBox.Show("El apellido no puede estar vacío.", "Modificar cliente", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtApellidos.Focus();
@@ -185,6 +187,7 @@ namespace VentasSys
             {
                 Ent_Clientes cliente = new Ent_Clientes();
                 cliente.id = txtID.Text;
+                cliente.dni = txtDNIDet.Text;
                 cliente.nombres = txtNombreDet.Text;
                 cliente.apellidos = txtApellidos.Text;
                 cliente.direccion = txtDireccion.Text;
@@ -221,14 +224,5 @@ namespace VentasSys
             }
         }
 
-        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -28,15 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CODIGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID_CAT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NOMBRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.STOCK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PRECIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tienda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.COD_TIENDA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cboCategoria = new System.Windows.Forms.ComboBox();
             this.txtProducto = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,6 +40,8 @@
             this.cboTienda = new System.Windows.Forms.ComboBox();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtCodigoS = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cboEstado = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -80,8 +76,14 @@
             this.label14 = new System.Windows.Forms.Label();
             this.txtCosto = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txtCodigoS = new System.Windows.Forms.TextBox();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CODIGO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID_CAT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NOMBRE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STOCK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PRECIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tienda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COD_TIENDA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -114,75 +116,6 @@
             this.dgvProductos.Size = new System.Drawing.Size(647, 301);
             this.dgvProductos.TabIndex = 36;
             this.dgvProductos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellDoubleClick);
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "id";
-            this.ID.Frozen = true;
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Visible = false;
-            // 
-            // CODIGO
-            // 
-            this.CODIGO.DataPropertyName = "cod_producto";
-            this.CODIGO.Frozen = true;
-            this.CODIGO.HeaderText = "Codigo";
-            this.CODIGO.Name = "CODIGO";
-            this.CODIGO.ReadOnly = true;
-            this.CODIGO.Width = 120;
-            // 
-            // ID_CAT
-            // 
-            this.ID_CAT.DataPropertyName = "id_cat";
-            this.ID_CAT.Frozen = true;
-            this.ID_CAT.HeaderText = "ID_CAT";
-            this.ID_CAT.Name = "ID_CAT";
-            this.ID_CAT.ReadOnly = true;
-            this.ID_CAT.Visible = false;
-            // 
-            // NOMBRE
-            // 
-            this.NOMBRE.DataPropertyName = "nombre";
-            this.NOMBRE.Frozen = true;
-            this.NOMBRE.HeaderText = "Producto";
-            this.NOMBRE.Name = "NOMBRE";
-            this.NOMBRE.ReadOnly = true;
-            this.NOMBRE.Width = 215;
-            // 
-            // STOCK
-            // 
-            this.STOCK.DataPropertyName = "STOCK";
-            this.STOCK.Frozen = true;
-            this.STOCK.HeaderText = "Stock";
-            this.STOCK.Name = "STOCK";
-            this.STOCK.ReadOnly = true;
-            // 
-            // PRECIO
-            // 
-            this.PRECIO.DataPropertyName = "precio";
-            this.PRECIO.Frozen = true;
-            this.PRECIO.HeaderText = "Precio";
-            this.PRECIO.Name = "PRECIO";
-            this.PRECIO.ReadOnly = true;
-            this.PRECIO.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Tienda
-            // 
-            this.Tienda.DataPropertyName = "des_tienda";
-            this.Tienda.Frozen = true;
-            this.Tienda.HeaderText = "Tienda";
-            this.Tienda.Name = "Tienda";
-            this.Tienda.ReadOnly = true;
-            // 
-            // COD_TIENDA
-            // 
-            this.COD_TIENDA.DataPropertyName = "cod_tienda";
-            this.COD_TIENDA.HeaderText = "COD_TIENDA";
-            this.COD_TIENDA.Name = "COD_TIENDA";
-            this.COD_TIENDA.ReadOnly = true;
-            this.COD_TIENDA.Visible = false;
             // 
             // cboCategoria
             // 
@@ -301,6 +234,23 @@
             this.groupBox1.TabIndex = 42;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Buscar";
+            // 
+            // txtCodigoS
+            // 
+            this.txtCodigoS.Location = new System.Drawing.Point(442, 22);
+            this.txtCodigoS.Name = "txtCodigoS";
+            this.txtCodigoS.Size = new System.Drawing.Size(183, 20);
+            this.txtCodigoS.TabIndex = 45;
+            this.txtCodigoS.TextChanged += new System.EventHandler(this.txtCodigoS_TextChanged);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(393, 25);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(43, 13);
+            this.label19.TabIndex = 44;
+            this.label19.Text = "Codigo:";
             // 
             // label4
             // 
@@ -608,7 +558,7 @@
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(107, 13);
             this.label17.TabIndex = 62;
-            this.label17.Text = "Precio de Alquiler S/.";
+            this.label17.Text = "Precio de Alquiler";
             // 
             // txtPrecio
             // 
@@ -628,7 +578,7 @@
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(101, 13);
             this.label14.TabIndex = 60;
-            this.label14.Text = "Precio de Venta S/.";
+            this.label14.Text = "Precio de Venta";
             // 
             // txtCosto
             // 
@@ -648,24 +598,83 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(109, 13);
             this.label13.TabIndex = 58;
-            this.label13.Text = "Precio de Compra S/.";
+            this.label13.Text = "Precio de Compra";
             // 
-            // label19
+            // ID
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(393, 25);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(43, 13);
-            this.label19.TabIndex = 44;
-            this.label19.Text = "Codigo:";
+            this.ID.DataPropertyName = "id";
+            this.ID.Frozen = true;
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
             // 
-            // txtCodigoS
+            // CODIGO
             // 
-            this.txtCodigoS.Location = new System.Drawing.Point(442, 22);
-            this.txtCodigoS.Name = "txtCodigoS";
-            this.txtCodigoS.Size = new System.Drawing.Size(183, 20);
-            this.txtCodigoS.TabIndex = 45;
-            this.txtCodigoS.TextChanged += new System.EventHandler(this.txtCodigoS_TextChanged);
+            this.CODIGO.DataPropertyName = "cod_producto";
+            this.CODIGO.Frozen = true;
+            this.CODIGO.HeaderText = "Codigo";
+            this.CODIGO.Name = "CODIGO";
+            this.CODIGO.ReadOnly = true;
+            this.CODIGO.Width = 110;
+            // 
+            // ID_CAT
+            // 
+            this.ID_CAT.DataPropertyName = "id_cat";
+            this.ID_CAT.Frozen = true;
+            this.ID_CAT.HeaderText = "ID_CAT";
+            this.ID_CAT.Name = "ID_CAT";
+            this.ID_CAT.ReadOnly = true;
+            this.ID_CAT.Visible = false;
+            // 
+            // NOMBRE
+            // 
+            this.NOMBRE.DataPropertyName = "nombre";
+            this.NOMBRE.Frozen = true;
+            this.NOMBRE.HeaderText = "Producto";
+            this.NOMBRE.Name = "NOMBRE";
+            this.NOMBRE.ReadOnly = true;
+            this.NOMBRE.Width = 325;
+            // 
+            // STOCK
+            // 
+            this.STOCK.DataPropertyName = "STOCK";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.STOCK.DefaultCellStyle = dataGridViewCellStyle1;
+            this.STOCK.Frozen = true;
+            this.STOCK.HeaderText = "Stock";
+            this.STOCK.Name = "STOCK";
+            this.STOCK.ReadOnly = true;
+            this.STOCK.Width = 50;
+            // 
+            // PRECIO
+            // 
+            this.PRECIO.DataPropertyName = "precio";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.PRECIO.DefaultCellStyle = dataGridViewCellStyle2;
+            this.PRECIO.Frozen = true;
+            this.PRECIO.HeaderText = "Precio";
+            this.PRECIO.Name = "PRECIO";
+            this.PRECIO.ReadOnly = true;
+            this.PRECIO.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.PRECIO.Width = 50;
+            // 
+            // Tienda
+            // 
+            this.Tienda.DataPropertyName = "des_tienda";
+            this.Tienda.Frozen = true;
+            this.Tienda.HeaderText = "Tienda";
+            this.Tienda.Name = "Tienda";
+            this.Tienda.ReadOnly = true;
+            this.Tienda.Width = 110;
+            // 
+            // COD_TIENDA
+            // 
+            this.COD_TIENDA.DataPropertyName = "cod_tienda";
+            this.COD_TIENDA.HeaderText = "COD_TIENDA";
+            this.COD_TIENDA.Name = "COD_TIENDA";
+            this.COD_TIENDA.ReadOnly = true;
+            this.COD_TIENDA.Visible = false;
             // 
             // frmMantenimientoProductos
             // 
@@ -745,6 +754,8 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.CheckBox chkAlquiler;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox txtCodigoS;
+        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CODIGO;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID_CAT;
@@ -753,7 +764,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PRECIO;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tienda;
         private System.Windows.Forms.DataGridViewTextBoxColumn COD_TIENDA;
-        private System.Windows.Forms.TextBox txtCodigoS;
-        private System.Windows.Forms.Label label19;
     }
 }

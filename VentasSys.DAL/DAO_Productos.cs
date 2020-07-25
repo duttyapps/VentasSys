@@ -101,6 +101,8 @@ namespace VentasSys.DAL
                 producto.activo = Convert.ToString(dr["ACTIVO"]);
                 producto.alquiler = Convert.ToString(dr["ALQUILER"]);
                 producto.monto_alquiler = Convert.ToDouble(dr["MONTO_ALQUILER"]);
+                producto.peso = Convert.ToDouble(dr["PESO"]);
+                producto.medida = Convert.ToDouble(dr["MEDIDA"]);
             }
 
             con.Close();
@@ -339,7 +341,7 @@ namespace VentasSys.DAL
                 cmd.Parameters.AddWithValue("@PSTR_PROV_ID", producto.proveedor);
                 cmd.Parameters["@PSTR_PROV_ID"].Direction = ParameterDirection.Input;
 
-                cmd.Parameters.AddWithValue("@PSTR_MEDIDA", producto.medida);
+                cmd.Parameters.AddWithValue("@PSTR_MEDIDA", float.Parse(producto.medida.ToString()));
                 cmd.Parameters["@PSTR_MEDIDA"].Direction = ParameterDirection.Input;
 
                 cmd.Parameters.AddWithValue("@PSTR_PESO", producto.peso);

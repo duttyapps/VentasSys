@@ -54,9 +54,12 @@
             this.NOMBRES = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FECHA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ANULADO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MONEDA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TOTAL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VER = new System.Windows.Forms.DataGridViewImageColumn();
             this.VerBol = new System.Windows.Forms.DataGridViewImageColumn();
+            this.DIRECCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DESCUENTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
             this.SuspendLayout();
@@ -219,9 +222,12 @@
             this.NOMBRES,
             this.FECHA,
             this.ANULADO,
+            this.MONEDA,
             this.TOTAL,
             this.VER,
-            this.VerBol});
+            this.VerBol,
+            this.DIRECCION,
+            this.DESCUENTO});
             this.dgvVentas.Location = new System.Drawing.Point(12, 98);
             this.dgvVentas.MultiSelect = false;
             this.dgvVentas.Name = "dgvVentas";
@@ -266,6 +272,7 @@
             this.NRO_DOC.HeaderText = "Nro. Doc.";
             this.NRO_DOC.Name = "NRO_DOC";
             this.NRO_DOC.ReadOnly = true;
+            this.NRO_DOC.Width = 80;
             // 
             // DNI
             // 
@@ -273,6 +280,7 @@
             this.DNI.HeaderText = "DNI/RUC";
             this.DNI.Name = "DNI";
             this.DNI.ReadOnly = true;
+            this.DNI.Width = 80;
             // 
             // NOMBRES
             // 
@@ -300,6 +308,14 @@
             this.ANULADO.Name = "ANULADO";
             this.ANULADO.ReadOnly = true;
             this.ANULADO.Width = 50;
+            // 
+            // MONEDA
+            // 
+            this.MONEDA.DataPropertyName = "moneda";
+            this.MONEDA.HeaderText = "Divisa";
+            this.MONEDA.Name = "MONEDA";
+            this.MONEDA.ReadOnly = true;
+            this.MONEDA.Width = 40;
             // 
             // TOTAL
             // 
@@ -329,6 +345,22 @@
             this.VerBol.Name = "VerBol";
             this.VerBol.ReadOnly = true;
             this.VerBol.Width = 50;
+            // 
+            // DIRECCION
+            // 
+            this.DIRECCION.DataPropertyName = "direccion";
+            this.DIRECCION.HeaderText = "DIRECCION";
+            this.DIRECCION.Name = "DIRECCION";
+            this.DIRECCION.ReadOnly = true;
+            this.DIRECCION.Visible = false;
+            // 
+            // DESCUENTO
+            // 
+            this.DESCUENTO.DataPropertyName = "monto_descuento";
+            this.DESCUENTO.HeaderText = "DESCUENTO";
+            this.DESCUENTO.Name = "DESCUENTO";
+            this.DESCUENTO.ReadOnly = true;
+            this.DESCUENTO.Visible = false;
             // 
             // frmConsultaVentas
             // 
@@ -380,8 +412,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NOMBRES;
         private System.Windows.Forms.DataGridViewTextBoxColumn FECHA;
         private System.Windows.Forms.DataGridViewTextBoxColumn ANULADO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MONEDA;
         private System.Windows.Forms.DataGridViewTextBoxColumn TOTAL;
         private System.Windows.Forms.DataGridViewImageColumn VER;
         private System.Windows.Forms.DataGridViewImageColumn VerBol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DIRECCION;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DESCUENTO;
     }
 }

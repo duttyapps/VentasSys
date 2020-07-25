@@ -22,7 +22,8 @@ namespace VentasSys
         private string cod_tienda { get; set; }
         private string des_tienda { get; set; }
         private string alquiler { get; set; }
-        public double total;
+        public double total { get; set; }
+        public string moneda { get; set; }
 
         public frmPrincipal(Ent_Usuario ent_us)
         {
@@ -53,6 +54,7 @@ namespace VentasSys
             fillMenuTipoVenta();
             fillMenuTienda();
             fillFormaPago();
+            fillMonedas();
             ent_configuracion = new Ent_Configuracion();
             ent_configuracion = BL_Configuracion.getConfiguracion();
             ent_tienda = BL_Tienda.getTienda(ent_configuracion.TIENDA);
@@ -129,6 +131,17 @@ namespace VentasSys
             cboFormaPago.DataSource = items;
             cboFormaPago.ValueMember = "codigo";
             cboFormaPago.DisplayMember = "descripcion";
+        }
+
+        public void fillMonedas()
+        {
+            List<Object> items = new List<Object>();
+            items.Add(new { id = "PEN", desc = "Soles" });
+            items.Add(new { id = "USD", desc = "Dólares" });
+
+            cboMoneda.DataSource = items;
+            cboMoneda.ValueMember = "id";
+            cboMoneda.DisplayMember = "desc";
         }
 
         private void MenuVentasTipoItemClickHandler(object sender, EventArgs e)
@@ -249,6 +262,8 @@ namespace VentasSys
                     .Sum(t => Convert.ToDouble(t.Cells["IMPORTE"].Value));
 
                 total =  cboFormaPago.SelectedValue.ToString() == "AL" ? total * dias_alquiler : total;
+
+                total = total - Convert.ToDouble(txtDescuento.Text);
 
                 /*if (tipo_venta == "FA")
                 {
@@ -428,11 +443,16 @@ namespace VentasSys
                     txtRecibido.Text = "0.00";
                 }
 
+                if (txtDescuento.Text == String.Empty)
+                {
+                    txtDescuento.Text = "0.00";
+                }
+
                 if (cboFormaPago.SelectedValue.ToString() == "CO" || cboFormaPago.SelectedValue.ToString() == "AL")
                 {
                     if (Convert.ToDecimal(txtRecibido.Text) <= 0)
                     {
-                        MessageBox.Show("El monto recibido no puede estar en S/. 0.00.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("El monto recibido no puede estar en 0.00.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtRecibido.Select();
                         return;
                     }
@@ -447,7 +467,7 @@ namespace VentasSys
                 {
                     if (Convert.ToDecimal(txtRecibido.Text) >= Convert.ToDecimal(txtTotal.Text))
                     {
-                        MessageBox.Show("El monto recibido no puede estar en S/. 0.00.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("El monto recibido no puede estar en 0.00.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtRecibido.Select();
                         return;
                     }
@@ -556,6 +576,7 @@ namespace VentasSys
             venta.monto_igv = double.Parse(txtIGV.Text);
             venta.monto_recibido = double.Parse(txtRecibido.Text);
             venta.monto_vuelto = double.Parse(txtVuelto.Text);
+            venta.monto_descuento = double.Parse(txtDescuento.Text);
             venta.cliente_doc = txtDNI.Text;
             venta.cliente = txtNombres.Text + " " + txtApellidos.Text;
             venta.direccion = txtDireccion.Text;
@@ -563,6 +584,8 @@ namespace VentasSys
 
             venta.fecha_inicio = dtpFechaInicio.Value.ToShortDateString();
             venta.fecha_fin = dtpFechaEntrega.Value.ToShortDateString();
+
+            venta.moneda = cboMoneda.SelectedValue.ToString();
 
             bool existe_cliente = BL_Clientes.existeCliente(venta.cliente_doc);
 
@@ -735,12 +758,19 @@ namespace VentasSys
         {
             if (txtRecibido.Text.Length > 0)
             {
-                if(forma_pago == "CR")
+                if(Convert.ToDouble(txtRecibido.Text) > Convert.ToDouble(txtTotal.Text))
                 {
-                    txtVuelto.Text = (Convert.ToDecimal(txtTotal.Text) - Convert.ToDecimal(txtRecibido.Text)).ToString("#0.00");
+                    if (forma_pago == "CR")
+                    {
+                        txtVuelto.Text = (Convert.ToDecimal(txtTotal.Text) - Convert.ToDecimal(txtRecibido.Text)).ToString("#0.00");
+                    }
+                    else
+                    {
+                        txtVuelto.Text = (Convert.ToDecimal(txtRecibido.Text) - Convert.ToDecimal(txtTotal.Text)).ToString("#0.00");
+                    }
                 } else
                 {
-                    txtVuelto.Text = (Convert.ToDecimal(txtRecibido.Text) - Convert.ToDecimal(txtTotal.Text)).ToString("#0.00");
+                    txtVuelto.Text = "0.00";
                 }
             }
             else
@@ -770,6 +800,7 @@ namespace VentasSys
             txtSubTotal.Text = "0.00";
             txtRecibido.Text = "0.00";
             txtVuelto.Text = "0.00";
+            txtDescuento.Text = "0.00";
             btnAgregarProducto.Enabled = true;
         }
 
@@ -1127,6 +1158,64 @@ namespace VentasSys
         {
 
             frmConsultarMantenimiento frm = new frmConsultarMantenimiento();
+            frm.ShowDialog();
+        }
+
+        private void menuTienda_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void alertasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAlerta frm = new frmAlerta(cod_tienda);
+            frm.ShowDialog();
+        }
+
+        private void txtDescuento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)
+                 && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == '.'
+                && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtDescuento_TextChanged(object sender, EventArgs e)
+        {
+            if (txtDescuento.Text != String.Empty)
+            {
+                if (Convert.ToDouble(txtDescuento.Text) >= total)
+                {
+                    MessageBox.Show("El descuento no puede ser mayor o igual al total.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtDescuento.Text = "0.00";
+                    return;
+                }
+                sumarTotal();
+            }
+        }
+
+        private void listarProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListarProductos frm = new frmListarProductos();
+            frm.ShowDialog();
+        }
+
+        private void tiposToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmTipoMantenimiento frm = new frmTipoMantenimiento();
+            frm.ShowDialog();
+        }
+
+        private void clientesToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            frmReporteClientes frm = new frmReporteClientes();
             frm.ShowDialog();
         }
     }

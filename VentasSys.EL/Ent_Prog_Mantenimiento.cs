@@ -20,5 +20,10 @@ namespace VentasSys.EL
         public string estado { get; set; }
         public string fecha_salida { get; set; }
         public string usuario { get; set; }
+
+        public Ent_Prog_Mantenimiento()
+        {
+            this.cliente = new Ent_Clientes();
+        }
     }
 }

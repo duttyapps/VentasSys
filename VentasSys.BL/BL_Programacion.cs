@@ -23,9 +23,9 @@ namespace VentasSys.BL
             return DAO_Alquiler.setAlquiler(alquiler);
         }
 
-        public static List<Ent_Tipo_Mantenimiento> getTipoMantenimiento()
+        public static List<Ent_Tipo_Mantenimiento> getTipoMantenimiento(string showAll = "1")
         {
-            return DAO_Mantenimiento.getTipoMantenimiento();
+            return DAO_Mantenimiento.getTipoMantenimiento(showAll);
         }
 
         public static List<Ent_Mantenimiento> getMantenimiento(string nombre, string numero_doc)

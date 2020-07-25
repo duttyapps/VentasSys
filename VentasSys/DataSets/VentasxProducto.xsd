@@ -3,7 +3,9 @@
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-        <Connections />
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="osmos_ventassys" IsAppSettingsProperty="true" Modifier="Assembly" Name="osmos_ventassys (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.VentasSys.Properties.Settings.GlobalReference.Default.osmos_ventassys" Provider="MySql.Data.MySqlClient" />
+        </Connections>
         <Tables />
         <Sources />
       </DataSource>

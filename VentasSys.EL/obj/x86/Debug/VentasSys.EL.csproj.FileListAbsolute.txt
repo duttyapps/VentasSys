@@ -39,6 +39,5 @@ C:\Users\Home\Desktop\VentasSys\VentasSys.EL\obj\x86\Debug\vsellib.dll
 C:\Users\Home\Desktop\VentasSys\VentasSys.EL\obj\x86\Debug\vsellib.pdb
 C:\Users\Carlos\Desktop\VentasSys\VentasSys.EL\bin\x86\Debug\vsellib.dll
 C:\Users\Carlos\Desktop\VentasSys\VentasSys.EL\bin\x86\Debug\vsellib.pdb
-C:\Users\Carlos\Desktop\VentasSys\VentasSys.EL\obj\x86\Debug\VentasSys.EL.csprojResolveAssemblyReference.cache
 C:\Users\Carlos\Desktop\VentasSys\VentasSys.EL\obj\x86\Debug\vsellib.dll
 C:\Users\Carlos\Desktop\VentasSys\VentasSys.EL\obj\x86\Debug\vsellib.pdb
