@@ -340,7 +340,7 @@ namespace VentasSys
                     nuevo_cliente.direccion = "";
                     nuevo_cliente.telefono = "";
                     nuevo_cliente.email = txtEmail.Text;
-                    nuevo_cliente.tipo = "P";
+                    nuevo_cliente.tipo = (nuevo_cliente.dni.Length > 8) ? "E" : "N";
                     nuevo_cliente.posible = "1";
 
                     try

@@ -18,6 +18,7 @@ namespace VentasSys
         {
             InitializeComponent();
             fillComboTipo();
+            fillReporte();
         }
 
         private void frmReporteClientes_Load(object sender, EventArgs e)

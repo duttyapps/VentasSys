@@ -72,7 +72,7 @@
             // txtNombres
             // 
             this.txtNombres.Location = new System.Drawing.Point(269, 21);
-            this.txtNombres.MaxLength = 8;
+            this.txtNombres.MaxLength = 999;
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(352, 20);
             this.txtNombres.TabIndex = 5;
@@ -116,7 +116,7 @@
             // txtDNI
             // 
             this.txtDNI.Location = new System.Drawing.Point(97, 21);
-            this.txtDNI.MaxLength = 8;
+            this.txtDNI.MaxLength = 20;
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(105, 20);
             this.txtDNI.TabIndex = 0;
